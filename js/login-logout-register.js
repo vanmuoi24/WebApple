@@ -94,7 +94,7 @@ function showMessage(messages) {
 function login_error(error) {
   var login_notify =document.getElementById('login_notify');
   login_notify.style.backgroundColor='#FFB200';
-  login_notify.style.border='2px dotted black';
+  login_notify.style.border='2px solid black';
   login_notify.textContent = error;
   setTimeout(function() {
     login_notify.style.backgroundColor = 'transparent';
@@ -139,6 +139,7 @@ function check_login(event) {
   if(check_admin) {
     login_text.innerHTML = "Xin chào,<br>" + Adminaccounts[index].name;
     document.getElementById('change_logout').textContent = 'Trang chủ Admin';
+    document.getElementById('change_logout').href = '/html/admin.html';
     div_login.onclick='';
     div_login.onmouseover=function() {
       showContent();
@@ -153,6 +154,7 @@ function check_login(event) {
   else if (index != -1) {
     login_text.innerHTML = "Xin chào,<br>" + Useraccounts[index].name;
     document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
+    document.getElementById('change_logout').href = '#';
     div_login.onclick='';
     div_login.onmouseover=function() {
       showContent();
@@ -171,7 +173,7 @@ function check_login(event) {
 }
 function register_error(error) {
   register_notify.style.backgroundColor='#FFB200';
-  register_notify.style.border='2px dotted black';
+  register_notify.style.border='2px solid black';
   register_notify.textContent = error;
   setTimeout(function() {
     register_notify.style.backgroundColor = 'transparent';
