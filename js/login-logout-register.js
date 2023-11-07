@@ -102,13 +102,35 @@ function login_error(error) {
     login_notify.textContent = '';
   }, 2000);
 }
+// Kích hoạt chức năng khi đã đăng nhập
+function login_activated(check_login) {
+  var div_login = document.getElementById('div_login');
+  if(check_login===true) {
+    document.getElementById('change_logout').textContent = 'Trang chủ Admin';
+    document.getElementById('change_logout').href = '/html/admin.html';
+  }
+  else 
+  {
+    document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
+    document.getElementById('change_logout').href = '#';
+  }
+  div_login.onclick=null;
+  div_login.onmouseover=function() {
+    showContent();
+  };
+  div_login.onmouseout=function() {
+    hideContent();
+  };
+  close_login();
+  showMessage('Đăng nhập thành công!');
+}
+// Kiểm tra tài khoản
 function check_login(event) {
   event.preventDefault();
   // Lấy giá trị từ form
   var phone = document.getElementById('phone').value;
   var password = document.getElementById('password').value;
   var login_text = document.getElementById('login_text');
-  var div_login = document.getElementById('div_login');
   var Adminaccounts = JSON.parse(localStorage.getItem('admin'));
   var Useraccounts = JSON.parse(localStorage.getItem('user'));
   var index = -1;
@@ -138,32 +160,12 @@ function check_login(event) {
   localStorage.setItem('index', index);
   if(check_admin) {
     login_text.innerHTML = "Xin chào,<br>" + Adminaccounts[index].name;
-    document.getElementById('change_logout').textContent = 'Trang chủ Admin';
-    document.getElementById('change_logout').href = '/html/admin.html';
-    div_login.onclick='';
-    div_login.onmouseover=function() {
-      showContent();
-    };
-    div_login.onmouseout=function() {
-      hideContent();
-    };
-    showMessage('Đăng nhập thành công!');
-    close_login();
+    login_activated(true);
     return true;
   }
   else if (index != -1) {
     login_text.innerHTML = "Xin chào,<br>" + Useraccounts[index].name;
-    document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
-    document.getElementById('change_logout').href = '#';
-    div_login.onclick='';
-    div_login.onmouseover=function() {
-      showContent();
-    };
-    div_login.onmouseout=function() {
-      hideContent();
-    };
-    close_login();
-    showMessage('Đăng nhập thành công!');
+    login_activated(false);
     return true;
   } 
   else {
@@ -181,6 +183,7 @@ function register_error(error) {
     register_notify.style.border='none';
   }, 2000);
 }
+// Kiểm tra giá trị khi đăng kí
 function check_register(event) {
   event.preventDefault();
   // Lấy giá trị từ form
@@ -258,38 +261,35 @@ function login() {
   if(localStorage.getItem('check_admin')!==null && localStorage.getItem('index')!==null) {
     var check_admin = JSON.parse(localStorage.getItem('check_admin'));
     var index = JSON.parse(localStorage.getItem('index'));
+    var div_login = document.getElementById('div_login');
     if(check_admin) {
       var accounts = JSON.parse(localStorage.getItem('admin'));
+      document.getElementById('change_logout').textContent = 'Trang chủ Admin';
+      document.getElementById('change_logout').href = '/html/admin.html';
     }
     else {
       var accounts = JSON.parse(localStorage.getItem('user'));
+      document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
+      document.getElementById('change_logout').href = '#';
     }
-    if (index !== -1) {
+    if(index !== -1) {
       login_text.innerHTML = "Xin chào,<br>" + accounts[index].name;
-      div_login.onclick='';
+      div_login.onclick=null;
       div_login.onmouseover=function() {
         showContent();
       };
       div_login.onmouseout=function() {
         hideContent();
       };
+      close_login();
     }
   }
 }
 // Đăng xuất
 function logout() {
-  var login_text = document.getElementById('login_text');
-  var div_login = document.getElementById('div_login');
   var index = -1;
   localStorage.setItem('index', index);
   var check_admin = false;
   localStorage.setItem('check_admin', check_admin);
-  login_text.innerHTML = "Đăng<br>nhập";
-  div_login.onmouseover='';
-  div_login.onmouseout='';
-  hideContent();
-  div_login.onclick=function() {
-      open_login();
-  };
-  showMessage('Đăng xuất thành công!');
+  window.location.reload(true);
 }
