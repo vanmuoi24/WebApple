@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dang Ki Tai Khoan</title>
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="form_register">
+        <div class="form_register_main">
+            <div class="form_register_main_head">
+                <h2>Đăng ký tài khoản</h2>
+                <i class="fa fa-times close_x" aria-hidden="true"></i>
+                
+            </div>
+            <div class="form_register_main_body">
+                <form>
+                    <div class="form_register_main_body_left">
+                        <label for = "name" >Họ tên :</label><br>
+                        <input type="text" id="name" placeholder = "Lê Thế Minh" name="name" required><br><br>
+
+                        <label for = "sdt" >Số điện thoại :</label><br>
+                        <input type  = "text" id="sdt" placeholder = "09***8***9" name ="phone_number" required><br><br>
+
+                        <label for = "address">Địa chỉ :</label><br>
+                        <input type = "text" id="address" name = "Address" required><br><br>
+                    </div>
+                    <div class="form_register_main_body_right">
+                        <label for = "email" >Email :</label><br>
+                        <input type="text" id="email" name="email" required><br><br>
+
+                        <label for = "password" >Mật khẩu :</label><br>
+                        <input type  = "text" id="password" name ="password" required><br><br>
+
+                        <label for = "password_again">Nhập lại mật khẩu :</label><br>
+                        <input type = "text" id="password_again" required><br><br>
+                    </div>
+                    <button type="submit" >Đăng ký</button>
+                </form>
+            </div>
+            <div class="form_register_main_footer">
+                <p>Bạn đã có tài khoản ?</p>
+                <a href="#">Đăng nhập !</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+#div_products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#div_products #p_products {
+    margin: 30px 0 15px 0;
+    width: 462px;
+    height: 35.82px;
+    color: #000;
+    text-align: center;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 48px */
+}
+.div_products_total {
+    padding-bottom: 10px;
+    width: 1250px;
+    height: 390px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.div_products_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 390px;
+}
+.div_products_item img {
+    width: 350px;
+    height: 350px;
+}
+.phone_name {
+    padding-bottom: 5px;
+    width: 206px;
+    height: 17px;
+    color: #000;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 16px */
+} 
+.phone_price {
+    color: var(--line-color);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 16px */
+}
+#div_search_products {
+    padding: 25px 0 50px 0;
+    width: 223px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#div_search_products div, #div_search_products div img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 7px;
+    background: var(--button-color);
+}
+#div_search_products div:not(.div_search_products_choose) {
+    cursor: pointer;
+}
+#div_search_products div p {
+    color: #000;
+    text-align: center;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 13px */
+}
+#div_search_products div img:hover {
+    background: var(--button-color-choose);
+}
+.div_search_products_choose {
+    background: var(--button-color-choose) !important;
+}

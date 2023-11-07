@@ -1,0 +1,320 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --boxshadow-color: #888888;
+    --border-color: #333333;
+    --line-color: #0083D6;
+    --menu-color: #FFB200;
+    --menu-color-choose: #0083D6;
+    --button-color: #D9D9D9;
+    --button-color-choose: #c0bfbf;
+}
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 9rem;
+}
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+html::-webkit-scrollbar-track {
+    background: white;
+}
+html::-webkit-scrollbar-thumb {
+    background: var(--button-color);
+    border-radius: 10px;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #F5F5F7;
+}
+#header_line {
+    width: 100%;
+    height: 2rem;
+    background: var(--line-color);
+}
+#header_items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#header_items #total_items{
+    width: 1250px;
+    display: flex;
+    align-items: center;
+}
+#div_logo {
+    cursor: pointer;
+    width: 20%;
+}
+#logo {
+    max-width: 13.125rem;
+    max-height: 5.5rem;
+}
+
+#div_search {
+    width: 43%;
+}        
+#div_search form {
+    position: relative;
+    width: 29.375rem;
+    height: 2.1875rem;
+    border-radius: 8px;
+    border: 1px solid #000;
+    box-shadow: 3px 3px 3px var(--boxshadow-color);
+    display: flex;
+    /* width: 45%; */
+}
+#search {
+    width: 90%;
+    border:1px solid transparent;
+    border-radius:8px;
+    outline: none;
+    padding: 0 0.5rem;
+}
+#div_search img {
+    cursor: pointer;
+    position: absolute;
+    padding: 5px;
+    top: 0rem;
+    right: 0rem;
+    max-width: 1.3125rem;
+    max-height: 1.3125rem;
+    border: 2px solid transparent;
+    transition: 0.3s ease;
+}
+#div_search img:hover {
+    border: 2px solid transparent;
+    border-radius: 8px;
+    border-right: none;
+    border-bottom: none;
+}
+#div_shopping a {
+    text-decoration: none   ;
+    cursor: pointer;
+    width: 10%;
+    align-items: center;
+    display: flex;
+}
+#div_shopping img {
+    margin-right: 0.5rem;
+    max-width: 2.1875rem;
+    max-height: 2.1875rem;
+}
+#div_shopping p {
+    color: #000;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 125.023%; /* 1.09394rem */
+}
+#div_shopping p:hover {
+    color: var(--menu-color);
+}
+#div_login {
+    cursor: pointer;
+    width: 15%;
+    align-items: center;
+    display: flex;
+}
+#div_login img {
+    margin-right: 0.2rem;
+    max-width: 3rem;
+    max-height: 3rem;
+}
+#div_login_text {
+    width: 135px;
+    position: relative;
+}
+#div_login p {
+    padding: 2px;
+    color: #000;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125.023%; /* 1.09394rem */
+}
+#div_login p:hover, #div_logout a:hover {
+    color: var(--menu-color);
+}
+#div_logout {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    border: 2px solid var(--menu-color);
+    box-shadow: 3px 3px 3px var(--boxshadow-color);
+    padding: 5px;
+    width: 127px;
+    position: absolute;
+    top:98%;
+    left:0;
+}
+#div_logout a {
+    margin: 2px 0;
+    color: #000;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125.023%; /* 1.09394rem */
+}
+#header_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+#header_menu #total_menu {
+    width: 1250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu {
+    width: 606px;
+    height: 45px;
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid var(--menu-color);
+    border-radius: 8px;
+    background: var(--menu-color);
+}
+#iphone {
+    width: 34%;
+    display: flex;
+    justify-content: center;
+}
+#iphone a {
+    text-decoration: none;
+    padding: 3px 2px 3px 0px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+#iphone:hover {
+    background-color: var(--menu-color-choose);
+    border-radius: 8px;
+}
+#iphone img {
+    width: 40.264px;
+    height: 40px;
+}
+#iphone p {
+    width: 39.257px;
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+#ipad {
+    width: 34%;
+    display: flex;
+    justify-content: center;
+}
+#ipad a {
+    text-decoration: none;
+    padding: 2px 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+#ipad:hover {
+    background-color: var(--menu-color-choose);
+    border-radius: 8px;
+}
+#ipad img {
+    width: 42.277px;
+    height: 42px;
+}
+#ipad p {
+    margin-left: 8px;
+    width: 25.165px;
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+#mac {
+    width: 34%;
+    display: flex;
+    justify-content: center;
+}
+#mac a {
+    text-decoration: none;
+    padding: 0px 30px 0 4px;
+    cursor: pointer;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+}
+#mac:hover {
+    background-color: var(--menu-color-choose);
+    border-radius: 8px;
+}
+#mac img {
+    width: 50.33px;
+    height: 45px;
+}
+#mac p {
+    margin-left: 8px;
+    width: 25.165px;
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+#security a {
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+#security img {
+    width: 32.946px;
+    height: 33px;
+}
+#security p {
+    padding-left: 5px;  
+    width: 130.786px;
+    height: 18px;
+    color: #000;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125.023%; /* 17.503px */
+}
+#information a {
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+#information img {
+    width: 34.943px;
+    height: 35px;
+}
+#information p {
+    padding-left: 5px;
+    width: 112px;
+    height: 18px;
+    color: #000;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125.023%; /* 17.503px */
+}

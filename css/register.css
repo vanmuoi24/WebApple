@@ -1,0 +1,112 @@
+#form_register_total {
+    position: fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.75);
+    z-index: 998!important;
+}
+.form_register_main {
+    width : 650px ;
+    height : 400px ;
+    border : solid 5px var(--menu-color);
+    border-radius : 20px ;
+    background-color: #F3F3F3;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.form_register_main_head {
+    height: 12.3%;
+    border-bottom : solid 1px var(--menu-color) ;
+    position: relative ;
+}
+.form_register_main_head .close_x {
+    position :  absolute;
+    right : 5px ;
+    top: 3px ;
+    font-size: 26px ;
+    padding: 2px 4px ;
+    transition : 0.2s ;
+}
+.close_x:hover {
+    color : white ; 
+    background-color: rgb(209, 81, 81);
+    border-radius :10px;
+}
+.form_register_main_head h2 {
+    font-size: 24px ;
+    line-height: 30.01px ;
+    display : flex ;
+    align-items : center ;
+    justify-content: center ;
+    margin: 0;
+    padding : 10px;
+}
+.form_register_main_body {
+    height: 77.5%;
+    position: relative;
+}
+.form_register_main_body #register_form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.form_register_main_body input {
+    margin-top: 5px;
+    width  : 256px ;
+    height: 32px;
+    border: 1px solid black;
+    border-radius: 7px ;
+    padding-left: 7px ;
+    cursor: pointer ;
+}
+.form_register_main_body_left ,
+.form_register_main_body_right {
+    width : 50% ;
+    flex: 1 0 150px ;
+    padding : 10px 0 0 25px  ;
+}
+.form_register_main_body button {
+    width : 175px ;
+    height: 41px ;
+    border-radius: 7px ;
+    background-color: var(--menu-color);
+    right : 237.5px;
+    bottom : 0px ;
+    cursor: pointer;
+}
+.form_register_main_body  button:hover {
+    background-color: #f6d382;
+    transition: 0.3s;
+}
+.form_register_main_footer {
+    height : 10.2% ;
+    border-top : solid 1px var(--menu-color) ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px ;
+}
+.form_register_main_footer a {
+    padding-left: 5px ;
+}
+#register_form {
+    position: relative;
+}
+#div_register_notify {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    bottom: 33px;
+    position: absolute;
+}
+#register_notify {
+    border-radius: 8px;
+    border: none;
+    padding: 5px; 
+    background-color: transparent;
+}
