@@ -39,7 +39,7 @@
 }
 .left_list {
   font-family: "Roboto", sans-serif;
-  height: 900px;
+  height: 85vh;
   width: 15.7%;
   background-color: #0083d6;
 }
@@ -121,12 +121,16 @@ td {
 .table_product {
   position: relative;
   margin-left: 40px;
-  width: 90%;
+  width: 99%;
+  margin-top: 50px;
 }
 .selection_food {
+  position: absolute;
   color: black;
-  margin-top: 10px;
-  margin-right: 82%;
+  margin-top: 5%;
+  top: 10%;
+  margin-left: 17px;
+  margin-right: 9%;
 }
 /* Phân trang */
 .pagination-buttons {
@@ -256,7 +260,7 @@ button:hover {
 }
 .header_client {
   font-family: "Inter", sans-serif;
-  margin-top: 100px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -268,26 +272,40 @@ button:hover {
 }
 .header_client select {
   font-size: 1.1rem;
-  width: auto;
-  height: 40px;
-  border-radius: 10px;
+  width: 22%;
+  height: 30px;
+
   background: #ffffff;
 }
-.header_client input,
-.header_client button {
-  border: none;
+.header_client input {
   font-size: 1.1rem;
   width: auto;
   outline: none;
   padding: 10px;
-  width: 200px;
-  height: 40px;
+  width: 140%;
+  height: 35px;
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 0px;
   background: #ffffff;
 }
+.header_client button:first-child {
+  background-color: #0083d6;
+  color: white;
+  border: none;
+  height: 35px;
+  width: 60%;
+}
+.header_client button:last-child {
+  background-color: #0083d6;
+  color: white;
+  border: none;
+  height: 35px;
+}
+.add_account {
+  display: flex;
+  gap: 10px;
+}
 .add_account button:hover {
-  background-color: var(--main-color);
   color: white;
 }
 .table {
@@ -369,4 +387,40 @@ button:hover {
 .text h2 {
   text-align: center;
   padding-bottom: 10px;
+}
+/* Thống Kê */
+.statistical {
+  width: 75%;
+  color: black;
+}
+.table_all {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.warehouse {
+  text-align: center;
+}
+.warehouse table {
+  width: 90%;
+  text-align: center;
+}
+.warehouse table tr {
+  height: 35px;
+}
+.Revenue {
+}
+.Revenue table {
+  width: 60%;
+  text-align: center;
+}
+.Revenue table tr {
+  height: 35px;
+}
+.text {
+  width: 60%;
+  text-align: center;
 }
