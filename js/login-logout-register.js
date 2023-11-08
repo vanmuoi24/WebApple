@@ -6,14 +6,40 @@ createIndex();
 login();
 // reset lại dữ liệu
 function reset() {
+  var date = new Date();
+	var d = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
   var Adminaccounts = [];
-	var user =  { name: 'admin', password: 'admin@123', phone: '0123456789', address: '', email: ''};
+	var user =  
+  { 
+    name: 'admin', 
+    password: 'admin@123', 
+    phone: '0123456789', 
+    address: '', 
+    email: '',
+    date: d
+  };
 	Adminaccounts.push(user);
 	localStorage.setItem('admin',JSON.stringify(Adminaccounts));
   var check_admin = false;
   localStorage.setItem('check_admin',check_admin);
-  var Useraccounts = [ { name: 'Trần Gia Nguyễn', password: '12345678', phone: '0938412412', address: '159 Bùi Đình Túy, Phường 24, Quận Bình Thạnh, Thành phố Hồ Chí Minh', email:'trangianguyen.com@gmail.com'},
-    { name: 'Lê Thế Minh', password: 'Mingey@123', phone: '0550550555', address: '', email: ''}];
+  var Useraccounts = [ 
+    { 
+      name: 'Trần Gia Nguyễn', 
+      password: '12345678', 
+      phone: '0938412412', 
+      address: '159 Bùi Đình Túy, Phường 24, Quận Bình Thạnh, Thành phố Hồ Chí Minh', 
+      email:'trangianguyen.com@gmail.com',
+      date: d
+    },
+    { 
+      name: 'Lê Thế Minh', 
+      password: 'Mingey@123', 
+      phone: '0550550555', 
+      address: '', 
+      email: '',
+      date: d
+    }
+  ];
 	localStorage.setItem('user',JSON.stringify(Useraccounts));
   var index = -1;
   localStorage.setItem('index', index);
@@ -52,8 +78,18 @@ function createIndex() {
 }
 function createAdmin() {
 	if(localStorage.getItem('admin')===null) {
+    var date = new Date();
+	  var d = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
 		var Adminaccounts = [];
-		var user =  { name: 'admin', password: 'admin@123', phone: '0123456789', address: '', email: ''};
+		var user =  
+    { 
+      name: 'admin', 
+      password: 'admin@123', 
+      phone: '0123456789', 
+      address: '', 
+      email: '',
+      date: d
+    };
 		Adminaccounts.push(user);
 		localStorage.setItem('admin',JSON.stringify(Adminaccounts));
 	}
@@ -64,8 +100,26 @@ function createAdmin() {
 }
 function createUser() {
   if(localStorage.getItem('user')===null){
-		var Useraccounts = [ { name: 'Trần Gia Nguyễn', password: '12345678', phone: '0938412412', address: '159 Bùi Đình Túy, Phường 24, Quận Bình Thạnh, Thành phố Hồ Chí Minh', email:'trangianguyen.com@gmail.com'},
-    { name: 'Lê Thế Minh', password: 'Mingey@123', phone: '0550550555', address: '', email: ''}];
+    var date = new Date();
+	  var d = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
+		var Useraccounts = [ 
+      { 
+        name: 'Trần Gia Nguyễn', 
+        password: '12345678', 
+        phone: '0938412412', 
+        address: '159 Bùi Đình Túy, Phường 24, Quận Bình Thạnh, Thành phố Hồ Chí Minh', 
+        email:'trangianguyen.com@gmail.com',
+        date: d
+      },
+      { 
+        name: 'Lê Thế Minh', 
+        password: 'Mingey@123', 
+        phone: '0550550555', 
+        address: '', 
+        email: '',
+        date: d
+      }
+    ];
 		localStorage.setItem('user',JSON.stringify(Useraccounts));
 	}
 }
@@ -249,7 +303,9 @@ function check_register(event) {
     register_error('Mật khẩu không trùng nhau.');
     return false;
   }
-  var add = {name: name, password: password, phone: phone, address: address, email: email};
+  var date = new Date();
+	var d = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear();
+  var add = {name: name, password: password, phone: phone, address: address, email: email, date: d};
   Useraccounts.push(add);
   localStorage.setItem('user',JSON.stringify(Useraccounts));
   close_register();
