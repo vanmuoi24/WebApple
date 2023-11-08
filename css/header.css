@@ -29,7 +29,7 @@ html::-webkit-scrollbar-thumb {
 body {
     font-family: 'Roboto', sans-serif;
     position: relative;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
