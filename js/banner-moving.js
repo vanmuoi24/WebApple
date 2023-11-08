@@ -2,7 +2,7 @@ const images = document.querySelectorAll('#div_banner img');
 const button_icon = document.querySelectorAll('#button_moving_bottom div');
 let currentImageIndex = 0; //Thứ tự ảnh
 setInterval(slideImages_check, 5000); //Chuyển động sau mỗi 5 giây
-let check_running = true;// Check xem đã chuyển động hay chưa
+let check_running = true;
 function slideImages () {
     images[currentImageIndex].classList.remove('active');
     button_icon[currentImageIndex].classList.remove('button_moving_bottom_icon');

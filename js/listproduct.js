@@ -6,7 +6,7 @@ product.addEventListener("click", (event) => {
   list = `    
                 <div class="list_product">
                 <div class="product_header">
-                    <h4>Danh Sach San Pham</h4>
+                    <h4>Danh Sách Sản Phẩm</h4>
                     <div class="input">
                     <input
                         type="text"
@@ -443,4 +443,102 @@ function restfood() {
   price_food.value = "";
   foodSelect.value = "";
   previewImage.value = "";
+}
+function peole() {
+  var clinet;
+  const peole = document.getElementById("peole");
+  peole.addEventListener("click", () => {
+    console.log(right_header);
+    clinet = `
+    <div class="client">
+      <div class="client_header">
+            <div class="header_client">
+              <select>
+                <option value="">Tất cả</option>
+                <option value="">Khách Hàng Online</option>
+                <option value="">Khách Hàng Ofline</option>
+              </select>
+              <div class="input_client" >
+                <input type="text" placeholder="Nhập tên cần tìm" />
+              </div>
+              <div class="add_account">
+                <button class="excel" onclick="save_excel()"> <i class="fa-regular fa-floppy-disk"></i> excel</button>
+                <button>Thêm Khách Hàng</button>
+              </div>
+             
+            </div>
+            <div class="table">
+              <table>
+                <thead>
+                  <tr>
+                    <td>STT</td>
+                    <td>HỌ VÀ TÊN</td>
+                    <td>LIÊN HỆ</td>
+                    <td>NGÀY ĐĂNG KÍ</td>
+                    <td>TRẠNG THÁI</td>
+                    <td>HÀNH ĐỘNG</td>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+    `;
+    right_header.innerHTML = clinet;
+    user();
+    renderuser();
+  });
+  function user() {
+    const acount = JSON.parse(localStorage.getItem("acount")) || [];
+    console.log(acount);
+    var user = "";
+    acount.map((list, index) => {
+      var indexall = index;
+      index++;
+      user += ` <tr>
+    <td>${index}</td>
+    <td>${list.name}</td>
+    <td>${list.phonr}</td>
+    <td>${list.date}</td>
+    <td><button>Online</button></td>
+    <td><i class="fa-solid fa-trash" onclick="delete_user(${indexall})"></i>
+    <i class="fa-regular fa-pen-to-square" onclick="edit_user(${indexall})"></i></td>
+  </tr>`;
+    });
+  }
+}
+peole();
+
+function delete_user(id) {
+  const acount = JSON.parse(localStorage.getItem("user")) || [];
+  var dele = confirm("Bạn có muốn xóa không");
+  if (dele) {
+    acount.splice(id, 1);
+    localStorage.setItem("user", JSON.stringify(acount));
+    renderuser();
+  }
+}
+
+function renderuser() {
+  var tbody = document.getElementsByTagName("tbody")[0];
+  console.log(tbody);
+  const acount = JSON.parse(localStorage.getItem("user")) || [];
+  var userall = "";
+  acount.forEach((list, index) => {
+    var displayIndex = index + 1;
+    userall += `<tr>
+      <td>${displayIndex}</td>
+      <td>${list.name}</td>
+      <td>${list.phone}</td>
+      <td>${list.date}</td>
+      <td><button>Online</button></td>
+      <td>
+        <i class="fa-solid fa-trash" onclick="delete_user(${index})"></i>
+        <i class="fa-regular fa-pen-to-square" onclick="edit_user(${index})"></i>
+      </td>
+    </tr>`;
+    tbody.innerHTML = userall;
+  });
 }

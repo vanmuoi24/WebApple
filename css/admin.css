@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Inter&family=Montserrat&family=Poppins:ital,wght@0,400;1,500;1,600&family=Roboto&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: none;
 }
 .logo {
+  font-family: "Roboto", sans-serif;
   position: relative;
   width: 90%;
   display: flex;
@@ -13,11 +16,11 @@
 }
 .div {
   position: absolute;
-  width: 90%;
+  width: 100%;
   background-color: #0083d6;
   height: 10px;
   top: 86px;
-  margin-left: 50px;
+  margin-left: 30px;
 }
 .logo p {
   font-size: 1.8rem;
@@ -35,6 +38,7 @@
   margin-left: 30px;
 }
 .left_list {
+  font-family: "Roboto", sans-serif;
   height: 900px;
   width: 15.7%;
   background-color: #0083d6;
@@ -65,6 +69,7 @@
 }
 table,
 td {
+  font-family: "Roboto", sans-serif;
   border: 1px solid black;
   border-collapse: collapse;
 }
@@ -176,7 +181,7 @@ td {
   height: 40px;
   border-radius: 5px;
   color: white;
-  background-color: var(--backgroud-color);
+  /* background-color: var(--backgroud-color); */
 }
 .add_right {
   display: flex;
@@ -242,4 +247,126 @@ button:hover {
 }
 .icon_x {
   color: black;
+}
+.client {
+  width: 100%;
+  text-align: center;
+}
+.client_header {
+}
+.header_client {
+  font-family: "Inter", sans-serif;
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+  width: 70%;
+  height: 40px;
+  margin-left: 50px;
+  outline: none;
+}
+.header_client select {
+  font-size: 1.1rem;
+  width: auto;
+  height: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+}
+.header_client input,
+.header_client button {
+  border: none;
+  font-size: 1.1rem;
+  width: auto;
+  outline: none;
+  padding: 10px;
+  width: 200px;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: #ffffff;
+}
+.add_account button:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+.table {
+  font-family: "Inter", sans-serif;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.client_header table td {
+  text-align: center;
+  height: 40px;
+  border: none;
+}
+.client_header thead {
+  background-color: #0083d6;
+  color: white;
+}
+.client_header table {
+  border: none;
+  width: 70%;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+.table tbody button {
+  width: 80px;
+  height: 30px;
+  border: none;
+  background: #39cc01;
+  color: white;
+}
+.client_header tbody i {
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+/* excel btn */
+.header_client .excel {
+  border: none;
+  width: 100px;
+}
+
+.box {
+  border: 1px solid #ccc;
+  transition: border-color 0.3s ease;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 14px;
+  min-height: 420px;
+}
+
+.img {
+  height: 200px;
+  width: 200px;
+}
+
+.img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.total {
+  text-align: right;
+  width: 100%;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.text {
+  flex: 1;
+}
+
+.text h2 {
+  text-align: center;
+  padding-bottom: 10px;
 }
