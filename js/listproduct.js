@@ -278,7 +278,6 @@ function delete_product(id) {
   var list_product = JSON.parse(localStorage.getItem("dataproduct"));
   let delete_ok = confirm("Bạn có chắc muốn xóa không");
   if (delete_ok) {
-    console.log(list_product);
     list_product.splice(id, 1);
     localStorage.setItem("dataproduct", JSON.stringify(list_product));
     renderProductall();
@@ -468,7 +467,7 @@ function peole() {
              
             </div>
             <div class="table">
-              <table>
+              <table border="0">
                 <thead>
                   <tr>
                     <td>STT</td>
@@ -493,7 +492,16 @@ function peole() {
   function user() {
     const acount = JSON.parse(localStorage.getItem("acount")) || [];
     console.log(acount);
-    var user = "";
+    var user = `
+     <tr>
+        <td>STT</td>
+        <td>HỌ VÀ TÊN</td>
+        <td>LIÊN HỆ</td>
+        <td>NGÀY ĐĂNG KÍ</td>
+        <td>TRẠNG THÁI</td>
+        <td>HÀNH ĐỘNG</td>
+      </tr>
+    `;
     acount.map((list, index) => {
       var indexall = index;
       index++;
@@ -517,15 +525,21 @@ function delete_user(id) {
   if (dele) {
     acount.splice(id, 1);
     localStorage.setItem("user", JSON.stringify(acount));
+
     renderuser();
   }
 }
 
 function renderuser() {
   var tbody = document.getElementsByTagName("tbody")[0];
-  console.log(tbody);
   const acount = JSON.parse(localStorage.getItem("user")) || [];
+
   var userall = "";
+
+  if (acount.length === 0) {
+    tbody.innerHTML = "<tr><td colspan='6'>Không có khách hàng nào</td></tr>";
+    return;
+  }
   acount.forEach((list, index) => {
     var displayIndex = index + 1;
     userall += `<tr>
@@ -539,6 +553,7 @@ function renderuser() {
         <i class="fa-regular fa-pen-to-square" onclick="edit_user(${index})"></i>
       </td>
     </tr>`;
-    tbody.innerHTML = userall;
   });
+
+  tbody.innerHTML = userall;
 }

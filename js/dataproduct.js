@@ -46,7 +46,7 @@ const list_product = [
     hinhanh: "/img/iphone/ip15.webp",
     trangthai: "Điện thoại",
     gia: "5.000.000",
-    thongtin:""
+    thongtin: "",
   },
   {
     id: 7,
@@ -109,8 +109,7 @@ const list_product = [
     id: 14,
     masp: "#136",
     tensp: "Apple Watch SE",
-    hinhanh:
-      "/img/appwatch/GUEST_28e63099-0ead-4415-a442-9c69139d3867.webp",
+    hinhanh: "/img/appwatch/GUEST_28e63099-0ead-4415-a442-9c69139d3867.webp",
     trangthai: "Đồng hồ thông minh",
     gia: "6.500.000",
   },
@@ -118,8 +117,7 @@ const list_product = [
     id: 15,
     masp: "#137",
     tensp: "Apple Watch Series 6",
-    hinhanh:
-      "/img/appwatch/GUEST_a843b285-4980-4c95-946d-fec46edf9c62.webp",
+    hinhanh: "/img/appwatch/GUEST_a843b285-4980-4c95-946d-fec46edf9c62.webp",
     trangthai: "Đồng hồ thông minh",
     gia: "7.800.000",
   },
@@ -400,14 +398,4 @@ function list_productall() {
   }
 }
 
-function user_admin() {
-  if (localStorage.getItem("user_admin") == null) {
-    const user_admin = {
-      name: "Van Muoi",
-      pass: "123456",
-    };
-    localStorage.setItem("user_admin", JSON.stringify(user_admin));
-  }
-}
 list_productall();
-user_admin();
