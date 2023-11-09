@@ -254,89 +254,16 @@
     <!-- Hiển thị sản phẩm -->
     <div id="div_products">
       <p id="p_products">Sản phẩm mới</p>
-      <div class="div_products_total">
-        <div class="div_products_item">
-          <img
-            src="/img/iphone/iphone-15-pro-max-1tb.jpeg"
-            alt="iPhone 15 pro max 1tb"
-          />
-          <p class="phone_name">iPhone 14 Pro Max 128GB</p>
-          <p class="phone_price">26.550.000₫</p>
-        </div>
-        <div class="div_products_item">
-          <img
-            src="/img/iphone/iphone-15-pro-max-1tb.jpeg"
-            alt="iPhone 15 pro max 1tb"
-          />
-          <p class="phone_name">iPhone 14 Pro Max 128GB</p>
-          <p class="phone_price">26.550.000₫</p>
-        </div>
-        <div class="div_products_item">
-          <img
-            src="/img/iphone/iphone-15-pro-max-1tb.jpeg"
-            alt="iPhone 15 pro max 1tb"
-          />
-          <p class="phone_name">iPhone 14 Pro Max 128GB</p>
-          <p class="phone_price">26.550.000₫</p>
-        </div>
-        <div class="div_products_item">
-          <img
-            src="/img/iphone/iphone-15-pro-max-1tb.jpeg"
-            alt="iPhone 15 pro max 1tb"
-          />
-          <p class="phone_name">iPhone 14 Pro Max 128GB</p>
-          <p class="phone_price">26.550.000₫</p>
-        </div>
-      </div>
-      <div class="div_products_total">
-        <div class="div_products_item">
-          <img
-            src="/img/iphone/iphone-15-pro-max-1tb.jpeg"
-            alt="iPhone 15 pro max 1tb"
-          />
-          <p class="phone_name">iPhone 14 Pro Max 128GB</p>
-          <p class="phone_price">26.550.000₫</p>
-        </div>
-        <div class="div_products_item">
-          <img
-            src="/img/iphone/iphone-15-pro-max-1tb.jpeg"
-            alt="iPhone 15 pro max 1tb"
-          />
-          <p class="phone_name">iPhone 14 Pro Max 128GB</p>
-          <p class="phone_price">26.550.000₫</p>
-        </div>
-        <div class="div_products_item">
-          <img
-            src="/img/iphone/iphone-15-pro-max-1tb.jpeg"
-            alt="iPhone 15 pro max 1tb"
-          />
-          <p class="phone_name">iPhone 14 Pro Max 128GB</p>
-          <p class="phone_price">26.550.000₫</p>
-        </div>
-        <div class="div_products_item">
-          <img
-            src="/img/iphone/iphone-15-pro-max-1tb.jpeg"
-            alt="iPhone 15 pro max 1tb"
-          />
-          <p class="phone_name">iPhone 14 Pro Max 128GB</p>
-          <p class="phone_price">26.550.000₫</p>
-        </div>
+      <div id="div_products_total">
+
       </div>
       <div id="div_search_products">
-        <div>
-          <img src="/img/icon/button_left.png" alt="button_left" />
+        <div onclick="fill_products_left()">
+          <img src="/img/icon/button_left.png" alt="button_left"/>
         </div>
-        <div class="div_search_products_choose">
-          <p>1</p>
-        </div>
-        <div>
-          <p>2</p>
-        </div>
-        <div>
-          <p>...</p>
-        </div>
-        <div>
-          <img src="/img/icon/button_right.png" alt="button_right" />
+        <p id="div_search_products_number">1</p>
+        <div onclick="fill_products_right()">
+          <img src="/img/icon/button_right.png" alt="button_right"/>
         </div>
       </div>
     </div>
@@ -430,12 +357,13 @@
     </div>
   </body>
   <!-- JaveScript -->
-  <script src="/js/dataproduct.js"></script>
+  <script src="/js/products-homepage.js"></script>
   <script src="/js/login-logout-register.js"></script>
   <script src="/js/banner-moving.js"></script>
   <script>
     // Đảm bảo rằng toàn bộ dữ liệu đã được load xong
     document.addEventListener("DOMContentLoaded", function () {
+      fill_products_right();
       document.body.style.display = "flex";
     });
   </script>

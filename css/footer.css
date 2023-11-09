@@ -5,7 +5,7 @@
     border-top-right-radius: 8px;
     background: var(--menu-color);
     padding: 25px 25px 15px 25px;
-    color: white;
+    color: black;
 }
 #footer_header {
     display: flex;
@@ -20,7 +20,7 @@
 }
 .footer_items a {
     margin-bottom: 3px;
-    color: white;
+    color: black;
     text-decoration: none;
 }
 .footer_items .footer_items_img img {
