@@ -189,19 +189,19 @@
     <div id="header_menu">
       <div id="total_menu">
         <div class="menu">
-          <div id="iphone">
+          <div id="iphone" onclick="products_type('iPhone')">
             <a href="#">
               <img src="/img/icon/icon-iphone.png" alt="iphone" />
               <p>iPhone</p>
             </a>
           </div>
-          <div id="ipad">
+          <div id="ipad" onclick="products_type('iPad')">
             <a href="#">
               <img src="/img/icon/icon-ipad.png" alt="ipad" />
               <p>iPad</p>
             </a>
           </div>
-          <div id="mac">
+          <div id="mac" onclick="products_type('Mac')">
             <a href="#">
               <img src="/img/icon/icon-mac.png" alt="mac" />
               <p>Macbook</p>
@@ -255,14 +255,16 @@
     <div id="div_products">
       <p id="p_products">Sản phẩm mới</p>
       <div id="div_products_total">
-
+        <div class="div_products_view">
+            
+        </div>
       </div>
       <div id="div_search_products">
-        <div onclick="fill_products_left()">
+        <div onclick="fill_products_left()" id="div_search_products_left">
           <img src="/img/icon/button_left.png" alt="button_left"/>
         </div>
         <p id="div_search_products_number">1</p>
-        <div onclick="fill_products_right()">
+        <div onclick="fill_products_right()" id="div_search_products_right">
           <img src="/img/icon/button_right.png" alt="button_right"/>
         </div>
       </div>
