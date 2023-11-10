@@ -55,7 +55,7 @@ product.addEventListener("click", (event) => {
                 <button id="page6">6</button>
                 <button id="next">Next</button>
                 </div>
-                <div class="add_product">
+              <div class="add_product">
                 <div class="add_left">
                     <p id="text_p">Thêm Sản Phẩm</p>
                     <label for="fileInput" class="custom-file-upload">Chọn ảnh</label>
@@ -88,12 +88,13 @@ product.addEventListener("click", (event) => {
                 <div class="save_product">
                 <button id="save_product">Lưu Sản Phẩm</button>
                 <button id="save_product1">Lưu Chỉnh Sửa</button>
-            </div>
+               </div>
                 </div>
                 <div class="icon_x">
                     <i class="fa-solid fa-x fa-beat" id="icon_add"></i>
                 </div>
                 </div>
+              </div>
           `;
 
   right_header.innerHTML = list;
@@ -458,11 +459,11 @@ function peole() {
                 <option value="">Khách Hàng Ofline</option>
               </select>
               <div class="input_client" >
-                <input type="text" placeholder="Nhập tên cần tìm" />
+                <input  type="text" placeholder="Nhập tên cần tìm" id ="seach_1"/>
               </div>
               <div class="add_account">
                 <button class="excel" onclick="save_excel()"> <i class="fa-regular fa-floppy-disk"></i> excel</button>
-                <button>Thêm Khách Hàng</button>
+                <button onclick="add_customer()">Thêm Khách Hàng</button>
               </div>
              
             </div>
@@ -482,12 +483,31 @@ function peole() {
                 </tbody>
               </table>
             </div>
+            <div class="add_product_1">
+                <p>Thêm Khách Hàng</p>
+              <div class="all_add">
+              <div class="customer_add">
+              <div class="s"> <lable>HỌ VÀ TÊN</lable>
+              <input type="text"/></div>
+              <div class="s"><lable>LIÊN HỆ</lable>
+              <input type="text"/></div>
+              <div class="s"><lable>NGÀY ĐĂNG KÍ</lable>
+              <input type="text"/></div>
+              <button id="add_clent">Thêm Khách Hàng</button>
+              </div>
+                <div class="icon_x_1">
+                    <i class="fa-solid fa-x fa-beat" id="icon_add"></i>
+                </div>
+             </div> 
+              </div>
+          
         </div>
     </div>
     `;
     right_header.innerHTML = clinet;
     user();
     renderuser();
+    seach();
   });
   function user() {
     const acount = JSON.parse(localStorage.getItem("acount")) || [];
@@ -556,4 +576,87 @@ function renderuser() {
   });
 
   tbody.innerHTML = userall;
+}
+
+function add_customer() {
+  const add_product = document.getElementsByClassName("add_product_1")[0];
+  add_product.classList.add("top");
+  const icon_add = document.getElementById("icon_add");
+  icon_add.addEventListener("click", () => {
+    add_product.classList.remove("top");
+  });
+  comtomer_value();
+}
+
+function comtomer_value() {
+  let value_input = document.querySelectorAll(".all_add input");
+  const add_product = document.getElementsByClassName("add_product_1")[0];
+  const acount = JSON.parse(localStorage.getItem("user")) || [];
+  document.getElementById("add_clent").addEventListener("click", () => {
+    var customer = {
+      name: value_input[0].value,
+      phone: value_input[1].value,
+      date: value_input[2].value,
+    };
+    acount.push(customer);
+    localStorage.setItem("user", JSON.stringify(acount));
+    renderuser();
+    add_product.classList.remove("top");
+    value_input[0].value = "";
+    value_input[1].value = "";
+    value_input[2].value = "";
+  });
+}
+function seach() {
+  let seach = document.getElementById("seach_1");
+  var tbody = document.getElementsByTagName("tbody")[0];
+  seach.addEventListener("keypress", (event) => {
+    if (event.key == "Enter") {
+      const acount = JSON.parse(localStorage.getItem("user")) || [];
+      var userall = "";
+      acount.map((list, index) => {
+        var displayIndex = index + 1;
+        let name_seach = seach.value.toLowerCase();
+        let name_list = list.name.toLowerCase();
+        if (name_seach == name_list) {
+          userall += `<tr>
+      <td>${displayIndex}</td>
+      <td>${list.name}</td>
+      <td>${list.phone}</td>
+      <td>${list.date}</td>
+      <td><button>Online</button></td>
+      <td>
+        <i class="fa-solid fa-trash" onclick="delete_user(${index})"></i>
+        <i class="fa-regular fa-pen-to-square" onclick="edit_user(${index})"></i>
+      </td>
+    </tr>`;
+          tbody.innerHTML = userall;
+        }
+      });
+    }
+  });
+}
+
+function save_excel() {
+  const acount = JSON.parse(localStorage.getItem("user")) || [];
+  const workbook = new ExcelJS.Workbook();
+  const worksheet = workbook.addWorksheet("Sheet 1");
+  worksheet.addRow([
+    "STT",
+    "Họ Và Tên",
+    "Liên Hệ",
+    "Ngày Đăng Kí",
+    "Trạng Thái",
+  ]);
+  acount.forEach((item, index) => {
+    const rowData = [index + 1, item.name, item.phonr, item.date, "Hoạt Động"];
+
+    worksheet.addRow(rowData);
+  });
+  workbook.xlsx.writeBuffer().then(function (buffer) {
+    const blob = new Blob([buffer], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    });
+    saveAs(blob, "uer_name.xlsx");
+  });
 }
