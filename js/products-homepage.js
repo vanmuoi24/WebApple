@@ -1,7 +1,7 @@
 create_products();
 // Khởi tạo các sản phẩm
 function create_products() {
-    if (localStorage.getItem("dataproduct") == null) {
+    if (localStorage.getItem("products") == null) {
       const list_product = [
         {
           id: 3,
@@ -200,7 +200,7 @@ function create_products() {
         },
       ];
   
-      localStorage.setItem("dataproduct", JSON.stringify(list_product));
+      localStorage.setItem("products", JSON.stringify(list_product));
     }
   }
 var index_products = 0;
@@ -242,7 +242,7 @@ function create_list_left(list_products) {
 function fill_products_right() {
   // Khởi tạo
   var div_products_view = document.getElementsByClassName('div_products_view');
-  var list_products = JSON.parse(localStorage.getItem('dataproduct'));
+  var list_products = JSON.parse(localStorage.getItem('products'));
   var list = create_list_right(list_products);
   // Hiển thị
   if(index_products <= list_products.length && list !== '') {
@@ -255,7 +255,7 @@ function fill_products_right() {
 function fill_products_left() {
   // Khởi tạo
   var div_products_view = document.getElementsByClassName('div_products_view');
-  var list_products = JSON.parse(localStorage.getItem('dataproduct'));
+  var list_products = JSON.parse(localStorage.getItem('products'));
   // Sàn lọc
   if((index_products >= 8 || index_products == list_products.length) && index_products <= list_products.length) {
       var list = create_list_left(list_products);
@@ -305,7 +305,7 @@ function products_type(type) {
 function fill_products_type_right() {
   // Khởi tạo các số liệu cần thiết
   var div_products_view = document.getElementsByClassName('div_products_view');
-  var list_products = JSON.parse(localStorage.getItem('dataproduct'));
+  var list_products = JSON.parse(localStorage.getItem('products'));
   var list_products_type = list_products.filter(filterByType);
   var list_1 = create_list_right(list_products_type);
   var list_2 = create_list_right(list_products_type);
@@ -320,7 +320,7 @@ function fill_products_type_right() {
 function fill_products_type_left() {
   // Khởi tạo các số liệu cần thiết
   var div_products_view = document.getElementsByClassName('div_products_view');
-  var list_products = JSON.parse(localStorage.getItem('dataproduct'));
+  var list_products = JSON.parse(localStorage.getItem('products'));
   var list_products_type = list_products.filter(filterByType);
   // Kiểm tra sàn lọc
   if((index_products >= 16 || index_products == list_products_type.length) && index_products <= list_products_type.length) {
