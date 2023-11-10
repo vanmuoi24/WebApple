@@ -20,7 +20,7 @@
     background-color: #F3F3F3;
     width: 521px;
     height: 328px;   
-    border : solid 5px var(--menu-color) ;
+    border: solid 5px var(--menu-color);
     border-radius : 20px ;
 }
 .form_login_main_head {

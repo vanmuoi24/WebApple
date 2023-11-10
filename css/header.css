@@ -33,7 +33,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #F5F5F7;
+    background: white;
 }
 #header_line {
     width: 100%;
