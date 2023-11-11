@@ -96,8 +96,30 @@ body {
     border-right: none;
     border-bottom: none;
 }
+#suggestions {
+    z-index: 500;
+    top: 39px;
+    border-radius: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+    box-shadow: 3px 3px 3px var(--boxshadow-color);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+#suggestions li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+#suggestions li:last-child {
+    border-bottom: none;
+}
 #div_shopping a {
-    text-decoration: none   ;
+    text-decoration: none;
     cursor: pointer;
     width: 10%;
     align-items: center;

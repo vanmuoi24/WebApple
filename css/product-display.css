@@ -38,17 +38,12 @@
     display: flex;
     justify-content: space-around;
 }
-#div_product_display_name_price {
-    color: var(--line-color);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 100%; /* 16px */
-}
 #div_product_display_header img {
     width: 300px;
     height: 300px;
     object-fit: cover;
+    margin-right: 50px;
+    margin-bottom: 20px;
 }
 #div_product_display_header p {
     margin-top: 10px;
@@ -78,7 +73,7 @@
     background-color: var(--menu-color);
     border-radius: 8px;
     width: 145px;
-    height: 30px;
+    height: 35px;
     color: #000;
     font-size: 20px;
     font-style: normal;
