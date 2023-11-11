@@ -414,6 +414,574 @@ function create_products() {
         gia: 9890000,
         chitiet: chitietipse,
       },
+      {
+        id: 50,
+        masp: "#ipadproM1W129",
+        tensp: "iPad Pro M1 Wifi 12.9 inch",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadProM1-item.webp",
+        hinhanhMoTa: "/img/ipad/iPadProM1-color.webp",
+        mau: ["Space Gray", "Silver"],
+        luutru: ["256GB", "512gb"],
+        gia: 29950000,
+        chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels, 120 Hz
+        Hệ điều hành: iPadOS 16
+        Camera sau: Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
+        Chip: Apple M1 8 nhân
+        RAM: 8 GB
+        SIM: Không hỗ trợ
+        Pin, Sạc: 40.88Wh, sạc nhanh 18W`,
+      },
+      {
+        id: 51,
+        masp: "#ipadproM1WC129",
+        tensp: "iPad Pro M1 Wifi Cellular 12.9 inch",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadProM1-item.webp",
+        hinhanhMoTa: "/img/ipad/iPadProM1-color.webp",
+        mau: ["Space Gray", "Silver"],
+        luutru: ["256GB", "512gb"],
+        gia: 32990000 ,
+        chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels,120 Hz
+        Hệ điều hành: iPadOS 16
+        Camera sau:Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
+        Chip: Apple M1 8 nhân
+        RAM: 8 GB
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
+        Pin, Sạc: 40.88Wh, sạc nhanh 18W`,
+      },
+      {
+        id: 52,
+        masp: "#ipadproM2W11",
+        tensp: "iPad Pro M2 Wifi 11 inch",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadProM2-item.jpeg",
+        hinhanhMoTa: "/img/ipad/iPadProM2-color.jpeg",
+        mau: ["Space Gray", "Silver"],
+        luutru: ["256GB", "512gb"],
+        gia: 24890000 ,
+        chitiet: `Màn hình: Liquid Retina, 11 inch, độ phân giải 2388 x 1668 pixels,120 Hz
+        Hệ điều hành: iPadOS 16
+        Camera sau:
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
+        Chip: Apple M2 8 nhân
+        RAM: 8 GB
+        SIM: Không hỗ trợ
+        Pin, Sạc: 28.65 Wh, sạc nhanh 20 W`,
+      },
+      {
+        id: 53,
+        masp: "#ipadproM2WC11",
+        tensp: "iPad Pro M2 Wifi Cellular 11 inch",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadProM2-item.jpeg",
+        hinhanhMoTa: "/img/ipad/iPadProM2-color.jpeg",
+        mau: ["Space Gray", "Silver"],
+        luutru: ["256GB", "512gb"],
+        gia: 29990000 ,
+        chitiet: `Màn hình: Liquid Retina, 11 inch, độ phân giải 2388 x 1668 pixels,120 Hz
+        Hệ điều hành: iPadOS 16
+        Camera sau:
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
+        Chip: Apple M2 8 nhân
+        RAM: 8 GB
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
+        Pin, Sạc: 28.65 Wh, sạc nhanh 20 W`,
+      },
+      {
+        id: 54,
+        masp: "#ipadproM2W129",
+        tensp: "iPad Pro M2 Wifi 12.9 inch",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadProM2-item.jpeg",
+        hinhanhMoTa: "/img/ipad/iPadProM2-color.jpeg",
+        mau: ["Space Gray", "Silver"],
+        luutru: ["256GB", "512gb"],
+        gia: 28390000 ,
+        chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels,120 Hz
+        Hệ điều hành: iPadOS 16
+        Camera sau:
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
+        Chip: Apple M2 8 nhân
+        RAM: 8 GB
+        SIM: Không hỗ trợ
+        Pin, Sạc: 40.88 Wh, sạc nhanh 20 W`,
+      },
+      {
+        id: 55,
+        masp: "#ipadproM2WC129",
+        tensp: "iPad Pro M2 Wifi Cellular 12.9 inch",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadProM2-item.jpeg",
+        hinhanhMoTa: "/img/ipad/iPadProM2-color.jpeg",
+        mau: ["Space Gray", "Silver"],
+        luutru: ["256GB", "512gb","1TB"],
+        gia: 39990000,
+        chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels,120 Hz
+        Hệ điều hành: iPadOS 16
+        Camera sau:
+        Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
+        Siêu rộng: 10 MP, khẩu độ f/2.4, góc nhìn 125 độ
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
+        Chip: Apple M2 8 nhân
+        RAM: 8 GB
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
+        Pin, Sạc: 40.88 Wh, sạc nhanh 20 W`,
+      },
+      {
+        id: 56,
+        masp: "#ipadair5W",
+        tensp: "iPad Air 5 Wifi",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadAir5-item.webp",
+        hinhanhMoTa: "/img/ipad/iPadAir5-color.webp",
+        mau: ["Starlight", "Space Gray", "Blue", "Purple", "Pink"],
+        luutru: ["64GB","256GB"],
+        gia: 17650000 ,
+        chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels, 120 Hz
+        Hệ điều hành: iPadOS 16
+        Camera sau:
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
+        Chip: Apple A15 Bionic 6 nhân
+        RAM: 4 GB
+        SIM: Không hỗ trợ
+        Pin, Sạc: 28.65 Wh, sạc nhanh 20 W`,
+      },
+      {
+        id: 57,
+        masp: "#ipadair5WC",
+        tensp: "iPad Air 5 Wifi Cellular",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadAir5-item.webp",
+        hinhanhMoTa: "/img/ipad/iPadAir5-color.webp",
+        mau: ["Starlight", "Space Gray", "Blue", "Purple", "Pink"],
+        luutru: ["64GB","256GB"],
+        gia: 21990000 ,
+        chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels, 120 Hz
+        Hệ điều hành: iPadOS 16
+        Camera sau:
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
+        Chip: Apple A15 Bionic 6 nhân
+        RAM: 4 GB
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
+        Pin, Sạc: 28.65 Wh, sạc nhanh 20 W`,
+      },
+      {
+        id: 58,
+        masp: "#ipadair4",
+        tensp: "iPad Air 4",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadAir4-item.webp",
+        hinhanhMoTa: "/img/ipad/iPadAir4-color.webp",
+        mau: ["Silver", "Space Gray", "Sky Blue", "Green", "Pink"],
+        luutru: ["64GB","256GB"],
+        gia: 14990000 ,
+        chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels
+        Hệ điều hành: iPadOS 16
+        Camera sau:
+        * Chính: 12 MP, khẩu độ f/1.8
+        Camera trước: 7 MP, khẩu độ f/2.2
+        Chip: Apple A14 Bionic 6 nhân
+        RAM: 4 GB
+        SIM: Không hỗ trợ
+        Pin, Sạc: 28.65 Wh, sạc nhanh 20 W`,
+      },
+
+      {
+        id: 59,
+        masp: "#ipadgen9W",
+        tensp: "iPad Gen 9th 10.2 inch WiFi",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadGen9-item.webp",
+        hinhanhMoTa: "/img/ipad/iPadGen9-color.webp",
+        mau: ["Space Gray", "Silver"],
+        luutru: ["64GB","256GB"],
+        gia: 10990000 ,
+        chitiet: `Màn hình: Retina, 10.2 inch, độ phân giải 2160 x 1620 pixels
+        Hệ điều hành: iPadOS 16
+        Camera sau:
+        * Chính: 8 MP, khẩu độ f/2.4
+        Camera trước: 12 MP, khẩu độ f/2.4
+        Chip: Apple A13 Bionic 6 nhân
+        RAM: 3 GB
+        SIM: Không hỗ trợ
+        Pin, Sạc: 8.82 Wh, sạc nhanh 20 W`,
+      },
+      {
+        id: 60,
+        masp: "#ipadgen9WC",
+        tensp: "iPad Gen 9th 10.2 inch WiFi Cellular",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadGen9-item.webp",
+        hinhanhMoTa: "/img/ipad/iPadGen9-color.webp",
+        mau: ["Space Gray", "Silver"],
+        luutru: ["64GB","256GB"],
+        gia: 13590000 ,
+        chitiet: `Màn hình: Retina, 10.2 inch, độ phân giải 2160 x 1620 pixels
+        Hệ điều hành: iPadOS 16
+        Camera sau:
+        * Chính: 8 MP, khẩu độ f/2.4
+        Camera trước: 12 MP, khẩu độ f/2.4
+        Chip: Apple A13 Bionic 6 nhân
+        RAM: 3 GB
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
+        Pin, Sạc: 8.82 Wh, sạc nhanh 20 W`,
+      },
+      {
+        id: 61,
+        masp: "#ipadgen10W",
+        tensp: "iPad Gen 10th 10.9 inch WiFi",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadGen10-item.jpeg",
+        hinhanhMoTa: "/img/ipad/iPadGen10-color.jpeg",
+        mau: ["Blue", "Pink", "Silver", "Yellow"],
+        luutru: ["64GB","256GB"],
+        gia: 14490000 ,
+        chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels
+        Hệ điều hành: iPadOS 16
+        Camera sau:
+        * Chính: 12 MP, khẩu độ f/1.8
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
+        Chip: Apple A13 Bionic 6 nhân
+        RAM: 3 GB
+        SIM: Không hỗ trợ
+        Pin, Sạc: 8.82 Wh, sạc nhanh 20 W`,
+      },
+      {
+        id: 62,
+        masp: "#ipadgen10WC",
+        tensp: "iPad Gen 10th 10.9 inch WiF Cellular",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadGen10-item.jpeg",
+        hinhanhMoTa: "/img/ipad/iPadGen10-color.jpeg",
+        mau: ["Blue", "Pink", "Silver", "Yellow"],
+        luutru: ["64GB","256GB"],
+        gia: 17690000 ,
+        chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels
+        Hệ điều hành: iPadOS 16
+        Camera sau:
+        * Chính: 12 MP, khẩu độ f/1.8
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
+        Chip: Apple A13 Bionic 6 nhân
+        RAM: 3 GB
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
+        Pin, Sạc: 8.82 Wh, sạc nhanh 20 W`,
+      },
+      {
+        id: 63,
+        masp: "#ipadmini6W",
+        tensp: "iPad Mini 6 Wifi",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadMini6-item.webp",
+        hinhanhMoTa: "/img/ipad/iPadMini6-color.webp",
+        mau: ["Starlight","Purple","Space Gray","Pink"],
+        luutru: ["64GB","256GB"],
+        gia: 10150000 ,
+        chitiet: `Màn hình: Liquid Retina, 8,3 inch, độ phân giải 2266 x 1488 pixels
+        Hệ điều hành: iPadOS 16
+        Camera sau:
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
+        Chip: Apple A15 Bionic 6 nhân
+        RAM: 4 GB
+        SIM: Không hỗ trợ
+        Pin, Sạc: 19.3 Wh, sạc nhanh 20 W`,
+      },
+      {
+        id: 64,
+        masp: "#ipadmini6WC",
+        tensp: "iPad Mini 6 Wifi + Cellelar",
+        danhmuc: "iPad",
+        hinhanhitem: "/img/ipad/iPadMini6-item.webp",
+        hinhanhMoTa: "/img/ipad/iPadMini6-color.webp",
+        mau: ["Starlight","Purple","Space Gray","Pink"],
+        luutru: ["64GB","256GB"],
+        gia: 11250000,
+        chitiet: `Màn hình: Liquid Retina, 8,3 inch, độ phân giải 2266 x 1488 pixels
+        Hệ điều hành: iPadOS 16
+        Camera sau:
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
+        Chip: Apple A15 Bionic 6 nhân
+        RAM: 4 GB
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
+        Pin, Sạc: 19.3 Wh, sạc nhanh 20 W`,
+      },
+      {
+        id: 100,
+        masp: "#macpro13M2",
+        tensp: "MacBook Pro 13 inch M2",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Pro 13 inch M2 (10 core 8GB RAM 256GB SSD).webp",
+        hinhanhMoTa: "/img/macbook/MacBook Pro 13 inch M2 (10 core 8GB RAM 256GB SSD).webp",
+        mau: ["Silver","Space Gray"],
+        luutru: ["256GB"],
+        gia: 29690000,
+        chitiet: `CPU: Apple M2 8 nhân, với 4 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        GPU: Apple M2 8 nhân, với 4 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        RAM: 8 GB LPDDR5.
+        Màn hình: Liquid Retina 13.3 inch, độ phân giải 2560 x 1600 pixels,độ sáng tối đa 500 nits, hỗ trợ True Tone.
+        Kết nối: Hai cổng Thunderbolt / USB 4, jack cắm tai nghe.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 67W.`,
+      },
+      {
+        id: 101,
+        masp: "#macpro14M2Max",
+        tensp: "MacBook Pro 14 inch M2 Max",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Pro 14 inch M2 Max (30 Core 32GB 1TB).jpeg",
+        hinhanhMoTa: "/img/macbook/MacBook Pro 14 inch M2 Max (30 Core 32GB 1TB).jpeg",
+        mau: ["Silver","Space Gray"],
+        luutru: ["1TB"],
+        gia: 71850000,
+        chitiet: `CPU: Apple M2 8 nhân, với 4 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        GPU: Apple M2 8 nhân, với 4 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        RAM: 8 GB LPDDR5.
+        Màn hình: Liquid Retina 13.3 inch, độ phân giải 2560 x 1600 pixels, độ sáng tối đa 500 nits, hỗ trợ True Tone.
+        Kết nối: Hai cổng Thunderbolt / USB 4, jack cắm tai nghe.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 67W.`,
+      },
+      {
+        id: 102,
+        masp: "#macpro14M2Pro",
+        tensp: "MacBook Pro 14 inch M2 Pro",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Pro 14 inch M2 Pro (19 Core 16GB 1TB).jpeg",
+        hinhanhMoTa: "/img/macbook/MacBook Pro 14 inch M2 Pro (19 Core 16GB 1TB).jpeg",
+        mau: ["Silver","Space Gray"],
+        luutru: ["1TB"],
+        gia: 57950000,
+        chitiet: `CPU: Apple M2 Pro 10 nhân, với 6 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        GPU: Apple M2 Pro 16 nhân, với 8 nhân hiệu năng cao và 8 nhân hiệu suất cao.
+        RAM: 8 GB LPDDR5.
+        Màn hình: Liquid Retina XDR 14 inch, độ phân giải 3024 x 1964 pixels, độ sáng tối đa 1600 nits, hỗ trợ ProMotion 120 Hz.
+        Kết nối: Hai cổng Thunderbolt / USB 4, cổng HDMI, khe thẻ nhớ SDXC, jack cắm tai nghe, cổng MagSafe 3.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 70W.`,
+      },
+      {
+        id: 103,
+        masp: "#macpro16M1Pro",
+        tensp: "MacBook Pro 16 inch M1 Pro",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Pro 16 inch M1 Pro (16 Core 16GB 1TB).png",
+        hinhanhMoTa: "/img/macbook/MacBook Pro 16 inch M1 Pro (16 Core 16GB 1TB).png",
+        mau: ["Silver","Space Gray"],
+        luutru: ["1TB"],
+        gia: 49990000,
+        chitiet: `CPU: Apple M1 Pro 10 nhân, với 6 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        GPU: Apple M1 Pro 16 nhân, với 8 nhân hiệu năng cao và 8 nhân hiệu suất cao.
+        RAM: 16 GB LPDDR5.
+        Màn hình: Liquid Retina XDR 16 inch, độ phân giải 3456 x 2234 pixels,độ sáng tối đa 1600 nits, hỗ trợ ProMotion 120 Hz.
+        Kết nối: Ba cổng Thunderbolt / USB 4, cổng HDMI, khe thẻ nhớ SDXC, jack cắm tai nghe, cổng MagSafe 3.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 100W.`,
+      },
+      {
+        id: 104,
+        masp: "#macpro16M2Pro",
+        tensp: "MacBook Pro 16 inch M2 Pro",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Pro 16 inch M2 Pro (19 Core 16GB 512GB).jpeg",
+        hinhanhMoTa: "/img/macbook/MacBook Pro 16 inch M2 Pro (19 Core 16GB 512GB).jpeg",
+        mau: ["Silver","Space Gray"],
+        luutru: ["512GB"],
+        gia: 58350000,
+        chitiet: `CPU: Apple M2 Pro 10 nhân, với 6 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        GPU: Apple M2 Pro 32 nhân, với 16 nhân hiệu năng cao và 16 nhân hiệu suất cao.
+        RAM: 16 GB LPDDR5.
+        Màn hình: Liquid Retina XDR 16 inch, độ phân giải 3456 x 2234 pixels,độ sáng tối đa 1600 nits, hỗ trợ ProMotion 120 Hz.
+        Kết nối: Ba cổng Thunderbolt / USB 4, cổng HDMI, khe thẻ nhớ SDXC, jack cắm tai nghe, cổng MagSafe 3.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 100W.`,
+      },
+      {
+        id: 105,
+        masp: "#macpro16M2Max",
+        tensp: "MacBook Pro 16 inch M2 Max",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Pro 16 inch M2 Max (38 Core 32GB 1TB).jpeg",
+        hinhanhMoTa: "/img/macbook/MacBook Pro 16 inch M2 Max (38 Core 32GB 1TB).jpeg",
+        mau: ["Silver","Space Gray"],
+        luutru: ["1TB"],
+        gia: 81950000,
+        chitiet: `CPU: Apple M2 Max 10 nhân, với 6 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        GPU: Apple M2 Max 64 nhân, với 32 nhân hiệu năng cao và 32 nhân hiệu suất cao.
+        RAM: 16 GB LPDDR5.
+        Màn hình: Liquid Retina XDR 16 inch, độ phân giải 3456 x 2234 pixels,độ sáng tối đa 1600 nits, hỗ trợ ProMotion 120 Hz.
+        Kết nối: Ba cổng Thunderbolt / USB 4, cổng HDMI, khe thẻ nhớ SDXC, jack cắm tai nghe, cổng MagSafe 3.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 100W.`,
+      },
+      {
+        id: 106,
+        masp: "#macpro14M3",
+        tensp: "MacBook Pro 14 inch M3",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Pro 14 inch M3.jpeg",
+        hinhanhMoTa: "/img/macbook/MacBook Pro 14 inch M3.jpeg",
+        mau: ["Silver","Space Gray"],
+        luutru: ["512GB"],
+        gia: 39990000,
+        chitiet: `CPU: Apple M3 Pro 12 nhân, với 8 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        GPU: Apple M3 Pro 18 nhân, với 9 nhân hiệu năng cao và 9 nhân hiệu suất cao.
+        RAM: 18 GB LPDDR5.
+        Màn hình: Liquid Retina XDR 14 inch, độ phân giải 3024 x 1964 pixels,  độ sáng tối đa 1600 nits, hỗ trợ ProMotion 120 Hz.
+        Kết nối: Hai cổng Thunderbolt / USB 4, cổng HDMI, khe thẻ nhớ SDXC, jack cắm tai nghe, cổng MagSafe 3.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 70W.`,
+      },
+      {
+        id: 107,
+        masp: "#macpro14M3Pro",
+        tensp: "MacBook Pro 14 inch M3 Pro",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Pro 14 inch M3.jpeg",
+        hinhanhMoTa: "/img/macbook/MacBook Pro 14 inch M3.jpeg",
+        mau: ["Silver","Space Gray"],
+        luutru: ["512GB"],
+        gia: 39990000,
+        chitiet: `CPU: Apple M3 Pro 12 nhân, với 8 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        GPU: Apple M3 Pro 18 nhân, với 9 nhân hiệu năng cao và 9 nhân hiệu suất cao.
+        RAM: 18 GB LPDDR5.
+        Màn hình: Liquid Retina XDR 14 inch, độ phân giải 3024 x 1964 pixels, độ sáng tối đa 1600 nits, hỗ trợ ProMotion 120 Hz.
+        Kết nối: Hai cổng Thunderbolt / USB 4, cổng HDMI, khe thẻ nhớ SDXC, jack cắm tai nghe, cổng MagSafe 3.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 70W.`,
+      },
+      {
+        id: 108,
+        masp: "#macpro14M3Max",
+        tensp: "MacBook Pro 14 inch M3 Max",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Pro 14 inch M3.jpeg",
+        hinhanhMoTa: "/img/macbook/MacBook Pro 14 inch M3.jpeg",
+        mau: ["Silver","Space Gray"],
+        luutru: ["1TB"],
+        gia: 79990000,
+        chitiet: `CPU: Apple M3 Max 16 nhân, với 10 nhân hiệu năng cao và 6 nhân hiệu suất cao.
+        GPU: Apple M3 Max 40 nhân, với 24 nhân hiệu năng cao và 16 nhân hiệu suất cao.
+        RAM: 32 GB LPDDR5.
+        Màn hình: Liquid Retina XDR 14 inch, độ phân giải 3024 x 1964 pixels,độ sáng tối đa 1600 nits, hỗ trợ ProMotion 120 Hz.
+        Kết nối: Hai cổng Thunderbolt / USB 4, cổng HDMI, khe thẻ nhớ SDXC, jack cắm tai nghe, cổng MagSafe 3.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 100W.`,
+      },
+      {
+        id: 109,
+        masp: "#macpro16M3Pro",
+        tensp: "MacBook Pro 16 inch M3 Pro",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Pro 16 inch M3.jpeg",
+        hinhanhMoTa: "/img/macbook/MacBook Pro 16 inch M3.jpeg",
+        mau: ["Silver","Space Gray"],
+        luutru: ["512GB"],
+        gia: 74990000,
+        chitiet: `CPU: Apple M3 Pro 12 nhân, với 8 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        GPU: Apple M3 Pro 16 nhân, với 8 nhân hiệu năng cao và 8 nhân hiệu suất cao.
+        RAM: 36 GB LPDDR5.
+        Màn hình: Liquid Retina XDR 16 inch, độ phân giải 3456 x 2234 pixels, độ sáng tối đa 1600 nits, hỗ trợ ProMotion 120 Hz.
+        Kết nối: Ba cổng Thunderbolt / USB 4, cổng HDMI, khe thẻ nhớ SDXC, jack cắm tai nghe, cổng MagSafe 3.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 100W.`,
+      },
+      {
+        id: 110,
+        masp: "#macpro16M3Max",
+        tensp: "MacBook Pro 16 inch M3 Max",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Pro 16 inch M3.jpeg",
+        hinhanhMoTa: "/img/macbook/MacBook Pro 16 inch M3.jpeg",
+        mau: ["Silver","Space Gray"],
+        luutru: ["1TB"],
+        gia: 79990000,
+        chitiet: `CPU: Apple M3 Max 16 nhân, với 10 nhân hiệu năng cao và 6 nhân hiệu suất cao.
+        GPU: Apple M3 Max 40 nhân, với 24 nhân hiệu năng cao và 16 nhân hiệu suất cao.
+        RAM: 36 GB LPDDR5.
+        Màn hình: Liquid Retina XDR 14 inch, độ phân giải 3024 x 1964 pixels,độ sáng tối đa 1600 nits, hỗ trợ ProMotion 120 Hz.
+        Kết nối: Hai cổng Thunderbolt / USB 4, cổng HDMI, khe thẻ nhớ SDXC, jack cắm tai nghe, cổng MagSafe 3.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 100W.`,
+      },
+
+      {
+        id: 111,
+        masp: "#macairM1",
+        tensp: "MacBook Air M1 2020",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Air M1 2020 (8GB RAM  256GB SSD).webp",
+        hinhanhMoTa: "/img/macbook/MacBook Air M1 2020 (8GB RAM  256GB SSD).webp",
+        mau: ["Silver","Space Gray","Gold"],
+        luutru: ["256GB"],
+        gia: 18890000,
+        chitiet: `CPU: Apple M1 8 nhân, với 4 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        GPU: Apple M1 7 nhân.
+        RAM: 8GB LPDDR4X.
+        Màn hình: Retina 13.3 inch, độ phân giải 2560 x 1600 pixels.
+        Kết nối: Hai cổng Thunderbolt / USB 4, jack cắm tai nghe.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 30W.`,
+      },
+      {
+        id: 112,
+        masp: "#macairM2",
+        tensp: "MacBook Air M2 2020",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Air M2 2022 (8GB RAM  512GB SSD).png",
+        hinhanhMoTa: "/img/macbook/MacBook Air M2 2022 (8GB RAM  512GB SSD).png",
+        mau: ["Silver","Space Gray","Midnight", "Starlight"],
+        luutru: ["512GB"],
+        gia: 33990000,
+        chitiet: `CPU: Apple M2 8 nhân, với 4 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        GPU: Apple M2 10 nhân.
+        RAM: 8GB LPDDR5.
+        Màn hình: Liquid Retina 13.6 inch, độ phân giải 2560 x 1664 pixels,độ sáng tối đa 500 nits, hỗ trợ gam màu P3.
+        Kết nối: Hai cổng Thunderbolt / USB 4, jack cắm tai nghe MagSafe 3.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 30W.`,
+      },
+      {
+        id: 113,
+        masp: "#macair15M2",
+        tensp: "MacBook Air 15 inch M2",
+        danhmuc: "Macbook",
+        hinhanhitem: "/img/macbook/MacBook Air 15 inch M2 (8GB RAM  512GB SSD).jpeg",
+        hinhanhMoTa: "/img/macbook/MacBook Air 15 inch M2 (8GB RAM  512GB SSD).jpeg",
+        mau: ["Silver","Space Gray","Midnight", "Starlight"],
+        luutru: ["512GB"],
+        gia: 34790000,
+        chitiet: `CPU: Apple M2 8 nhân, với 4 nhân hiệu năng cao và 4 nhân hiệu suất cao.
+        GPU: Apple M2 10 nhân.
+        RAM: 8GB LPDDR5.
+        Màn hình: Liquid Retina 15.4 inch, độ phân giải 2880 x 1864 pixels,độ sáng tối đa 500 nits, hỗ trợ gam màu P3.
+        Kết nối: Hai cổng Thunderbolt / USB 4, jack cắm tai nghe MagSafe 3.
+        Bàn phím: Magic Keyboard với Touch ID.
+        Bàn di chuột: Force Touch.
+        Bộ nguồn: Bộ Tiếp Hợp Nguồn USB-C 67W.`,
+      },
+  
     ];
     localStorage.setItem("products", JSON.stringify(list_product));
   }
