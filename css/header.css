@@ -7,8 +7,8 @@
     --border-color: #333333;
     --line-color: #28aafc;
     --menu-color: #ffc02c;
-    --menu-color-choose: #0083D6;
-    --button-color: #D9D9D9;
+    --menu-color-choose: #0083d6;
+    --button-color: #d9d9d9;
     --button-color-choose: #c0bfbf;
 }
 html {
@@ -45,7 +45,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-#header_items #total_items{
+#header_items #total_items {
     width: 1250px;
     display: flex;
     align-items: center;
@@ -61,8 +61,8 @@ body {
 
 #div_search {
     width: 43%;
-}        
-#div_search form {
+}
+#div_search div {
     position: relative;
     width: 29.375rem;
     height: 2.1875rem;
@@ -74,8 +74,8 @@ body {
 }
 #search {
     width: 90%;
-    border:1px solid transparent;
-    border-radius:8px;
+    border: 1px solid transparent;
+    border-radius: 8px;
     outline: none;
     padding: 0 0.5rem;
 }
@@ -163,7 +163,8 @@ body {
     font-weight: 400;
     line-height: 125.023%; /* 1.09394rem */
 }
-#div_login p:hover, #div_logout a:hover {
+#div_login p:hover,
+#div_logout a:hover {
     color: var(--menu-color);
 }
 #div_logout {
@@ -175,8 +176,8 @@ body {
     padding: 5px;
     width: 127px;
     position: absolute;
-    top:98%;
-    left:0;
+    top: 98%;
+    left: 0;
 }
 #div_logout a {
     margin: 2px 0;
@@ -215,7 +216,7 @@ body {
     justify-content: center;
     cursor: pointer;
     border-radius: 8px;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
 }
 #iphone a {
     text-decoration: none;
@@ -232,7 +233,7 @@ body {
 }
 #iphone p {
     width: 39.257px;
-    color: #FFF;
+    color: #fff;
     text-align: center;
     font-size: 12px;
     font-style: normal;
@@ -245,7 +246,7 @@ body {
     justify-content: center;
     cursor: pointer;
     border-radius: 8px;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
 }
 #ipad a {
     text-decoration: none;
@@ -263,7 +264,7 @@ body {
 #ipad p {
     margin-left: 8px;
     width: 25.165px;
-    color: #FFF;
+    color: #fff;
     text-align: center;
     font-size: 12px;
     font-style: normal;
@@ -276,7 +277,7 @@ body {
     justify-content: center;
     cursor: pointer;
     border-radius: 8px;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
 }
 #mac a {
     text-decoration: none;
@@ -295,7 +296,7 @@ body {
 #mac p {
     margin-left: 8px;
     width: 25.165px;
-    color: #FFF;
+    color: #fff;
     text-align: center;
     font-size: 12px;
     font-style: normal;
@@ -313,7 +314,7 @@ body {
     height: 33px;
 }
 #security p {
-    padding-left: 5px;  
+    padding-left: 5px;
     width: 130.786px;
     height: 18px;
     color: #000;

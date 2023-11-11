@@ -40,11 +40,11 @@ function reset() {
         },
     ];
     localStorage.setItem('user', JSON.stringify(Useraccounts));
-    var index = -1;
-    localStorage.setItem('index', index);
+    var index_login = -1;
+    localStorage.setItem('index_login', index_login);
 }
 // Tắt mở form login form register
-let login_form_total = document.getElementById('form_login_total');
+var login_form_total = document.getElementById('form_login_total');
 function open_login() {
     document.getElementById('phone').value = '';
     document.getElementById('password').value = '';
@@ -54,7 +54,7 @@ function open_login() {
 function close_login() {
     login_form_total.style.display = 'none';
 }
-let form_register_total = document.getElementById('form_register_total');
+var form_register_total = document.getElementById('form_register_total');
 function open_register() {
     document.getElementById('register_name').value = '';
     document.getElementById('register_phone').value = '';
@@ -70,9 +70,9 @@ function close_register() {
 }
 // Các hàm khởi tạo
 function createIndex() {
-    if (localStorage.getItem('index') === null) {
-        index = -1;
-        localStorage.setItem('index', index);
+    if (localStorage.getItem('index_login') === null) {
+        index_login = -1;
+        localStorage.setItem('index_login', index_login);
     }
 }
 function createAdmin() {
@@ -184,7 +184,7 @@ function check_login(event) {
     var login_text = document.getElementById('login_text');
     var Adminaccounts = JSON.parse(localStorage.getItem('admin'));
     var Useraccounts = JSON.parse(localStorage.getItem('user'));
-    var index = -1;
+    var index_login = -1;
     var check_admin = false;
     // Kiểm tra giá trị nhập
     if (isNaN(Number(phone)) || Number(phone) < 100000000 || Number(phone) > 999999999) {
@@ -199,22 +199,22 @@ function check_login(event) {
     Adminaccounts.forEach(function (Adminaccounts, i) {
         if (Adminaccounts.phone === phone && Adminaccounts.password === password) {
             check_admin = true;
-            index = i;
+            index_login = i;
         }
     });
     Useraccounts.forEach(function (Useraccounts, i) {
         if (Useraccounts.phone === phone && Useraccounts.password === password) {
-            index = i;
+            index_login = i;
         }
     });
     localStorage.setItem('check_admin', check_admin);
-    localStorage.setItem('index', index);
+    localStorage.setItem('index_login', index_login);
     if (check_admin) {
-        login_text.innerHTML = 'Xin chào,<br>' + Adminaccounts[index].name;
+        login_text.innerHTML = 'Xin chào,<br>' + Adminaccounts[index_login].name;
         login_activated(true);
         return true;
-    } else if (index != -1) {
-        login_text.innerHTML = 'Xin chào,<br>' + Useraccounts[index].name;
+    } else if (index_login != -1) {
+        login_text.innerHTML = 'Xin chào,<br>' + Useraccounts[index_login].name;
         login_activated(false);
         return true;
     } else {
@@ -309,9 +309,9 @@ function check_register(event) {
 }
 // Check login khi reset trang từ Local Storage
 function login() {
-    if (localStorage.getItem('check_admin') !== null && localStorage.getItem('index') !== null) {
+    if (localStorage.getItem('check_admin') !== null && localStorage.getItem('index_login') !== null) {
         var check_admin = JSON.parse(localStorage.getItem('check_admin'));
-        var index = JSON.parse(localStorage.getItem('index'));
+        var index_login = JSON.parse(localStorage.getItem('index_login'));
         var div_login = document.getElementById('div_login');
         if (check_admin) {
             var accounts = JSON.parse(localStorage.getItem('admin'));
@@ -322,8 +322,8 @@ function login() {
             document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
             document.getElementById('change_logout').href = '#';
         }
-        if (index !== -1) {
-            login_text.innerHTML = 'Xin chào,<br>' + accounts[index].name;
+        if (index_login !== -1) {
+            login_text.innerHTML = 'Xin chào,<br>' + accounts[index_login].name;
             div_login.onclick = null;
             div_login.onmouseover = function () {
                 showContent();
@@ -337,8 +337,8 @@ function login() {
 }
 // Đăng xuất
 function logout() {
-    var index = -1;
-    localStorage.setItem('index', index);
+    var index_login = -1;
+    localStorage.setItem('index_login', index_login);
     var check_admin = false;
     localStorage.setItem('check_admin', check_admin);
     window.location.reload(true);

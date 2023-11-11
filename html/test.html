@@ -93,6 +93,9 @@
                     }
                 });
             });
+            addEventListener('keydown', function (event) {
+                if (event.ctrlKey) console.log('keydown', 'ctrlKey', event.keyCode);
+            });
         </script>
     </body>
 </html>

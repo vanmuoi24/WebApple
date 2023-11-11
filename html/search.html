@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="/css/header.css" />
         <link rel="stylesheet" href="/css/login.css" />
         <link rel="stylesheet" href="/css/register.css" />
+        <link rel="stylesheet" href="/css/products.css" />
+        <link rel="stylesheet" href="/css/product-display.css" />
         <link rel="stylesheet" href="/css/footer.css" />
     </head>
 
@@ -29,12 +31,12 @@
                     </a>
                 </div>
                 <div id="div_search">
-                    <form action="#">
+                    <div>
                         <input type="text" id="search" placeholder="Bạn cần tìm kiếm gì?" />
                         <a href="#">
-                            <img src="/img/icon/search.png" alt="search" title="Tìm kiếm" />
+                            <img src="/img/icon/search.png" alt="search" title="Tìm kiếm" id="search_icon" />
                         </a>
-                    </form>
+                    </div>
                 </div>
                 <div id="div_shopping">
                     <a href="#">
@@ -136,16 +138,17 @@
         </div>
         <!-- Hiển thị sản phẩm -->
         <div id="div_products">
-            <p id="p_products">Sản phẩm mới</p>
+            <p id="p_products">Kết quả tìm kiếm</p>
             <div id="div_products_total">
+                <div class="div_products_view"></div>
                 <div class="div_products_view"></div>
             </div>
             <div id="div_search_products">
-                <div onclick="fill_products_left()" id="div_search_products_left">
+                <div onclick="fill_products_search_left()" id="div_search_products_left">
                     <img src="/img/icon/button_left.png" alt="button_left" />
                 </div>
                 <p id="div_search_products_number">1</p>
-                <div onclick="fill_products_right()" id="div_search_products_right">
+                <div onclick="fill_products_search_right()" id="div_search_products_right">
                     <img src="/img/icon/button_right.png" alt="button_right" />
                 </div>
             </div>
@@ -242,6 +245,7 @@
     <script>
         // Đảm bảo rằng toàn bộ dữ liệu đã được load xong
         document.addEventListener('DOMContentLoaded', function () {
+            search_create();
             document.body.style.display = 'flex';
         });
     </script>
