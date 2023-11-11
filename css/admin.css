@@ -243,7 +243,7 @@ button:hover {
   cursor: pointer;
   width: 60%;
   font-size: 0.8rem;
-  background-color: #f9f9f9;
+  background-color: #0083d6;
 }
 .custom-file-upload:hover {
   background-color: var(--backgroud-color);
@@ -483,4 +483,14 @@ button:hover {
   font-size: 1.2rem;
   border-radius: 5px;
   margin-right: 100px;
+}
+.pagination-buttons button {
+  width: 50px;
+  font-size: 1.1rem;
+}
+.pagination-buttons button:first-child {
+  width: 100px;
+}
+.pagination-buttons button:last-child {
+  width: 100px;
 }

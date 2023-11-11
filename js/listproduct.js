@@ -51,8 +51,6 @@ product.addEventListener("click", (event) => {
                 <button id="page2">2</button>
                 <button id="page3">3</button>
                 <button id="page4">4</button>
-                <button id="page5">5</button>
-                <button id="page6">6</button>
                 <button id="next">Next</button>
                 </div>
               <div class="add_product">
@@ -64,19 +62,18 @@ product.addEventListener("click", (event) => {
                 </div>
                 <div class="add_right">
                     <div class="name_product">
-                    <label>Tên Món:</label>
+                    <label>Hãng điện thoại</label>
                     <input type="text" id="name_food" />
                     </div>
                     <div class="selection">
-                    <label id="slection">Chọn Món:</label>
+                    <label id="slection">Chọn Hãng</label>
                     <select id="select">
                     <option value="">......</option>
-                    <option value="Món Heo">Món Heo</option>
-                    <option value="Món Gà">Món Gà</option>
-                    <option value="Món Cá">Món Cá</option>
-                    <option value="Món Xào">Món Xào</option>
-                    <option value="Món Hải Sản">Món Hải Sản</option>
-                    <option value="Món Canh">Món Canh</option>
+                    <option value="Điện thoại">Điện Thoại</option>
+                    <option value="Tai nghe">Tai Nghe</option>
+                    <option value="iPad">Ipad</option>
+                    <option value="Đồng hồ thông minh">Đồng Hồ</option>
+                    
                     </select>
                 </div>
                 <div class="price_product">
@@ -126,7 +123,7 @@ product.addEventListener("click", (event) => {
   const key_food = document.getElementById("key_food");
   const foodSelect = document.getElementById("select");
   save_product_button.addEventListener("click", () => {
-    var list_product = JSON.parse(localStorage.getItem("dataproduct")) || [];
+    var list_product = JSON.parse(localStorage.getItem("products")) || [];
 
     console.log(list_product);
     var user = {
@@ -139,7 +136,7 @@ product.addEventListener("click", (event) => {
     console.log(user);
     list_product.unshift(user);
     const add_product = document.getElementsByClassName("add_product")[0];
-    localStorage.setItem("dataproduct", JSON.stringify(list_product));
+    localStorage.setItem("products", JSON.stringify(list_product));
     add_product.classList.remove("top");
     const table_product = document.getElementsByClassName("table_product")[0];
     table_product.style.display = "block";
@@ -172,7 +169,7 @@ function showimgsave() {
   });
 }
 function search_product() {
-  var list_product = JSON.parse(localStorage.getItem("dataproduct"));
+  var list_product = JSON.parse(localStorage.getItem("products"));
 
   var table = document.getElementsByTagName("table")[0];
   const search_product = document.getElementById("search_product");
@@ -203,7 +200,7 @@ function search_product() {
             <tr>
               <td style="width:90px">${list.masp}</td>
               <td id="tensp">${list.tensp}</td>
-              <td><img src="${list.hinhanh}" alt="" /></td>
+              <td><img src="${list.hinhanhMoTa}" alt="" /></td>
               <td>${list.trangthai}</td>
               <td>${list.gia}</td>
               <td>
@@ -231,7 +228,7 @@ function search_product() {
   });
 }
 function food_select() {
-  var list_product = JSON.parse(localStorage.getItem("dataproduct"));
+  var list_product = JSON.parse(localStorage.getItem("products"));
 
   const food_select = document.getElementById("food_select");
   var table = document.getElementsByTagName("table")[0];
@@ -248,7 +245,7 @@ function food_select() {
           <td>Thông Tin Sản Phẩm</td>
         </tr>
       `;
-    var list_product = JSON.parse(localStorage.getItem("dataproduct"));
+    var list_product = JSON.parse(localStorage.getItem("products"));
     list_product.forEach((list, index) => {
       var indexall = index;
       index++;
@@ -276,16 +273,16 @@ function food_select() {
 }
 
 function delete_product(id) {
-  var list_product = JSON.parse(localStorage.getItem("dataproduct"));
+  var list_product = JSON.parse(localStorage.getItem("products"));
   let delete_ok = confirm("Bạn có chắc muốn xóa không");
   if (delete_ok) {
     list_product.splice(id, 1);
-    localStorage.setItem("dataproduct", JSON.stringify(list_product));
+    localStorage.setItem("products", JSON.stringify(list_product));
     renderProductall();
   }
 }
 function edit_product(id) {
-  var list_product = JSON.parse(localStorage.getItem("dataproduct"));
+  var list_product = JSON.parse(localStorage.getItem("products"));
   document.getElementById("save_product1").style.display = "block";
   const save_product = document.getElementById("save_product");
   save_product.style.display = "none";
@@ -318,7 +315,7 @@ function edit_product(id) {
     productToEdit.trangthai = foodSelect.value;
     productToEdit.hinhanh = previewImage.src;
     console.log(name_food.value);
-    localStorage.setItem("dataproduct", JSON.stringify(list_product));
+    localStorage.setItem("products", JSON.stringify(list_product));
     add_product.classList.remove("top");
 
     table_product.style.display = "block";
@@ -326,7 +323,7 @@ function edit_product(id) {
   });
 }
 function renderProductall() {
-  var list_product = JSON.parse(localStorage.getItem("dataproduct"));
+  var list_product = JSON.parse(localStorage.getItem("products"));
 
   var table = document.getElementsByTagName("table")[0];
   let perpage = 6;
@@ -336,7 +333,7 @@ function renderProductall() {
   const tatalPage = Math.ceil(list_product.length / perpage);
   const btnNext = document.getElementById("next");
   function renderProduct() {
-    var list_product = JSON.parse(localStorage.getItem("dataproduct"));
+    var list_product = JSON.parse(localStorage.getItem("products"));
     var list_table = "";
     list_table = `
               <tr>
@@ -375,61 +372,44 @@ function renderProductall() {
     table.innerHTML = list_table;
   }
   renderProduct();
+  function handlePageClick(pageNumber) {
+    for (let i = 1; i <= tatalPage; i++) {
+      const page = document.getElementById(`page${i}`);
+      page.style.background = "white";
+      page.style.color = "black";
+    }
+    const clickedPage = document.getElementById(`page${pageNumber}`);
+    clickedPage.style.background = "#0083d6";
+    clickedPage.style.color = "white";
+
+    currentPage = pageNumber;
+    start = (currentPage - 1) * perpage;
+    end = currentPage * perpage;
+    renderProduct();
+  }
+
   btnNext.addEventListener("click", () => {
     currentPage++;
-
     if (currentPage > tatalPage) {
-      currentPage = tatalPage;
       currentPage = 1;
     }
+    handlePageClick(currentPage);
+  });
 
-    start = (currentPage - 1) * perpage;
-    end = currentPage * perpage;
+  document.getElementById("prev").addEventListener("click", () => {
+    currentPage--;
+    if (currentPage < 1) {
+      currentPage = tatalPage;
+    }
+    handlePageClick(currentPage);
+  });
 
-    renderProduct();
-  });
-  const page1 = document.getElementById("page1");
-  page1.addEventListener("click", () => {
-    currentPage = 1; // Thiết lập currentPage thành 2 khi nhấp vào "page2"
-    start = (currentPage - 1) * perpage;
-    end = currentPage * perpage;
-    renderProduct();
-  });
-  const page2 = document.getElementById("page2");
-  page2.addEventListener("click", () => {
-    currentPage = 2; // Thiết lập currentPage thành 2 khi nhấp vào "page2"
-    start = (currentPage - 1) * perpage;
-    end = currentPage * perpage;
-    renderProduct();
-  });
-  const page3 = document.getElementById("page3");
-  page3.addEventListener("click", () => {
-    currentPage = 3; // Thiết lập currentPage thành 2 khi nhấp vào "page2"
-    start = (currentPage - 1) * perpage;
-    end = currentPage * perpage;
-    renderProduct();
-  });
-  const page4 = document.getElementById("page4");
-  page4.addEventListener("click", () => {
-    currentPage = 4; // Thiết lập currentPage thành 2 khi nhấp vào "page2"
-    start = (currentPage - 1) * perpage;
-    end = currentPage * perpage;
-    renderProduct();
-  });
-  const page5 = document.getElementById("page5");
-  page5.addEventListener("click", () => {
-    currentPage = 5; // Thiết lập currentPage thành 2 khi nhấp vào "page2"
-    start = (currentPage - 1) * perpage;
-    end = currentPage * perpage;
-    renderProduct();
-  });
-  const page6 = document.getElementById("page6");
-  page6.addEventListener("click", () => {
-    currentPage = 6; // Thiết lập currentPage thành 2 khi nhấp vào "page2"
-    start = (currentPage - 1) * perpage;
-    end = currentPage * perpage;
-    renderProduct();
-  });
+  for (let i = 1; i <= tatalPage; i++) {
+    const page = document.getElementById(`page${i}`);
+    page.addEventListener("click", () => {
+      handlePageClick(i);
+    });
+  }
 }
 function restfood() {
   const save_product = document.getElementById("save_product");
