@@ -7,8 +7,8 @@
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0,0.75);
-    z-index: 998!important;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 998 !important;
 }
 .form_login {
     display: flex;
@@ -17,81 +17,79 @@
     align-items: center;
 }
 .form_login_main {
-    background-color: #F3F3F3;
+    background-color: #f3f3f3;
     width: 521px;
-    height: 328px;   
+    height: 328px;
     border: solid 5px var(--menu-color);
-    border-radius : 20px ;
+    border-radius: 20px;
 }
 .form_login_main_head {
     border-bottom: 1px solid var(--menu-color);
-    height : 15.2% ;
-    position : relative;
+    height: 15.2%;
+    position: relative;
 }
 .form_login_main_head .close_x {
-    position :  absolute;
-    right : 5px ;
-    top: 3px ;
-    font-size: 26px ;
-    padding: 2px 5px ;
-    transition : 0.2s ;
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    font-size: 26px;
+    padding: 2px 5px;
+    transition: 0.2s;
 }
 .form_login_main_head .close_x:hover {
-    color : white ; 
+    color: white;
     background-color: rgb(209, 81, 81);
-    border-radius :10px;
+    border-radius: 10px;
 }
 .form_login_main_title h2 {
-    font-size: 24px ;
-    line-height: 30.01px ;
-    display : flex ;
-    align-items : center ;
-    justify-content: center ;
+    font-size: 24px;
+    line-height: 30.01px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
-    padding : 10px;
+    padding: 10px;
 }
 .form_login_main_body {
-    height : 73.9% ;
-    
+    height: 73.9%;
 }
 .form_login_main_body_option {
-    height: 100% ;
+    height: 100%;
     display: flex;
-    align-items : center ;
-    justify-content : center ;
+    align-items: center;
+    justify-content: center;
 }
 .form_login_main_body_option input {
-    width : 291px ;
-    height: 29px ;
+    width: 291px;
+    height: 29px;
     border: 1px solid black;
-    border-radius: 7px ;
-    padding-left: 5px ;
+    border-radius: 7px;
+    padding-left: 5px;
     margin-top: 5px;
-    cursor: pointer ;
+    cursor: pointer;
     transition: 0.5s;
 }
 
 .option_submit {
-    display : flex ;
-    justify-content : center ;
-
+    display: flex;
+    justify-content: center;
 }
-input[type = submit] {
+input[type='submit'] {
     width: 175px;
     height: 41px;
     border: 2px solid black;
     background-color: var(--menu-color);
-    cursor: pointer ;
+    cursor: pointer;
 }
 .option_submit input:hover {
     background-color: #f3be43;
-}   
+}
 .form_login_main_footer {
-    display: flex ;
-    height: 10.9% ;
+    display: flex;
+    height: 10.9%;
     border-top: 1px solid var(--menu-color);
-    align-items: center ;
-    justify-content: center ;
+    align-items: center;
+    justify-content: center;
 }
 #login_form {
     position: relative;
@@ -105,6 +103,6 @@ input[type = submit] {
 }
 #login_notify {
     border-radius: 8px;
-    padding: 5px; 
+    padding: 5px;
     background-color: transparent;
 }

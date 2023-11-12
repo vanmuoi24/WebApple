@@ -1133,10 +1133,10 @@ function fill_products_type_left() {
     }
 }
 // Hiển thị sản phẩm
+var index_save;
 function open_product_display(product_name) {
     document.getElementById('div_product_display_total').style.display = 'flex';
     var list_products = JSON.parse(localStorage.getItem('products'));
-    var index_save;
     list_products.forEach(function (list_products, i) {
         if (list_products.tensp === product_name) {
             index_save = i;
@@ -1156,6 +1156,35 @@ function open_product_display(product_name) {
     }
     document.getElementById('ROM').innerHTML = list;
     document.getElementById('div_product_display_information_p').innerText = list_products[index_save].chitiet;
+}
+// Thêm hàng vào giỏ
+function shopping() {
+    // Lấy giá trị
+    var color = document.getElementById('color').value;
+    var ROM = document.getElementById('ROM').value;
+    // Kiểm tra xem đã chọn chưa
+    if (color !== '' && ROM !== '') {
+        var list_products = JSON.parse(localStorage.getItem('products'));
+        var producttemp = list_products[index_save];
+        if (localStorage.getItem('waitting_buy') === null) {
+            var waitting_buy = [];
+            producttemp.mau = color;
+            producttemp.luutru = ROM;
+            waitting_buy.push(producttemp);
+            localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
+        } else {
+            var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
+            producttemp.mau = color;
+            producttemp.luutru = ROM;
+            waitting_buy.push(producttemp);
+            localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
+        }
+        // Hàm bên login-logout-register.js
+        showMessage('Đặt hàng thành công!');
+    } else {
+        // Hàm bên login-logout-register.js
+        showMessage_error('Hãy chọn màu và dung lượng!');
+    }
 }
 // Tắt hiển thị sản phẩm
 function close_product_display() {

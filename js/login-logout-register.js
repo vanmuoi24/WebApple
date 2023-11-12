@@ -141,19 +141,32 @@ function showMessage(messages) {
     Message.textContent = messages;
     setTimeout(function () {
         customObject.remove();
-    }, 3000);
+    }, 2000);
 }
-// Kiểm tra tài khoản
+function showMessage_error(messages) {
+    var customObject = document.createElement('div');
+    customObject.classList.add('custom-object');
+    customObject.innerHTML =
+        '<p style="z-index: 999; display: none; position: fixed; top: 10px; left:0; background-color: #ffe6e6; border: 1px solid #ff0000; color: #ff0000; padding: 10px; margin: 20px;border-radius: 5px;" id="message"></p>';
+    document.body.appendChild(customObject);
+    var Message = document.getElementById('message');
+    Message.style.display = 'flex';
+    Message.textContent = messages;
+    setTimeout(function () {
+        customObject.remove();
+    }, 2000);
+}
+// Hiển thị thông báo lỗi
 function login_error(error) {
     var login_notify = document.getElementById('login_notify');
-    login_notify.style.backgroundColor = '#FFB200';
-    login_notify.style.border = '2px solid black';
+    login_notify.style.backgroundColor = '#ffe6e6';
+    login_notify.style.border = '2px solid #ff0000';
     login_notify.textContent = error;
     setTimeout(function () {
         login_notify.style.backgroundColor = 'transparent';
         login_notify.style.border = 'none';
         login_notify.textContent = '';
-    }, 2000);
+    }, 1000);
 }
 // Kích hoạt chức năng khi đã đăng nhập
 function login_activated(check_login) {
@@ -188,11 +201,11 @@ function check_login(event) {
     var check_admin = false;
     // Kiểm tra giá trị nhập
     if (isNaN(Number(phone)) || Number(phone) < 100000000 || Number(phone) > 999999999) {
-        login_error('Số điện thoại không hợp lệ.');
+        login_error('Số điện thoại không hợp lệ');
         return false;
     }
     if (password.length < 8) {
-        login_error('Mật khẩu phải có 8 kí tự trở lên.');
+        login_error('Mật khẩu phải có 8 kí tự trở lên');
         return false;
     }
     // Kiểm tra tài khoản và mật khẩu
@@ -218,19 +231,20 @@ function check_login(event) {
         login_activated(false);
         return true;
     } else {
-        login_error('Sai số điện thoại hoặc mật khẩu.');
+        login_error('Sai số điện thoại hoặc mật khẩu');
         return false;
     }
 }
+// Hiển thị thông báo lỗi
 function register_error(error) {
-    register_notify.style.backgroundColor = '#FFB200';
-    register_notify.style.border = '2px solid black';
+    register_notify.style.backgroundColor = '#ffe6e6';
+    register_notify.style.border = '2px solid red';
     register_notify.textContent = error;
     setTimeout(function () {
         register_notify.style.backgroundColor = 'transparent';
         register_notify.textContent = '';
         register_notify.style.border = 'none';
-    }, 2000);
+    }, 1000);
 }
 // Kiểm tra giá trị khi đăng kí
 function check_register(event) {
@@ -244,15 +258,15 @@ function check_register(event) {
     var password_again = document.getElementById('register_password_again').value;
     // Kiểm tra các giá trị nhập
     if (!isNaN(Number(name))) {
-        register_error('Họ tên không hợp lệ.');
+        register_error('Họ tên không hợp lệ');
         return false;
     }
     if (name.length < 8) {
-        register_error('Họ tên phải từ 8 chữ cái trở lên.');
+        register_error('Họ tên phải từ 8 chữ cái trở lên');
         return false;
     }
     if (isNaN(Number(phone)) || Number(phone) < 100000000 || Number(phone) > 999999999) {
-        register_error('Số điện thoại không hợp lệ.');
+        register_error('Số điện thoại không hợp lệ');
         return false;
     }
     var Useraccounts = JSON.parse(localStorage.getItem('user'));
@@ -260,11 +274,11 @@ function check_register(event) {
         return Useraccounts.phone === phone;
     });
     if (isDifference) {
-        register_error('Số điện thoại đã được đăng kí.');
+        register_error('Số điện thoại đã được đăng kí');
         return false;
     }
     if (address.length < 8) {
-        register_error('Địa chỉ phải từ 8 chữ cái trở lên.');
+        register_error('Địa chỉ phải từ 8 chữ cái trở lên');
         return false;
     }
     function isValidEmail(email) {
@@ -274,14 +288,14 @@ function check_register(event) {
     }
     // Sử dụng hàm isValidEmail để kiểm tra địa chỉ email
     if (!isValidEmail(email)) {
-        register_error('Địa chỉ email không hợp lệ.');
+        register_error('Địa chỉ email không hợp lệ');
         return false;
     }
     isDifference = Useraccounts.some(function (Useraccounts) {
         return Useraccounts.email === email;
     });
     if (isDifference) {
-        register_error('Email đã được đăng kí.');
+        register_error('Email đã được đăng kí');
         return false;
     }
     function isValidPassword(password) {
@@ -291,11 +305,11 @@ function check_register(event) {
     }
     // Sử dụng hàm isValidPassword để kiểm tra mật khẩu
     if (!isValidPassword(password)) {
-        register_error('Mật khẩu phải từ 8 kí tự trở lên, có ít nhất một chữ hoa, chữ thường, chữ số.');
+        register_error('Mật khẩu phải từ 8 kí tự trở lên, có ít nhất một chữ hoa, chữ thường, chữ số');
         return false;
     }
     if (password !== password_again) {
-        register_error('Mật khẩu không trùng nhau.');
+        register_error('Mật khẩu không trùng nhau');
         return false;
     }
     var date = new Date();
