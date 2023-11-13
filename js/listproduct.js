@@ -1,61 +1,6 @@
 const right_header = document.getElementsByClassName('right_header')[0];
 const product = document.getElementsByClassName('product')[0];
 console.log(product);
-var list;
-document.getElementById('home').addEventListener('click', () => {
-    const home_list = `
-  <div class="statistical">
-  <div class="table_all">
-      <div class="warehouse">
-          <h3>Thống Kê Sản Phẩm</h3>
-          <table>
-              <thead>
-                  <tr>
-                      <td>Apple</td>
-                      <td>Số Lượng</td>
-                      <td>Tổng Sản Phẩm</td>
-                      <td>Tổng Tiền Đầu Tư</td>
-                  </tr>
-                  <tr>
-                      <td>Điện Thoại</td>
-                      <td id="phone">10</td>
-                      <td rowspan="4" id="sum_product">10000</td>
-                      <td rowspan="4" id="sum_invest">10000</td>
-                  </tr>
-                  <tr>
-                      <td>Tai Nghe</td>
-                      <td id="tainghe">10</td>
-                  </tr>
-                  <tr>
-                      <td>ipad</td>
-                      <td id="ipad">10</td>
-                  </tr>
-                  <tr>
-                      <td>Đồng Hồ</td>
-                      <td id="dongho">10</td>
-                  </tr>
-              </thead>
-          </table>
-      </div>
-      <div class="Revenue">
-          <div class="text"><h4>Thống Kê Doanh Thu</h4></div>
-          <table>
-              <thead>
-                  <tr>
-                      <td style="width: 200px">Số Sản Phẩm Đã Bán</td>
-                      <td>Doanh Thu</td>
-                  </tr>
-                  <tr>
-                      <td>0</td>
-                      <td>0VND</td>
-                  </tr>
-              </thead>
-          </table>
-      </div>
-  </div>
-  `;
-    right_header.innerHTML = home_list;
-});
 
 product.addEventListener('click', (event) => {
     list = `  
@@ -88,12 +33,12 @@ product.addEventListener('click', (event) => {
                     <thead>
                         <tr>
                             <td style="width: 80px">Mã Sản Phẩm</td>
-                            <td>Tên Sản Phẩm</td>
+                            <td style="width: 800px">Tên Sản Phẩm</td>
                             <td>Hình Ảnh</td>
                             <td>Loai</td>
-                            <td>Giá</td>
-                            <td>Hành Động</td>
-                            <td style="width: 100px">Thông Tin Sản Phẩm</td>
+                            <td >Giá</td>
+                            <td  >Hành Động</td>
+                            <td  style="width: 100px">Thông Tin Sản Phẩm</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -240,7 +185,7 @@ function search_product() {
           <td>Hình Ảnh</td>
           <td>Loại</td>
           <td>Giá</td>
-          <td>Hành Động</td>
+          <td >Hành Động</td>
           <td>Thông Tin Sản Phẩm</td>
         </tr>
       `;
@@ -392,7 +337,7 @@ function renderProductall() {
     var table = document.getElementsByTagName('table')[0];
     pagination.style.display = 'block';
     pagination.style.display = 'flex';
-    let perpage = 6;
+    let perpage = 5;
     let currentPage = 1;
     let start = 0;
     let end = perpage;
@@ -504,10 +449,11 @@ function peole() {
     <div class="client">
       <div class="client_header">
             <div class="header_client">
-              <select>
-                <option value="">Tất cả</option>
-                <option value="">Khách Hàng Online</option>
-                <option value="">Khách Hàng Ofline</option>
+          
+              <select> 
+                 <option value="Tất Cả">Tất cả</option>
+                <option value="Khách Hàng Ofline">Khách Hàng Ofline</option>
+                <option value="Khách Hàng Online">Khách Hàng Online</option>
               </select>
               <div class="input_client" >
                 <input  type="text" placeholder="Nhập tên cần tìm" id ="seach_1"/>
@@ -542,7 +488,7 @@ function peole() {
               <input type="text"/></div>
               <div class="s"><lable>LIÊN HỆ</lable>
               <input type="text"/></div>
-              <div class="s"><lable>NGÀY ĐĂNG KÍ</lable>
+              <div class="s"><lable>passwowrd</lable>
               <input type="text"/></div>
               <button id="add_clent">Thêm Khách Hàng</button>
               </div>
@@ -559,6 +505,7 @@ function peole() {
         user();
         renderuser();
         seach();
+        user_slection();
     });
     function user() {
         const acount = JSON.parse(localStorage.getItem('acount')) || [];
@@ -581,7 +528,7 @@ function peole() {
     <td>${list.name}</td>
     <td>${list.phonr}</td>
     <td>${list.date}</td>
-    <td><button>Online</button></td>
+    <td><button class="on_of">Online</button></td>
     <td><i class="fa-solid fa-trash" onclick="delete_user(${indexall})"></i>
     <i class="fa-regular fa-pen-to-square" onclick="edit_user(${indexall})"></i></td>
   </tr>`;
@@ -600,33 +547,31 @@ function delete_user(id) {
         renderuser();
     }
 }
-
 function renderuser() {
     var tbody = document.getElementsByTagName('tbody')[0];
     const acount = JSON.parse(localStorage.getItem('user')) || [];
-
+    const index_login = JSON.parse(localStorage.getItem('index_login')) || [];
     var userall = '';
-
     if (acount.length === 0) {
         tbody.innerHTML = "<tr><td colspan='6'>Không có khách hàng nào</td></tr>";
         return;
     }
+
     acount.forEach((list, index) => {
         var displayIndex = index + 1;
         userall += `<tr>
-      <td>${displayIndex}</td>
-      <td>${list.name}</td>
-      <td>${list.phone}</td>
-      <td>${list.date}</td>
-      <td><button>Online</button></td>
-      <td>
-        <i class="fa-solid fa-trash" onclick="delete_user(${index})"></i>
-        <i class="fa-regular fa-pen-to-square" onclick="edit_user(${index})"></i>
-      </td>
-    </tr>`;
+          <td>${displayIndex}</td>
+          <td>${list.name}</td>
+          <td>${list.phone}</td>
+          <td>${list.date}</td>
+          <td><button class="on_of">Online</button></td>
+          <td>
+            <i class="fa-solid fa-trash" onclick="delete_user(${index})"></i>
+            <i class="fa-regular fa-pen-to-square" onclick="edit_user(${index})"></i>
+          </td>
+        </tr>`;
+        tbody.innerHTML = userall;
     });
-
-    tbody.innerHTML = userall;
 }
 
 function add_customer() {
@@ -644,10 +589,17 @@ function comtomer_value() {
     const add_product = document.getElementsByClassName('add_product_1')[0];
     const acount = JSON.parse(localStorage.getItem('user')) || [];
     document.getElementById('add_clent').addEventListener('click', () => {
+        var date = new Date();
+
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var formattedDate = day + '-' + month + '-' + year;
         var customer = {
             name: value_input[0].value,
             phone: value_input[1].value,
-            date: value_input[2].value,
+            date: formattedDate,
+            password: value_input[2].value,
         };
         acount.push(customer);
         localStorage.setItem('user', JSON.stringify(acount));
@@ -675,7 +627,7 @@ function seach() {
       <td>${list.name}</td>
       <td>${list.phone}</td>
       <td>${list.date}</td>
-      <td><button>Online</button></td>
+      <td><button  class="on_of">Online</button></td>
       <td>
         <i class="fa-solid fa-trash" onclick="delete_user(${index})"></i>
         <i class="fa-regular fa-pen-to-square" onclick="edit_user(${index})"></i>
@@ -688,6 +640,24 @@ function seach() {
     });
 }
 
+function user_slection() {
+    let header_client_selction = document.querySelectorAll('.header_client select')[0];
+    const acount = JSON.parse(localStorage.getItem('user')) || [];
+    header_client_selction.addEventListener('change', () => {
+        if (header_client_selction.value == 'Khách Hàng Online') {
+            renderuser();
+        }
+        if (header_client_selction.value == 'Khách Hàng Ofline') {
+            var tbody = document.getElementsByTagName('tbody')[0];
+            tbody.innerHTML = "<tr><td colspan='6'>Không có khách hàng nào</td></tr>";
+            return;
+        }
+
+        if (header_client_selction.value == 'Tất Cả') {
+            renderuser();
+        }
+    });
+}
 function save_excel() {
     const acount = JSON.parse(localStorage.getItem('user')) || [];
     const workbook = new ExcelJS.Workbook();

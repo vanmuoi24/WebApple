@@ -54,7 +54,7 @@
     text-decoration: none;
 }
 .table_product {
-    max-height: 500px;
+    max-height: 400px;
     overflow-y: auto;
 }
 .right_header {
@@ -64,13 +64,15 @@
 .table_product table {
     margin-left: 10px;
     width: 90%;
+    height: auto;
     text-align: center;
+    border-collapse: collapse;
 }
 .table_product img {
     width: 60px;
     height: 70px;
 }
-table,
+.table_all table,
 td {
     font-family: 'Roboto', sans-serif;
     border: 1px solid black;
@@ -125,7 +127,7 @@ td {
     position: relative;
     margin-left: 40px;
     width: 99%;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .selection_food {
     color: black;
@@ -501,4 +503,66 @@ button:hover {
 }
 .pagination-buttons button:last-child {
     width: 100px;
+}
+/* cart_admin */
+.header_cart_table {
+    width: 80%;
+    height: 90px;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.header_cart_tableinput,
+select,
+input {
+    height: 30px;
+}
+.header_select {
+    width: 10%;
+}
+.header_seach {
+    width: 30%;
+}
+.header_seach input {
+    width: 80%;
+    margin-left: 10px;
+}
+.table_cart {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.table_cart table {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+.table_cart table tr td {
+    height: 35px;
+    border: none;
+}
+.table_cart thead {
+    background-color: #0083d6;
+    color: white;
+}
+
+.table_cart tbody button {
+    cursor: pointer;
+    width: 90px;
+    border: none;
+    height: 30px;
+    color: white;
+    font-size: 1rem;
+    background-color: #0083d6;
+    border-radius: 5px;
+}
+.reset button {
+    width: 90px;
+    height: 30px;
+    background-color: #0083d6;
+    border-radius: 5px;
+    border: none;
+    color: white;
 }
