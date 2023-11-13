@@ -7,53 +7,38 @@
     </head>
     <body>
         <div class="right_header">
-            <div class="cart_header">
-                <div class="header_cart_table">
-                    <div class="header_select">
-                        <select name="" id="">
-                            <option value="">Tất cả</option>
-                            <option value="">Xử Lí</option>
-                            <option value="">Chưa Xử Lí</option>
-                        </select>
+            <div class="container">
+                <div class="table">
+                    <div class="table-header">
+                        <div class="header__item"><a id="name" class="filter__link" href="#">Name</a></div>
+                        <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Wins</a></div>
+                        <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Draws</a></div>
+                        <div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">Losses</a></div>
+                        <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Total</a></div>
                     </div>
-                    <div class="header_seach">
-                        <input type="text" name="" id="" />
+                    <div class="table-content">
+                        <div class="table-row">
+                            <div class="table-data">Tom</div>
+                            <div class="table-data">2</div>
+                            <div class="table-data">0</div>
+                            <div class="table-data">1</div>
+                            <div class="table-data">5</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-data">Dick</div>
+                            <div class="table-data">1</div>
+                            <div class="table-data">1</div>
+                            <div class="table-data">2</div>
+                            <div class="table-data">3</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-data">Harry</div>
+                            <div class="table-data">0</div>
+                            <div class="table-data">2</div>
+                            <div class="table-data">2</div>
+                            <div class="table-data">2</div>
+                        </div>
                     </div>
-                    <div class="date_1">
-                        <label for="">Từ</label>
-                        <input type="date" />
-                    </div>
-                    <div class="date_1">
-                        <label for="">Đến</label>
-                        <input type="date" />
-                    </div>
-                    <div class="reset">
-                        <button>Reset</button>
-                    </div>
-                </div>
-                <div class="table_cart">
-                    <table style="width: 75%">
-                        <thead>
-                            <tr>
-                                <td>MÃ ĐƠN</td>
-                                <td>KHÁCH HÀNG</td>
-                                <td>NGÀY ĐẶT</td>
-                                <td>TỔNG TIỀN</td>
-                                <td>TRANG THAI</td>
-                                <td>THAO TÁC</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>#123</td>
-                                <td>Vy Van Muoi</td>
-                                <td>11-1-2004</td>
-                                <td>10000</td>
-                                <td><button>Chưa Xử Lý</button></td>
-                                <td><button>Xem</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
