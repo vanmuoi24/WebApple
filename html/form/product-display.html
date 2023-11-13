@@ -1,80 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/product-display.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-        :root {
-            --boxshadow-color: #888888;
-            --border-color: #333333;
-            --line-color: #0083D6;
-            --menu-color: #FFB200;
-            --menu-color-choose: #0083D6;
-            --button-color: #D9D9D9;
-            --button-color-choose: #c0bfbf;
-        }
-        #div_product_display_total {
-            display: flex !important;
-        }
-    </style>
-</head>
-<body>
-    <div id="div_product_display_total">
-        <div id="div_product_display">
-            <div  id="close_x" onclick="">  
-                <i class="fa fa-times" aria-hidden="true"></i>
-            </div>
-            <div id="div_product_display_header">
-                <img src="/img/iphone/iPhone11Pro-item.webp" alt="">
-                <div>
-                    <h1 id="div_product_display_name">iPhone 11 Pro</h1>
-                    <p id="div_product_display_name_price">24990000đ</p>
-                    <div id="div_product_display_color">
-                        <p>Màu:</p>
-                        <select name="Màu" id="color" >
-                            <option value="">Chọn màu</option>
-                            <option value="Đen">Đen</option>
-                            <option value="Đỏ">Đỏ</option>
-                            <option value="Hồng">Hồng</option>
-                        </select>
-                    </div>
-                    <div id="div_product_display_ROM">
-                        <p>Dung lượng:</p>
-                        <select name="Dung lượng" id="ROM" >
-                            <option value="">Chọn dung lượng</option>
-                            <option value="128GB">128GB</option>
-                            <option value="256GB">256GB</option>
-                            <option value="512GB">512GB</option>
-                        </select>
-                    </div>
-                    <div id="div_product_display_button">
-                        <input type="button" value="Thêm vào giỏ">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../../css/product-display.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            :root {
+                --boxshadow-color: #888888;
+                --border-color: #333333;
+                --line-color: #0083d6;
+                --menu-color: #ffb200;
+                --menu-color-choose: #0083d6;
+                --button-color: #d9d9d9;
+                --button-color-choose: #c0bfbf;
+            }
+            #div_product_display_total {
+                display: flex !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div_product_display_total">
+            <div id="div_product_display">
+                <div id="close_x" onclick="">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <div id="div_product_display_header">
+                    <img src="/img/iphone/iPhone11Pro-item.webp" alt="" />
+                    <div>
+                        <h1 id="div_product_display_name">iPhone 11 Pro</h1>
+                        <p id="div_product_display_name_price">24990000đ</p>
+                        <div id="div_product_display_color">
+                            <p>Màu:</p>
+                            <select name="Màu" id="color">
+                                <option value="">Chọn màu</option>
+                                <option value="Đen">Đen</option>
+                                <option value="Đỏ">Đỏ</option>
+                                <option value="Hồng">Hồng</option>
+                            </select>
+                        </div>
+                        <div id="div_product_display_ROM">
+                            <p>Dung lượng:</p>
+                            <select name="Dung lượng" id="ROM">
+                                <option value="">Chọn dung lượng</option>
+                                <option value="128GB">128GB</option>
+                                <option value="256GB">256GB</option>
+                                <option value="512GB">512GB</option>
+                            </select>
+                        </div>
+                        <div id="div_product_display_button">
+                            <input type="button" value="Thêm vào giỏ" />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="div_product_display_information">
-                <h4>Thông tin cấu hình:</h4>
-                <p id="div_product_display_information_p">Màn hình: Super Retina XDR OLED, 6.1 inch (iPhone 14 Pro) và 6.7 inch (iPhone 14 Pro Max), độ phân giải 2778 x 1284 pixel, tần số quét 120Hz<br>
-                    CPU: A16 Bionic<br>
-                    GPU: Apple GPU<br>
-                    RAM: 6GB<br>
-                    Camera sau:<br>
-                    *Camera chính 48MP, khẩu độ f/1.5, chống rung quang học dịch chuyển cảm biến thế hệ thứ hai, Focus Pixels 100%<br>
-                    *Camera góc siêu rộng 12MP, khẩu độ f/2.4 và trường ảnh 120°, Focus Pixels 100%<br>
-                    *Camera tele 12MP, khẩu độ f/2.8, zoom quang học 3x, tele 12MP, khẩu độ f/6.3, zoom quang học 5x<br>
-                    Camera trước: 12MP, khẩu độ f/2.2<br>
-                    Pin: 3.195mAh (iPhone 14 Pro) và 4.452mAh (iPhone 14 Pro Max)<br>
-                    Hệ điều hành: iOS 16
-                </p>
+                <div id="div_product_display_information">
+                    <h4>Thông tin cấu hình:</h4>
+                    <p id="div_product_display_information_p">
+                        Màn hình: Super Retina XDR OLED, 6.1 inch (iPhone 14 Pro) và 6.7 inch (iPhone 14 Pro Max), độ phân giải 2778 x 1284 pixel, tần
+                        số quét 120Hz<br />
+                        CPU: A16 Bionic<br />
+                        GPU: Apple GPU<br />
+                        RAM: 6GB<br />
+                        Camera sau:<br />
+                        *Camera chính 48MP, khẩu độ f/1.5, chống rung quang học dịch chuyển cảm biến thế hệ thứ hai, Focus Pixels 100%<br />
+                        *Camera góc siêu rộng 12MP, khẩu độ f/2.4 và trường ảnh 120°, Focus Pixels 100%<br />
+                        *Camera tele 12MP, khẩu độ f/2.8, zoom quang học 3x, tele 12MP, khẩu độ f/6.3, zoom quang học 5x<br />
+                        Camera trước: 12MP, khẩu độ f/2.2<br />
+                        Pin: 3.195mAh (iPhone 14 Pro) và 4.452mAh (iPhone 14 Pro Max)<br />
+                        Hệ điều hành: iOS 16
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
 </html>

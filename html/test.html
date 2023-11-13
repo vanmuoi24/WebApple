@@ -3,99 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Search Suggestions</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-            }
-
-            .search-container {
-                position: relative;
-                width: 300px;
-                margin: 50px auto;
-            }
-
-            #searchInput {
-                width: 100%;
-                padding: 10px;
-                font-size: 16px;
-            }
-
-            .suggestions {
-                list-style: none;
-                margin: 0;
-                padding: 0;
-                position: absolute;
-                width: 100%;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                background-color: #fff;
-                display: none;
-            }
-
-            .suggestions li {
-                z-index: 100;
-                padding: 10px;
-                border-bottom: 1px solid #ddd;
-                cursor: pointer;
-            }
-
-            .suggestions li:last-child {
-                border-bottom: none;
-            }
-        </style>
+        <title>Document</title>
     </head>
     <body>
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Enter your search" onclick="" />
-            <ul class="suggestions" id="suggestionList"></ul>
-        </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const searchInput = document.getElementById('searchInput');
-                const suggestionList = document.getElementById('suggestionList');
-
-                searchInput.addEventListener('input', function () {
-                    const inputValue = searchInput.value.toLowerCase();
-
-                    // Simulated data for suggestions
-                    const suggestions = ['apple', 'banana', 'orange', 'grape', 'watermelon'];
-
-                    const filteredSuggestions = suggestions.filter((suggestion) => suggestion.toLowerCase().includes(inputValue));
-
-                    displaySuggestions(filteredSuggestions);
-                });
-
-                function displaySuggestions(suggestions) {
-                    suggestionList.innerHTML = '';
-
-                    if (suggestions.length === 0) {
-                        suggestionList.style.display = 'none';
-                        return;
-                    }
-
-                    suggestions.forEach((suggestion) => {
-                        const li = document.createElement('li');
-                        li.textContent = suggestion;
-                        li.addEventListener('click', function () {
-                            searchInput.value = suggestion;
-                            suggestionList.style.display = 'none';
-                        });
-                        suggestionList.appendChild(li);
-                    });
-
-                    suggestionList.style.display = 'block';
-                }
-
-                // Close the suggestions when clicking outside the search container
-                document.addEventListener('click', function (event) {
-                    if (!event.target.closest('.search-container')) {
-                        suggestionList.style.display = 'none';
-                    }
-                });
-            });
-            addEventListener('keydown', function (event) {
-                if (event.ctrlKey) console.log('keydown', 'ctrlKey', event.keyCode);
-            });
-        </script>
+        <button>asdada</button>
+        <button>saddad</button>
     </body>
 </html>

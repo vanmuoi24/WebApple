@@ -173,7 +173,7 @@ function login_activated(check_login) {
     var div_login = document.getElementById('div_login');
     if (check_login === true) {
         document.getElementById('change_logout').textContent = 'Trang chủ Admin';
-        document.getElementById('change_logout').href = '/html/admin.html';
+        document.getElementById('change_logout').href = '../html/admin.html';
     } else {
         document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
         document.getElementById('change_logout').href = '#';
