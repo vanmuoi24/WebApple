@@ -378,14 +378,14 @@ function create_products() {
                 mau: ['Space Gray', 'Silver'],
                 luutru: ['256GB', '512gb'],
                 gia: 29950000,
-                chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels, 120 Hz
-        Hệ điều hành: iPadOS 16
-        Camera sau: Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
-        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
-        Chip: Apple M1 8 nhân
-        RAM: 8 GB
-        SIM: Không hỗ trợ
-        Pin, Sạc: 40.88Wh, sạc nhanh 18W`,
+                chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels, 120 Hz.
+        Hệ điều hành: iPadOS 16.
+        Camera sau: Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS.
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ.
+        Chip: Apple M1 8 nhân.
+        RAM: 8 GB.
+        SIM: Không hỗ trợ.
+        Pin, Sạc: 40.88Wh, sạc nhanh 18W.`,
             },
             {
                 id: 51,
@@ -397,14 +397,14 @@ function create_products() {
                 mau: ['Space Gray', 'Silver'],
                 luutru: ['256GB', '512gb'],
                 gia: 32990000,
-                chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels,120 Hz
-        Hệ điều hành: iPadOS 16
-        Camera sau:Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
-        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
-        Chip: Apple M1 8 nhân
-        RAM: 8 GB
-        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
-        Pin, Sạc: 40.88Wh, sạc nhanh 18W`,
+                chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels, 120 Hz.
+        Hệ điều hành: iPadOS 16.
+        Camera sau:Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS.
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ.
+        Chip: Apple M1 8 nhân.
+        RAM: 8 GB.
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G.
+        Pin, Sạc: 40.88Wh, sạc nhanh 18W.`,
             },
             {
                 id: 52,
@@ -416,15 +416,15 @@ function create_products() {
                 mau: ['Space Gray', 'Silver'],
                 luutru: ['256GB', '512gb'],
                 gia: 24890000,
-                chitiet: `Màn hình: Liquid Retina, 11 inch, độ phân giải 2388 x 1668 pixels,120 Hz
-        Hệ điều hành: iPadOS 16
+                chitiet: `Màn hình: Liquid Retina, 11 inch, độ phân giải 2388 x 1668 pixels, 120 Hz.
+        Hệ điều hành: iPadOS 16.
         Camera sau:
-        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
-        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
-        Chip: Apple M2 8 nhân
-        RAM: 8 GB
-        SIM: Không hỗ trợ
-        Pin, Sạc: 28.65 Wh, sạc nhanh 20 W`,
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS.
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ.
+        Chip: Apple M2 8 nhân.
+        RAM: 8 GB.
+        SIM: Không hỗ trợ.
+        Pin, Sạc: 28.65 Wh, sạc nhanh 20W.`,
             },
             {
                 id: 53,
@@ -436,15 +436,15 @@ function create_products() {
                 mau: ['Space Gray', 'Silver'],
                 luutru: ['256GB', '512gb'],
                 gia: 29990000,
-                chitiet: `Màn hình: Liquid Retina, 11 inch, độ phân giải 2388 x 1668 pixels,120 Hz
-        Hệ điều hành: iPadOS 16
+                chitiet: `Màn hình: Liquid Retina, 11 inch, độ phân giải 2388 x 1668 pixels, 120 Hz.
+        Hệ điều hành: iPadOS 16.
         Camera sau:
-        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
-        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
-        Chip: Apple M2 8 nhân
-        RAM: 8 GB
-        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
-        Pin, Sạc: 28.65 Wh, sạc nhanh 20 W`,
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS.
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ.
+        Chip: Apple M2 8 nhân.
+        RAM: 8 GB.
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G.
+        Pin, Sạc: 28.65 Wh, sạc nhanh 20W.`,
             },
             {
                 id: 54,
@@ -456,15 +456,15 @@ function create_products() {
                 mau: ['Space Gray', 'Silver'],
                 luutru: ['256GB', '512gb'],
                 gia: 28390000,
-                chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels,120 Hz
-        Hệ điều hành: iPadOS 16
+                chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels, 120 Hz.
+        Hệ điều hành: iPadOS 16.
         Camera sau:
-        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
-        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
-        Chip: Apple M2 8 nhân
-        RAM: 8 GB
-        SIM: Không hỗ trợ
-        Pin, Sạc: 40.88 Wh, sạc nhanh 20 W`,
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS.
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ.
+        Chip: Apple M2 8 nhân.
+        RAM: 8 GB.
+        SIM: Không hỗ trợ.
+        Pin, Sạc: 40.88 Wh, sạc nhanh 20W.`,
             },
             {
                 id: 55,
@@ -476,16 +476,16 @@ function create_products() {
                 mau: ['Space Gray', 'Silver'],
                 luutru: ['256GB', '512gb', '1TB'],
                 gia: 39990000,
-                chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels,120 Hz
-        Hệ điều hành: iPadOS 16
+                chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels, 120 Hz.
+        Hệ điều hành: iPadOS 16.
         Camera sau:
-        Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
-        Siêu rộng: 10 MP, khẩu độ f/2.4, góc nhìn 125 độ
-        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
-        Chip: Apple M2 8 nhân
-        RAM: 8 GB
-        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
-        Pin, Sạc: 40.88 Wh, sạc nhanh 20 W`,
+        Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS.
+        Siêu rộng: 10 MP, khẩu độ f/2.4, góc nhìn 125 độ.
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ.
+        Chip: Apple M2 8 nhân.
+        RAM: 8 GB.
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G.
+        Pin, Sạc: 40.88 Wh, sạc nhanh 20W.`,
             },
             {
                 id: 56,
@@ -497,15 +497,15 @@ function create_products() {
                 mau: ['Starlight', 'Space Gray', 'Blue', 'Purple', 'Pink'],
                 luutru: ['64GB', '256GB'],
                 gia: 17650000,
-                chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels, 120 Hz
-        Hệ điều hành: iPadOS 16
+                chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels, 120 Hz.
+        Hệ điều hành: iPadOS 16.
         Camera sau:
-        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
-        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
-        Chip: Apple A15 Bionic 6 nhân
-        RAM: 4 GB
-        SIM: Không hỗ trợ
-        Pin, Sạc: 28.65 Wh, sạc nhanh 20 W`,
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS.
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ.
+        Chip: Apple A15 Bionic 6 nhân.
+        RAM: 4 GB.
+        SIM: Không hỗ trợ.
+        Pin, Sạc: 28.65 Wh, sạc nhanh 20W.`,
             },
             {
                 id: 57,
@@ -517,15 +517,15 @@ function create_products() {
                 mau: ['Starlight', 'Space Gray', 'Blue', 'Purple', 'Pink'],
                 luutru: ['64GB', '256GB'],
                 gia: 21990000,
-                chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels, 120 Hz
-        Hệ điều hành: iPadOS 16
+                chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels, 120 Hz.
+        Hệ điều hành: iPadOS 16.
         Camera sau:
-        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
-        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
-        Chip: Apple A15 Bionic 6 nhân
-        RAM: 4 GB
-        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
-        Pin, Sạc: 28.65 Wh, sạc nhanh 20 W`,
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS.
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ.
+        Chip: Apple A15 Bionic 6 nhân.
+        RAM: 4 GB.
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G.
+        Pin, Sạc: 28.65 Wh, sạc nhanh 20W.`,
             },
             {
                 id: 58,
@@ -537,15 +537,15 @@ function create_products() {
                 mau: ['Silver', 'Space Gray', 'Sky Blue', 'Green', 'Pink'],
                 luutru: ['64GB', '256GB'],
                 gia: 14990000,
-                chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels
-        Hệ điều hành: iPadOS 16
+                chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels.
+        Hệ điều hành: iPadOS 16.
         Camera sau:
-        * Chính: 12 MP, khẩu độ f/1.8
-        Camera trước: 7 MP, khẩu độ f/2.2
-        Chip: Apple A14 Bionic 6 nhân
-        RAM: 4 GB
-        SIM: Không hỗ trợ
-        Pin, Sạc: 28.65 Wh, sạc nhanh 20 W`,
+        * Chính: 12 MP, khẩu độ f/1.8.
+        Camera trước: 7 MP, khẩu độ f/2.2.
+        Chip: Apple A14 Bionic 6 nhân.
+        RAM: 4 GB.
+        SIM: Không hỗ trợ.
+        Pin, Sạc: 28.65 Wh, sạc nhanh 20W.`,
             },
 
             {
@@ -558,15 +558,15 @@ function create_products() {
                 mau: ['Space Gray', 'Silver'],
                 luutru: ['64GB', '256GB'],
                 gia: 10990000,
-                chitiet: `Màn hình: Retina, 10.2 inch, độ phân giải 2160 x 1620 pixels
-        Hệ điều hành: iPadOS 16
+                chitiet: `Màn hình: Retina, 10.2 inch, độ phân giải 2160 x 1620 pixels.
+        Hệ điều hành: iPadOS 16.
         Camera sau:
-        * Chính: 8 MP, khẩu độ f/2.4
-        Camera trước: 12 MP, khẩu độ f/2.4
-        Chip: Apple A13 Bionic 6 nhân
-        RAM: 3 GB
-        SIM: Không hỗ trợ
-        Pin, Sạc: 8.82 Wh, sạc nhanh 20 W`,
+        * Chính: 8 MP, khẩu độ f/2.4.
+        Camera trước: 12 MP, khẩu độ f/2.4.
+        Chip: Apple A13 Bionic 6 nhân.
+        RAM: 3 GB.
+        SIM: Không hỗ trợ.
+        Pin, Sạc: 8.82 Wh, sạc nhanh 20W.`,
             },
             {
                 id: 60,
@@ -578,15 +578,15 @@ function create_products() {
                 mau: ['Space Gray', 'Silver'],
                 luutru: ['64GB', '256GB'],
                 gia: 13590000,
-                chitiet: `Màn hình: Retina, 10.2 inch, độ phân giải 2160 x 1620 pixels
-        Hệ điều hành: iPadOS 16
+                chitiet: `Màn hình: Retina, 10.2 inch, độ phân giải 2160 x 1620 pixels.
+        Hệ điều hành: iPadOS 16.
         Camera sau:
-        * Chính: 8 MP, khẩu độ f/2.4
-        Camera trước: 12 MP, khẩu độ f/2.4
-        Chip: Apple A13 Bionic 6 nhân
-        RAM: 3 GB
-        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
-        Pin, Sạc: 8.82 Wh, sạc nhanh 20 W`,
+        * Chính: 8 MP, khẩu độ f/2.4.
+        Camera trước: 12 MP, khẩu độ f/2.4.
+        Chip: Apple A13 Bionic 6 nhân.
+        RAM: 3 GB.
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G.
+        Pin, Sạc: 8.82 Wh, sạc nhanh 20W.`,
             },
             {
                 id: 61,
@@ -598,15 +598,15 @@ function create_products() {
                 mau: ['Blue', 'Pink', 'Silver', 'Yellow'],
                 luutru: ['64GB', '256GB'],
                 gia: 14490000,
-                chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels
-        Hệ điều hành: iPadOS 16
+                chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels.
+        Hệ điều hành: iPadOS 16.
         Camera sau:
-        * Chính: 12 MP, khẩu độ f/1.8
-        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
-        Chip: Apple A13 Bionic 6 nhân
-        RAM: 3 GB
-        SIM: Không hỗ trợ
-        Pin, Sạc: 8.82 Wh, sạc nhanh 20 W`,
+        * Chính: 12 MP, khẩu độ f/1.8.
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ.
+        Chip: Apple A13 Bionic 6 nhân.
+        RAM: 3 GB.
+        SIM: Không hỗ trợ.
+        Pin, Sạc: 8.82 Wh, sạc nhanh 20W.`,
             },
             {
                 id: 62,
@@ -618,15 +618,15 @@ function create_products() {
                 mau: ['Blue', 'Pink', 'Silver', 'Yellow'],
                 luutru: ['64GB', '256GB'],
                 gia: 17690000,
-                chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels
-        Hệ điều hành: iPadOS 16
+                chitiet: `Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels.
+        Hệ điều hành: iPadOS 16.
         Camera sau:
-        * Chính: 12 MP, khẩu độ f/1.8
-        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
-        Chip: Apple A13 Bionic 6 nhân
-        RAM: 3 GB
-        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
-        Pin, Sạc: 8.82 Wh, sạc nhanh 20 W`,
+        * Chính: 12 MP, khẩu độ f/1.8.
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ.
+        Chip: Apple A13 Bionic 6 nhân.
+        RAM: 3 GB.
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G.
+        Pin, Sạc: 8.82 Wh, sạc nhanh 20W.`,
             },
             {
                 id: 63,
@@ -638,15 +638,15 @@ function create_products() {
                 mau: ['Starlight', 'Purple', 'Space Gray', 'Pink'],
                 luutru: ['64GB', '256GB'],
                 gia: 10150000,
-                chitiet: `Màn hình: Liquid Retina, 8,3 inch, độ phân giải 2266 x 1488 pixels
-        Hệ điều hành: iPadOS 16
+                chitiet: `Màn hình: Liquid Retina, 8,3 inch, độ phân giải 2266 x 1488 pixels.
+        Hệ điều hành: iPadOS 16.
         Camera sau:
-        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
-        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
-        Chip: Apple A15 Bionic 6 nhân
-        RAM: 4 GB
-        SIM: Không hỗ trợ
-        Pin, Sạc: 19.3 Wh, sạc nhanh 20 W`,
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS.
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ.
+        Chip: Apple A15 Bionic 6 nhân.
+        RAM: 4 GB.
+        SIM: Không hỗ trợ.
+        Pin, Sạc: 19.3 Wh, sạc nhanh 20W.`,
             },
             {
                 id: 64,
@@ -658,15 +658,15 @@ function create_products() {
                 mau: ['Starlight', 'Purple', 'Space Gray', 'Pink'],
                 luutru: ['64GB', '256GB'],
                 gia: 11250000,
-                chitiet: `Màn hình: Liquid Retina, 8,3 inch, độ phân giải 2266 x 1488 pixels
-        Hệ điều hành: iPadOS 16
+                chitiet: `Màn hình: Liquid Retina, 8,3 inch, độ phân giải 2266 x 1488 pixels.
+        Hệ điều hành: iPadOS 16.
         Camera sau:
-        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS
-        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ
-        Chip: Apple A15 Bionic 6 nhân
-        RAM: 4 GB
-        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G
-        Pin, Sạc: 19.3 Wh, sạc nhanh 20 W`,
+        * Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS.
+        Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ.
+        Chip: Apple A15 Bionic 6 nhân.
+        RAM: 4 GB.
+        SIM: 1 Nano SIM & 1 eSIM Hỗ trợ Wi-Fi 6 & 5G.
+        Pin, Sạc: 19.3 Wh, sạc nhanh 20W.`,
             },
             {
                 id: 100,
@@ -1256,6 +1256,8 @@ document.getElementById('search_icon').addEventListener('click', function () {
     }
 });
 // Khởi tạo ban đầu của trang tìm kiếm
+var list_products_search;
+var list_products_search_save;
 function search_create() {
     // Xóa nút cũ, tạo ra 2 nút trái phải mới
     document.removeEventListener('keydown', fill_products_left_key);
@@ -1271,42 +1273,44 @@ function search_create() {
     products_search_number = 0;
     document.getElementById('div_search_products_number').textContent = products_search_number;
     // Khởi tạo sản phẩm tìm kiếm
+    var searchvalue = localStorage.getItem('searchvalue');
+    var list_products = JSON.parse(localStorage.getItem('products'));
+    list_products_search = list_products.filter((products) => products.tensp.toLowerCase().includes(searchvalue));
+    // Nếu có ít hơn 4 sản phẩm thì xóa 1 hàng đi
+    if (list_products_search.length <= 4) {
+        var div_products_view = document.getElementsByClassName('div_products_view');
+        div_products_view[0].style.marginBottom = '80px';
+        document.getElementById('div_search_products').remove();
+        div_products_view[1].remove();
+    }
+    // Sao lưu
+    list_products_search_save = list_products_search;
     fill_products_search_right();
 }
 // Fill sản phẩm khi load trang tìm kiếm
 function fill_products_search_right() {
     // Khởi tạo các số liệu cần thiết
     var div_products_view = document.getElementsByClassName('div_products_view');
-    var searchvalue = localStorage.getItem('searchvalue');
-    var list_products = JSON.parse(localStorage.getItem('products'));
-    const list_products_search = list_products.filter((products) => products.tensp.toLowerCase().includes(searchvalue));
-    if (list_products_search.length <= 4) {
-        var list_1 = create_list_right(list_products_search);
-        // Hiển thị ra
-        if (index_products <= list_products_search.length && list_1 !== '') {
-            div_products_view[0].innerHTML = list_1;
-            div_products_view[0].style.marginBottom = '80px';
-            document.getElementById('div_search_products').remove();
-            div_products_view[1].remove();
-        }
-    } else {
-        var list_1 = create_list_right(list_products_search);
-        var list_2 = create_list_right(list_products_search);
-        // Hiển thị ra
-        if (index_products <= list_products_search.length && list_1 !== '') {
+    // Reset hiển thị sản phẩm
+    if (index_products != list_products_search.length || index_products == 0) {
+        div_products_view[0].innerHTML = '';
+        if (div_products_view.length == 2) div_products_view[1].innerHTML = '';
+    }
+    var list_1 = create_list_right(list_products_search);
+    var list_2 = create_list_right(list_products_search);
+    // Hiển thị ra
+    if (index_products <= list_products_search.length && list_1 !== '') {
+        if (div_products_view.length == 2) {
             products_search_number++;
             document.getElementById('div_search_products_number').textContent = products_search_number;
-            div_products_view[0].innerHTML = list_1;
             div_products_view[1].innerHTML = list_2;
         }
+        div_products_view[0].innerHTML = list_1;
     }
 }
 function fill_products_search_left() {
     // Khởi tạo các số liệu cần thiết
     var div_products_view = document.getElementsByClassName('div_products_view');
-    var searchvalue = localStorage.getItem('searchvalue');
-    var list_products = JSON.parse(localStorage.getItem('products'));
-    const list_products_search = list_products.filter((products) => products.tensp.toLowerCase().includes(searchvalue));
     // Kiểm tra sàn lọc
     if ((index_products >= 16 || index_products == list_products_search.length) && index_products <= list_products_search.length) {
         var list = [];
@@ -1317,4 +1321,26 @@ function fill_products_search_left() {
         div_products_view[0].innerHTML = list[0];
         div_products_view[1].innerHTML = list[1];
     }
+}
+// Phân loại trong tìm kiếm
+function search_type() {
+    // Sao lưu lại
+    list_products_search = list_products_search_save;
+    // Reset giá trị
+    index_products = 0;
+    var div_search_products_number = document.getElementById('div_search_products_number');
+    if (div_search_products_number !== null) {
+        products_search_number = 0;
+        div_search_products_number.textContent = products_search_number;
+    }
+    // Lấy giá trị
+    var danhmuc = document.getElementById('danhmuc').value;
+    var price_before = document.getElementById('price_before').value;
+    var price_after = document.getElementById('price_after').value;
+    if (danhmuc !== '') list_products_search = list_products_search.filter((products) => products.danhmuc.toLowerCase().includes(danhmuc));
+    if (price_after !== '' && price_before !== '')
+        list_products_search = list_products_search.filter(function (obj) {
+            return obj.gia >= price_before && obj.gia <= price_after;
+        });
+    fill_products_search_right();
 }

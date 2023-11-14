@@ -33,7 +33,7 @@
                 <div id="div_search">
                     <div>
                         <input type="text" id="search" placeholder="Bạn cần tìm kiếm gì?" />
-                        <a href="../html/shopping-cart.html">
+                        <a href="#">
                             <img src="../img/icon/search.png" alt="search" title="Tìm kiếm" id="search_icon" />
                         </a>
                         <!-- Hiển thị gợi ý -->
@@ -74,7 +74,7 @@
                     <div class="form_login_main_body">
                         <div class="form_login_main_body_option">
                             <form onsubmit="check_login(event)" id="login_form">
-                                <label for="sdt">Số điện thoại</label><br />
+                                <label for="phone">Số điện thoại</label><br />
                                 <input type="text" id="phone" name="phone_number" required /><br /><br />
                                 <label for="password">Mật khẩu</label><br />
                                 <input type="password" id="password" name="password" required /><br /><br />
@@ -106,19 +106,19 @@
                 <div class="form_register_main_body">
                     <form id="register_form" onsubmit="check_register(event)">
                         <div class="form_register_main_body_left">
-                            <label for="name">Họ tên</label><br />
+                            <label for="register_name">Họ tên</label><br />
                             <input type="text" id="register_name" name="name" required /><br /><br />
-                            <label for="sdt">Số điện thoại</label><br />
+                            <label for="register_phone">Số điện thoại</label><br />
                             <input type="text" id="register_phone" name="phone_number" required /><br /><br />
-                            <label for="address">Địa chỉ</label><br />
+                            <label for="register_address">Địa chỉ</label><br />
                             <input type="text" id="register_address" name="Address" required /><br /><br />
                         </div>
                         <div class="form_register_main_body_right">
-                            <label for="email">Email</label><br />
+                            <label for="register_email">Email</label><br />
                             <input type="text" id="register_email" name="email" required /><br /><br />
-                            <label for="password">Mật khẩu</label><br />
+                            <label for="register_password">Mật khẩu</label><br />
                             <input type="password" id="register_password" name="password" required /><br /><br />
-                            <label for="password_again">Nhập lại mật khẩu</label><br />
+                            <label for="register_password_again">Nhập lại mật khẩu</label><br />
                             <input type="password" id="register_password_again" required /><br /><br />
                         </div>
                         <button type="submit">Đăng ký</button>
@@ -191,7 +191,7 @@
         </div>
         <!-- Hiển thị sản phẩm -->
         <div id="div_products">
-            <p id="p_products">Sản phẩm mới</p>
+            <p id="p_products">Đề xuất</p>
             <div id="div_products_total">
                 <div class="div_products_view"></div>
             </div>
