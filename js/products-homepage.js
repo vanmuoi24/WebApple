@@ -1170,13 +1170,22 @@ function shopping() {
             var waitting_buy = [];
             producttemp.mau = color;
             producttemp.luutru = ROM;
+            producttemp.soluong = 1;
             waitting_buy.push(producttemp);
             localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
         } else {
             var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
+            var check = true;
             producttemp.mau = color;
             producttemp.luutru = ROM;
-            waitting_buy.push(producttemp);
+            producttemp.soluong = 1;
+            waitting_buy.forEach(function (waitting_buy) {
+                if (waitting_buy.tensp === producttemp.tensp && waitting_buy.mau === producttemp.mau && waitting_buy.luutru === producttemp.luutru) {
+                    waitting_buy.soluong++;
+                    check = false;
+                }
+            });
+            if (check) waitting_buy.push(producttemp);
             localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
         }
         // Hàm bên login-logout-register.js
