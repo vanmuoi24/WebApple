@@ -1271,14 +1271,25 @@ function fill_products_search_right() {
     var searchvalue = localStorage.getItem('searchvalue');
     var list_products = JSON.parse(localStorage.getItem('products'));
     const list_products_search = list_products.filter((products) => products.tensp.toLowerCase().includes(searchvalue));
-    var list_1 = create_list_right(list_products_search);
-    var list_2 = create_list_right(list_products_search);
-    // Hiển thị ra
-    if (index_products <= list_products_search.length && list_1 !== '') {
-        products_search_number++;
-        document.getElementById('div_search_products_number').textContent = products_search_number;
-        div_products_view[0].innerHTML = list_1;
-        div_products_view[1].innerHTML = list_2;
+    if (list_products_search.length <= 4) {
+        var list_1 = create_list_right(list_products_search);
+        // Hiển thị ra
+        if (index_products <= list_products_search.length && list_1 !== '') {
+            div_products_view[0].innerHTML = list_1;
+            div_products_view[0].style.marginBottom = '80px';
+            document.getElementById('div_search_products').remove();
+            div_products_view[1].remove();
+        }
+    } else {
+        var list_1 = create_list_right(list_products_search);
+        var list_2 = create_list_right(list_products_search);
+        // Hiển thị ra
+        if (index_products <= list_products_search.length && list_1 !== '') {
+            products_search_number++;
+            document.getElementById('div_search_products_number').textContent = products_search_number;
+            div_products_view[0].innerHTML = list_1;
+            div_products_view[1].innerHTML = list_2;
+        }
     }
 }
 function fill_products_search_left() {
