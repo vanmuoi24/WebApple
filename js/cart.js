@@ -1,21 +1,60 @@
 inner_cart();
 
-function quantitydown() {
-    var inputElement = event.target.parentElement.querySelector('.qty-input');
-    if (inputElement.value > 1) inputElement.value--;
+function quantitydown(i) {
+    var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
+    if (waitting_buy[i].soluong > 1) waitting_buy[i].soluong--;
+    var inputElement = document.getElementsByClassName('qty-input numeric-input');
+    inputElement[i].value = waitting_buy[i].soluong;
+    localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
+    inner_cart();
 }
 
-function quantityup() {
-    var inputElement = event.target.parentElement.querySelector('.qty-input');
-    inputElement.value++;
+function quantityup(i) {
+    var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
+    waitting_buy[i].soluong++;
+    var inputElement = document.getElementsByClassName('qty-input numeric-input');
+    inputElement[i].value = waitting_buy[i].soluong;
+    localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
+    inner_cart();
 }
 
+// Ko cho nhập chữ vào input và giữ giá trị là số nguyên
+// document.addEventListener('input', function (event) {
+//     if (event.target.classList.contains('numeric-input')) {
+//         var inputElement = event.target;
+//         inputElement.value = parseInt(inputElement.value);
+//         inputElement.value = isNaN(inputElement.value) ? 1 : inputElement.value;
+
+//         var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
+
+//         localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
+//         inner_cart();
+//     }
+// });
 // Ko cho nhập chữ vào input và giữ giá trị là số nguyên
 document.addEventListener('input', function (event) {
     if (event.target.classList.contains('numeric-input')) {
         var inputElement = event.target;
+
+        // Kiểm tra xem ký tự được nhập vào có phải là chữ hay không
+        var isLetter = /[a-zA-Z]/g.test(event.key);
+
+        // Nếu là chữ, thì ngăn chặn ký tự đó được nhập vào
+        if (isLetter) {
+            event.preventDefault();
+        }
+
+        // Lấy index của input số lượng
+        var index = inputElement.dataset.index;
+
         inputElement.value = parseInt(inputElement.value);
         inputElement.value = isNaN(inputElement.value) ? 1 : inputElement.value;
+
+        // Lưu thay đổi vào mảng waitting_buy
+        var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
+        waitting_buy[index].soluong = inputElement.value;
+        localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
+        inner_cart();
     }
 });
 
@@ -56,16 +95,23 @@ function inner_cart() {
 		</td>
 		<td class="quantity">
 			<div class="cart-quantity-input-container">
-				<button class="buttom-tru " type="button" onclick="quantitydown()">-</button>
-				<input class="qty-input numeric-input" name="quantity-input" type="text" value="1" />
-				<button class="buttom-cong " type="button" onclick="quantityup()">+</button>
+				<button class="buttom-tru" type="button" onclick="quantitydown(${i})">-</button>
+				<input class="qty-input numeric-input"  type="text" value="${waitting_buy[i].soluong}" />
+				<button class="buttom-cong" type="button" onclick="quantityup(${i})">+</button>
 			</div>
 		</td>
-		<td class="unit-price">999999999d</td>
+		<td class="unit-price">${formatNumberWithCommas(waitting_buy[i].gia * waitting_buy[i].soluong)}VND</td>
 		<td class="option">
-			<i class="fa fa-trash" aria-hidden="true"></i>
+			<i class="fa fa-trash" aria-hidden="true" onclick="trashcart(${i})"></i>
 		</td>
-	</tr>`;
+	    </tr>`;
     }
     body_cart.innerHTML = list;
+}
+
+function trashcart(index) {
+    var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
+    waitting_buy.splice(index, 1);
+    localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
+    inner_cart();
 }
