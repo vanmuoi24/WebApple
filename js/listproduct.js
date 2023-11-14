@@ -67,9 +67,46 @@ product.addEventListener('click', (event) => {
                 </div>
                 <div class="add_right">
                     <div class="name_product">
-                    <label>Hãng điện thoại</label>
+                    <label>Tên Điện Thoại</label>
                     <input type="text" id="name_food" />
                     </div>
+                    <div class="color">
+                    <label>Màu:</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="xanh" value="Xanh" />
+                        <label for="xanh">Xanh</label>
+
+                        <input type="checkbox" id="do" value="Đỏ" />
+                        <label for="do">Đỏ</label>
+
+                        <input type="checkbox" id="tim" value="Tím" />
+                        <label for="tim">Tím</label>
+
+                        <input type="checkbox" id="vang" value="Vàng" />
+                        <label for="vang">Vàng</label>
+
+                        <input type="checkbox" id="cam" value="Cam" />
+                        <label for="cam">Cam</label>
+                    </div>
+                </div>
+                
+                <div class="rom">
+                <label>Dung Lượng : </label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="rom1" value="64GB" />
+                    <label for="rom1">64GB</label>
+            
+                    <input type="checkbox" id="rom2" value="256GB" />
+                    <label for="rom2">256GB</label>
+            
+                    <input type="checkbox" id="rom3" value="560GB" />
+                    <label for="rom3">560GB</label>
+            
+                    <input type="checkbox" id="rom4" value="1T" />
+                    <label for="rom4">1T</label>
+                </div>
+            </div>
+            
                     <div class="selection">
                     <label id="slection">Chọn Hãng</label>
                     <select id="select">
@@ -80,11 +117,14 @@ product.addEventListener('click', (event) => {
                     
                     </select>
                 </div>
-                <div class="price_product">
+                <div class="name_product">
                     <label for="">Mã Sản Phẩm:</label>
                     <input type="text" id="key_food" />
                     <label for="">Giá Bán:</label>
                     <input type="text" id="price_food" />
+                    <label for="">Chi Tiết:</label>
+                    <textarea id="ghi_chu" rows="4" cols="50"></textarea>
+
                 </div>
                 <div class="save_product">
                 <button id="save_product">Lưu Sản Phẩm</button>
@@ -126,6 +166,9 @@ product.addEventListener('click', (event) => {
     const img_product = document.getElementById('PreviewImage');
     const key_food = document.getElementById('key_food');
     const foodSelect = document.getElementById('select');
+    const rom = document.getElementsByClassName('rom')[0];
+    const color = document.getElementsByClassName('color')[0];
+    const ghi_chu = document.getElementById('ghi_chu');
     save_product_button.addEventListener('click', () => {
         var list_product = JSON.parse(localStorage.getItem('products')) || [];
 
@@ -135,8 +178,26 @@ product.addEventListener('click', (event) => {
             gia: price_food.value,
             masp: key_food.value,
             hinhanhitem: img_product.src,
+            hinhanhMoTa: img_product.src,
+            mau: [],
+            luutru: [],
             danhmuc: foodSelect.value,
+            chitiet: ghi_chu.value,
         };
+        var colorCheckboxes = color.getElementsByClassName('checkbox-group')[0].getElementsByTagName('input');
+
+        for (var i = 0; i < colorCheckboxes.length; i++) {
+            if (colorCheckboxes[i].checked) {
+                user.mau.push(colorCheckboxes[i].value);
+            }
+        }
+        var checkboxes = rom.getElementsByClassName('checkbox-group')[0].getElementsByTagName('input');
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                user.luutru.push(checkboxes[i].value);
+            }
+        }
         console.log(user);
         list_product.unshift(user);
         const add_product = document.getElementsByClassName('add_product')[0];
@@ -264,7 +325,7 @@ function food_select() {
               <td><img src="${list.hinhanhitem}" alt="" /></td>
               <td>${list.danhmuc}</td>
               <td>${list.gia}</td>
-              <td>
+              <td id="dele_edit" >
 
                 <i class="fa-solid fa-trash" onclick="delete_product(${indexall})"></i>
                 <i class="fa-regular fa-pen-to-square" onclick="edit_product(${indexall})"></i>
@@ -369,7 +430,7 @@ function renderProductall() {
         <td><img src="${item.hinhanhitem}" alt="" /></td>
         <td>${item.danhmuc}</td>
         <td>${item.gia}</td>
-        <td>
+        <td id="dele_edit" >
           <i class="fa-solid fa-trash" onclick="delete_product(${indexall})"></i>
           <i class="fa-regular fa-pen-to-square" onclick="edit_product(${indexall})"></i>
         </td>

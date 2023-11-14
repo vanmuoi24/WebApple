@@ -110,6 +110,9 @@ td {
     border: 1px solid black;
     border-collapse: collapse;
 }
+#dele_edit {
+    font-size: 1.2rem;
+}
 /* Table list Product */
 .list_product {
     text-align: center;
@@ -170,10 +173,11 @@ td {
     width: 100px;
     background-color: #0083d6;
     border: none;
-    height: 20px;
+    height: 30px;
     border-radius: 3px;
     color: white;
 }
+
 /* Phân trang */
 .pagination-buttons {
     display: flex;
@@ -193,13 +197,13 @@ td {
     box-shadow: 0px 5px 10px 1px rgb(98, 98, 232);
     width: 40%;
     background-color: #0083d6;
-    height: 300px;
+    height: 500px;
     /* background-color: aliceblue; */
     justify-content: space-between;
     position: absolute;
     top: -1000px;
     /* top: 30%; */
-    left: 40%;
+    left: 30%;
     transition: 1.5s;
 }
 .add_product.top {
@@ -214,7 +218,7 @@ td {
     display: flex;
     flex-direction: column;
     width: auto;
-    width: 60%;
+    width: 50%;
     gap: 30px;
 }
 .add_left p {
@@ -233,14 +237,47 @@ td {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
+    width: 80%;
 }
 .name_produc {
     width: 100%;
 }
-.add_right input {
+.rom {
+    font-family: Arial, sans-serif;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-group input {
+    display: none; /* Ẩn checkbox mặc định */
+}
+
+.checkbox-group label {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkbox-group input:checked + label {
+    background-color: #ed1313;
+    color: #ffffff;
+}
+.name_product {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.name_product input {
     padding: 5px 5px;
-    width: 100%;
+    width: 80%;
     height: 30px;
+
     border-radius: 5px;
     border: 1px solid wheat;
     outline: none;
@@ -252,14 +289,12 @@ td {
 .save_product {
     margin-top: 15px;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 button:hover {
     cursor: pointer;
 }
 .save_product button {
-    width: 40%;
+    width: 30%;
     border: 1px solid white;
     height: 40px;
 
@@ -375,7 +410,7 @@ button:hover {
     width: 80px;
     height: 30px;
     border: none;
-    background: #39cc01;
+    background: #0083d6;
     color: white;
 }
 .client_header tbody i {
