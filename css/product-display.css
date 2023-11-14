@@ -104,3 +104,53 @@
     line-height: normal;
     padding-bottom: 10px;
 }
+/* Css riêng của search */
+#div_product_search_type {
+    width: 750px;
+    display: flex;
+    align-items: center;
+}
+#div_product_search_type select {
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #000;
+    background: #fff;
+    width: 100px;
+    height: 33px;
+    color: #000;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+#div_product_search_price {
+    margin-left: 100px;
+    display: flex;
+    width: 270px;
+    align-items: center;
+    justify-content: space-between;
+}
+#div_product_search_price input {
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #000;
+    background: #fff;
+    width: 120px;
+    height: 30px;
+    color: #000;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+}
+#div_product_search p {
+    height: 10px;
+    color: #000;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+}

@@ -330,7 +330,7 @@ function login() {
         if (check_admin) {
             var accounts = JSON.parse(localStorage.getItem('admin'));
             document.getElementById('change_logout').textContent = 'Trang chủ Admin';
-            document.getElementById('change_logout').href = '/html/admin.html';
+            document.getElementById('change_logout').href = '../html/admin.html';
         } else {
             var accounts = JSON.parse(localStorage.getItem('user'));
             document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
