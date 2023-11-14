@@ -1,309 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ThunderShop</title>
-  <link rel="shortcut icon" href="/img/icon/icon-web.png" type="image/x-icon"/>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-  <!-- Form chữ -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet"/>
-  <!-- Css version -->
-  <link rel="stylesheet" href="/css/header.css" />
-  <link rel="stylesheet" href="/css/login.css" />
-  <link rel="stylesheet" href="/css/register.css" />
-  <link rel="stylesheet" href="/css/shopping_cart.css">
-</head>
-<body>
-  <!-- Line xanh đầu trang -->
-  <div id="header_line"></div>
-  <!-- Khu vực tìm kiếm tiếm, giỏ hàng, login -->
-  <div id="header_items">
-    <div id="total_items">
-      <div id="div_logo">
-        <a href="homepage.html">
-          <img src="/img/logo.png" alt="logo" id="logo" title="THUNDER TECHNOLOGY SHOP"/>
-        </a>
-      </div>
-      <div id="div_search">
-        <form action="#">
-          <input type="text" id="search" placeholder="Bạn cần tìm kiếm gì?"/>
-          <a href="#">
-            <img src="/img/icon/search.png" alt="search" title="Tìm kiếm"/>
-          </a>
-        </form>
-      </div>
-      <div id="div_shopping">
-        <a href="#">
-          <img src="/img/icon/logo-shopping.png" alt="shopping"/>
-          <p>Giỏ hàng</p>
-        </a>
-      </div>
-      <div id="div_login" onmouseover="" onmouseout="" onclick="open_login()">
-        <img src="/img/icon/icon-login.png" alt="icon-login"/>
-        <div id="div_login_text">
-          <p id="login_text">Đăng<br />nhập</p>
-          <div id="div_logout">
-            <a>Thông tin tài khoản</a>
-            <a id="change_logout">Đơn hàng của tôi</a>
-            <a onclick="logout()">Đăng xuất</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Form login -->
-  <div id="form_login_total">
-    <div class="form_login">
-      <div class="form_login_main">
-        <div class="form_login_main_head">
-          <div class="form_login_main_title">
-            <h2>Đăng nhập</h2>
-          </div>
-          <div class="close_x" onclick="close_login()">
-            <i class="fa fa-times" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="form_login_main_body">
-          <div class="form_login_main_body_option">
-            <form onsubmit="check_login(event)" id="login_form">
-              <label for="sdt">Số điện thoại</label><br />
-              <input
-                type="text"
-                id="phone"
-                name="phone_number"
-                required
-              /><br/><br/>
-              <label for="password">Mật khẩu</label><br />
-              <input
-                type="password"
-                id="password"
-                name="password"
-                required
-              /><br /><br />
-              <div class="option_submit">
-                <input type="submit" value="Đăng nhập" class="submit" />
-              </div>
-              <div id="div_login_notify">
-                <p id="login_notify"></p>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="form_login_main_footer">
-          <div class="form_login_main_footer_text">
-            Bạn chưa có tài khoản?
-          </div>
-          <div style="padding-left: 5px">
-            <a href="#" onclick="open_register()">Đăng kí!</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Form register -->
-  <div id="form_register_total">
-    <div class="form_register_main">
-      <div class="form_register_main_head">
-        <h2>Đăng ký tài khoản</h2>
-        <i
-          class="fa fa-times close_x"
-          aria-hidden="true"
-          onclick="close_register()"
-        ></i>
-      </div>
-      <div class="form_register_main_body">
-        <form id="register_form" onsubmit="check_register(event)">
-          <div class="form_register_main_body_left">
-            <label for="name">Họ tên</label><br />
-            <input
-              type="text"
-              id="register_name"
-              name="name"
-              required
-            /><br /><br />
-            <label for="sdt">Số điện thoại</label><br />
-            <input
-              type="text"
-              id="register_phone"
-              name="phone_number"
-              required
-            /><br /><br />
-            <label for="address">Địa chỉ</label><br />
-            <input
-              type="text"
-              id="register_address"
-              name="Address"
-              required
-            /><br /><br />
-          </div>
-          <div class="form_register_main_body_right">
-            <label for="email">Email</label><br />
-            <input
-              type="text"
-              id="register_email"
-              name="email"
-              required
-            /><br /><br />
-            <label for="password">Mật khẩu</label><br />
-            <input
-              type="password"
-              id="register_password"
-              name="password"
-              required
-            /><br /><br />
-            <label for="password_again">Nhập lại mật khẩu</label><br />
-            <input
-              type="password"
-              id="register_password_again"
-              required
-            /><br /><br />
-          </div>
-          <button type="submit">Đăng ký</button>
-          <div id="div_register_notify">
-            <p id="register_notify"></p>
-          </div>
-        </form>
-      </div>
-      <div class="form_register_main_footer">
-        <p>Bạn đã có tài khoản?</p>
-        <a href="#" onclick="open_login()">Đăng nhập!</a>
-      </div>
-    </div>
-  </div>
-  <!-- Menu -->
-  <div id="header_menu">
-    <div id="total_menu">
-      <div class="menu">
-        <div id="iphone" onclick="products_type('iPhone')">
-          <a href="#">
-            <img src="/img/icon/icon-iphone.png" alt="iphone" />
-            <p>iPhone</p>
-          </a>
-        </div>
-        <div id="ipad" onclick="products_type('iPad')">
-          <a href="#">
-            <img src="/img/icon/icon-ipad.png" alt="ipad" />
-            <p>iPad</p>
-          </a>
-        </div>
-        <div id="mac" onclick="products_type('Macbook')">
-          <a href="#">
-            <img src="/img/icon/icon-mac.png" alt="mac" />
-            <p>Macbook</p>
-          </a>
-        </div>
-      </div>
-      <div class="menu">
-        <div id="security">
-          <a href="/html/chinh-sach-bao-hanh.html">
-            <img src="/img/icon/security.png" alt="security" />
-            <p>Chính sách bảo hành</p>
-          </a>
-        </div>
-        <div id="information">
-          <a href="#footer">
-            <img src="/img/icon/headphone.png" alt="headphone" />
-            <p>Thông tin liên hệ</p>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-<section>
-    <div> Gio hang </div>
-
-    <div class="order_container ">
-        <form action="/cart" method="post" id="shopping_cart_form">
-            <div class="shopping_cart_info">
-                
-                <div class="cart_detail">
-                    <div class="table_warpper">
-                        <table class="cart">
-                            <colgroup>
-                                <col width="100px">
-                                <col width="350px">
-                                <col width="100px">
-                                <col width="100px">
-                                <col width="50px"> 
-                            </colgroup>
-                            <thead>
-                                <tr>
-                                    <th class="product-info1">San pham</th>
-                                    <th class="product-info2"></th>
-                                    <th class="quantity">So luong</th>
-                                    <th class="unit-price">Tong tien</th>
-                                    <th class="option">Xóa </th>
-                                </tr>
-                            </thead>
-                            <tbody id="body-cart">
-                                
-                                <tr>
-                                    <td style="color: blue;" class="product-info1">
-                                        <img src="/img/iphone/iPhone11-item.webp" alt="alo">
-                                        <!-- <br> -->
-                                        <p>19.999.000đ</p>
-                                          
-                                    </td>
-                                    <td class="product-info2">
-                                      
-                                        iPhone 11 Plus
-                                        <br>
-                                        Màu: Black
-                                        <br>
-                                        Dung luong: 512GB
-                                      
-                                    </td>
-                                    <td class="quantity">
-                                        <div class="cart-quantity-input-container">
-                                            <button id="buttom-tru " type="button" onclick="quantitydown()">-</button>
-                                            <input id="qty-input" name="quantity-input" type="text" value="1" >
-                                            <button id="buttom-cong " type="button" onclick="quantityup()">+</button>
-                                        </div>
-                                    </td>
-                                    <td class="unit-price">
-                                        999999999d
-                                    </td>
-                                    <td class="option">
-                                        <!-- <img src="/img/icon/news.png" alt=""> -->
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>ThunderShop</title>
+        <link rel="shortcut icon" href="../img/icon/icon-web.png" type="image/x-icon" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <!-- Form chữ -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
+        <!-- Css version -->
+        <link rel="stylesheet" href="../css/header.css" />
+        <link rel="stylesheet" href="../css/login.css" />
+        <link rel="stylesheet" href="../css/register.css" />
+        <link rel="stylesheet" href="../css/shopping_cart.css" />
+    </head>
+    <body>
+        <!-- Line xanh đầu trang -->
+        <div id="header_line"></div>
+        <!-- Khu vực tìm kiếm tiếm, giỏ hàng, login -->
+        <div id="header_items">
+            <div id="total_items">
+                <div id="div_logo">
+                    <a href="homepage.html">
+                        <img src="../img/logo.png" alt="logo" id="logo" title="THUNDER TECHNOLOGY SHOP" />
+                    </a>
+                </div>
+                <div id="div_search">
+                    <div>
+                        <input type="text" id="search" placeholder="Bạn cần tìm kiếm gì?" />
+                        <a href="#">
+                            <img src="../img/icon/search.png" alt="search" title="Tìm kiếm" id="search_icon" />
+                        </a>
+                        <!-- Hiển thị gợi ý -->
+                        <ul id="suggestions"></ul>
                     </div>
-                    <div class="cart_option">
-                      <button type="submit" name="capnhat-cart" class="button1 button-cart">Cập nhật giỏ hàng </button>
-                      <button type="submit" name="tieptuc-cart" class="button2 button-cart">Tiếp tục mua hàng </button>
+                </div>
+                <div id="div_shopping">
+                    <a href="#">
+                        <img src="../img/icon/logo-shopping.png" alt="shopping" />
+                        <p>Giỏ hàng</p>
+                    </a>
+                </div>
+                <div id="div_login" onmouseover="" onmouseout="" onclick="open_login()">
+                    <img src="../img/icon/icon-login.png" alt="icon-login" />
+                    <div id="div_login_text">
+                        <p id="login_text">Đăng<br />nhập</p>
+                        <div id="div_logout">
+                            <a>Thông tin tài khoản</a>
+                            <a id="change_logout">Đơn hàng của tôi</a>
+                            <a onclick="logout()">Đăng xuất</a>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="row" > 
-              <p id="total-price">Tổng cộng: </p>
-              <hr style="background-color: rgb(122, 122, 122);  border: none; height: 2px;  width: 100%; margin: 10px auto;">
-              
-              <button type="submit" name="capnhat-cart" class="button3 ">Đặt hàng</button>
+        </div>
+        <!-- Form login -->
+        <div id="form_login_total">
+            <div class="form_login">
+                <div class="form_login_main">
+                    <div class="form_login_main_head">
+                        <div class="form_login_main_title">
+                            <h2>Đăng nhập</h2>
+                        </div>
+                        <div class="close_x" onclick="close_login()">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="form_login_main_body">
+                        <div class="form_login_main_body_option">
+                            <form onsubmit="check_login(event)" id="login_form">
+                                <label for="sdt">Số điện thoại</label><br />
+                                <input type="text" id="phone" name="phone_number" required /><br /><br />
+                                <label for="password">Mật khẩu</label><br />
+                                <input type="password" id="password" name="password" required /><br /><br />
+                                <div class="option_submit">
+                                    <input type="submit" value="Đăng nhập" class="submit" />
+                                </div>
+                                <div id="div_login_notify">
+                                    <p id="login_notify"></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="form_login_main_footer">
+                        <div class="form_login_main_footer_text">Bạn chưa có tài khoản?</div>
+                        <div style="padding-left: 5px">
+                            <a href="#" onclick="open_register()">Đăng kí!</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </form>
-    </div> 
-    </section>
+        </div>
+        <!-- Form register -->
+        <div id="form_register_total">
+            <div class="form_register_main">
+                <div class="form_register_main_head">
+                    <h2>Đăng ký tài khoản</h2>
+                    <i class="fa fa-times close_x" aria-hidden="true" onclick="close_register()"></i>
+                </div>
+                <div class="form_register_main_body">
+                    <form id="register_form" onsubmit="check_register(event)">
+                        <div class="form_register_main_body_left">
+                            <label for="name">Họ tên</label><br />
+                            <input type="text" id="register_name" name="name" required /><br /><br />
+                            <label for="sdt">Số điện thoại</label><br />
+                            <input type="text" id="register_phone" name="phone_number" required /><br /><br />
+                            <label for="address">Địa chỉ</label><br />
+                            <input type="text" id="register_address" name="Address" required /><br /><br />
+                        </div>
+                        <div class="form_register_main_body_right">
+                            <label for="email">Email</label><br />
+                            <input type="text" id="register_email" name="email" required /><br /><br />
+                            <label for="password">Mật khẩu</label><br />
+                            <input type="password" id="register_password" name="password" required /><br /><br />
+                            <label for="password_again">Nhập lại mật khẩu</label><br />
+                            <input type="password" id="register_password_again" required /><br /><br />
+                        </div>
+                        <button type="submit">Đăng ký</button>
+                        <div id="div_register_notify">
+                            <p id="register_notify"></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="form_register_main_footer">
+                    <p>Bạn đã có tài khoản?</p>
+                    <a href="#" onclick="open_login()">Đăng nhập!</a>
+                </div>
+            </div>
+        </div>
+        <!-- Menu -->
+        <div id="header_menu">
+            <div id="total_menu">
+                <div class="menu">
+                    <div id="iphone" onclick="products_type('iPhone')">
+                        <a href="#">
+                            <img src="../img/icon/icon-iphone.png" alt="iphone" />
+                            <p>iPhone</p>
+                        </a>
+                    </div>
+                    <div id="ipad" onclick="products_type('iPad')">
+                        <a href="#">
+                            <img src="../img/icon/icon-ipad.png" alt="ipad" />
+                            <p>iPad</p>
+                        </a>
+                    </div>
+                    <div id="mac" onclick="products_type('Macbook')">
+                        <a href="#">
+                            <img src="../img/icon/icon-mac.png" alt="mac" />
+                            <p>Macbook</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div id="security">
+                        <a href="../html/chinh-sach-bao-hanh.html">
+                            <img src="../img/icon/security.png" alt="security" />
+                            <p>Chính sách bảo hành</p>
+                        </a>
+                    </div>
+                    <div id="information">
+                        <a href="#footer">
+                            <img src="../img/icon/headphone.png" alt="headphone" />
+                            <p>Thông tin liên hệ</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Giỏ hàng -->
+        <section>
+            <div>Gio hang</div>
 
-</body>
+            <div class="order_container">
+                <form action="../cart" method="post" id="shopping_cart_form">
+                    <div class="shopping_cart_info">
+                        <div class="cart_detail">
+                            <div class="table_warpper">
+                                <table class="cart">
+                                    <colgroup>
+                                        <col width="100px" />
+                                        <col width="350px" />
+                                        <col width="100px" />
+                                        <col width="100px" />
+                                        <col width="50px" />
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th class="product-info1">San pham</th>
+                                            <th class="product-info2"></th>
+                                            <th class="quantity">So luong</th>
+                                            <th class="unit-price">Tong tien</th>
+                                            <th class="option">Xóa</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="body-cart">
+                                        <tr>
+                                            <td style="color: blue" class="product-info1">
+                                                <img src="../img/iphone/iPhone11-item.webp" alt="alo" />
+                                                <!-- <br> -->
+                                                <p>19.999.000đ</p>
+                                            </td>
+                                            <td class="product-info2">
+                                                iPhone 11 Plus
+                                                <br />
+                                                Màu: Black
+                                                <br />
+                                                Dung luong: 512GB
+                                            </td>
+                                            <td class="quantity">
+                                                <div class="cart-quantity-input-container">
+                                                    <button id="buttom-tru " type="button" onclick="quantitydown()">-</button>
+                                                    <input id="qty-input" name="quantity-input" type="text" value="1" />
+                                                    <button id="buttom-cong " type="button" onclick="quantityup()">+</button>
+                                                </div>
+                                            </td>
+                                            <td class="unit-price">999999999d</td>
+                                            <td class="option">
+                                                <!-- <img src="../img/icon/news.png" alt=""> -->
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="cart_option">
+                                <button type="submit" name="capnhat-cart" class="button1 button-cart">Cập nhật giỏ hàng</button>
+                                <button type="submit" name="tieptuc-cart" class="button2 button-cart">Tiếp tục mua hàng</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p id="total-price">Tổng cộng:</p>
+                        <hr style="background-color: rgb(122, 122, 122); border: none; height: 2px; width: 100%; margin: 10px auto" />
 
-<!-- JaveScript -->
-
-<script src="/js/products-homepage.js"></script>
-<script src="/js/login-logout-register.js"></script>
-<script>
-  // Đảm bảo rằng toàn bộ dữ liệu đã được load xong
-  document.addEventListener("DOMContentLoaded", function () {
-    // fill_products_right();
-    document.body.style.display = "flex";
-  });
-</script>
-
-<script src="/js/cart.js"></script>
+                        <button type="submit" name="capnhat-cart" class="button3">Đặt hàng</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </body>
+    <!-- JaveScript -->
+    <script src="../js/products-homepage.js"></script>
+    <script src="../js/login-logout-register.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        // Đảm bảo rằng toàn bộ dữ liệu đã được load xong
+        document.addEventListener('DOMContentLoaded', function () {
+            document.body.style.display = 'flex';
+        });
+    </script>
 </html>

@@ -1,24 +1,16 @@
-
-* {
-    padding: 0;
-    margin: 0;
-}
-
 :root {
     --boxshadow-color: #888888;
     --border-color: #333333;
-    --line-color: #0083D6;
-    --menu-color: #FFB200;
-    --button-color: #D9D9D9;
+    --line-color: #0083d6;
+    --menu-color: #ffb200;
+    --button-color: #d9d9d9;
     --button-color-choose: #c0bfbf;
 }
 /* :root định nghĩa các biến CSS (custom properties) toàn cục (global) mà bạn muốn sử dụng trong
  toàn bộ trang web hoặc ứng dụng. Điều này giúp bạn quản lý một tập hợp các giá trị màu sắc,
   kích thước hoặc bất kỳ thuộc tính CSS nào khác một cách dễ dàng và tối ưu hóa quá trình bảo trì. */
 
-
-
-.order_container{
+.order_container {
     min-width: 1250px;
     width: 100%;
     margin: auto;
@@ -28,7 +20,7 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    padding: 0 ;
+    padding: 0;
 }
 .shopping_cart_info {
     position: relative;
@@ -61,12 +53,16 @@
 }
 .cart-quantity-input-container button {
     background-color: transparent;
-    border: none; 
-    color: #000000; 
+    border: none;
+    color: #000000;
     cursor: pointer; /* Hiển thị con trỏ khi di chuột qua */
-    }
+}
 .cart-quantity-input-container input {
-    width: 25px; border: none ; background-color: transparent; text-align: center; outline: none;
+    width: 25px;
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    outline: none;
 }
 
 table {
@@ -84,30 +80,35 @@ table {
 }
 .product-info1 img {
     height: 100px;
-    width: 100px ;
+    width: 100px;
 }
 
-th, td {
+th,
+td {
     padding: 10px;
     text-align: left;
     border-bottom: 3px solid #969696;
     line-height: 1.5;
     font-size: 1em;
 }
-.product-info2, .quantity, .option, .unit-price {
+.product-info2,
+.quantity,
+.option,
+.unit-price {
     margin: 0;
     padding-top: 10px;
-    vertical-align: top; 
+    vertical-align: top;
 }
 .cart_option {
     padding: 10px 0;
 }
-.button-cart , .button3 {
+.button-cart,
+.button3 {
     margin-top: 10px 20px;
-    background: #fff ;
-    border: 2px solid var(--menu-color) ;
-    border-radius: 8px ;
-    color: #0066CC ;
+    background: #fff;
+    border: 2px solid var(--menu-color);
+    border-radius: 8px;
+    color: #0066cc;
     min-width: 150px;
     font-size: 14px;
     padding: 10px 20px;
@@ -121,7 +122,7 @@ th, td {
     /* background-color: #2be7e7; */
     padding-top: 27px;
 }
-.row p{
+.row p {
     align-self: flex-start;
     padding-left: 1px;
     line-height: 1.5;
