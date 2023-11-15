@@ -185,14 +185,13 @@ product.addEventListener('click', (event) => {
             chitiet: ghi_chu.value,
         };
         var colorCheckboxes = color.getElementsByClassName('checkbox-group')[0].getElementsByTagName('input');
-
         for (var i = 0; i < colorCheckboxes.length; i++) {
             if (colorCheckboxes[i].checked) {
                 user.mau.push(colorCheckboxes[i].value);
             }
         }
-        var checkboxes = rom.getElementsByClassName('checkbox-group')[0].getElementsByTagName('input');
 
+        var checkboxes = rom.getElementsByClassName('checkbox-group')[0].getElementsByTagName('input');
         for (var i = 0; i < checkboxes.length; i++) {
             if (checkboxes[i].checked) {
                 user.luutru.push(checkboxes[i].value);
@@ -439,7 +438,6 @@ function renderProductall() {
       `;
             }
         });
-
         table.innerHTML = list_table;
     }
     renderProduct();
@@ -505,7 +503,6 @@ function peole() {
     var clinet;
     const peole = document.getElementById('peole');
     peole.addEventListener('click', () => {
-        console.log(right_header);
         clinet = `
     <div class="client">
       <div class="client_header">
@@ -542,30 +539,38 @@ function peole() {
               </table>
             </div>
             <div class="add_product_1">
-                <p>Thêm Khách Hàng</p>
+              <p>Thêm Khách Hàng</p>
               <div class="all_add">
               <div class="customer_add">
-              <div class="s"> <lable>HỌ VÀ TÊN</lable>
-              <input type="text"/></div>
-              <div class="s"><lable>LIÊN HỆ</lable>
-              <input type="text"/></div>
-              <div class="s"><lable>passwowrd</lable>
-              <input type="text"/></div>
+                <div class="s"> 
+                    <lable style="width:100px">HỌ VÀ TÊN</lable>
+                    <input type="text"/>
+                </div>
+                <div class="s">
+                    <lable style="width:100px">LIÊN HỆ</lable>
+                    <input type="text"/>
+                </div>
+                <div class="s">
+                    <lable style="width:100px">passwowrd</lable>
+                    <input type="text"/>
+                </div>
+              <div class="clent_button">
               <button id="add_clent">Thêm Khách Hàng</button>
+              <button id="save_clent">Lưu Khách Hàng</button>
+              </div>
               </div>
                 <div class="icon_x_1">
                     <i class="fa-solid fa-x fa-beat" id="icon_add"></i>
                 </div>
              </div> 
               </div>
-          
         </div>
     </div>
     `;
         right_header.innerHTML = clinet;
         user();
         renderuser();
-        seach();
+        seach_people();
         user_slection();
     });
     function user() {
@@ -598,15 +603,43 @@ function peole() {
 }
 peole();
 
+//Xóa Khách Hàng
 function delete_user(id) {
     const acount = JSON.parse(localStorage.getItem('user')) || [];
     var dele = confirm('Bạn có muốn xóa không');
     if (dele) {
         acount.splice(id, 1);
         localStorage.setItem('user', JSON.stringify(acount));
-
         renderuser();
     }
+}
+// Chỉnh Sửa Khách Hàng
+function edit_user(id) {
+    const add_product = document.getElementsByClassName('add_product_1')[0];
+
+    const acount = JSON.parse(localStorage.getItem('user')) || [];
+    var acount_id = acount[id];
+
+    var save_clent = document.getElementById('save_clent');
+
+    save_clent.style.display = 'block';
+    let value_input = document.querySelectorAll('.all_add input');
+    document.getElementById('add_clent').style.display = 'none';
+    add_customer();
+    value_input[0].value = acount_id.name;
+    value_input[1].value = acount_id.phone;
+    value_input[2].value = acount_id.password;
+    save_clent.addEventListener('click', () => {
+        acount_id.name = value_input[0].value;
+        acount_id.phone = value_input[1].value;
+        acount_id.password = value_input[2].value;
+        add_product.classList.remove('top');
+        localStorage.setItem('user', JSON.stringify(acount));
+        renderuser();
+        value_input[0].value = '';
+        value_input[1].value = '';
+        value_input[2].value = '';
+    });
 }
 function renderuser() {
     var tbody = document.getElementsByTagName('tbody')[0];
@@ -619,16 +652,17 @@ function renderuser() {
     }
 
     acount.forEach((list, index) => {
-        var displayIndex = index + 1;
+        var indexall = index;
+        index++;
         userall += `<tr>
-          <td>${displayIndex}</td>
+          <td>${index}</td>
           <td>${list.name}</td>
           <td>${list.phone}</td>
           <td>${list.date}</td>
           <td><button class="on_of">Online</button></td>
           <td>
-            <i class="fa-solid fa-trash" onclick="delete_user(${index})"></i>
-            <i class="fa-regular fa-pen-to-square" onclick="edit_user(${index})"></i>
+            <i class="fa-solid fa-trash" onclick="delete_user(${indexall})"></i>
+            <i class="fa-regular fa-pen-to-square" onclick="edit_user(${indexall})"></i>
           </td>
         </tr>`;
         tbody.innerHTML = userall;
@@ -646,12 +680,16 @@ function add_customer() {
 }
 
 function comtomer_value() {
+    var save_clent = document.getElementById('save_clent');
+    console.log(save_clent);
+    save_clent.style.display = 'none';
+    document.getElementById('add_clent').style.display = 'block';
+
     let value_input = document.querySelectorAll('.all_add input');
     const add_product = document.getElementsByClassName('add_product_1')[0];
     const acount = JSON.parse(localStorage.getItem('user')) || [];
     document.getElementById('add_clent').addEventListener('click', () => {
         var date = new Date();
-
         var year = date.getFullYear();
         var month = date.getMonth() + 1;
         var day = date.getDate();
@@ -671,7 +709,8 @@ function comtomer_value() {
         value_input[2].value = '';
     });
 }
-function seach() {
+
+function seach_people() {
     let seach = document.getElementById('seach_1');
     var tbody = document.getElementsByTagName('tbody')[0];
     seach.addEventListener('keypress', (event) => {
@@ -684,17 +723,20 @@ function seach() {
                 let name_list = list.name.toLowerCase();
                 if (name_seach == name_list) {
                     userall += `<tr>
-      <td>${displayIndex}</td>
-      <td>${list.name}</td>
-      <td>${list.phone}</td>
-      <td>${list.date}</td>
-      <td><button  class="on_of">Online</button></td>
-      <td>
-        <i class="fa-solid fa-trash" onclick="delete_user(${index})"></i>
-        <i class="fa-regular fa-pen-to-square" onclick="edit_user(${index})"></i>
-      </td>
-    </tr>`;
+                                    <td>${displayIndex}</td>
+                                    <td>${list.name}</td>
+                                    <td>${list.phone}</td>
+                                    <td>${list.date}</td>
+                                    <td><button  class="on_of">Online</button></td>
+                                    <td>
+                                        <i class="fa-solid fa-trash" onclick="delete_user(${index})"></i>
+                                        <i class="fa-regular fa-pen-to-square" onclick="edit_user(${index})"></i>
+                                    </td>
+                                </tr>`;
                     tbody.innerHTML = userall;
+                } else {
+                    tbody.innerHTML = "<tr><td colspan='6'>Không có khách hàng nào</td></tr>";
+                    return;
                 }
             });
         }
