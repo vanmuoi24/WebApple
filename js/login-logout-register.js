@@ -334,7 +334,7 @@ function login() {
         } else {
             var accounts = JSON.parse(localStorage.getItem('user'));
             document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
-            document.getElementById('change_logout').href = '#';
+            document.getElementById('change_logout').href = '../html/infor_account.html';
         }
         if (index_login !== -1) {
             login_text.innerHTML = 'Xin chào,<br>' + accounts[index_login].name;

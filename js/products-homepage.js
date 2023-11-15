@@ -1027,8 +1027,7 @@ function fill_products_right() {
     var list = create_list_right(list_products);
     // Hiển thị
     if (index_products <= list_products.length && list !== '') {
-        products_search_number++;
-        document.getElementById('div_search_products_number').textContent = products_search_number;
+        document.getElementById('div_search_products_number').textContent++;
         div_products_view[0].innerHTML = list;
     }
 }
@@ -1041,8 +1040,7 @@ function fill_products_left() {
     if ((index_products >= 8 || index_products == list_products.length) && index_products <= list_products.length) {
         var list = create_list_left(list_products);
         // Hiển thị
-        products_search_number--;
-        document.getElementById('div_search_products_number').textContent = products_search_number;
+        document.getElementById('div_search_products_number').textContent--;
         div_products_view[0].innerHTML = list;
     }
 }
@@ -1075,8 +1073,7 @@ function products_type(type) {
     // Reset lại tất cả số liệu
     type_product = type;
     index_products = 0;
-    products_search_number = 0;
-    document.getElementById('div_search_products_number').textContent = products_search_number;
+    document.getElementById('div_search_products_number').textContent = 0;
     document.getElementById('p_products').textContent = type_product;
     // Xóa hết sản phẩm đã trình bày từ trước
     var div_products_view = document.getElementsByClassName('div_products_view');
@@ -1110,8 +1107,7 @@ function fill_products_type_right() {
     var list_2 = create_list_right(list_products_type);
     // Hiển thị ra
     if (index_products <= list_products_type.length && list_1 !== '') {
-        products_search_number++;
-        document.getElementById('div_search_products_number').textContent = products_search_number;
+        document.getElementById('div_search_products_number').textContent++;
         div_products_view[0].innerHTML = list_1;
         div_products_view[1].innerHTML = list_2;
     }
@@ -1126,8 +1122,7 @@ function fill_products_type_left() {
         var list = [];
         list = create_list_left_8(list_products_type);
         // Hiển thị ra
-        products_search_number--;
-        document.getElementById('div_search_products_number').textContent = products_search_number;
+        document.getElementById('div_search_products_number').textContent--;
         div_products_view[0].innerHTML = list[0];
         div_products_view[1].innerHTML = list[1];
     }
@@ -1245,6 +1240,8 @@ document.getElementById('search').addEventListener('keyup', function (event) {
         var searchvalue = this.value.toLowerCase();
         localStorage.setItem('searchvalue', searchvalue);
         window.location.href = '../html/search.html';
+    } else {
+        showMessage_error('Hãy nhập sản phẩm bạn muốn tìm kiếm!');
     }
 });
 // Di chuyển dữ liệu qua trang khác bằng ấn vào icon tìm kiếm
@@ -1253,6 +1250,8 @@ document.getElementById('search_icon').addEventListener('click', function () {
         var searchvalue = document.getElementById('search').value.toLowerCase();
         localStorage.setItem('searchvalue', searchvalue);
         window.location.href = '../html/search.html';
+    } else {
+        showMessage_error('Hãy nhập sản phẩm bạn muốn tìm kiếm!');
     }
 });
 // Khởi tạo ban đầu của trang tìm kiếm
@@ -1270,8 +1269,7 @@ function search_create() {
     });
     // Reset giá trị
     index_products = 0;
-    products_search_number = 0;
-    document.getElementById('div_search_products_number').textContent = products_search_number;
+    document.getElementById('div_search_products_number').textContent = 0;
     // Khởi tạo sản phẩm tìm kiếm
     var searchvalue = localStorage.getItem('searchvalue');
     var list_products = JSON.parse(localStorage.getItem('products'));
@@ -1291,6 +1289,10 @@ function search_create() {
 function fill_products_search_right() {
     // Khởi tạo các số liệu cần thiết
     var div_products_view = document.getElementsByClassName('div_products_view');
+    if (list_products_search.length == 0) {
+        showMessage_error('Không tìm thấy sản phẩm theo yêu cầu!');
+        return false;
+    }
     // Reset hiển thị sản phẩm
     if (index_products != list_products_search.length || index_products == 0) {
         div_products_view[0].innerHTML = '';
@@ -1301,8 +1303,7 @@ function fill_products_search_right() {
     // Hiển thị ra
     if (index_products <= list_products_search.length && list_1 !== '') {
         if (div_products_view.length == 2) {
-            products_search_number++;
-            document.getElementById('div_search_products_number').textContent = products_search_number;
+            document.getElementById('div_search_products_number').textContent++;
             div_products_view[1].innerHTML = list_2;
         }
         div_products_view[0].innerHTML = list_1;
@@ -1316,8 +1317,7 @@ function fill_products_search_left() {
         var list = [];
         list = create_list_left_8(list_products_search);
         // Hiển thị ra
-        products_search_number--;
-        document.getElementById('div_search_products_number').textContent = products_search_number;
+        document.getElementById('div_search_products_number').textContent--;
         div_products_view[0].innerHTML = list[0];
         div_products_view[1].innerHTML = list[1];
     }
@@ -1330,8 +1330,7 @@ function search_type() {
     index_products = 0;
     var div_search_products_number = document.getElementById('div_search_products_number');
     if (div_search_products_number !== null) {
-        products_search_number = 0;
-        div_search_products_number.textContent = products_search_number;
+        div_search_products_number.textContent = 0;
     }
     // Lấy giá trị
     var danhmuc = document.getElementById('danhmuc').value;
