@@ -35,25 +35,27 @@ function quantityup(i) {
 document.addEventListener('input', function (event) {
     if (event.target.classList.contains('numeric-input')) {
         var inputElement = event.target;
-
-        // Kiểm tra xem ký tự được nhập vào có phải là chữ hay không
-        var isLetter = /[a-zA-Z]/g.test(event.key);
-
-        // Nếu là chữ, thì ngăn chặn ký tự đó được nhập vào
-        if (isLetter) {
-            event.preventDefault();
-        }
-
-        // Lấy index của input số lượng
         var index = inputElement.dataset.index;
 
-        inputElement.value = parseInt(inputElement.value);
-        inputElement.value = isNaN(inputElement.value) ? 1 : inputElement.value;
+        // kiểm tra xem ký tự được nhập vào có phải là chữ hay không
+        var isLetter = /[a-zA-Z]/g.test(event.key);
 
-        // Lưu thay đổi vào mảng waitting_buy
+        // nếu là chữ, thì ngăn chặn ký tự đó được nhập vào
+        if (isLetter) {
+            event.preventDefault();
+            return;
+        }
+
+        // lấy index của input số lượng
+        // inputElement.value = parseInt(inputElement.value);
+        // inputElement.value = isNaN(inputElement.value) ? 1 : inputElement.value;
+
+        // lưu thay đổi vào mảng waitting_buy
         var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
-        waitting_buy[index].soluong = inputElement.value;
+        waitting_buy[index].soluong = parseInt(inputElement.value);
         localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
+
+        // gọi hàm để cập nhật giao diện
         inner_cart();
     }
 });
@@ -96,7 +98,7 @@ function inner_cart() {
 		<td class="quantity">
 			<div class="cart-quantity-input-container">
 				<button class="buttom-tru" type="button" onclick="quantitydown(${i})">-</button>
-				<input class="qty-input numeric-input"  type="text" value="${waitting_buy[i].soluong}" />
+				<input class="qty-input numeric-input"  type="text" value="${waitting_buy[i].soluong}" data-index="${i}"/>
 				<button class="buttom-cong" type="button" onclick="quantityup(${i})">+</button>
 			</div>
 		</td>
@@ -107,6 +109,9 @@ function inner_cart() {
 	    </tr>`;
     }
     body_cart.innerHTML = list;
+
+    var total_cart = document.getElementById('total-price');
+    total_cart.innerHTML = `Tổng tiền: ${calculateTotalPrice(waitting_buy)}`;
 }
 
 function trashcart(index) {
@@ -114,4 +119,13 @@ function trashcart(index) {
     waitting_buy.splice(index, 1);
     localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
     inner_cart();
+}
+
+// tính tổng tiền cho toàn bộ giỏ hàng
+function calculateTotalPrice(waitting_buy) {
+    var totalPrice = 0;
+    waitting_buy.forEach(function (item) {
+        totalPrice += item.tongtien;
+    });
+    return totalPrice;
 }
