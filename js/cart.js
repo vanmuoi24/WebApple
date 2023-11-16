@@ -69,21 +69,25 @@ function inner_cart() {
     body_cart.innerHTML = list;
 
     var total_cart = document.getElementById('total-price');
-    total_cart.innerHTML = `Tổng tiền: ${calculateTotalPrice(waitting_buy)}`;
+    total_cart.innerHTML = `Tổng tiền: ${formatNumberWithCommas(calculateTotalPrice())}VND`;
 }
 
+// tính tổng tiền cho toàn bộ giỏ hàng
+function calculateTotalPrice() {
+    var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
+    var totalPrice = 0;
+    var tempPrice = 0;
+    waitting_buy.forEach(function (waitting_buy) {
+        tempPrice = waitting_buy.gia * waitting_buy.soluong;
+        totalPrice += tempPrice;
+    });
+    return totalPrice;
+}
+
+// xóa sp đã đặt
 function trashcart(index) {
     var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
     waitting_buy.splice(index, 1);
     localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
     inner_cart();
-}
-
-// tính tổng tiền cho toàn bộ giỏ hàng
-function calculateTotalPrice(waitting_buy) {
-    var totalPrice = 0;
-    waitting_buy.forEach(function (item) {
-        totalPrice += item.tongtien;
-    });
-    return totalPrice;
 }
