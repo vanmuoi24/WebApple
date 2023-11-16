@@ -13,7 +13,7 @@ function cart_admin() {
                         </select>
                     </div>
                     <div class="header_seach">
-                        <input type="text" name="" id="" />
+                        <input type="text" name="" id="" placeholder="Tìm Kiếm Đơn Hàng"/>
                     </div>
                     <div class="date_1">
                         <label for="">Từ</label>

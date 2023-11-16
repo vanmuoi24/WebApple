@@ -46,16 +46,11 @@ product.addEventListener('click', (event) => {
                 </table>
                 </div>
                 <div class="pagination-buttons">
-                <button id="prev">Previous</button>
-                <button id="page1">1</button>
-                <button id="page2">2</button>
-                <button id="page3">3</button>
-                <button id="page4">4</button>
-                <button id="page5">5</button>
-                <button id="page6">6</button>
-                <button id="page7">7</button>
-                <button id="page8">8</button>
-                <button id="next">Next</button>
+                <button id="prev"><i class="fa-solid fa-arrow-left fa-beat"></i></button>
+                <div class="list_button">
+
+                </div>
+                <button id="next"><i class="fa-solid fa-arrow-right fa-beat"></i></button>
                 </div>
               <div class="add_product">
               
@@ -263,7 +258,7 @@ function search_product() {
               <td style="width:90px">${list.masp}</td>
               <td id="tensp">${list.tensp}</td>
               <td><img src="${list.hinhanhMoTa}" alt="" /></td>
-              <td>${list.trangthai}</td>
+              <td>${list.danhmuc}</td>
               <td>${list.gia}</td>
               <td>
                
@@ -397,11 +392,13 @@ function renderProductall() {
     var table = document.getElementsByTagName('table')[0];
     pagination.style.display = 'block';
     pagination.style.display = 'flex';
-    let perpage = 5;
-    let currentPage = 1;
+    //Phân Trang
+    let perpage = 5; // số item trong 1 trang
+    let currentPage = 1; //
     let start = 0;
     let end = perpage;
     const tatalPage = Math.ceil(list_product.length / perpage);
+    console.log(tatalPage);
     const btnNext = document.getElementById('next');
     function renderProduct() {
         var list_product = JSON.parse(localStorage.getItem('products'));
@@ -441,51 +438,82 @@ function renderProductall() {
         table.innerHTML = list_table;
     }
     renderProduct();
-    function handlePageClick(pageNumber) {
-        for (let i = 1; i <= tatalPage; i++) {
-            const page = document.getElementById(`page${i}`);
-            if (page) {
-                page.style.background = 'white';
-                page.style.color = 'black';
-            }
-        }
-        const clickedPage = document.getElementById(`page${pageNumber}`);
-        if (clickedPage) {
-            clickedPage.style.background = '#0083d6';
-            clickedPage.style.color = 'white';
-        }
-
-        currentPage = pageNumber;
+    button_list();
+    function getcurenpage(currentPage) {
         start = (currentPage - 1) * perpage;
         end = currentPage * perpage;
-        renderProduct();
     }
+    function button_list() {
+        let list_btn = '';
+        list_btn = `
+        <button class="pageall" style="color:white;background: #0083d6">${1}</button>
+        `;
+        for (let i = 2; i <= tatalPage; i++) {
+            list_btn += `
+            <button class="pageall" >${i}</button>
+            `;
+        }
+        document.getElementsByClassName('list_button')[0].innerHTML = list_btn;
+    }
+    const buttons = document.querySelectorAll('.list_button button');
+    function changepage() {
+        buttons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const value = parseFloat(btn.textContent);
+                currentPage = value;
+                console.log(btn);
+                buttons.forEach((button) => {
+                    button.style.color = 'black';
+                    button.style.background = 'white';
+                    console.log(button);
+                });
+                btn.style.color = 'white';
+                btn.style.background = '#0083d6';
+                getcurenpage(currentPage);
+                renderProduct();
+            });
+        });
+    }
+
+    changepage();
 
     btnNext.addEventListener('click', () => {
         currentPage++;
         if (currentPage > tatalPage) {
+            currentPage = tatalPage;
             currentPage = 1;
         }
-        handlePageClick(currentPage);
+        buttons.forEach((button) => {
+            button.style.color = 'black';
+            button.style.background = 'white';
+        });
+        const selectedButton = document.querySelector(`.list_button button:nth-child(${currentPage})`);
+        if (selectedButton) {
+            selectedButton.style.color = 'white';
+            selectedButton.style.background = '#0083d6';
+        }
+        getcurenpage(currentPage);
+        renderProduct();
     });
-
     document.getElementById('prev').addEventListener('click', () => {
         currentPage--;
-        if (currentPage < 1) {
-            currentPage = tatalPage;
+        if (currentPage <= 1) {
+            currentPage = 1;
         }
-        handlePageClick(currentPage);
+        buttons.forEach((button) => {
+            button.style.color = 'black';
+            button.style.background = 'white';
+        });
+        const selectedButton = document.querySelector(`.list_button button:nth-child(${currentPage})`);
+        if (selectedButton) {
+            selectedButton.style.color = 'white';
+            selectedButton.style.background = '#0083d6';
+        }
+        getcurenpage(currentPage);
+        renderProduct();
     });
-
-    for (let i = 1; i <= tatalPage; i++) {
-        const page = document.getElementById(`page${i}`);
-        if (page) {
-            page.addEventListener('click', () => {
-                handlePageClick(i);
-            });
-        }
-    }
 }
+
 function restfood() {
     const save_product = document.getElementById('save_product');
     const name_food = document.getElementById('name_food');

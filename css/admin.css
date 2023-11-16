@@ -65,13 +65,15 @@
 
 .container {
     display: flex;
-    width: 100%;
+    width: 90%;
+    height: 87%;
     color: white;
     margin-left: 30px;
 }
+
 .left_list {
     font-family: 'Roboto', sans-serif;
-    height: 85vh;
+
     width: 15.7%;
     background-color: #0083d6;
 }
@@ -107,11 +109,17 @@
 .table_all table,
 td {
     font-family: 'Roboto', sans-serif;
-    border: 1px solid black;
     border-collapse: collapse;
+    border: 1px solid #0083d6;
 }
 #dele_edit {
-    font-size: 1.2rem;
+    color: #0083d6;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+#dele_edit i {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 /* Table list Product */
 .list_product {
@@ -125,10 +133,9 @@ td {
 }
 .product_header input {
     padding: 0 40px;
-
     height: 30px;
     border-radius: 5px;
-    border: 1px solid rgb(102, 102, 102);
+    border: 1px solid #0083d6;
     outline: 0;
 }
 .input {
@@ -188,6 +195,7 @@ td {
     margin-top: 10px;
 }
 .pagination-buttons button {
+    border: none;
     width: 40px;
 }
 .add_product {
@@ -252,7 +260,7 @@ td {
 }
 
 .checkbox-group input {
-    display: none; /* Ẩn checkbox mặc định */
+    display: none;
 }
 
 .checkbox-group label {
@@ -352,7 +360,7 @@ button:hover {
     width: 22%;
     height: 30px;
 
-    background: #ffffff;
+    border: 1px solid #0083d6;
 }
 .header_client input {
     font-size: 1.1rem;
@@ -361,7 +369,7 @@ button:hover {
     padding: 10px;
     width: 140%;
     height: 35px;
-    border: 1px solid black;
+    border: 1px solid#0083d6;
     border-radius: 0px;
     background: #ffffff;
 }
@@ -414,6 +422,7 @@ button:hover {
     color: white;
 }
 .client_header tbody i {
+    color: #0083d6;
     margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
@@ -548,13 +557,14 @@ button:hover {
 .pagination-buttons button {
     width: 50px;
     font-size: 1.1rem;
+    background: white;
+    border: 1px solid #0083d6;
 }
-.pagination-buttons button:first-child {
-    width: 100px;
+.pagination-buttons button i {
+    color: #0083d6;
+    font-size: 1.3rem;
 }
-.pagination-buttons button:last-child {
-    width: 100px;
-}
+
 .clent_button {
     display: flex;
     justify-content: center;
@@ -586,6 +596,7 @@ button:hover {
 select,
 input {
     height: 30px;
+    border: 1px solid #0083d6;
 }
 .header_select {
     width: 10%;
@@ -594,11 +605,14 @@ input {
     width: 30%;
 }
 .header_seach input {
+    padding: 10px;
+    outline: none;
     width: 80%;
     margin-left: 10px;
+    border: 1px solid #0083d6;
 }
 .table_cart {
-    width: 93%;
+    width: 97%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -607,7 +621,7 @@ input {
     width: 100%;
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    margin-right: 30px;
+    margin-right: 80px;
 }
 .table_cart table tr td {
     height: 35px;
