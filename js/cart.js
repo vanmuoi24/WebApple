@@ -61,7 +61,7 @@ function inner_cart() {
 			</div>
 		</td>
 		<td class="unit-price">${formatNumberWithCommas(waitting_buy[i].gia * waitting_buy[i].soluong)}VND</td>
-		<td class="option">
+		<td class="option" style="cursor: pointer;">
 			<i class="fa fa-trash" aria-hidden="true" onclick="trashcart(${i})"></i>
 		</td>
 	    </tr>`;
