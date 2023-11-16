@@ -18,48 +18,6 @@ function quantityup(i) {
     inner_cart();
 }
 
-// Ko cho nhập chữ vào input và giữ giá trị là số nguyên
-// document.addEventListener('input', function (event) {
-//     if (event.target.classList.contains('numeric-input')) {
-//         var inputElement = event.target;
-//         inputElement.value = parseInt(inputElement.value);
-//         inputElement.value = isNaN(inputElement.value) ? 1 : inputElement.value;
-
-//         var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
-
-//         localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
-//         inner_cart();
-//     }
-// });
-// Ko cho nhập chữ vào input và giữ giá trị là số nguyên
-document.addEventListener('input', function (event) {
-    if (event.target.classList.contains('numeric-input')) {
-        var inputElement = event.target;
-        var index = inputElement.dataset.index;
-
-        // kiểm tra xem ký tự được nhập vào có phải là chữ hay không
-        var isLetter = /[a-zA-Z]/g.test(event.key);
-
-        // nếu là chữ, thì ngăn chặn ký tự đó được nhập vào
-        if (isLetter) {
-            event.preventDefault();
-            return;
-        }
-
-        // lấy index của input số lượng
-        // inputElement.value = parseInt(inputElement.value);
-        // inputElement.value = isNaN(inputElement.value) ? 1 : inputElement.value;
-
-        // lưu thay đổi vào mảng waitting_buy
-        var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
-        waitting_buy[index].soluong = parseInt(inputElement.value);
-        localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
-
-        // gọi hàm để cập nhật giao diện
-        inner_cart();
-    }
-});
-
 // Biến số thành chuỗi có phân đơn vị
 function formatNumberWithCommas(number) {
     // Chuyển số thành chuỗi
