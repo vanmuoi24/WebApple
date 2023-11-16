@@ -98,7 +98,7 @@ function inner_cart() {
 		<td class="quantity">
 			<div class="cart-quantity-input-container">
 				<button class="buttom-tru" type="button" onclick="quantitydown(${i})">-</button>
-				<input class="qty-input numeric-input"  type="text" value="${waitting_buy[i].soluong}" data-index="${i}"/>
+				<input class="qty-input numeric-input"  type="text" value="${waitting_buy[i].soluong}" disabled data-index="${i}"/>
 				<button class="buttom-cong" type="button" onclick="quantityup(${i})">+</button>
 			</div>
 		</td>
