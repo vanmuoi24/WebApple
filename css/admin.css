@@ -650,3 +650,56 @@ input {
     border: none;
     color: white;
 }
+
+.content_product {
+    position: absolute;
+    color: rgb(0, 0, 0);
+    display: flex;
+    width: 35%;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 1px solid #0083d6;
+    top: -1000px;
+    left: 38%;
+    transition: 1.5s;
+}
+.content_product.top {
+    top: 28%;
+    transition: 0.5s;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+}
+.content_left {
+    width: 100%;
+}
+.content_left img {
+    width: 100%;
+}
+.content_right {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+.content_right p {
+    margin-top: 10px;
+}
+.content_footer {
+    margin-top: 40px;
+    font-size: 1.2rem;
+}
+.content_title {
+    text-align: center;
+}
+.content_icon {
+    cursor: pointer;
+    font-size: 2rem;
+    bottom: 94%;
+    left: 95%;
+    position: absolute;
+}

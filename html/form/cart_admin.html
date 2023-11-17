@@ -2,46 +2,97 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/css/cart_header.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="/css/admin.css" />
+
         <title>Document</title>
     </head>
     <body>
-        <div class="right_header">
-            <div class="container">
-                <div class="table">
-                    <div class="table-header">
-                        <div class="header__item"><a id="name" class="filter__link" href="#">Name</a></div>
-                        <div class="header__item"><a id="wins" class="filter__link filter__link--number" href="#">Wins</a></div>
-                        <div class="header__item"><a id="draws" class="filter__link filter__link--number" href="#">Draws</a></div>
-                        <div class="header__item"><a id="losses" class="filter__link filter__link--number" href="#">Losses</a></div>
-                        <div class="header__item"><a id="total" class="filter__link filter__link--number" href="#">Total</a></div>
+        <div class="wrapper">
+            <!-- Left_header -->
+            <div class="left_header">
+                <div class="logo">
+                    <div class="logo_img">
+                        <img src="/img/logo.png" alt="logo" />
                     </div>
-                    <div class="table-content">
-                        <div class="table-row">
-                            <div class="table-data">Tom</div>
-                            <div class="table-data">2</div>
-                            <div class="table-data">0</div>
-                            <div class="table-data">1</div>
-                            <div class="table-data">5</div>
+                    <div class="admin_user">
+                        <div class="admin_input">
+                            <input type="text" placeholder="Tìm kiếm mọi thứ trên này" />
+                            <i class="fa-solid fa-magnifying-glass"></i>
                         </div>
-                        <div class="table-row">
-                            <div class="table-data">Dick</div>
-                            <div class="table-data">1</div>
-                            <div class="table-data">1</div>
-                            <div class="table-data">2</div>
-                            <div class="table-data">3</div>
+                        <div class="admin_icon">
+                            <i class="fa-solid fa-bell"></i>
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-brands fa-github"></i>
+                            <i class="fa-brands fa-apple"></i>
+                            <img src="../img/icon/image 2.png" alt="" />
                         </div>
-                        <div class="table-row">
-                            <div class="table-data">Harry</div>
-                            <div class="table-data">0</div>
-                            <div class="table-data">2</div>
-                            <div class="table-data">2</div>
-                            <div class="table-data">2</div>
+                    </div>
+                </div>
+                <div class="div"></div>
+                <div class="container">
+                    <div class="left_list">
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-house"></i>
+                                <a href="#" id="home">Thống Kê</a>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-users"></i>
+                                <a href="#" id="peole">Khách Hàng</a>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-cart-shopping"></i>
+                                <a href="#" class="product">Sản Phẩm</a>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-bag-shopping"></i>
+                                <a href="#">Đơn Hàng</a>
+                            </li>
+                            <li></li>
+                            <li>
+                                <i class="fa-solid fa-backward fa-beat"></i>
+                                <a href="#" id="back_shop">Shop</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right_header">
+                        <div class="content_product">
+                            <div class="content_title">
+                                <h1>Thông Tin Sản Phẩm</h1>
+                            </div>
+                            <div class="content_icon">
+                                <i class="fa-regular fa-circle-xmark"></i>
+                            </div>
+                            <div class="content">
+                                <div class="content_left">
+                                    <img src="/img/ipad/apple ipad.webp" alt="" />
+                                </div>
+                                <div class="content_right">
+                                    <h3>ipad</h3>
+                                    <p>Gia:1000000000</p>
+                                    <p>Mau</p>
+                                    <p>Dung Luong</p>
+                                </div>
+                            </div>
+                            <div class="content_footer">
+                                <h5>Thông tin cấu hình</h5>
+                                <p>
+                                    Màn hình: Liquid Retina, 10.9 inch, độ phân giải 2360 x 1640 pixels, 120 Hz Hệ điều hành: iPadOS 16 Camera sau: *
+                                    Chính: 12 MP, khẩu độ f/1.8, chống rung quang học OIS Camera trước: 12 MP, khẩu độ f/2.4, góc nhìn 122 độ Chip:
+                                    Apple A15 Bionic 6 nhân RAM: 4 GB SIM: Không hỗ trợ Pin, Sạc: 28.65 Wh, sạc nhanh 20 W
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="/js/cart_admin.js"></script>
     </body>
 </html>
