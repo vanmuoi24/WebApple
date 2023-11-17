@@ -376,7 +376,7 @@ function create_products() {
                 hinhanhitem: '../img/ipad/iPadProM1-item.webp',
                 hinhanhMoTa: '../img/ipad/iPadProM1-color.webp',
                 mau: ['Space Gray', 'Silver'],
-                luutru: ['256GB', '512gb'],
+                luutru: ['256GB', '512GB'],
                 gia: 29950000,
                 chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels, 120 Hz.
         Hệ điều hành: iPadOS 16.
@@ -395,7 +395,7 @@ function create_products() {
                 hinhanhitem: '../img/ipad/iPadProM1-item.webp',
                 hinhanhMoTa: '../img/ipad/iPadProM1-color.webp',
                 mau: ['Space Gray', 'Silver'],
-                luutru: ['256GB', '512gb'],
+                luutru: ['256GB', '512GB'],
                 gia: 32990000,
                 chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels, 120 Hz.
         Hệ điều hành: iPadOS 16.
@@ -414,7 +414,7 @@ function create_products() {
                 hinhanhitem: '../img/ipad/iPadProM2-item.jpeg',
                 hinhanhMoTa: '../img/ipad/iPadProM2-color.jpeg',
                 mau: ['Space Gray', 'Silver'],
-                luutru: ['256GB', '512gb'],
+                luutru: ['256GB', '512GB'],
                 gia: 24890000,
                 chitiet: `Màn hình: Liquid Retina, 11 inch, độ phân giải 2388 x 1668 pixels, 120 Hz.
         Hệ điều hành: iPadOS 16.
@@ -434,7 +434,7 @@ function create_products() {
                 hinhanhitem: '../img/ipad/iPadProM2-item.jpeg',
                 hinhanhMoTa: '../img/ipad/iPadProM2-color.jpeg',
                 mau: ['Space Gray', 'Silver'],
-                luutru: ['256GB', '512gb'],
+                luutru: ['256GB', '512GB'],
                 gia: 29990000,
                 chitiet: `Màn hình: Liquid Retina, 11 inch, độ phân giải 2388 x 1668 pixels, 120 Hz.
         Hệ điều hành: iPadOS 16.
@@ -454,7 +454,7 @@ function create_products() {
                 hinhanhitem: '../img/ipad/iPadProM2-item.jpeg',
                 hinhanhMoTa: '../img/ipad/iPadProM2-color.jpeg',
                 mau: ['Space Gray', 'Silver'],
-                luutru: ['256GB', '512gb'],
+                luutru: ['256GB', '512GB'],
                 gia: 28390000,
                 chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels, 120 Hz.
         Hệ điều hành: iPadOS 16.
@@ -474,7 +474,7 @@ function create_products() {
                 hinhanhitem: '../img/ipad/iPadProM2-item.jpeg',
                 hinhanhMoTa: '../img/ipad/iPadProM2-color.jpeg',
                 mau: ['Space Gray', 'Silver'],
-                luutru: ['256GB', '512gb', '1TB'],
+                luutru: ['256GB', '512GB', '1TB'],
                 gia: 39990000,
                 chitiet: `Màn hình: Liquid Retina XDR mini-LED, 12.9 inch, độ phân giải 2732 x 2048 pixels, 120 Hz.
         Hệ điều hành: iPadOS 16.
@@ -1053,32 +1053,22 @@ function fill_products_right_key(event) {
 }
 document.addEventListener('keydown', fill_products_left_key);
 document.addEventListener('keydown', fill_products_right_key);
+// Chuyển trang sang trang phân loại
+function create_type_products(type) {
+    localStorage.setItem('type_products', type);
+    window.location.href = './products-type.html';
+}
+
 // Lấy mảng sản phẩm cùng 1 type
 function filterByType(obj) {
     return obj.hasOwnProperty('danhmuc') && obj.danhmuc === type_product;
 }
 // Phân loại sản phẩm
-var type_product = null;
-function products_type(type) {
-    // Xóa banner
-    if (type_product == null) {
-        var divToRemove = document.getElementById('container');
-        divToRemove.parentNode.removeChild(divToRemove);
-        // Tạo thẻ thêm 1 hàng cho sản phẩm
-        var parentDiv = document.getElementById('div_products_total');
-        var newDiv = document.createElement('div');
-        newDiv.classList.add('div_products_view');
-        parentDiv.appendChild(newDiv);
-    }
+var type_product = localStorage.getItem('type_products');
+function products_type() {
     // Reset lại tất cả số liệu
-    type_product = type;
-    index_products = 0;
     document.getElementById('div_search_products_number').textContent = 0;
     document.getElementById('p_products').textContent = type_product;
-    // Xóa hết sản phẩm đã trình bày từ trước
-    var div_products_view = document.getElementsByClassName('div_products_view');
-    div_products_view[0].innerHTML = '';
-    div_products_view[1].innerHTML = '';
     // fill sản phẩm cùng loại vào
     fill_products_type_right();
     document.getElementById('div_search_products_left').onclick = function () {
@@ -1240,7 +1230,7 @@ document.getElementById('search').addEventListener('keyup', function (event) {
         var searchvalue = this.value.toLowerCase();
         localStorage.setItem('searchvalue', searchvalue);
         window.location.href = '../html/search.html';
-    } else {
+    } else if (event.key === 'Enter' && document.getElementById('search').value == '') {
         showMessage_error('Hãy nhập sản phẩm bạn muốn tìm kiếm!');
     }
 });

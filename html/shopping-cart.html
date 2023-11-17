@@ -48,7 +48,7 @@
                     <div id="div_login_text">
                         <p id="login_text">Đăng<br />nhập</p>
                         <div id="div_logout">
-                            <a>Thông tin tài khoản</a>
+                            <a href="infor_account.html">Thông tin tài khoản</a>
                             <a id="change_logout">Đơn hàng của tôi</a>
                             <a onclick="logout()">Đăng xuất</a>
                         </div>
@@ -134,19 +134,19 @@
         <div id="header_menu">
             <div id="total_menu">
                 <div class="menu">
-                    <div id="iphone" onclick="products_type('iPhone')">
+                    <div id="iphone" onclick="create_type_products('iPhone')">
                         <a href="#">
                             <img src="../img/icon/icon-iphone.png" alt="iphone" />
                             <p>iPhone</p>
                         </a>
                     </div>
-                    <div id="ipad" onclick="products_type('iPad')">
+                    <div id="ipad" onclick="create_type_products('iPad')">
                         <a href="#">
                             <img src="../img/icon/icon-ipad.png" alt="ipad" />
                             <p>iPad</p>
                         </a>
                     </div>
-                    <div id="mac" onclick="products_type('Macbook')">
+                    <div id="mac" onclick="create_type_products('Macbook')">
                         <a href="#">
                             <img src="../img/icon/icon-mac.png" alt="mac" />
                             <p>Macbook</p>
@@ -174,7 +174,6 @@
             <div id="giohang">
                 <p id="p_products">Giỏ hàng</p>
             </div>
-
             <div class="order_container">
                 <form action="../cart" method="post" id="shopping_cart_form">
                     <div class="shopping_cart_info">
@@ -190,10 +189,10 @@
                                     </colgroup>
                                     <thead>
                                         <tr>
-                                            <th class="product-info1">San pham</th>
+                                            <th class="product-info1">Sản phẩm</th>
                                             <th class="product-info2"></th>
-                                            <th class="quantity">So luong</th>
-                                            <th class="unit-price">Tong tien</th>
+                                            <th class="quantity">Số lượng</th>
+                                            <th class="unit-price">Tổng tiền</th>
                                             <th class="option">Xóa</th>
                                         </tr>
                                     </thead>
