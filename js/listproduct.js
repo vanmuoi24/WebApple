@@ -207,7 +207,7 @@ product.addEventListener('click', (event) => {
     });
     showimgsave();
     search_product();
-    food_select();
+    phone_select();
     renderProductall();
 });
 //============================================================================
