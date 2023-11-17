@@ -1066,6 +1066,8 @@ function filterByType(obj) {
 // Phân loại sản phẩm
 var type_product = localStorage.getItem('type_products');
 function products_type() {
+    // Thay đổi tên trang web
+    document.title = type_product;
     // Reset lại tất cả số liệu
     document.getElementById('div_search_products_number').textContent = 0;
     document.getElementById('p_products').textContent = type_product;
