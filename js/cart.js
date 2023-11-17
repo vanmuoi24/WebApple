@@ -91,3 +91,31 @@ function trashcart(index) {
     localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
     inner_cart();
 }
+
+// ĐẶt hàng
+function createOrder() {
+    const ngay = new Date(); // lấy ngày hiện tại
+    const order = {
+        orderDate: ngay.toLocaleString(),
+        // orderID: TaoOrderID(),
+        // tao5 mã đơn ngẫu nhiên
+        products: waitting_buy, // mảng waitting_buy
+        totalPrice: calculateTotalPrice(), //tong tien
+    };
+
+    let orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+    if (orders.length === 0) {
+        orders = [order]; //mang rong
+    } else {
+        orders.push(order); //them order moi vao mang da co san
+    }
+    localStorage.setItem('orders', JSON.stringify(orders)); //// lưu mảng orders vào localStorage
+    alert('Đặt hàng thành công!');
+}
+
+// tạo mã đơn (tạo theo quy tắc mong muốn)
+function TaoOrderID() {
+    //sinh mã đơn hàng theo quy tắc
+    return Math.random().toString(36).substr(2, 9); // Ví dụ đơn giản: sinh chuỗi ngẫu nhiên
+}
