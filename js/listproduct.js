@@ -130,6 +130,7 @@ product.addEventListener('click', (event) => {
                     <i class="fa-solid fa-x fa-beat" id="icon_add"></i>
                 </div>
                 </div>
+                <div class="content_product"></div>
               </div>
           `;
 
@@ -248,6 +249,7 @@ function search_product() {
             list_product.forEach((list, index) => {
                 const indexall = index;
                 index++;
+                var giaTienChinhThuc = parseFloat(list.gia).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
 
                 var inputText = search_product.value.toLowerCase();
                 var productName = list.tensp.toLowerCase();
@@ -259,13 +261,13 @@ function search_product() {
               <td id="tensp">${list.tensp}</td>
               <td><img src="${list.hinhanhMoTa}" alt="" /></td>
               <td>${list.danhmuc}</td>
-              <td>${list.gia}</td>
+              <td>${giaTienChinhThuc}</td>
               <td>
                
                 <i class="fa-solid fa-trash" onclick="delete_product(${indexall})"></i>
                 <i class="fa-regular fa-pen-to-square" onclick="edit_product(${indexall})"></i>
               </td>
-              <td style="width:90px"><button>Xem</button></td>
+              <td style="width:90px"><button onclick="view_product(${indexall})">Xem</button></td>
             </tr>
           `;
                 }
@@ -311,6 +313,7 @@ function food_select() {
         list_product.forEach((list, index) => {
             var indexall = index;
             index++;
+            var giaTienChinhThuc = parseFloat(list.gia).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
             if (list.danhmuc == food_select.value) {
                 list_table += `
             <tr>
@@ -318,13 +321,14 @@ function food_select() {
               <td id="tensp">${list.tensp}</td>
               <td><img src="${list.hinhanhitem}" alt="" /></td>
               <td>${list.danhmuc}</td>
-              <td>${list.gia}</td>
+              <td>${giaTienChinhThuc}</td>
               <td id="dele_edit" >
 
                 <i class="fa-solid fa-trash" onclick="delete_product(${indexall})"></i>
                 <i class="fa-regular fa-pen-to-square" onclick="edit_product(${indexall})"></i>
               </td>
-              <td style="width:90px"><button>Xem</button></td>
+              <td style="width:90px"><button onclick="view_product(${indexall})">Xem</button></td>
+
             </tr>
           `;
                 tableContainer.innerHTML = ''; // Xóa nội dung cũ trước khi thêm mới
@@ -386,12 +390,61 @@ function edit_product(id) {
         renderProductall();
     });
 }
+
+//xem Thông Tin Sản Phẩm
+function view_product(id) {
+    let list_product = JSON.parse(localStorage.getItem('products'));
+    let list = list_product[id];
+    var giaTienChinhThuc = parseFloat(list.gia).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+    console.log(giaTienChinhThuc);
+    let content_list = `
+       
+            <div class="content_title"><h1>Thông Tin Sản Phẩm</h1></div>
+            <div class="content_icon">
+            <i class="fa-regular fa-circle-xmark" onclick="remove_content()"></i>
+            </div>
+            <div class="content">
+                <div class="content_left">
+                    <img src="${list.hinhanhitem}" alt="" />
+                </div>
+                <div class="content_right">
+                    <h3>ipad ${list.tensp}</h3>
+                    <p>Giá : ${giaTienChinhThuc}</p>
+                    <p> Màu : ${list.mau}</p>
+                    <p> Dung Lượng: ${list.luutru}</p>
+                </div>
+            </div>
+            <div class="content_footer">
+                <h5>Thông tin cấu hình</h5>
+                <p>
+                    ${list.chitiet}
+                </p>
+            </div>
+   
+    `;
+
+    let content_product = document.getElementsByClassName('content_product ')[0];
+    content_product.innerHTML = content_list;
+    content_product.classList.add('top');
+    const table_product = document.getElementsByClassName('table_product')[0];
+    table_product.style.display = 'none';
+}
+function remove_content() {
+    let content_product = document.querySelector('.content_product.top');
+    if (content_product) {
+        content_product.classList.remove('top');
+    }
+
+    const table_product = document.querySelector('.table_product');
+    if (table_product) {
+        table_product.style.display = 'block';
+    }
+}
+
 function renderProductall() {
-    const pagination = document.getElementsByClassName('pagination-buttons')[0];
     var list_product = JSON.parse(localStorage.getItem('products'));
     var table = document.getElementsByTagName('table')[0];
-    pagination.style.display = 'block';
-    pagination.style.display = 'flex';
+
     //Phân Trang
     let perpage = 5; // số item trong 1 trang
     let currentPage = 1; //
@@ -417,6 +470,7 @@ function renderProductall() {
         list_product.map((item, index) => {
             const indexall = index;
             index++;
+            var giaTienChinhThuc = parseFloat(item.gia).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
 
             if (index > start && index <= end) {
                 list_table += `
@@ -425,12 +479,13 @@ function renderProductall() {
         <td id="tensp">${item.tensp}</td>
         <td><img src="${item.hinhanhitem}" alt="" /></td>
         <td>${item.danhmuc}</td>
-        <td>${item.gia}</td>
+        <td>${giaTienChinhThuc}</td>
         <td id="dele_edit" >
           <i class="fa-solid fa-trash" onclick="delete_product(${indexall})"></i>
           <i class="fa-regular fa-pen-to-square" onclick="edit_product(${indexall})"></i>
         </td>
-        <td style="width:90px">  <button>Xem</button></td>
+        <td style="width:90px"><button onclick="view_product(${indexall})">Xem</button></td>
+
       </tr>
       `;
             }
