@@ -214,9 +214,9 @@
                 <div class="table_warpper">
                     <table class="order">
                         <colgroup>
-                            <col width="100px" />
-                            <col width="200px" />
-                            <col width="400px" />
+                            <col width="80px" />
+                            <col width="150px" />
+                            <col width="450px" />
                             <col width="100px" />
                             <col width="100px" />
                         </colgroup>
@@ -303,7 +303,7 @@
     </body>
     <!-- JaveScript -->
     <script>
-        var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
+        var waitting_buy = JSON.parse(localStorage.getItem('orders'));
         var body_order = document.getElementById('body-order');
         var list = '';
         for (var i = 0; i < waitting_buy.length; i++) {
@@ -312,17 +312,43 @@
                             <p>001001</p>
                         </td>
                         <td class="order-info2">
-                            <p>100.000.000VND</p>
+                            <p>${formatNumberWithCommas(waitting_buy[i].totalPrice)}đ</p>
                         </td>
                         <td class="order-info3">
-                            <p>${waitting_buy[i].tensp} - ${waitting_buy[i].mau} - ${waitting_buy[i].luutru} - SL: ${waitting_buy[i].soluong}</p>
-                            <p>iPhone 15 Pro - Black - 256GB - SL: 2</p>
+                            <!-- <p>iPhone 15 Pro - Black - 256GB - SL: 2</p> -->
+                            ${getProductHTML(waitting_buy[i].products)} 
                         </td>
-                        <td class="order-info4">19/10/2023</td>
+                        <td class="order-info4">${waitting_buy[i].orderDate}</td>
                         <td class="order-info5">da xu ly</td>
                     </tr>`;
         }
         body_order.innerHTML = list;
+
+        function getProductHTML(product) {
+            var productListHTML = '';
+            product.forEach((productt) => {
+                productListHTML += `<p>${productt.tensp} - ${productt.mau} - ${productt.luutru} - SL:${productt.soluong}</p>`;
+            });
+            return productListHTML;
+        }
+
+        // Biến số thành chuỗi có phân đơn vị
+        function formatNumberWithCommas(number) {
+            // Chuyển số thành chuỗi
+            var numberString = number.toString();
+            // Tìm vị trí của dấu chấm thập phân (nếu có)
+            var decimalIndex = numberString.indexOf('.');
+            // Nếu không có dấu chấm thập phân, thì mặc định là cuối chuỗi
+            if (decimalIndex === -1) {
+                decimalIndex = numberString.length;
+            }
+            // Thêm dấu chấm vào mỗi 3 chữ số từ cuối lên đầu
+            for (var i = decimalIndex - 3; i > 0; i -= 3) {
+                numberString = numberString.slice(0, i) + '.' + numberString.slice(i);
+            }
+            // Hiển thị chuỗi đã được định dạng
+            return numberString;
+        }
     </script>
     <script src="/js/products-homepage.js"></script>
     <script src="/js/login-logout-register.js"></script>

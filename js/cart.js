@@ -94,15 +94,21 @@ function trashcart(index) {
 
 // ĐẶt hàng
 function createOrder() {
+    var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
+    var index_login = JSON.parse(localStorage.getItem('index_login'));
+    var user = JSON.parse(localStorage.getItem('user'));
     const ngay = new Date(); // lấy ngày hiện tại
     const order = {
+        index_lg: index_login,
+        userPhone: user[index_login].phone,
+        userName: user[index_login].name,
         orderDate: ngay.toLocaleString(),
-        // orderID: TaoOrderID(),
-        // tao5 mã đơn ngẫu nhiên
+        // orderID: Math.random().toString(36).substr(2, 9);, tao5 mã đơn ngẫu nhiên
         products: waitting_buy, // mảng waitting_buy
         totalPrice: calculateTotalPrice(), //tong tien
+        status: 'success',
     };
-
+    console.log(order.products.id);
     let orders = JSON.parse(localStorage.getItem('orders')) || [];
 
     if (orders.length === 0) {
@@ -112,10 +118,8 @@ function createOrder() {
     }
     localStorage.setItem('orders', JSON.stringify(orders)); //// lưu mảng orders vào localStorage
     alert('Đặt hàng thành công!');
-}
-
-// tạo mã đơn (tạo theo quy tắc mong muốn)
-function TaoOrderID() {
-    //sinh mã đơn hàng theo quy tắc
-    return Math.random().toString(36).substr(2, 9); // Ví dụ đơn giản: sinh chuỗi ngẫu nhiên
+    // xóa mảng waitting_buy
+    waitting_buy.splice(0, waitting_buy.length);
+    localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
+    inner_cart();
 }
