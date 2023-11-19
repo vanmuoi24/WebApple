@@ -17,32 +17,32 @@
     border-radius: 8px;
     position: absolute;
     transition: transform 1s ease;
-  }
-  #div_banner img:not(.active) {
+}
+#div_banner img:not(.active) {
     transform: translateX(100%);
-  }
- #button_moving {
+}
+#button_moving {
     position: absolute;
     width: 90%;
- }
- #button_moving img {
+}
+#button_moving img {
     border: 1px solid transparent;
     cursor: pointer;
     border-radius: 100%;
     padding: 3px;
     width: 35px;
     height: 35px;
- }
- #button_moving img:hover {
+}
+#button_moving img:hover {
     border: 1px solid rgba(128, 128, 128, 0.1);
     background-color: rgba(128, 128, 128, 0.1);
- }
- #button_moving_left {
+}
+#button_moving_left {
     float: left;
- }
- #button_moving_right {
+}
+#button_moving_right {
     float: right;
- }
+}
 #button_moving_bottom {
     display: flex;
     align-items: center;

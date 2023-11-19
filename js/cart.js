@@ -1,5 +1,6 @@
+// Khởi tạo ban đầu
 inner_cart();
-
+// Tăng giảm số lượng
 function quantitydown(i) {
     var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
     if (waitting_buy[i].soluong > 1) waitting_buy[i].soluong--;
@@ -35,7 +36,7 @@ function formatNumberWithCommas(number) {
     // Hiển thị chuỗi đã được định dạng
     return numberString;
 }
-
+// Fill sản phảm đã đặt vào
 function inner_cart() {
     var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
     var body_cart = document.getElementById('body-cart');
@@ -72,7 +73,7 @@ function inner_cart() {
     total_cart.innerHTML = `Tổng tiền: ${formatNumberWithCommas(calculateTotalPrice())}VND`;
 }
 
-// tính tổng tiền cho toàn bộ giỏ hàng
+// Tính tổng tiền cho toàn bộ giỏ hàng
 function calculateTotalPrice() {
     var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
     var totalPrice = 0;
@@ -84,7 +85,7 @@ function calculateTotalPrice() {
     return totalPrice;
 }
 
-// xóa sp đã đặt
+// Xóa sp đã đặt
 function trashcart(index) {
     var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
     waitting_buy.splice(index, 1);
@@ -92,34 +93,34 @@ function trashcart(index) {
     inner_cart();
 }
 
-// ĐẶt hàng
+// Đặt hàng
 function createOrder() {
     var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
     var index_login = JSON.parse(localStorage.getItem('index_login'));
     var user = JSON.parse(localStorage.getItem('user'));
-    const ngay = new Date(); // lấy ngày hiện tại
-    const order = {
-        index_lg: index_login,
-        userPhone: user[index_login].phone,
-        userName: user[index_login].name,
-        orderDate: ngay.toLocaleString(),
-        // orderID: Math.random().toString(36).substr(2, 9);, tao5 mã đơn ngẫu nhiên
-        products: waitting_buy, // mảng waitting_buy
-        totalPrice: calculateTotalPrice(), //tong tien
-        status: 'success',
-    };
-    console.log(order.products.id);
-    let orders = JSON.parse(localStorage.getItem('orders')) || [];
-
-    if (orders.length === 0) {
-        orders = [order]; //mang rong
+    // Kiểm tra đã đăng nhập chưa
+    if (index_login != -1) {
+        const ngay = new Date(); // lấy ngày hiện tại
+        const order = {
+            user: user[index_login],
+            Ngaydat: ngay.getDate() + '/' + (ngay.getMonth() + 1) + '/' + ngay.getFullYear(),
+            Sanpham: waitting_buy, // mảng waitting_buy
+            Tongtien: calculateTotalPrice(), //tong tien
+            Trangthai: 'Chưa xử lý',
+        };
+        let orders = JSON.parse(localStorage.getItem('orders')) || [];
+        if (orders.length === 0) {
+            orders = [order]; //mang rong
+        } else {
+            orders.push(order); //them order moi vao mang da co san
+        }
+        localStorage.setItem('orders', JSON.stringify(orders)); //// lưu mảng orders vào localStorage
+        showMessage('Đặt hàng thành công!');
+        // xóa mảng waitting_buy
+        waitting_buy.splice(0, waitting_buy.length);
+        localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
+        inner_cart();
     } else {
-        orders.push(order); //them order moi vao mang da co san
+        showMessage_error('Bạn phải đăng nhập để mua sản phẩm!');
     }
-    localStorage.setItem('orders', JSON.stringify(orders)); //// lưu mảng orders vào localStorage
-    alert('Đặt hàng thành công!');
-    // xóa mảng waitting_buy
-    waitting_buy.splice(0, waitting_buy.length);
-    localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
-    inner_cart();
 }
