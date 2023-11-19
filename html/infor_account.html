@@ -179,7 +179,7 @@
             <div class="option_canhan">
                 <div class="option_canhan_main">
                     <div class="option_canhan_main_head">
-                        <h2>Lê Thế Minh</h2>
+                        <h2 id="name_account">User name</h2>
                         <i class="fa fa-user-circle" aria-hidden="true"></i>
                     </div>
                     <div class="option_canhan_main_body">
@@ -208,29 +208,44 @@
                         <div class="in4_caNhan_main_body_data">
                             <div id="row1">
                                 <label for="hoten">Họ và tên :</label>
-                                <input type="text" id="hoten" name="Name" placeholder="Lê Thế Minh" required /><br /><br />
+                                <input type="text" id="hoten" name="Name" placeholder="Lê Thế Minh" class="form_input" required /><br /><br />
                             </div>
                             <div id="row2">
                                 <label for="sdt">Số điện thoại :</label>
-                                <input type="text" name="Phone-number" id="sdt" placeholder="0912345678" /><br /><br />
+                                <input type="text" name="Phone-number" id="sdt" placeholder="0912345678" required /><br /><br />
                             </div>
                             <div id="row3">
                                 <label for="address">Địa chỉ :</label>
-                                <input type="text" name="Address" id="address" placeholder="272, An Dương Vương, p1, q5, tpHCM" /><br /><br />
+                                <input
+                                    type="text"
+                                    name="Address"
+                                    id="address"
+                                    placeholder="272, An Dương Vương, p1, q5, tpHCM"
+                                    required
+                                /><br /><br />
                             </div>
                             <div id="row4">
                                 <label for="email">Email :</label>
-                                <input type="text" id="email" placeholder="vaicachuong@gmail.com" name="Email" />
+                                <input type="text" id="email" placeholder="vaicachuong@gmail.com" name="Email" required />
                             </div>
                             <br />
                             <div id="row5">
                                 <label for="pass_o">Mật khẩu :</label>
                                 <p>********</p>
-                                <a herf="#" onclick="change_pass()">Thay đổi</a>
+                                <a herf="#" onclick="change_pass()" style="cursor: pointer; color: blue">Thay đổi</a>
                                 <br /><br />
                             </div>
                             <div class="change_in4_main_body_click">
-                                <input type="submit" value="Lưu thay đổi" />
+                                <div id="change_in4_main_body_sub_1">
+                                    <input type="submit" value="Lưu thông tin" id="sub_change_infor" onclick="change_canhann(event)" />
+                                </div>
+                                <div id="change_in4_main_body_sub_2">
+                                    <input type="submit" value="Thay đổi mật khẩu" id="sub_change_pass" onclick="check_change(event)" />
+                                </div>
+                            </div>
+                            <br />
+                            <div id="div_change_notify">
+                                <p id="change_notify"></p>
                             </div>
                         </div>
                     </div>
