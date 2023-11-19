@@ -99,25 +99,20 @@ function createOrder() {
     var user = JSON.parse(localStorage.getItem('user'));
     const ngay = new Date(); // lấy ngày hiện tại
     const order = {
-        index_lg: index_login,
-        userPhone: user[index_login].phone,
-        userName: user[index_login].name,
-        orderDate: ngay.toLocaleString(),
-        // orderID: Math.random().toString(36).substr(2, 9);, tao5 mã đơn ngẫu nhiên
-        products: waitting_buy, // mảng waitting_buy
-        totalPrice: calculateTotalPrice(), //tong tien
-        status: 'success',
+        user: user[index_login],
+        Ngaydat: ngay.getDate() + '/' + (ngay.getMonth() + 1) + '/' + ngay.getFullYear(),
+        Sanpham: waitting_buy, // mảng waitting_buy
+        Tongtien: calculateTotalPrice(), //tong tien
+        Trangthai: 'Chưa xử lý',
     };
-    console.log(order.products.id);
     let orders = JSON.parse(localStorage.getItem('orders')) || [];
-
     if (orders.length === 0) {
         orders = [order]; //mang rong
     } else {
         orders.push(order); //them order moi vao mang da co san
     }
     localStorage.setItem('orders', JSON.stringify(orders)); //// lưu mảng orders vào localStorage
-    alert('Đặt hàng thành công!');
+    showMessage('Đặt hàng thành công!');
     // xóa mảng waitting_buy
     waitting_buy.splice(0, waitting_buy.length);
     localStorage.setItem('waitting_buy', JSON.stringify(waitting_buy));
