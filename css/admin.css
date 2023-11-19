@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: none;
 }
+
 .logo {
     font-family: 'Roboto', sans-serif;
     position: relative;
@@ -84,6 +85,7 @@
     margin-left: 40px;
     list-style: none;
 }
+
 .left_list ul li a {
     margin-left: 10px;
     color: white;
@@ -212,10 +214,11 @@ td {
     justify-content: space-between;
     position: absolute;
     top: -1000px;
-    /* top: 30%; */
+
     left: 30%;
     transition: 1.5s;
 }
+
 .add_product.top {
     top: 25%;
     transition: 0.5s;
@@ -634,7 +637,7 @@ input {
     color: white;
 }
 
-.table_cart tbody button {
+.btn_view {
     cursor: pointer;
     width: 90px;
     border: none;
@@ -643,6 +646,16 @@ input {
     font-size: 1rem;
     background-color: #0083d6;
     border-radius: 5px;
+}
+.btn_user {
+    cursor: pointer;
+    width: 90px;
+    border: none;
+    height: 30px;
+    color: white;
+
+    border-radius: 5px;
+    background-color: red;
 }
 .reset button {
     width: 90px;
@@ -704,4 +717,84 @@ input {
     bottom: 94%;
     left: 95%;
     position: absolute;
+}
+/* Quan Li Don hang */
+.cart_order {
+    margin-top: 100px;
+    width: 80%;
+    top: -10000px;
+    transition: 1.5s;
+
+    left: 6%;
+    display: flex;
+    color: black;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+}
+.closs_order {
+    top: 1%;
+    font-size: 1.8rem;
+    left: 82%;
+    color: #0083d6;
+    position: absolute;
+    cursor: pointer;
+}
+.cart_order.top {
+    top: 20%;
+    transition: 0.5s;
+}
+.ptoduct_title {
+    text-align: center;
+}
+.product_order {
+    background-color: white;
+    width: 70%;
+    border: 1px solid #0083d6;
+}
+.cart_order {
+}
+.class_cart {
+    padding: 10px 10px;
+    margin-top: 10px;
+    border: 1px solid #0083d6;
+    gap: 10px;
+    display: flex;
+}
+.img {
+    width: 30%;
+    height: 80px;
+}
+.cart_product {
+    width: 50%;
+    padding: 10px 10px;
+}
+.cart_product img {
+}
+.item_product {
+    gap: 10px;
+    display: flex;
+    padding: 10px 10px;
+}
+.user_product {
+    margin-top: 10px;
+    width: 50%;
+}
+.user_product table thead tr {
+    width: 100%;
+    height: 30px;
+}
+.user_product table thead tr td {
+    border: none;
+    width: 5%;
+}
+.user_product table thead button {
+    width: 100%;
+    border: none;
+    height: 30px;
+    margin-top: 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    background-color: #ed1313;
 }

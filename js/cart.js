@@ -101,7 +101,11 @@ function createOrder() {
     // Kiểm tra đã đăng nhập chưa
     if (index_login != -1) {
         const ngay = new Date(); // lấy ngày hiện tại
+        const madon = Math.ceil(new Date().getTime() / 10000)
+            .toFixed(0)
+            .slice(-3);
         const order = {
+            madon: '#' + madon,
             user: user[index_login],
             Ngaydat: ngay.getDate() + '/' + (ngay.getMonth() + 1) + '/' + ngay.getFullYear(),
             Sanpham: waitting_buy, // mảng waitting_buy

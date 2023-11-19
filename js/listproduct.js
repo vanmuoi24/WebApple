@@ -143,11 +143,11 @@ product.addEventListener('click', (event) => {
     //Btn Thêm Sản Phẩm
     btn_add.addEventListener('click', () => {
         add_product.classList.add('top');
-        table_product.style.display = 'none';
         document.getElementById('save_product').style.display = 'block';
         document.getElementById('save_product1').style.display = 'none';
         const text_p = document.getElementById('text_p');
         text_p.innerHTML = 'Thêm Sản Phẩm';
+        setOpacityAndDisableEvents();
         restfood();
     });
     //============================================================================
@@ -155,6 +155,11 @@ product.addEventListener('click', (event) => {
     icon_add.addEventListener('click', () => {
         add_product.classList.remove('top');
         table_product.style.display = 'block';
+        const elements = document.querySelectorAll('.left_header table, .logo, .left_list, .list_product, .selection_food, .pagination-buttons');
+        elements.forEach((element) => {
+            element.style.opacity = '1';
+            element.style.pointerEvents = 'auto';
+        });
     });
 
     const save_product_button = document.getElementById('save_product');
@@ -861,7 +866,6 @@ function seach_people() {
 // Xử lí select Khách Hàng
 function user_slection() {
     let header_client_selction = document.querySelectorAll('.header_client select')[0];
-    const acount = JSON.parse(localStorage.getItem('user')) || [];
     header_client_selction.addEventListener('change', () => {
         if (header_client_selction.value == 'Khách Hàng Online') {
             renderuser();
@@ -894,5 +898,14 @@ function save_excel() {
             type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
         });
         saveAs(blob, 'uer_name.xlsx');
+    });
+}
+
+// Opacity
+function setOpacityAndDisableEvents() {
+    const elements = document.querySelectorAll('.left_header table, .logo, .left_list, .list_product, .selection_food, .pagination-buttons');
+    elements.forEach((element) => {
+        element.style.opacity = '0.5';
+        element.style.pointerEvents = 'none';
     });
 }
