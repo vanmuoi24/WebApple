@@ -37,7 +37,7 @@
     font-weight: 400;
     text-align: center;
     margin: 0;
-    padding: 18px 0 0 9px;
+    padding: 18px 0 0 35px;
 }
 
 .option_canhan_main_body {
@@ -84,14 +84,6 @@
     top: 28px;
     font-size: 25px;
 }
-.in4_caNhan_main {
-    width: 650px;
-    height: 420px;
-    border: 3px dotted #ffb200;
-    text-align: center;
-    border-radius: 8px;
-    background-color: #f5f5f7;
-}
 .in4_caNhan_main_head {
     padding: 2px 0;
     height: 40px;
@@ -107,7 +99,7 @@
     text-align: center;
 }
 .in4_caNhan_main_body {
-    height: 380px;
+    height: 410px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,7 +111,8 @@
 #row3,
 #row4,
 #row6,
-#row7 {
+#row7,
+#row8 {
     display: flex;
     justify-content: right;
     align-items: baseline;
@@ -136,6 +129,7 @@
     border-radius: 7px;
     background-color: #d9d9d9;
     padding-left: 5px;
+    padding-right: 10px;
 }
 input[type='submit'] {
     width: 128px;
@@ -157,4 +151,28 @@ input[type='submit']:hover {
 }
 .in4_caNhan_main_body_click {
     text-align: center;
+}
+/*----------------------------------------------------------------*/
+.in4_caNhan_main {
+    width: 650px;
+    height: 450px;
+    border: 3px dotted #ffb200;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #f5f5f7;
+    position: relative;
+}
+#div_change_notify {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    bottom: 3px;
+    right: 0;
+    position: absolute;
+}
+#change_notify {
+    border-radius: 8px;
+    border: none;
+    padding: 5px;
+    background-color: transparent;
 }
