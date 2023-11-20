@@ -228,6 +228,16 @@ function searchByDate() {
     const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
     const orders = JSON.parse(localStorage.getItem('orders'));
+    var start = new Date(startDate);
+    var end = new Date(endDate);
+
+    // Mảng để lưu trữ các ngày trong khoảng từ startDate đến endDate
+    var datesInRange = [];
+
+    // Lặp qua mỗi ngày từ startDate đến endDate và lưu vào mảng datesInRange
+
+    console.log(start);
+
     if (startDate && endDate) {
         const filteredOrders = orders.filter((order) => {
             const orderDate = new Date(order.Ngaydat).getTime();
