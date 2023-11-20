@@ -147,7 +147,11 @@ product.addEventListener('click', (event) => {
         document.getElementById('save_product1').style.display = 'none';
         const text_p = document.getElementById('text_p');
         text_p.innerHTML = 'Thêm Sản Phẩm';
-        setOpacityAndDisableEvents();
+        const elements = document.querySelectorAll('.logo, .left_list, .list_product, .selection_food, .pagination-buttons,.table_product');
+        elements.forEach((element) => {
+            element.style.opacity = '0.5';
+            element.style.pointerEvents = 'none';
+        });
         restfood();
     });
     //============================================================================
@@ -155,7 +159,7 @@ product.addEventListener('click', (event) => {
     icon_add.addEventListener('click', () => {
         add_product.classList.remove('top');
         table_product.style.display = 'block';
-        const elements = document.querySelectorAll('.left_header table, .logo, .left_list, .list_product, .selection_food, .pagination-buttons');
+        const elements = document.querySelectorAll('.table_product, .logo, .left_list, .list_product, .selection_food, .pagination-buttons');
         elements.forEach((element) => {
             element.style.opacity = '1';
             element.style.pointerEvents = 'auto';
@@ -279,7 +283,7 @@ function search_product() {
                 <i class="fa-solid fa-trash" onclick="delete_product(${indexall})"></i>
                 <i class="fa-regular fa-pen-to-square" onclick="edit_product(${indexall})"></i>
               </td>
-              <td style="width:90px"><button onclick="view_product(${indexall})">Xem</button></td>
+              <td style="width:90px"><button id="view_product" onclick="view_product(${indexall})">Xem</button></td>
             </tr>
           `;
                 }
@@ -301,10 +305,6 @@ function search_product() {
 //============================================================================
 //Chọn hãng Điện Thoại
 function phone_select() {
-    const product = document.getElementById('product');
-    product.addEventListener('click', () => {
-        renderProductall();
-    });
     const tableContainer = document.getElementsByClassName('table_product')[0];
     const food_select = document.getElementById('food_select');
     var table = document.getElementsByTagName('table')[0];
@@ -345,12 +345,13 @@ function phone_select() {
 
             </tr>
           `;
-                tableContainer.innerHTML = ''; // Xóa nội dung cũ trước khi thêm mới
+                tableContainer.innerHTML = '';
                 tableContainer.appendChild(table);
                 table.innerHTML = list_table;
             }
         });
     });
+
     renderProductall();
 }
 //============================================================================
@@ -443,21 +444,24 @@ function view_product(id) {
     let content_product = document.getElementsByClassName('content_product ')[0];
     content_product.innerHTML = content_list;
     content_product.classList.add('top');
-    const table_product = document.getElementsByClassName('table_product')[0];
-    table_product.style.display = 'none';
+    const elements = document.querySelectorAll(' .logo, .left_list, .list_product, .selection_food, .pagination-buttons,.table_product');
+    elements.forEach((element) => {
+        element.style.opacity = '0.2';
+        element.style.pointerEvents = 'none';
+    });
 }
 //============================================================================
 // Thoát Xem Sản Phẩm
 function remove_content() {
     let content_product = document.querySelector('.content_product.top');
-    if (content_product) {
-        content_product.classList.remove('top');
-    }
-
-    const table_product = document.querySelector('.table_product');
-    if (table_product) {
-        table_product.style.display = 'block';
-    }
+    content_product.classList.remove('top');
+    const elements = document.querySelectorAll(
+        '.left_header table, .logo, .left_list, .list_product, .selection_food, .pagination-buttons,.table_product',
+    );
+    elements.forEach((element) => {
+        element.style.opacity = '1';
+        element.style.pointerEvents = 'auto';
+    });
 }
 //============================================================================
 // Hiển Thị Sản Phẩm Và Phân Trang
@@ -506,7 +510,7 @@ function renderProductall() {
           <i class="fa-solid fa-trash" onclick="delete_product(${indexall})"></i>
           <i class="fa-regular fa-pen-to-square" onclick="edit_product(${indexall})"></i>
         </td>
-        <td style="width:90px"><button onclick="view_product(${indexall})">Xem</button></td>
+        <td style="width:90px"><button id="view_product" onclick="view_product(${indexall})">Xem</button></td>
 
       </tr>
       `;
@@ -595,7 +599,15 @@ function renderProductall() {
         getcurenpage(currentPage);
         renderProduct();
     });
+    var a = document.getElementsByClassName('pagination-buttons')[0];
+    const product = document.getElementById('product');
+    product.addEventListener('click', () => {
+        a.style.display = 'block';
+        a.style.display = 'flex';
+        renderProduct();
+    });
 }
+
 //============================================================================
 // reset input
 function restfood() {
@@ -903,7 +915,7 @@ function save_excel() {
 
 // Opacity
 function setOpacityAndDisableEvents() {
-    const elements = document.querySelectorAll('.left_header table, .logo, .left_list, .list_product, .selection_food, .pagination-buttons');
+    const elements = document.querySelectorAll('.logo, .left_list, .list_product, .selection_food, .pagination-buttons,.table_product');
     elements.forEach((element) => {
         element.style.opacity = '0.5';
         element.style.pointerEvents = 'none';

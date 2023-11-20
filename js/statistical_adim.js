@@ -1,5 +1,6 @@
 function statistical() {
     let dataproduct = JSON.parse(localStorage.getItem('products')) || [];
+    const orders = JSON.parse(localStorage.getItem('orders'));
     console.log(dataproduct);
     document.getElementById('sum_product').innerHTML = dataproduct.length;
 
@@ -29,6 +30,29 @@ function statistical() {
             tongIndex2++;
         }
     });
+    var tong = 0;
+    var sum_product = document.getElementById('sum_product_buy');
+    console.log(sum_product);
+    orders.map((list) => {
+        list.Sanpham.map((sp) => {
+            tong += sp.soluong;
+        });
+        if (list.Trangthai === 'Đã xử lý') {
+            sum_product.innerHTML = tong;
+        }
+    });
+    var tong_all_cart = 0;
+    for (var i = 0; i < orders.length; i++) {
+        tong_all_cart += orders[i].Tongtien;
+        const giaTienChinhThuc = tong_all_cart.toLocaleString('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+        });
+
+        if (orders[i].Trangthai === 'Đã xử lý') {
+            document.getElementById('sum_all_cart').innerHTML = giaTienChinhThuc;
+        }
+    }
 
     document.getElementById('iPhone').innerHTML = tongIndex;
     document.getElementById('MacBook').innerHTML = tongIndex1;
@@ -79,8 +103,8 @@ document.getElementById('home').addEventListener('click', () => {
                             <td>Doanh Thu</td>
                         </tr>
                         <tr>
-                            <td>0</td>
-                            <td>0VND</td>
+                            <td id='sum_product_buy'>0</td>
+                            <td id="sum_all_cart">0VND</td>
                         </tr>
                     </thead>
                 </table>

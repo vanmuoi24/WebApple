@@ -17,4 +17,25 @@
         color: white;
         text-decoration: none;
     }
+    .header_cart_table,
+    .table_cart {
+        margin-left: 0px;
+    }
+    .header_cart_table .date_1 {
+        width: 100px;
+        height: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .header_cart_table button {
+        display: none;
+    }
+    .header_seach {
+        margin-left: 10px;
+        width: 100%;
+    }
+    .header_select select {
+        width: 60px;
+    }
 }

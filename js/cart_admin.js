@@ -144,24 +144,52 @@ function order_view(id) {
 
     var user_table = `
         <tr>
-            <td>Người Nhận</td>
+            <td>
+             <div>
+                 <i class="fa-solid fa-user"></i>
+                 <h4>Người Nhận :</h4>
+             </div>
+            
+            </td>
             <td>${orders[id].user.name}</td>
         </tr>
         <tr>
-            <td>Số Điện Thoại</td>
+            <td>
+                <div>
+                   <i class="fa-solid fa-phone"></i>
+                   <h4>Số Điên Thoại :</h4>
+                </div>
+            </td>
             <td>${orders[id].user.phone}</td>
         </tr>
         <tr>
-            <td>Thời Gian đặt</td>
+            <td>
+                <div>
+                    <i class="fa-solid fa-clock"></i>
+                    <h4>Thời Gian Đặt :</h4>
+                </div>
+            </td>
             <td>${orders[id].user.date}</td>
         </tr>
         <tr>
-            <td>Địa Chỉ Nhận</td>
+            <td>
+            
+            <div>
+            <i class="fa-solid fa-location-dot"></i>
+            <h4>Địa Chỉ :</h4>            
+            </div>
+            
+            </td>
             <td>${orders[id].user.address}</td>
         </tr>
         <tr>
-            <td>Tổng Đơn Hàng</td>
-            <td>${giaTienChinhThuc}</td>
+            <td>
+                <div> 
+                <i class="fa-solid fa-truck"></i>
+                    <h4>Tổng Đơn :</h4>
+                </div>
+            </td>
+            <td style="color:red">${giaTienChinhThuc}</td>
         </tr>
         <button id="btn_handle">${orders[id].Trangthai}</button>
         `;
@@ -225,32 +253,17 @@ function oder_userByStatus(status) {
     });
 }
 function searchByDate() {
-    const startDate = document.getElementById('startDate').value;
-    const endDate = document.getElementById('endDate').value;
-    const orders = JSON.parse(localStorage.getItem('orders'));
-    var start = new Date(startDate);
-    var end = new Date(endDate);
+    const startDate = new Date(document.getElementById('startDate').value);
+    const endDate = new Date(document.getElementById('endDate').value);
 
-    // Mảng để lưu trữ các ngày trong khoảng từ startDate đến endDate
     var datesInRange = [];
-
-    // Lặp qua mỗi ngày từ startDate đến endDate và lưu vào mảng datesInRange
-
-    console.log(start);
-
-    if (startDate && endDate) {
-        const filteredOrders = orders.filter((order) => {
-            const orderDate = new Date(order.Ngaydat).getTime();
-            const start = new Date(startDate).getTime();
-            const end = new Date(endDate).getTime();
-
-            return orderDate >= start && orderDate <= end;
-        });
-
-        // Hiển thị kết quả hoặc thực hiện các thao tác khác với filteredOrders
-        console.log(filteredOrders);
-    } else {
-        console.log('Vui lòng nhập cả hai ngày.');
+    for (var currentDate = new Date(startDate); currentDate <= endDate; currentDate.setDate(currentDate.getDate() + 1)) {
+        var date = new Date(currentDate);
+        var day = date.getDate();
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
+        var dateFormatted = month + '/' + day + '/' + year;
+        datesInRange.push(dateFormatted);
     }
 }
 
