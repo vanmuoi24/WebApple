@@ -1053,24 +1053,46 @@ function fill_products_right_key(event) {
 }
 document.addEventListener('keydown', fill_products_left_key);
 document.addEventListener('keydown', fill_products_right_key);
-// Chuyển trang sang trang phân loại
-function create_type_products(type) {
-    localStorage.setItem('type_products', type);
-    window.location.href = './products-type.html';
-}
-
 // Lấy mảng sản phẩm cùng 1 type
 function filterByType(obj) {
     return obj.hasOwnProperty('danhmuc') && obj.danhmuc === type_product;
 }
+// Save phân loại sản phẩm
+function Save_products_type(type) {
+    localStorage.setItem('type_products', type);
+    window.location.href = '../html/homepage.html';
+}
+// Kiểm tra phân loại sản phẩm
+function Check_products_type() {
+    type = localStorage.getItem('type_products');
+    if (type !== null) products_type(type);
+    localStorage.removeItem('type_products');
+}
 // Phân loại sản phẩm
-var type_product = localStorage.getItem('type_products');
-function products_type() {
+var type_product = null;
+function products_type(type) {
+    // Xóa banner
+    if (type_product == null) {
+        var divToRemove = document.getElementById('container');
+        divToRemove.parentNode.removeChild(divToRemove);
+        // Tạo thẻ thêm 1 hàng cho sản phẩm
+        var parentDiv = document.getElementById('div_products_total');
+        var newDiv = document.createElement('div');
+        newDiv.classList.add('div_products_view');
+        parentDiv.appendChild(newDiv);
+    }
+    // Reset lại tất cả số liệu
+    type_product = type;
+    index_products = 0;
+    products_search_number = 0;
+    document.getElementById('div_search_products_number').textContent = products_search_number;
+    document.getElementById('p_products').textContent = type_product;
     // Thay đổi tên trang web
     document.title = type_product;
-    // Reset lại tất cả số liệu
-    document.getElementById('div_search_products_number').textContent = 0;
-    document.getElementById('p_products').textContent = type_product;
+    // Xóa hết sản phẩm đã trình bày từ trước
+    var div_products_view = document.getElementsByClassName('div_products_view');
+    div_products_view[0].innerHTML = '';
+    div_products_view[1].innerHTML = '';
     // fill sản phẩm cùng loại vào
     fill_products_type_right();
     document.getElementById('div_search_products_left').onclick = function () {
@@ -1185,6 +1207,89 @@ function shopping() {
 // Tắt hiển thị sản phẩm
 function close_product_display() {
     document.getElementById('div_product_display_total').style.display = 'none';
+}
+// Save trạng thái chính sách bảo hành
+function SaveSecurity() {
+    localStorage.setItem('Security', 'true');
+    window.location.href = '../html/homepage.html';
+}
+// Kiểm tra phân loại sản phẩm
+function CheckSecurity() {
+    Security = localStorage.getItem('Security');
+    if (Security !== null) showSecurity();
+    localStorage.removeItem('Security');
+}
+// Hiển thị chính sách bảo hành
+function showSecurity() {
+    // Xóa banner
+    var divToRemove = document.getElementById('container');
+    divToRemove.parentNode.removeChild(divToRemove);
+    // Xóa hiển thị sản phẩm
+    divToRemove = document.getElementById('div_products');
+    divToRemove.parentNode.removeChild(divToRemove);
+    document.getElementById('div_security').innerHTML = `<div id="div_security_header">
+        <h1>Chính sách bảo hành sản phẩm</h1>
+        <p>Chính sách bảo hành tuân thủ theo đúng quy định của Apple áp dụng tại thị trường Việt Nam</p>
+    </div>
+    <div id="div_security_content">
+        <p>
+            Luôn ưu tiên quyền lợi của khách hàng là quan trọng nhất, ThunderTechnology đưa ra chính sách bảo hành tuân thủ theo đúng quy định
+            của Apple áp dụng tại thị trường Việt Nam.
+        </p>
+        <h3>1. Chính sách bảo hành tiêu chuẩn tại ThunderTechnolog:</h3>
+        <p>- ThunderTechnology sẽ bảo hành theo đúng tiêu chuẩn quy định bảo hành Apple thêm tới 24 tháng cho thiết bị của bạn.</p>
+        <p>- Sản phẩm áp dụng: các sản phẩm iPhone – iPad.</p>
+        <p>- Các lỗi cụ thể được bảo hành:</p>
+        <p>+ Lỗi linh kiện do nhà sản xuất : Màn hình, Main, Camera, Loa, Mic…</p>
+        <p>
+            + Link tham khảo:
+            <a href="https://www.apple.com/legal/warranty/products/ios-warrantyrest-of-apac-vietnamese.html"
+                >https://www.apple.com/legal/warranty/products/ios-warrantyrest-of-apac-vietnamese.html</a
+            >
+        </p>
+        <h3>2. Chính sách bảo hành tiêu chuẩn Apple:</h3>
+        <p>- Tất cả các sản phẩm mua tại ThunderTechnology đều được áp dụng chính sách bảo hành theo đúng quy định của Apple.</p>
+        <p>- Chương trình bảo hành bắt đầu có hiệu lực từ thời điểm ThunderTechnology xuất hóa đơn cho Quý khách.</p>
+        <p>- Mỗi dòng sản phẩm có chính sách bảo hành khác nhau theo quy định của hãng.</p>
+        <p>- Quý khách hàng cần xuất hóa đơn mua hàng để được bảo hành.</p>
+        <p>
+            - Thời hạn bảo hành: Miễn phí 1 đổi 1 trong 30 ngày đầu tiên nếu sản phẩm lỗi do nhà sản xuất (Máy không bị trầy xước, cấn
+            móp,...).
+        </p>
+        <p>- Bảo hành theo chính sách của Apple cho sản phẩm sử dụng từ tháng thứ 02 đến tháng thứ 12 nếu lỗi phát sinh do nhà sản xuất.</p>
+        <p>- Bảo hành tiêu chuẩn 1 năm đối với phụ kiện.</p>
+        <p>
+            - Chi tiết chính sách bảo hành tiêu chuẩn tại:
+            <a href="https://www.apple.com/legal/warranty/products/ios-warranty-rest-of-apac-vietnamese.html"
+                >https://www.apple.com/legal/warranty/products/ios-warranty-rest-of-apac-vietnamese.html</a
+            >
+        </p>
+        <h3>3. Ðiều kiện tiếp nhận bảo hành:</h3>
+        <p>- Máy đã được đăng xuất khỏi tài khoản Apple ID (tài khoản iCloud...).</p>
+        <p>
+            - Khách xuất trình phiếu mua hàng kiêm phiếu bảo hành của ThunderTechnology hoặc nếu bạn không xuất trình được phiếu mua hàng
+            ThunderTechnology tra đủ thông tin lưu trên hệ thống mà thông tin khách hàng đầy đủ chính xác sẽ hỗ trợ bảo hành.
+        </p>
+        <p>- Máy bảo hành khi trả lại được xoá toàn bộ mật khẩu và dữ liệu.</p>
+        <p>- ThunderTechnology không chịu trách nhiệm đối với mọi lỗi phát sinh sau thời hạn bảo hành.</p>
+        <h3 style="color: red">LƯU Ý:</h3>
+        <p>
+            - Trường hợp sản phẩm của Quý khách còn thời hạn bảo hành, nhưng gặp phải một số vấn đề sau đây sẽ không được hỗ trợ bảo hành theo
+            chính sách:
+        </p>
+        <p>+ Linh kiện tiêu hao, chẳng hạn pin hoặc lớp bảo vệ hao mòn theo thời gian (trừ trường hợp lỗi vật liệu hoặc lỗi gia công).</p>
+        <p>+ Sản phẩm hư hỏng bên ngoài, máy bị xước, lõm, vỡ... (trừ trường hợp lỗi vật liệu hoặc lỗi gia công).</p>
+        <p>+ Sản phẩm hư hỏng do sử dụng sai cách, lạm dụng, các sự cố tai nạn, hỏa hoạn, thấm nước hoặc các nhân bên ngoài khác.</p>
+        <p>+ Sản phẩm hư hỏng do sử dụng không theo các chỉ dẫn Apple đã công bố.</p>
+        <p>+ Sản phẩm hư hỏng do sửa chữa hoặc sử dụng linh kiện của bên thứ ba không đáp ứng thông số kỹ thuật của sản phẩm Apple.</p>
+        <p>
+            + Sản phẩm hư hỏng do hoạt động bảo dưỡng (bao gồm nâng cấp và mở rộng) được tiến hành bởi bất kỳ ai không phải là đại diện của
+            Apple hoặc Nhà cung cấp dịch vụ ủy quyền của Apple.
+        </p>
+        <p>+ Sản phẩm đã qua sửa đổi để thay đổi chức năng mà không có sự cho phép bằng văn bản của Apple.</p>
+        <p>+ Sản phẩm hư hỏng do hao mòn hoặc quá trình cũ đi theo thời gian.</p>
+        <p>+ Sản phẩm không còn số serial.</p>
+    </div>`;
 }
 // Hiển thị gợi ý (code bằng addEventListener)
 document.addEventListener('DOMContentLoaded', function () {

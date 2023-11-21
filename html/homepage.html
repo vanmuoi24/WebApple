@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="../css/login.css" />
         <link rel="stylesheet" href="../css/register.css" />
         <link rel="stylesheet" href="../css/banner.css" />
+        <link rel="stylesheet" href="../css/security.css" />
         <link rel="stylesheet" href="../css/products.css" />
         <link rel="stylesheet" href="../css/product-display.css" />
         <link rel="stylesheet" href="../css/footer.css" />
@@ -137,19 +138,19 @@
         <div id="header_menu">
             <div id="total_menu">
                 <div class="menu">
-                    <div id="iphone" onclick="create_type_products('iPhone')">
+                    <div id="iphone" onclick="Save_products_type('iPhone')">
                         <a href="#">
                             <img src="../img/icon/icon-iphone.png" alt="iphone" />
                             <p>iPhone</p>
                         </a>
                     </div>
-                    <div id="ipad" onclick="create_type_products('iPad')">
+                    <div id="ipad" onclick="Save_products_type('iPad')">
                         <a href="#">
                             <img src="../img/icon/icon-ipad.png" alt="ipad" />
                             <p>iPad</p>
                         </a>
                     </div>
-                    <div id="mac" onclick="create_type_products('Macbook')">
+                    <div id="mac" onclick="Save_products_type('Macbook')">
                         <a href="#">
                             <img src="../img/icon/icon-mac.png" alt="mac" />
                             <p>Macbook</p>
@@ -157,8 +158,8 @@
                     </div>
                 </div>
                 <div class="menu">
-                    <div id="security">
-                        <a href="../html/chinh-sach-bao-hanh.html">
+                    <div id="security" onclick="SaveSecurity()">
+                        <a href="#">
                             <img src="../img/icon/security.png" alt="security" />
                             <p>Chính sách bảo hành</p>
                         </a>
@@ -189,6 +190,8 @@
                 <div></div>
             </div>
         </div>
+        <!-- Nội dung của chính sách bảo hành -->
+        <div id="div_security"></div>
         <!-- Hiển thị sản phẩm -->
         <div id="div_products">
             <p id="p_products">Đề xuất</p>
@@ -298,7 +301,12 @@
     <script>
         // Đảm bảo rằng toàn bộ dữ liệu đã được load xong
         document.addEventListener('DOMContentLoaded', function () {
+            // Fill sản phẩm vào
             fill_products_right();
+            // Kiểm tra xem có lựa chọn loại sản phẩm không
+            Check_products_type();
+            // Kiểm tra xem có hiển thị chính sách bảo hàng
+            CheckSecurity();
             document.body.style.display = 'flex';
         });
     </script>
