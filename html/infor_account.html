@@ -14,9 +14,6 @@
         <link rel="stylesheet" href="../css/header.css" />
         <link rel="stylesheet" href="../css/login.css" />
         <link rel="stylesheet" href="../css/register.css" />
-        <link rel="stylesheet" href="../css/banner.css" />
-        <link rel="stylesheet" href="../css/products.css" />
-        <link rel="stylesheet" href="../css/product-display.css" />
         <link rel="stylesheet" href="../css/footer.css" />
         <link rel="stylesheet" href="../css/in4_account.css" />
     </head>
@@ -183,7 +180,7 @@
                         <i class="fa fa-user-circle" aria-hidden="true"></i>
                     </div>
                     <div class="option_canhan_main_body">
-                        <div id="body_1">
+                        <div id="body_1" onclick="clickTTTK()">
                             <p>Thông tin tài khoản</p>
                             <i class="fa fa-user user" aria-hidden="true"></i>
                         </div>
@@ -191,15 +188,15 @@
                             <p>Quản lí đơn hàng</p>
                             <i class="fa fa-shopping-bag bag" aria-hidden="true"></i>
                         </div>
-                        <div id="body_3">
-                            <p onclick="logout()" style="cursor: pointer">Đăng xuất ></p>
+                        <div id="body_3" onclick="logout()">
+                            <p>Đăng xuất ></p>
                             <i class="fa fa-sign-out exit" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Ô thông tin bên phải -->
-            <div class="in4_caNhan" style="display: block">
+            <div id="in4_caNhan">
                 <form class="in4_caNhan_main">
                     <div class="in4_caNhan_main_head">
                         <h1>Thông tin tài khoản</h1>
@@ -252,7 +249,7 @@
                 </form>
             </div>
             <!-- Quan li don hang  -->
-            <div class="in4_donhang" style="display: none">
+            <div id="in4_donhang">
                 <div class="table_warpper">
                     <table class="order">
                         <colgroup>
@@ -264,7 +261,7 @@
                         </colgroup>
                         <thead>
                             <tr>
-                                <th class="order-info1">Mã đon</th>
+                                <th class="order-info1">Mã đơn</th>
                                 <th class="order-info2">Tổng tiền</th>
                                 <th class="order-info3">Sản phẩm</th>
                                 <th class="order-info4">Ngày đặt</th>
@@ -345,67 +342,6 @@
         </div>
     </body>
     <!-- JaveScript -->
-    <script>
-        function clickQLDH() {
-            document.getElementById('in4_donhang').style.display = 'block';
-            document.getElementById('in4_caNhan').style.display = 'none';
-        }
-
-        var waitting_buy = JSON.parse(localStorage.getItem('orders'));
-        var index_U = localStorage.getItem('index_login');
-        var user = JSON.parse(localStorage.getItem('user'));
-        var body_order = document.getElementById('body-order');
-        var list = ' ';
-        for (var i = 0; i < waitting_buy.length; i++) {
-            if (user[index_U].phone === waitting_buy[i].user.phone) {
-                list += `<tr>
-                            <td class="order-info1">
-                                <p>${waitting_buy[i].madon}</p>
-                            </td>
-                            <td class="order-info2">
-                                <p>${formatNumberWithCommas(waitting_buy[i].Tongtien)}đ</p>
-                            </td>
-                            <td class="order-info3">
-                                <!-- <p>iPhone 15 Pro - Black - 256GB - SL: 2</p> -->
-                                ${getProductHTML(waitting_buy[i].Sanpham)}
-                            </td>
-                            <td class="order-info4">${waitting_buy[i].Ngaydat}</td>
-                            <td class="order-info5">${waitting_buy[i].Trangthai}</td>
-                        </tr>`;
-            }
-        }
-        if (list === ' ') {
-            var noorder = `<p>Không có đơn hàng</p>`;
-            document.getElementById('noOrder').innerHTML = noorder;
-        }
-        body_order.innerHTML = list;
-
-        function getProductHTML(product) {
-            var productListHTML = '';
-            product.forEach((productt) => {
-                productListHTML += `<p>${productt.tensp} - ${productt.mau} - ${productt.luutru} - SL:${productt.soluong}</p>`;
-            });
-            return productListHTML;
-        }
-
-        // Biến số thành chuỗi có phân đơn vị
-        function formatNumberWithCommas(number) {
-            // Chuyển số thành chuỗi
-            var numberString = number.toString();
-            // Tìm vị trí của dấu chấm thập phân (nếu có)
-            var decimalIndex = numberString.indexOf('.');
-            // Nếu không có dấu chấm thập phân, thì mặc định là cuối chuỗi
-            if (decimalIndex === -1) {
-                decimalIndex = numberString.length;
-            }
-            // Thêm dấu chấm vào mỗi 3 chữ số từ cuối lên đầu
-            for (var i = decimalIndex - 3; i > 0; i -= 3) {
-                numberString = numberString.slice(0, i) + '.' + numberString.slice(i);
-            }
-            // Hiển thị chuỗi đã được định dạng
-            return numberString;
-        }
-    </script>
     <script src="../js/products-homepage.js"></script>
     <script src="../js/login-logout-register.js"></script>
     <script src="../js/infor_account.js"></script>

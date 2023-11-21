@@ -55,6 +55,7 @@
     padding-top: 30px;
 }
 #body_1 {
+    cursor: pointer;
     height: 33%;
     position: relative;
 }
@@ -65,6 +66,7 @@
     font-size: 25px;
 }
 #body_2 {
+    cursor: pointer;
     height: 33%;
     position: relative;
 }
@@ -75,6 +77,7 @@
     font-size: 25px;
 }
 #body_3 {
+    cursor: pointer;
     height: 33%;
     position: relative;
 }
@@ -83,6 +86,9 @@
     left: 18px;
     top: 28px;
     font-size: 25px;
+}
+#in4_caNhan {
+    display: flex;
 }
 .in4_caNhan_main_head {
     padding: 2px 0;
@@ -103,8 +109,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.in4_caNhan_main_body_data {
 }
 #row1,
 #row2,
@@ -175,4 +179,19 @@ input[type='submit']:hover {
     border: none;
     padding: 5px;
     background-color: transparent;
+}
+/* CSS đơn hàng */
+#in4_donhang {
+    display: none;
+}
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #969696;
+    line-height: 1.5;
+    font-size: 1em;
+}
+#noOrder {
+    padding-top: 10px;
 }

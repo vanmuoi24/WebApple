@@ -224,3 +224,67 @@ function change_canhann(event) {
     window.location.reload();
     return true;
 }
+//Hiển thị thông tin tài khoản
+function clickTTTK() {
+    document.getElementById('in4_donhang').style.display = 'none';
+    document.getElementById('in4_caNhan').style.display = 'flex';
+}
+// Hiển thị đơn hàng
+function clickQLDH() {
+    document.getElementById('in4_donhang').style.display = 'flex';
+    document.getElementById('in4_caNhan').style.display = 'none';
+}
+var waitting_buy = JSON.parse(localStorage.getItem('orders'));
+var index_U = localStorage.getItem('index_login');
+var user = JSON.parse(localStorage.getItem('user'));
+var body_order = document.getElementById('body-order');
+var list = ' ';
+for (var i = 0; i < waitting_buy.length; i++) {
+    if (user[index_U].phone === waitting_buy[i].user.phone) {
+        list += `<tr>
+                    <td class="order-info1">
+                        <p>${waitting_buy[i].madon}</p>
+                    </td>
+                    <td class="order-info2">
+                        <p>${formatNumberWithCommas(waitting_buy[i].Tongtien)}đ</p>
+                    </td>
+                    <td class="order-info3">
+                        <!-- <p>iPhone 15 Pro - Black - 256GB - SL: 2</p> -->
+                        ${getProductHTML(waitting_buy[i].Sanpham)}
+                    </td>
+                    <td class="order-info4">${waitting_buy[i].Ngaydat}</td>
+                    <td class="order-info5">${waitting_buy[i].Trangthai}</td>
+                </tr>`;
+    }
+}
+if (list === ' ') {
+    var noorder = `<p>Không có đơn hàng</p>`;
+    document.getElementById('noOrder').innerHTML = noorder;
+}
+body_order.innerHTML = list;
+
+function getProductHTML(product) {
+    var productListHTML = '';
+    product.forEach((productt) => {
+        productListHTML += `<p>${productt.tensp} - ${productt.mau} - ${productt.luutru} - SL:${productt.soluong}</p>`;
+    });
+    return productListHTML;
+}
+
+// Biến số thành chuỗi có phân đơn vị
+function formatNumberWithCommas(number) {
+    // Chuyển số thành chuỗi
+    var numberString = number.toString();
+    // Tìm vị trí của dấu chấm thập phân (nếu có)
+    var decimalIndex = numberString.indexOf('.');
+    // Nếu không có dấu chấm thập phân, thì mặc định là cuối chuỗi
+    if (decimalIndex === -1) {
+        decimalIndex = numberString.length;
+    }
+    // Thêm dấu chấm vào mỗi 3 chữ số từ cuối lên đầu
+    for (var i = decimalIndex - 3; i > 0; i -= 3) {
+        numberString = numberString.slice(0, i) + '.' + numberString.slice(i);
+    }
+    // Hiển thị chuỗi đã được định dạng
+    return numberString;
+}
