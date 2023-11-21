@@ -1,11 +1,11 @@
-:root {
+/* :root {
     --boxshadow-color: #888888;
     --border-color: #333333;
     --line-color: #0083d6;
     --menu-color: #ffb200;
     --button-color: #d9d9d9;
     --button-color-choose: #c0bfbf;
-}
+} */
 /* :root định nghĩa các biến CSS (custom properties) toàn cục (global) mà bạn muốn sử dụng trong
  toàn bộ trang web hoặc ứng dụng. Điều này giúp bạn quản lý một tập hợp các giá trị màu sắc,
   kích thước hoặc bất kỳ thuộc tính CSS nào khác một cách dễ dàng và tối ưu hóa quá trình bảo trì. */
