@@ -1,12 +1,11 @@
 .in4_account {
-    height: 590px;
-    width: 1245px;
-    border: 2px solid #ffb200;
+    min-height: 600px;
+    min-width: 1245px;
+    /* border: 2px solid #ffb200; */
     display: flex;
-    border-radius: 8px;
-    align-items: center;
+    /* border-radius: 8px; */
     justify-content: space-around;
-    margin: 10px;
+    margin: 80px;
 }
 .option_canhan {
     margin-bottom: 50px;
@@ -14,7 +13,7 @@
 .option_canhan_main {
     width: 260px;
     height: 300px;
-    border: 1px dotted #ffb200;
+    border: 3px dotted #ffb200;
     border-radius: 8px;
     background-color: #f5f5f7;
 }
@@ -55,7 +54,6 @@
     padding-top: 30px;
 }
 #body_1 {
-    cursor: pointer;
     height: 33%;
     position: relative;
 }
@@ -66,7 +64,6 @@
     font-size: 25px;
 }
 #body_2 {
-    cursor: pointer;
     height: 33%;
     position: relative;
 }
@@ -77,7 +74,6 @@
     font-size: 25px;
 }
 #body_3 {
-    cursor: pointer;
     height: 33%;
     position: relative;
 }
