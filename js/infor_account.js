@@ -201,26 +201,31 @@ function change_canhann(event) {
     }
     //checkk pass
     //Đổi dự liệu mới vào local
-    if (check_admin) {
-        adminAccounts[vitri].name = name;
-        localStorage.setItem('admin', JSON.stringify(adminAccounts));
-        adminAccounts[vitri].phone = sdt;
-        localStorage.setItem('admin', JSON.stringify(adminAccounts));
-        adminAccounts[vitri].address = address;
-        localStorage.setItem('admin', JSON.stringify(adminAccounts));
-        adminAccounts[vitri].email = email;
-        localStorage.setItem('admin', JSON.stringify(adminAccounts));
-    } else {
-        userAccounts[vitri].name = name;
-        localStorage.setItem('user', JSON.stringify(userAccounts));
-        userAccounts[vitri].phone = sdt;
-        localStorage.setItem('user', JSON.stringify(userAccounts));
-        userAccounts[vitri].address = address;
-        localStorage.setItem('user', JSON.stringify(userAccounts));
-        userAccounts[vitri].email = email;
-        localStorage.setItem('user', JSON.stringify(userAccounts));
+    let alert_accept = confirm('Xác nhận đổi mật khẩu !');
+    if (alert_accept === true) {
+        if (check_admin) {
+            adminAccounts[vitri].name = name;
+            localStorage.setItem('admin', JSON.stringify(adminAccounts));
+            adminAccounts[vitri].phone = sdt;
+            localStorage.setItem('admin', JSON.stringify(adminAccounts));
+            adminAccounts[vitri].address = address;
+            localStorage.setItem('admin', JSON.stringify(adminAccounts));
+            adminAccounts[vitri].email = email;
+            localStorage.setItem('admin', JSON.stringify(adminAccounts));
+            showMessage('Thay đổi thông tin thành công');
+        } else {
+            userAccounts[vitri].name = name;
+            localStorage.setItem('user', JSON.stringify(userAccounts));
+            userAccounts[vitri].phone = sdt;
+            localStorage.setItem('user', JSON.stringify(userAccounts));
+            userAccounts[vitri].address = address;
+            localStorage.setItem('user', JSON.stringify(userAccounts));
+            userAccounts[vitri].email = email;
+            localStorage.setItem('user', JSON.stringify(userAccounts));
+        }
+    } else if (alert_accept === false) {
+        alert('Dừng việc đổi mật khẩu thành công');
     }
-    showMessage('Thay đổi thông tin thành công');
     window.location.reload();
     return true;
 }
