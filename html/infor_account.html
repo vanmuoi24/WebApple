@@ -187,7 +187,7 @@
                             <p>Thông tin tài khoản</p>
                             <i class="fa fa-user user" aria-hidden="true"></i>
                         </div>
-                        <div id="body_2">
+                        <div id="body_2" onclick="clickQLDH()">
                             <p>Quản lí đơn hàng</p>
                             <i class="fa fa-shopping-bag bag" aria-hidden="true"></i>
                         </div>
@@ -199,7 +199,7 @@
                 </div>
             </div>
             <!-- Ô thông tin bên phải -->
-            <div class="in4_caNhan">
+            <div class="in4_caNhan" style="display: block">
                 <form class="in4_caNhan_main">
                     <div class="in4_caNhan_main_head">
                         <h1>Thông tin tài khoản</h1>
@@ -250,6 +250,46 @@
                         </div>
                     </div>
                 </form>
+            </div>
+            <!-- Quan li don hang  -->
+            <div class="in4_donhang" style="display: none">
+                <div class="table_warpper">
+                    <table class="order">
+                        <colgroup>
+                            <col width="80px" />
+                            <col width="150px" />
+                            <col width="450px" />
+                            <col width="100px" />
+                            <col width="100px" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th class="order-info1">Mã đon</th>
+                                <th class="order-info2">Tổng tiền</th>
+                                <th class="order-info3">Sản phẩm</th>
+                                <th class="order-info4">Ngày đặt</th>
+                                <th class="order-info5">Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody id="body-order">
+                            <!-- <tr>
+                                <td class="order-info1">
+                                    <p>001001</p>
+                                </td>
+                                <td class="order-info2">
+                                    <p>100.000.000VND</p>
+                                </td>
+                                <td class="order-info3">
+                                    <p>iPhone 15 Pro - Black - 256GB - SL: 2</p>
+                                    <p>iPhone 15 Pro - Black - 256GB - SL: 2</p>
+                                </td>
+                                <td class="order-info4">19/10/2023</td>
+                                <td class="order-info5">da xu ly</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                    <div id="noOrder"></div>
+                </div>
             </div>
         </div>
         <!-- Footer -->
@@ -305,6 +345,67 @@
         </div>
     </body>
     <!-- JaveScript -->
+    <script>
+        function clickQLDH() {
+            document.getElementById('in4_donhang').style.display = 'block';
+            document.getElementById('in4_caNhan').style.display = 'none';
+        }
+
+        var waitting_buy = JSON.parse(localStorage.getItem('orders'));
+        var index_U = localStorage.getItem('index_login');
+        var user = JSON.parse(localStorage.getItem('user'));
+        var body_order = document.getElementById('body-order');
+        var list = ' ';
+        for (var i = 0; i < waitting_buy.length; i++) {
+            if (user[index_U].phone === waitting_buy[i].user.phone) {
+                list += `<tr>
+                            <td class="order-info1">
+                                <p>${waitting_buy[i].madon}</p>
+                            </td>
+                            <td class="order-info2">
+                                <p>${formatNumberWithCommas(waitting_buy[i].Tongtien)}đ</p>
+                            </td>
+                            <td class="order-info3">
+                                <!-- <p>iPhone 15 Pro - Black - 256GB - SL: 2</p> -->
+                                ${getProductHTML(waitting_buy[i].Sanpham)}
+                            </td>
+                            <td class="order-info4">${waitting_buy[i].Ngaydat}</td>
+                            <td class="order-info5">${waitting_buy[i].Trangthai}</td>
+                        </tr>`;
+            }
+        }
+        if (list === ' ') {
+            var noorder = `<p>Không có đơn hàng</p>`;
+            document.getElementById('noOrder').innerHTML = noorder;
+        }
+        body_order.innerHTML = list;
+
+        function getProductHTML(product) {
+            var productListHTML = '';
+            product.forEach((productt) => {
+                productListHTML += `<p>${productt.tensp} - ${productt.mau} - ${productt.luutru} - SL:${productt.soluong}</p>`;
+            });
+            return productListHTML;
+        }
+
+        // Biến số thành chuỗi có phân đơn vị
+        function formatNumberWithCommas(number) {
+            // Chuyển số thành chuỗi
+            var numberString = number.toString();
+            // Tìm vị trí của dấu chấm thập phân (nếu có)
+            var decimalIndex = numberString.indexOf('.');
+            // Nếu không có dấu chấm thập phân, thì mặc định là cuối chuỗi
+            if (decimalIndex === -1) {
+                decimalIndex = numberString.length;
+            }
+            // Thêm dấu chấm vào mỗi 3 chữ số từ cuối lên đầu
+            for (var i = decimalIndex - 3; i > 0; i -= 3) {
+                numberString = numberString.slice(0, i) + '.' + numberString.slice(i);
+            }
+            // Hiển thị chuỗi đã được định dạng
+            return numberString;
+        }
+    </script>
     <script src="../js/products-homepage.js"></script>
     <script src="../js/login-logout-register.js"></script>
     <script src="../js/infor_account.js"></script>

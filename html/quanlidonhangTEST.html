@@ -222,11 +222,11 @@
                         </colgroup>
                         <thead>
                             <tr>
-                                <th class="order-info1">Ma don</th>
-                                <th class="order-info2">Tong tien</th>
-                                <th class="order-info3">San pham</th>
-                                <th class="order-info4">Ngay dat</th>
-                                <th class="order-info5">Trang thai</th>
+                                <th class="order-info1">Mã đon</th>
+                                <th class="order-info2">Tổng tiền</th>
+                                <th class="order-info3">Sản phẩm</th>
+                                <th class="order-info4">Ngày đặt</th>
+                                <th class="order-info5">Trạng thái</th>
                             </tr>
                         </thead>
                         <tbody id="body-order">
@@ -246,6 +246,7 @@
                             </tr> -->
                         </tbody>
                     </table>
+                    <div id="noOrder"></div>
                 </div>
             </div>
         </div>
@@ -303,24 +304,37 @@
     </body>
     <!-- JaveScript -->
     <script>
+        function clickQLDH() {
+            document.getElementById('in4_caNhan').style.display = 'none';
+            document.getElementById('in4_donhang').style.display = 'block';
+        }
+
         var waitting_buy = JSON.parse(localStorage.getItem('orders'));
+        var index_U = localStorage.getItem('index_login');
+        var user = JSON.parse(localStorage.getItem('user'));
         var body_order = document.getElementById('body-order');
-        var list = '';
+        var list = ' ';
         for (var i = 0; i < waitting_buy.length; i++) {
-            list += `<tr>
-                        <td class="order-info1">
-                            <p>001001</p>
-                        </td>
-                        <td class="order-info2">
-                            <p>${formatNumberWithCommas(waitting_buy[i].totalPrice)}đ</p>
-                        </td>
-                        <td class="order-info3">
-                            <!-- <p>iPhone 15 Pro - Black - 256GB - SL: 2</p> -->
-                            ${getProductHTML(waitting_buy[i].products)} 
-                        </td>
-                        <td class="order-info4">${waitting_buy[i].orderDate}</td>
-                        <td class="order-info5">da xu ly</td>
-                    </tr>`;
+            if (user[index_U].phone === waitting_buy[i].user.phone) {
+                list += `<tr>
+                            <td class="order-info1">
+                                <p>${waitting_buy[i].madon}</p>
+                            </td>
+                            <td class="order-info2">
+                                <p>${formatNumberWithCommas(waitting_buy[i].Tongtien)}đ</p>
+                            </td>
+                            <td class="order-info3">
+                                <!-- <p>iPhone 15 Pro - Black - 256GB - SL: 2</p> -->
+                                ${getProductHTML(waitting_buy[i].Sanpham)}
+                            </td>
+                            <td class="order-info4">${waitting_buy[i].Ngaydat}</td>
+                            <td class="order-info5">${waitting_buy[i].Trangthai}</td>
+                        </tr>`;
+            }
+        }
+        if (list === ' ') {
+            var noorder = `<p>Không có đơn hàng</p>`;
+            document.getElementById('noOrder').innerHTML = noorder;
         }
         body_order.innerHTML = list;
 
@@ -352,7 +366,6 @@
     </script>
     <script src="/js/products-homepage.js"></script>
     <script src="/js/login-logout-register.js"></script>
-    <script src="/js/banner-moving.js"></script>
     <script>
         // Đảm bảo rằng toàn bộ dữ liệu đã được load xong
         document.addEventListener('DOMContentLoaded', function () {
