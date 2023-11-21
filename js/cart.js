@@ -69,6 +69,11 @@ function inner_cart() {
     }
     body_cart.innerHTML = list;
 
+    if (list === '') {
+        var noproduct = `<p>Không có sản phẩm nào</p>`;
+        document.getElementById('noproduct').innerHTML = noproduct;
+    }
+
     var total_cart = document.getElementById('total-price');
     total_cart.innerHTML = `Tổng tiền: ${formatNumberWithCommas(calculateTotalPrice())}VND`;
 }
