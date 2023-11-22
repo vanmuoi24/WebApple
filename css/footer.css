@@ -36,3 +36,11 @@
     justify-content: center;
     margin-top: 10px;
 }
+.img_icon {
+    display: flex;
+}
+.img_icon a img {
+    width: 40px;
+    height: auto;
+    margin: 0 5px;
+}
