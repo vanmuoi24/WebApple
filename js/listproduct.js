@@ -176,7 +176,7 @@ product.addEventListener('click', (event) => {
     const color = document.getElementsByClassName('color')[0];
     const ghi_chu = document.getElementById('ghi_chu');
     //============================================================================
-    //Chỉnh Sửa Sản Phẩm
+    //Thêm Sản Phẩm
     save_product_button.addEventListener('click', () => {
         var list_product = JSON.parse(localStorage.getItem('products')) || [];
 
@@ -212,6 +212,11 @@ product.addEventListener('click', (event) => {
         add_product.classList.remove('top');
         const table_product = document.getElementsByClassName('table_product')[0];
         table_product.style.display = 'block';
+        const elements = document.querySelectorAll('.logo, .left_list, .list_product, .selection_food, .pagination-buttons,.table_product');
+        elements.forEach((element) => {
+            element.style.opacity = '1';
+            element.style.pointerEvents = 'auto';
+        });
         renderProductall();
     });
     showimgsave();
@@ -219,6 +224,7 @@ product.addEventListener('click', (event) => {
     phone_select();
     renderProductall();
 });
+
 //============================================================================
 // Xem Hình Trước Khi Lưu
 function showimgsave() {
@@ -242,7 +248,7 @@ function showimgsave() {
     });
 }
 //============================================================================
-//Thềm Kiếm Sản Phẩm Theo Tên
+//Tìm Kiếm Sản Phẩm Theo Tên
 function search_product() {
     var list_product = JSON.parse(localStorage.getItem('products'));
     var table = document.getElementsByTagName('table')[0];
@@ -470,12 +476,11 @@ function renderProductall() {
     var table = document.getElementsByTagName('table')[0];
 
     //Phân Trang
-    let perpage = 5; // số item trong 1 trang
-    let currentPage = 1; //
+    let perpage = 5; // số item trong 1 trang;
+    let currentPage = 1; // số trang hiện tại
     let start = 0;
     let end = perpage;
     const tatalPage = Math.ceil(list_product.length / perpage);
-    console.log(tatalPage);
     const btnNext = document.getElementById('next');
     //============================================================================
     //Hiển Thị Sản Phẩm
@@ -522,10 +527,7 @@ function renderProductall() {
     button_list();
     //============================================================================
     //Công Thức Tính Phân Trang
-    function getcurenpage(currentPage) {
-        start = (currentPage - 1) * perpage;
-        end = currentPage * perpage;
-    }
+
     //============================================================================
     //btn Số Trang
     function button_list() {
@@ -560,6 +562,10 @@ function renderProductall() {
                 renderProduct();
             });
         });
+    }
+    function getcurenpage(currentPage) {
+        start = (currentPage - 1) * perpage;
+        end = currentPage * perpage;
     }
 
     changepage();
@@ -773,13 +779,11 @@ function edit_user(id) {
 function renderuser() {
     var tbody = document.getElementsByTagName('tbody')[0];
     const acount = JSON.parse(localStorage.getItem('user')) || [];
-    const index_login = JSON.parse(localStorage.getItem('index_login')) || [];
     var userall = '';
     if (acount.length === 0) {
         tbody.innerHTML = "<tr><td colspan='6'>Không có khách hàng nào</td></tr>";
         return;
     }
-
     acount.forEach((list, index) => {
         var indexall = index;
         index++;
@@ -815,7 +819,6 @@ function comtomer_value() {
     console.log(save_clent);
     save_clent.style.display = 'none';
     document.getElementById('add_clent').style.display = 'block';
-
     let value_input = document.querySelectorAll('.all_add input');
     const add_product = document.getElementsByClassName('add_product_1')[0];
     const acount = JSON.parse(localStorage.getItem('user')) || [];

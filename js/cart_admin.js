@@ -303,6 +303,13 @@ function searchByDate() {
         }
     });
     tbody.innerHTML = table_user;
+    let btn_users = document.getElementsByClassName('btn_user');
+    Array.from(btn_users).forEach((btn_user) => {
+        if (btn_user.textContent === 'Đã xử lý') {
+            btn_user.style.background = '#0083d6';
+            btn_user.style.color = 'white';
+        }
+    });
 }
 
 // Tìm Kiếm Mã Đơn Hàng
