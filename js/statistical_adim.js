@@ -32,7 +32,6 @@ function statistical() {
     });
     var tong = 0;
     var sum_product = document.getElementById('sum_product_buy');
-    console.log(sum_product);
     orders.map((list) => {
         list.Sanpham.map((sp) => {
             tong += sp.soluong;
