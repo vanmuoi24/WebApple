@@ -73,6 +73,7 @@ function inner_cart() {
         <br>
         <p>Không có sản phẩm nào</p>`;
         document.getElementById('noproduct').innerHTML = noproduct;
+        body_cart.innerHTML = '';
     }
     var total_cart = document.getElementById('total-price');
     total_cart.innerHTML = `Tổng tiền: ${formatNumberWithCommas(calculateTotalPrice())}VND`;
@@ -102,9 +103,11 @@ function trashcart(index) {
 
 // Đặt hàng
 function createOrder() {
+    var check_admin = JSON.parse(localStorage.getItem('check_admin'));
+    if (check_admin == true) var user = JSON.parse(localStorage.getItem('admin'));
+    else var user = JSON.parse(localStorage.getItem('user'));
     var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
     var index_login = JSON.parse(localStorage.getItem('index_login'));
-    var user = JSON.parse(localStorage.getItem('user'));
     // Kiểm tra xem đã đăng nhập chưa
     if (index_login == -1) {
         showMessage_error('Bạn phải đăng nhập để mua sản phẩm!');
