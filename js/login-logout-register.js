@@ -1,4 +1,3 @@
-// reset();
 // Khởi tạo ban đầu
 createAdmin();
 createUser();
@@ -176,7 +175,7 @@ function login_activated(check_login) {
         document.getElementById('change_logout').href = '../html/admin.html';
     } else {
         document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
-        document.getElementById('change_logout').href = '#';
+        document.getElementById('change_logout').href = '../html/infor_account.html';
     }
     div_login.onclick = null;
     div_login.onmouseover = function () {
@@ -355,5 +354,5 @@ function logout() {
     localStorage.setItem('index_login', index_login);
     var check_admin = false;
     localStorage.setItem('check_admin', check_admin);
-    window.location.reload(true);
+    window.location.href = '../html/homepage.html';
 }

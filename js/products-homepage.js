@@ -1166,6 +1166,10 @@ function open_product_display(product_name) {
     document.getElementById('ROM').innerHTML = list;
     document.getElementById('div_product_display_information_p').innerText = list_products[index_save].chitiet;
 }
+// Tắt hiển thị sản phẩm
+function close_product_display() {
+    document.getElementById('div_product_display_total').style.display = 'none';
+}
 // Thêm hàng vào giỏ
 function shopping() {
     // Lấy giá trị
@@ -1204,16 +1208,88 @@ function shopping() {
         showMessage_error('Hãy chọn màu và dung lượng!');
     }
 }
-// Tắt hiển thị sản phẩm
-function close_product_display() {
-    document.getElementById('div_product_display_total').style.display = 'none';
+// Save trạng thái giỏ hàng
+function SaveShoppingcart() {
+    localStorage.setItem('Shoppingcart', 'true');
+    window.location.href = '../html/homepage.html';
+}
+// Kiểm tra xem có chọn vào giỏ hàng chưa
+function CheckShoppingcart() {
+    Security = localStorage.getItem('Shoppingcart');
+    if (Security !== null) showShoppingcart();
+    localStorage.removeItem('Shoppingcart');
+}
+// Hiển thị giỏ hàng
+function showShoppingcart() {
+    // Thay đổi tên trang web
+    document.title = 'Giỏ hàng';
+    // Xóa banner
+    var divToRemove = document.getElementById('container');
+    divToRemove.parentNode.removeChild(divToRemove);
+    // Xóa hiển thị sản phẩm
+    divToRemove = document.getElementById('div_products');
+    divToRemove.parentNode.removeChild(divToRemove);
+    // // Xóa footer
+    // divToRemove = document.getElementById('footer');
+    // divToRemove.parentNode.removeChild(divToRemove);
+    // Fill giỏ hàng
+    document.getElementById('shopping_cart_total').style.paddingBottom = '200px';
+    document.getElementById('shopping_cart_total').innerHTML = `
+    <div id="giohang">
+        <p id="p_product">Giỏ hàng</p>
+    </div>
+    <div class="order_container">
+        <form action="../cart" method="post" id="shopping_cart_form">
+            <div class="shopping_cart_info">
+                <div class="cart_detail">
+                    <div class="table_warpper">
+                        <table class="cart">
+                            <colgroup>
+                                <col width="100px" />
+                                <col width="350px" />
+                                <col width="100px" />
+                                <col width="100px" />
+                                <col width="50px" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th class="product-info1">Sản phẩm</th>
+                                    <th class="product-info2"></th>
+                                    <th class="quantity">Số lượng</th>
+                                    <th class="unit-price">Tổng tiền</th>
+                                    <th class="option">Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body-cart">
+                            </tbody>
+                        </table>
+                        <div id="noproduct"></div>
+                    </div>
+                    <div class="cart_option">
+                        <!-- <button type="button" name="capnhat-cart" class="button1 button-cart">Cập nhật giỏ hàng</button> -->
+                        <a href="../html/homepage.html">
+                            <button type="button" name="tieptuc-cart" class="button2 button-cart">Tiếp tục mua hàng</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p id="total-price"></p>
+                <!--Tổng tiền-->
+                <hr style="background-color: rgb(122, 122, 122); border: none; height: 2px; width: 100%; margin: 10px auto" />
+                <button type="button" name="capnhat-cart" class="button3" onclick="createOrder()">Đặt hàng</button>
+            </div>
+        </form>
+    </div>`;
+    // Khởi tạo ban đầu
+    inner_cart();
 }
 // Save trạng thái chính sách bảo hành
 function SaveSecurity() {
     localStorage.setItem('Security', 'true');
     window.location.href = '../html/homepage.html';
 }
-// Kiểm tra phân loại sản phẩm
+// Kiểm tra có chọn chính sách bảo hành chưa
 function CheckSecurity() {
     Security = localStorage.getItem('Security');
     if (Security !== null) showSecurity();
@@ -1221,13 +1297,17 @@ function CheckSecurity() {
 }
 // Hiển thị chính sách bảo hành
 function showSecurity() {
+    // Thay đổi tên trang web
+    document.title = 'Chính sách bảo hành';
     // Xóa banner
     var divToRemove = document.getElementById('container');
     divToRemove.parentNode.removeChild(divToRemove);
     // Xóa hiển thị sản phẩm
     divToRemove = document.getElementById('div_products');
     divToRemove.parentNode.removeChild(divToRemove);
-    document.getElementById('div_security').innerHTML = `<div id="div_security_header">
+    // Fill chính sách bảo hành vào
+    document.getElementById('div_security').innerHTML = `
+    <div id="div_security_header">
         <h1>Chính sách bảo hành sản phẩm</h1>
         <p>Chính sách bảo hành tuân thủ theo đúng quy định của Apple áp dụng tại thị trường Việt Nam</p>
     </div>

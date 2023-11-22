@@ -40,8 +40,8 @@
                         <ul id="suggestions"></ul>
                     </div>
                 </div>
-                <div id="div_shopping">
-                    <a href="../html/shopping-cart.html">
+                <div id="div_shopping" onclick="SaveShoppingcart()">
+                    <a href="#">
                         <img src="../img/icon/logo-shopping.png" alt="shopping" />
                         <p>Giỏ hàng</p>
                     </a>
@@ -51,7 +51,7 @@
                     <div id="div_login_text">
                         <p id="login_text">Đăng<br />nhập</p>
                         <div id="div_logout">
-                            <a>Thông tin tài khoản</a>
+                            <a href="infor_account.html">Thông tin tài khoản</a>
                             <a id="change_logout">Đơn hàng của tôi</a>
                             <a onclick="logout()">Đăng xuất</a>
                         </div>
@@ -133,8 +133,48 @@
                 </div>
             </div>
         </div>
+        <!-- Menu -->
+        <div id="header_menu">
+            <div id="total_menu">
+                <div class="menu">
+                    <div id="iphone" onclick="Save_products_type('iPhone')">
+                        <a href="#">
+                            <img src="../img/icon/icon-iphone.png" alt="iphone" />
+                            <p>iPhone</p>
+                        </a>
+                    </div>
+                    <div id="ipad" onclick="Save_products_type('iPad')">
+                        <a href="#">
+                            <img src="../img/icon/icon-ipad.png" alt="ipad" />
+                            <p>iPad</p>
+                        </a>
+                    </div>
+                    <div id="mac" onclick="Save_products_type('Macbook')">
+                        <a href="#">
+                            <img src="../img/icon/icon-mac.png" alt="mac" />
+                            <p>Macbook</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="menu">
+                    <div id="security" onclick="SaveSecurity()">
+                        <a href="#">
+                            <img src="../img/icon/security.png" alt="security" />
+                            <p>Chính sách bảo hành</p>
+                        </a>
+                    </div>
+                    <div id="information">
+                        <a href="#footer">
+                            <img src="../img/icon/headphone.png" alt="headphone" />
+                            <p>Thông tin liên hệ</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Hiển thị sản phẩm -->
         <div id="div_products">
+            <p id="p_products">Kết quả tìm kiếm</p>
             <div id="div_product_search_type">
                 <select name="danhmuc" id="danhmuc" onchange="search_type()">
                     <option value="">Phân loại</option>
@@ -148,7 +188,6 @@
                     <input type="text" placeholder="Đến" id="price_after" onchange="search_type()" />
                 </div>
             </div>
-            <p id="p_products">Kết quả tìm kiếm</p>
             <div id="div_products_total">
                 <div class="div_products_view"></div>
                 <div class="div_products_view"></div>

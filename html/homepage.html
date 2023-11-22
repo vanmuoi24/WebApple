@@ -12,12 +12,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
         <!-- Css version -->
         <link rel="stylesheet" href="../css/header.css" />
+        <link rel="stylesheet" href="../css/shopping_cart.css" />
         <link rel="stylesheet" href="../css/login.css" />
         <link rel="stylesheet" href="../css/register.css" />
         <link rel="stylesheet" href="../css/banner.css" />
         <link rel="stylesheet" href="../css/security.css" />
         <link rel="stylesheet" href="../css/products.css" />
-        <link rel="stylesheet" href="../css/product-display.css" />
         <link rel="stylesheet" href="../css/footer.css" />
     </head>
     <body>
@@ -41,8 +41,8 @@
                         <ul id="suggestions"></ul>
                     </div>
                 </div>
-                <div id="div_shopping">
-                    <a href="../html/shopping-cart.html">
+                <div id="div_shopping" onclick="SaveShoppingcart()">
+                    <a href="#">
                         <img src="../img/icon/logo-shopping.png" alt="shopping" />
                         <p>Giỏ hàng</p>
                     </a>
@@ -190,6 +190,8 @@
                 <div></div>
             </div>
         </div>
+        <!-- Giỏ hàng -->
+        <section id="shopping_cart_total"></section>
         <!-- Nội dung của chính sách bảo hành -->
         <div id="div_security"></div>
         <!-- Hiển thị sản phẩm -->
@@ -296,6 +298,7 @@
     </body>
     <!-- JaveScript -->
     <script src="../js/products-homepage.js"></script>
+    <script src="../js/cart.js"></script>
     <script src="../js/login-logout-register.js"></script>
     <script src="../js/banner-moving.js"></script>
     <script>
@@ -307,6 +310,8 @@
             Check_products_type();
             // Kiểm tra xem có hiển thị chính sách bảo hàng
             CheckSecurity();
+            // Kiểm tra xem có hiển thị giỏ hàng
+            CheckShoppingcart();
             document.body.style.display = 'flex';
         });
     </script>
