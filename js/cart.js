@@ -105,39 +105,39 @@ function createOrder() {
     var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
     var index_login = JSON.parse(localStorage.getItem('index_login'));
     var user = JSON.parse(localStorage.getItem('user'));
+    // Kiểm tra xem đã đăng nhập chưa
+    if (index_login == -1) {
+        showMessage_error('Bạn phải đăng nhập để mua sản phẩm!');
+        return false;
+    }
     // Kiểm tra xem đã đặt hàng chưa
     if (waitting_buy === null) {
         showMessage_error('Chưa có sản phẩm trong giỏ hàng!');
         return false;
     }
-    // Kiểm tra đã đăng nhập chưa
-    if (index_login != -1) {
-        const ngay = new Date(); // lấy ngày hiện tại
-        const madon = Math.ceil(new Date().getTime() / 10000)
-            .toFixed(0)
-            .slice(-3);
-        const order = {
-            madon: '#' + madon,
-            user: user[index_login],
-            Ngaydat: ngay.getDate() + '/' + (ngay.getMonth() + 1) + '/' + ngay.getFullYear(),
-            Sanpham: waitting_buy, // mảng waitting_buy
-            Tongtien: calculateTotalPrice(), //tong tien
-            Trangthai: 'Chưa xử lý',
-        };
-        let orders = JSON.parse(localStorage.getItem('orders')) || [];
-        if (orders.length === 0) {
-            orders = [order]; //mang rong
-        } else {
-            orders.push(order); //them order moi vao mang da co san
-        }
-        localStorage.setItem('orders', JSON.stringify(orders)); //// lưu mảng orders vào localStorage
-        showMessage('Đặt hàng thành công!');
-        // xóa mảng waitting_buy
-        localStorage.removeItem('waitting_buy');
-        inner_cart();
-        return true;
+    // Tạo đơn hàng
+    const ngay = new Date(); // lấy ngày hiện tại
+    const madon = Math.ceil(new Date().getTime() / 10000)
+        .toFixed(0)
+        .slice(-3);
+    const order = {
+        madon: '#' + madon,
+        user: user[index_login],
+        Ngaydat: ngay.getDate() + '/' + (ngay.getMonth() + 1) + '/' + ngay.getFullYear(),
+        Sanpham: waitting_buy, // mảng waitting_buy
+        Tongtien: calculateTotalPrice(), //tong tien
+        Trangthai: 'Chưa xử lý',
+    };
+    let orders = JSON.parse(localStorage.getItem('orders')) || [];
+    if (orders.length === 0) {
+        orders = [order]; //mang rong
     } else {
-        showMessage_error('Bạn phải đăng nhập để mua sản phẩm!');
-        return false;
+        orders.push(order); //them order moi vao mang da co san
     }
+    localStorage.setItem('orders', JSON.stringify(orders)); //// lưu mảng orders vào localStorage
+    showMessage('Đặt hàng thành công!');
+    // xóa mảng waitting_buy
+    localStorage.removeItem('waitting_buy');
+    inner_cart();
+    return true;
 }
