@@ -181,16 +181,18 @@
                     </div>
                     <div class="option_canhan_main_body">
                         <div id="body_1" onclick="clickTTTK()">
-                            <p style="cursor: pointer">Thông tin tài khoản</p>
+                            <p>Thông tin tài khoản</p>
                             <i class="fa fa-user user" aria-hidden="true"></i>
                         </div>
                         <div id="body_2" onclick="clickQLDH()">
-                            <p style="cursor: pointer">Quản lí đơn hàng</p>
+                            <p>Quản lí đơn hàng</p>
                             <i class="fa fa-shopping-bag bag" aria-hidden="true"></i>
                         </div>
                         <div id="body_3" onclick="logout()">
-                            <p style="cursor: pointer">Đăng xuất ></p>
-                            <i class="fa fa-sign-out exit" aria-hidden="true"></i>
+                            <a href="../html/homepage.html">
+                                <p>Đăng xuất ></p>
+                                <i class="fa fa-sign-out exit" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -232,13 +234,10 @@
                                 <a herf="#" onclick="change_pass()" style="cursor: pointer; color: blue">Thay đổi</a>
                                 <br /><br />
                             </div>
-                            <div class="change_in4_main_body_click">
-                                <div id="change_in4_main_body_sub_1">
-                                    <input type="submit" value="Lưu thông tin" id="sub_change_infor" onclick="change_canhann(event)" />
-                                </div>
-                                <div id="change_in4_main_body_sub_2">
-                                    <input type="submit" value="Thay đổi mật khẩu" id="sub_change_pass" onclick="check_change(event)" />
-                                </div>
+                            <div id="change_in4_main_body_click">
+                                <!-- <div id="change_in4_main_body_sub_1"> -->
+                                <input type="submit" value="Lưu thông tin" id="sub_change_infor" onclick="check_change(event)" />
+                                <!-- </div> -->
                             </div>
                             <br />
                             <div id="div_change_notify">

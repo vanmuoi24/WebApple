@@ -1,19 +1,7 @@
-function showChangePass() {
-    document.getElementById('sub_change_pass').style.display = 'block';
-    document.getElementById('sub_change_infor').style.display = 'none';
-    document.getElementById('change_in4_main_body_sub_2').style.right = '0';
-}
-function showChangeInfor() {
-    // document.getElementById('sub_change_infor').style.display = 'block';
-    document.getElementById('sub_change_pass').style.display = 'none';
-}
-showChangeInfor();
 function change_pass() {
-    showChangePass();
-    let element = document.getElementById('row5');
-    element.style.display = 'block';
-    element.innerHTML = `
-    
+    let element_1 = document.getElementById('row5');
+    element_1.style.display = 'block';
+    element_1.innerHTML = `  
     <div id="row6">
     <label for="pass_o">Nhập mật khẩu cũ :</label>
     <input type="password" name="Old Password" id="pass_o" class = "form_pass" required />
@@ -30,6 +18,8 @@ function change_pass() {
     <input type="password" id="pass_again" class = "form_pass" required /><br /><br />
     </div>
     <div class = "error-message"></div>`;
+    let element_2 = document.getElementById('change_in4_main_body_click');
+    element_2.innerHTML = `<input type="submit" value="Thay đổi mật khẩu" id="sub_change_pass" onclick="check_change(event)" />`;
 }
 
 const userAccounts = JSON.parse(localStorage.getItem('user'));
@@ -105,128 +95,106 @@ function check_change(event) {
         return false;
     }
     //checkk pass
-    let pass_o = document.getElementById('pass_o').value;
-    if (check_admin) {
-        if (pass_o !== adminAccounts[vitri].password) {
-            change_error('Không giống mật khẩu cũ !');
+    let pass = document.getElementById('pass_o');
+    if (pass !== null) {
+        let pass_o = document.getElementById('pass_o').value;
+        if (check_admin) {
+            if (pass_o !== adminAccounts[vitri].password) {
+                change_error('Không giống mật khẩu cũ !');
+                return false;
+            }
+        } else if (pass_o !== userAccounts[vitri].password) {
+            change_error('Không giống mật khẩu cũ');
             return false;
         }
-    } else if (pass_o !== userAccounts[vitri].password) {
-        change_error('Không giống mật khẩu cũ');
-        return false;
+        //check nhập lại password
+        let pass_n = document.getElementById('pass_n').value;
+        function validPassword(password) {
+            let passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            return passwordPattern.test(password);
+        }
+        if (!validPassword(pass_n)) {
+            change_error('Mật khẩu mới phải từ 8 kí tự trở lên, có ít nhất một chữ hoa, chữ thường, chữ số');
+            return false;
+        }
+        if (pass_n === pass_o) {
+            change_error('Mật khẩu mới trùng mật khẩu cũ');
+            return false;
+        }
+        //check nhập lại mật khẩu
+        let pass_a = document.getElementById('pass_again').value;
+        if (pass_a !== pass_n) {
+            change_error('Nhập lại mật khẩu không trùng mật khẩu mới');
+            return false;
+        }
+        if (check_admin) {
+            adminAccounts[vitri].password = pass_n;
+            localStorage.setItem('admin', JSON.stringify(adminAccounts));
+        } else {
+            userAccounts[vitri].password = pass_n;
+            localStorage.setItem('user', JSON.stringify(userAccounts));
+        }
     }
-    //check nhập lại password
-    let pass_n = document.getElementById('pass_n').value;
-    function validPassword(password) {
-        let passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-        return passwordPattern.test(password);
-    }
-    if (!validPassword(pass_n)) {
-        change_error('Mật khẩu mới phải từ 8 kí tự trở lên, có ít nhất một chữ hoa, chữ thường, chữ số');
-        return false;
-    }
-    if (pass_n === pass_o) {
-        change_error('Mật khẩu mới trùng mật khẩu cũ');
-        return false;
-    }
-    //check nhập lại mật khẩu
-    let pass_a = document.getElementById('pass_again').value;
-    if (pass_a !== pass_n) {
-        change_error('Nhập lại mật khẩu không trùng mật khẩu mới');
-        return false;
-    }
-    //Đổi dự liệu mới vào local
-    if (check_admin) {
-        adminAccounts[vitri].name = name;
-        localStorage.setItem('admin', JSON.stringify(adminAccounts));
-        adminAccounts[vitri].phone = sdt;
-        localStorage.setItem('admin', JSON.stringify(adminAccounts));
-        adminAccounts[vitri].address = address;
-        localStorage.setItem('admin', JSON.stringify(adminAccounts));
-        adminAccounts[vitri].email = email;
-        localStorage.setItem('admin', JSON.stringify(adminAccounts));
-        adminAccounts[vitri].password = pass_n;
-        localStorage.setItem('admin', JSON.stringify(adminAccounts));
-    } else {
-        userAccounts[vitri].name = name;
-        localStorage.setItem('user', JSON.stringify(userAccounts));
-        userAccounts[vitri].phone = sdt;
-        localStorage.setItem('user', JSON.stringify(userAccounts));
-        userAccounts[vitri].address = address;
-        localStorage.setItem('user', JSON.stringify(userAccounts));
-        userAccounts[vitri].email = email;
-        localStorage.setItem('user', JSON.stringify(userAccounts));
-        userAccounts[vitri].password = pass_n;
-        localStorage.setItem('user', JSON.stringify(userAccounts));
-    }
-    showMessage('Thay đổi thông tin thành công');
-    window.location.reload();
-    return true;
-}
-function change_canhann(event) {
-    event.preventDefault();
-    ///////check name
-    let name = document.getElementById('hoten').value;
-    if (!isNaN(Number(name))) {
-        change_error('Họ tên không hợp lệ !');
-        return false;
-    }
-    if (name.length < 8) {
-        change_error('Họ tên phải từ 8 chữ cái trở lên');
-        return false;
-    }
-    //check phone number
-    let sdt = document.getElementById('sdt').value;
-    if (isNaN(Number(sdt)) || Number(sdt) < 100000000 || Number(sdt) > 999999999) {
-        change_error('Số điện thoại không hợp lệ');
-        return false;
-    }
-    //check địa chỉ
-    let address = document.getElementById('address').value;
-    if (address.length < 8) {
-        register_error('Địa chỉ phải từ 8 chữ cái trở lên');
-        return false;
-    }
-    //check email
-    let email = document.getElementById('email').value;
-    function isValidEmail(email) {
-        // Biểu thức chính quy để kiểm tra địa chỉ email
-        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailPattern.test(email);
-    }
-    // Sử dụng hàm isValidEmail để kiểm tra địa chỉ email
-    if (!isValidEmail(email)) {
-        change_error('Địa chỉ email không hợp lệ');
-        return false;
-    }
-    //checkk pass
     //Đổi dự liệu mới vào local
     let alert_accept = confirm('Xác nhận đổi mật khẩu !');
     if (alert_accept === true) {
         if (check_admin) {
-            adminAccounts[vitri].name = name;
-            localStorage.setItem('admin', JSON.stringify(adminAccounts));
-            adminAccounts[vitri].phone = sdt;
-            localStorage.setItem('admin', JSON.stringify(adminAccounts));
-            adminAccounts[vitri].address = address;
-            localStorage.setItem('admin', JSON.stringify(adminAccounts));
-            adminAccounts[vitri].email = email;
-            localStorage.setItem('admin', JSON.stringify(adminAccounts));
-            showMessage('Thay đổi thông tin thành công');
+            if (
+                name === adminAccounts[vitri].name &&
+                sdt === adminAccounts[vitri].phone &&
+                address === adminAccounts[vitri].address &&
+                email === adminAccounts[vitri].email
+            ) {
+                change_error('Bạn chưa nhập gì để thay đổi');
+                return false;
+            } else {
+                if (name !== adminAccounts[vitri].name) {
+                    adminAccounts[vitri].name = name;
+                }
+                if (sdt !== adminAccounts[vitri].phone) {
+                    adminAccounts[vitri].phone = sdt;
+                }
+                if (address !== adminAccounts[vitri].address) {
+                    adminAccounts[vitri].address = address;
+                }
+                if (email !== adminAccounts[vitri].email) {
+                    adminAccounts[vitri].email = email;
+                }
+                localStorage.setItem('admin', JSON.stringify(adminAccounts));
+                // showMessage('Thay đổi thông tin thành công');
+            }
         } else {
-            userAccounts[vitri].name = name;
-            localStorage.setItem('user', JSON.stringify(userAccounts));
-            userAccounts[vitri].phone = sdt;
-            localStorage.setItem('user', JSON.stringify(userAccounts));
-            userAccounts[vitri].address = address;
-            localStorage.setItem('user', JSON.stringify(userAccounts));
-            userAccounts[vitri].email = email;
-            localStorage.setItem('user', JSON.stringify(userAccounts));
+            if (
+                name === userAccounts[vitri].name &&
+                sdt === userAccounts[vitri].phone &&
+                address === userAccounts[vitri].address &&
+                email === userAccounts[vitri].email
+            ) {
+                if (pass === null) {
+                    change_error('Bạn chưa nhập gì để thay đổi');
+                    return false;
+                }
+            } else {
+                if (name !== userAccounts[vitri].name) {
+                    userAccounts[vitri].name = name;
+                }
+                if (sdt !== userAccounts[vitri].phone) {
+                    userAccounts[vitri].phone = sdt;
+                }
+                if (address !== userAccounts[vitri].address) {
+                    userAccounts[vitri].address = address;
+                }
+                if (email !== userAccounts[vitri].email) {
+                    userAccounts[vitri].email = email;
+                }
+                localStorage.setItem('user', JSON.stringify(userAccounts));
+                // showMessage('Thay đổi thông tin thành công');
+            }
         }
     } else if (alert_accept === false) {
         alert('Dừng việc đổi mật khẩu thành công');
     }
-    window.location.reload();
+    getInForMation();
     return true;
 }
 //Hiển thị thông tin tài khoản

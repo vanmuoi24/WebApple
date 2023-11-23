@@ -18,7 +18,11 @@
     background-color: #f5f5f7;
 }
 .option_canhan_main_head {
-    height: 71px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 71px;
+    max-height: auto;
     border-bottom: 1px solid #ffb200;
     position: relative;
     text-align: center;
@@ -30,13 +34,15 @@
     font-size: 35px;
 }
 .option_canhan_main_head h2 {
+    word-wrap: break-word; /* chữ dài thì xuống dòng */
+    overflow: hidden;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
         sans-serif;
     font-size: 25px;
     font-weight: 400;
     text-align: center;
     margin: 0;
-    padding: 18px 0 0 35px;
+    padding: 0px 10px 0 48px;
 }
 
 .option_canhan_main_body {
@@ -54,6 +60,7 @@
     padding-top: 30px;
 }
 #body_1 {
+    cursor: pointer;
     height: 33%;
     position: relative;
 }
@@ -63,7 +70,11 @@
     top: 28px;
     font-size: 25px;
 }
+#body_1:hover {
+    background-color: var(--line-color);
+}
 #body_2 {
+    cursor: pointer;
     height: 33%;
     position: relative;
 }
@@ -73,7 +84,11 @@
     top: 27px;
     font-size: 25px;
 }
+#body_2:hover {
+    background-color: var(--line-color);
+}
 #body_3 {
+    cursor: pointer;
     height: 33%;
     position: relative;
 }
@@ -82,6 +97,9 @@
     left: 18px;
     top: 28px;
     font-size: 25px;
+}
+#body_3:hover {
+    background-color: var(--line-color);
 }
 #in4_caNhan {
     display: flex;
@@ -151,6 +169,10 @@ input[type='submit']:hover {
 }
 .in4_caNhan_main_body_click {
     text-align: center;
+}
+#change_in4_main_body_sub_2 {
+    text-align: center !important;
+    background-color: #ffb200;
 }
 /*----------------------------------------------------------------*/
 .in4_caNhan_main {
