@@ -139,6 +139,15 @@
     display: flex;
     justify-content: space-around;
 }
+#row1 input,
+#row2 input,
+#row3 input,
+#row4 input,
+#row6 input,
+#row7 input,
+#row8 input {
+    margin-left: 20px;
+}
 .in4_caNhan_main_body input {
     border: none;
     width: 261px;

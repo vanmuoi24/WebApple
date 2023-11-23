@@ -79,7 +79,7 @@ function check_change(event) {
     //check địa chỉ
     let address = document.getElementById('address').value;
     if (address.length < 8) {
-        register_error('Địa chỉ phải từ 8 chữ cái trở lên');
+        change_error('Địa chỉ phải từ 8 chữ cái trở lên');
         return false;
     }
     //check email
@@ -127,27 +127,66 @@ function check_change(event) {
             change_error('Nhập lại mật khẩu không trùng mật khẩu mới');
             return false;
         }
-        if (check_admin) {
-            adminAccounts[vitri].password = pass_n;
-            localStorage.setItem('admin', JSON.stringify(adminAccounts));
-        } else {
-            userAccounts[vitri].password = pass_n;
-            localStorage.setItem('user', JSON.stringify(userAccounts));
-        }
     }
     //Đổi dự liệu mới vào local
     let alert_accept = confirm('Xác nhận đổi mật khẩu !');
     if (alert_accept === true) {
-        if (check_admin) {
-            if (
-                name === adminAccounts[vitri].name &&
-                sdt === adminAccounts[vitri].phone &&
-                address === adminAccounts[vitri].address &&
-                email === adminAccounts[vitri].email
-            ) {
-                change_error('Bạn chưa nhập gì để thay đổi');
-                return false;
+        if (pass === null) {
+            if (check_admin) {
+                if (
+                    name === adminAccounts[vitri].name &&
+                    sdt === adminAccounts[vitri].phone &&
+                    address === adminAccounts[vitri].address &&
+                    email === adminAccounts[vitri].email
+                ) {
+                    change_error('Bạn chưa nhập gì để thay đổi');
+                    return false;
+                } else {
+                    if (name !== adminAccounts[vitri].name) {
+                        adminAccounts[vitri].name = name;
+                    }
+                    if (sdt !== adminAccounts[vitri].phone) {
+                        adminAccounts[vitri].phone = sdt;
+                    }
+                    if (address !== adminAccounts[vitri].address) {
+                        adminAccounts[vitri].address = address;
+                    }
+                    if (email !== adminAccounts[vitri].email) {
+                        adminAccounts[vitri].email = email;
+                    }
+                    localStorage.setItem('admin', JSON.stringify(adminAccounts));
+                    getInForMation();
+                    showMessage('Thay đổi thông tin thành công');
+                }
             } else {
+                if (
+                    name === userAccounts[vitri].name &&
+                    sdt === userAccounts[vitri].phone &&
+                    address === userAccounts[vitri].address &&
+                    email === userAccounts[vitri].email
+                ) {
+                    change_error('Bạn chưa nhập gì để thay đổi');
+                    return false;
+                } else {
+                    if (name !== userAccounts[vitri].name) {
+                        userAccounts[vitri].name = name;
+                    }
+                    if (sdt !== userAccounts[vitri].phone) {
+                        userAccounts[vitri].phone = sdt;
+                    }
+                    if (address !== userAccounts[vitri].address) {
+                        userAccounts[vitri].address = address;
+                    }
+                    if (email !== userAccounts[vitri].email) {
+                        userAccounts[vitri].email = email;
+                    }
+                    localStorage.setItem('user', JSON.stringify(userAccounts));
+                    getInForMation();
+                    showMessage('Thay đổi thông tin thành công');
+                }
+            }
+        } else if (pass !== null) {
+            if (check_admin) {
                 if (name !== adminAccounts[vitri].name) {
                     adminAccounts[vitri].name = name;
                 }
@@ -160,20 +199,13 @@ function check_change(event) {
                 if (email !== adminAccounts[vitri].email) {
                     adminAccounts[vitri].email = email;
                 }
+                adminAccounts[vitri].password = document.getElementById('pass_n').value;
                 localStorage.setItem('admin', JSON.stringify(adminAccounts));
-                // showMessage('Thay đổi thông tin thành công');
-            }
-        } else {
-            if (
-                name === userAccounts[vitri].name &&
-                sdt === userAccounts[vitri].phone &&
-                address === userAccounts[vitri].address &&
-                email === userAccounts[vitri].email
-            ) {
-                if (pass === null) {
-                    change_error('Bạn chưa nhập gì để thay đổi');
-                    return false;
-                }
+                getInForMation();
+                setTimeout(function () {
+                    location.reload();
+                }, 500);
+                showMessage('Thay đổi thông tin thành công !');
             } else {
                 if (name !== userAccounts[vitri].name) {
                     userAccounts[vitri].name = name;
@@ -187,14 +219,18 @@ function check_change(event) {
                 if (email !== userAccounts[vitri].email) {
                     userAccounts[vitri].email = email;
                 }
+                userAccounts[vitri].password = document.getElementById('pass_n').value;
                 localStorage.setItem('user', JSON.stringify(userAccounts));
-                // showMessage('Thay đổi thông tin thành công');
+                getInForMation();
+                setTimeout(function () {
+                    location.reload();
+                }, 500);
+                showMessage('Thay đổi thông tin thành công !');
             }
         }
     } else if (alert_accept === false) {
         alert('Dừng việc đổi mật khẩu thành công');
     }
-    getInForMation();
     return true;
 }
 //Hiển thị thông tin tài khoản
