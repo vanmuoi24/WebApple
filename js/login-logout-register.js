@@ -1,4 +1,3 @@
-// reset();
 // Khởi tạo ban đầu
 createAdmin();
 createUser();
@@ -44,18 +43,17 @@ function reset() {
     localStorage.setItem('index_login', index_login);
 }
 // Tắt mở form login form register
-var login_form_total = document.getElementById('form_login_total');
 function open_login() {
     document.getElementById('phone').value = '';
     document.getElementById('password').value = '';
     close_register();
-    login_form_total.style.display = 'flex';
+    document.getElementById('form_login_total').style.display = 'flex';
 }
 function close_login() {
-    login_form_total.style.display = 'none';
+    document.getElementById('form_login_total').style.display = 'none';
 }
-var form_register_total = document.getElementById('form_register_total');
 function open_register() {
+    var form_register_total = document.getElementById('form_register_total');
     document.getElementById('register_name').value = '';
     document.getElementById('register_phone').value = '';
     document.getElementById('register_address').value = '';
@@ -63,10 +61,10 @@ function open_register() {
     document.getElementById('register_password').value = '';
     document.getElementById('register_password_again').value = '';
     close_login();
-    form_register_total.style.display = 'flex';
+    document.getElementById('form_register_total').style.display = 'flex';
 }
 function close_register() {
-    form_register_total.style.display = 'none';
+    document.getElementById('form_register_total').style.display = 'none';
 }
 // Các hàm khởi tạo
 function createIndex() {
@@ -176,7 +174,7 @@ function login_activated(check_login) {
         document.getElementById('change_logout').href = '../html/admin.html';
     } else {
         document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
-        document.getElementById('change_logout').href = '#';
+        document.getElementById('change_logout').href = '../html/infor_account.html';
     }
     div_login.onclick = null;
     div_login.onmouseover = function () {
@@ -355,5 +353,5 @@ function logout() {
     localStorage.setItem('index_login', index_login);
     var check_admin = false;
     localStorage.setItem('check_admin', check_admin);
-    window.location.reload(true);
+    window.location.href = '../html/homepage.html';
 }

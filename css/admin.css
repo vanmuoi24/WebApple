@@ -82,7 +82,7 @@
 
 .left_list ul li {
     margin-top: 70px;
-    margin-left: 40px;
+    margin-left: 20px;
     list-style: none;
 }
 
@@ -613,6 +613,15 @@ select,
 input {
     height: 30px;
     border: 1px solid #0083d6;
+    font-size: 1rem;
+}
+.header_cart_table button {
+    border: none;
+    background-color: #0083d6;
+    color: #ffffff;
+    width: 80px;
+    height: 30px;
+    font-size: 1rem;
 }
 .header_select {
     width: 10%;
@@ -736,7 +745,7 @@ input {
 .cart_order {
     margin-top: 100px;
     width: 80%;
-    top: -10000px;
+    top: -900px;
     transition: 1.5s;
 
     left: 6%;
