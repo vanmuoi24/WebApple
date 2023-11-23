@@ -170,10 +170,6 @@ input[type='submit']:hover {
 .in4_caNhan_main_body_click {
     text-align: center;
 }
-#change_in4_main_body_sub_2 {
-    text-align: center !important;
-    background-color: #ffb200;
-}
 /*----------------------------------------------------------------*/
 .in4_caNhan_main {
     width: 650px;
