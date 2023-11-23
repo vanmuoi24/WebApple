@@ -297,13 +297,13 @@ function check_register(event) {
         return false;
     }
     function isValidPassword(password) {
-        // Kiểm tra độ dài tối thiểu là 8, phải chứa ít nhất 1 chữ hoa, 1 chữ thường, và 1 số
-        let passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        // Kiểm tra độ dài tối thiểu là 8, phải chứa ít nhất 1 chữ hoa, 1 kí tự đặc biệt, và 1 số
+        let passwordPattern = /^(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
         return passwordPattern.test(password);
     }
     // Sử dụng hàm isValidPassword để kiểm tra mật khẩu
     if (!isValidPassword(password)) {
-        register_error('Mật khẩu phải từ 8 kí tự trở lên, có ít nhất một chữ hoa, chữ thường, chữ số');
+        register_error('Mật khẩu phải từ 8 kí tự trở lên, có ít nhất một chữ hoa, kí tự đặc biệt, chữ số');
         return false;
     }
     if (password !== password_again) {

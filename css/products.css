@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 80px;
 }
 #div_products #p_products {
     user-select: none;

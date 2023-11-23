@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: 200px;
 }
 .order_container {
     min-width: 1250px;
@@ -33,6 +34,7 @@
 }
 
 .cart-quantity-input-container {
+    user-select: none;
     display: flex;
     height: 30px;
     border: none;

@@ -190,10 +190,6 @@
                 <div></div>
             </div>
         </div>
-        <!-- Giỏ hàng -->
-        <section id="shopping_cart_total"></section>
-        <!-- Nội dung của chính sách bảo hành -->
-        <div id="div_security"></div>
         <!-- Hiển thị sản phẩm -->
         <div id="div_products">
             <p id="p_products">Đề xuất</p>
@@ -321,11 +317,13 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Fill sản phẩm vào
             fill_products_right();
-            // Kiểm tra xem có lựa chọn loại sản phẩm không
+            // Kiểm tra xem có cần hiển thị tìm kiếm
+            CheckSearch();
+            // Kiểm tra xem có cần hiển thị sản phẩm theo menu
             Check_products_type();
-            // Kiểm tra xem có hiển thị chính sách bảo hàng
+            // Kiểm tra xem có cần hiển thị chính sách bảo hàng
             CheckSecurity();
-            // Kiểm tra xem có hiển thị giỏ hàng
+            // Kiểm tra xem có cần hiển thị giỏ hàng
             CheckShoppingcart();
             document.body.style.display = 'flex';
         });
