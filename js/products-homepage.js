@@ -1461,9 +1461,10 @@ function showSearch() {
             <option value="macbook">MacBook</option>
         </select>
         <div id="div_product_search_price">
-            <input type="text" placeholder="Giá từ" id="price_before" onchange="search_type()" />
-            <p>-</p>
-            <input type="text" placeholder="Đến" id="price_after" onchange="search_type()" />
+            <span>Giá từ</span>
+            <input type="text" placeholder="Tối thiểu" id="price_before" onchange="search_type()" />
+            <span>đến</span>
+            <input type="text" placeholder="Tối đa" id="price_after" onchange="search_type()" />
         </div>
     </div>
     <div id="div_products_total">
@@ -1502,6 +1503,10 @@ function search_create() {
     var searchvalue = localStorage.getItem('searchvalue');
     var list_products = JSON.parse(localStorage.getItem('products'));
     list_products_search = list_products.filter((products) => products.tensp.toLowerCase().includes(searchvalue));
+    if (list_products_search.length == 0) {
+        document.getElementById('p_products').textContent = 'Không tìm thấy sản phẩm';
+        document.getElementById('div_product_search_type').style.display = 'none';
+    }
     // Sao lưu
     list_products_search_save = list_products_search;
     fill_products_search_right();
@@ -1510,35 +1515,37 @@ function search_create() {
 function fill_products_search_right() {
     // Khởi tạo các số liệu cần thiết
     var div_products_view = document.getElementsByClassName('div_products_view');
+    // Kiểm tra xem có sản phẩm trong mảng tìm kiếm không
     if (list_products_search.length == 0) {
+        div_products_view[0].style.display = 'none';
+        div_products_view[1].style.display = 'none';
+        document.getElementById('div_search_products').style.display = 'none';
         showMessage_error('Không tìm thấy sản phẩm theo yêu cầu!');
         return false;
     }
     // Khởi tạo lại bố cục
+    if (index_products != list_products_search.length) {
+        div_products_view[0].innerHTML = '';
+        div_products_view[1].innerHTML = '';
+    }
+    document.getElementById('div_product_search_type').style.display = 'flex';
     div_products_view[0].style.display = 'flex';
     div_products_view[1].style.display = 'flex';
     document.getElementById('div_search_products').style.display = 'flex';
     if (list_products_search.length <= 4) {
-        document.getElementById('div_search_products').style.display = 'none';
         div_products_view[1].style.display = 'none';
+        document.getElementById('div_search_products').style.display = 'none';
     }
     if (list_products_search.length > 4 && list_products_search.length <= 8) {
         document.getElementById('div_search_products').style.display = 'none';
-    }
-    // Reset hiển thị sản phẩm
-    if (index_products != list_products_search.length || index_products == 0) {
-        div_products_view[0].innerHTML = '';
-        if (div_products_view.length == 2) div_products_view[1].innerHTML = '';
     }
     var list_1 = create_list_right(list_products_search);
     var list_2 = create_list_right(list_products_search);
     // Hiển thị ra
     if (index_products <= list_products_search.length && list_1 !== '') {
-        if (div_products_view.length == 2) {
-            document.getElementById('div_search_products_number').textContent++;
-            div_products_view[1].innerHTML = list_2;
-        }
+        document.getElementById('div_search_products_number').textContent++;
         div_products_view[0].innerHTML = list_1;
+        div_products_view[1].innerHTML = list_2;
     }
 }
 function fill_products_search_left() {

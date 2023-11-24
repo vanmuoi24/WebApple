@@ -8,13 +8,13 @@
     margin: 80px;
 }
 .option_canhan {
-    margin-bottom: 50px;
+    padding-bottom: 50px;
 }
 .option_canhan_main {
     width: 260px;
-    height: 300px;
-    border: 3px dotted #ffb200;
-    border-radius: 8px;
+    height: 298px;
+    border: 3px solid #ffb200;
+    border-radius: 10px;
     background-color: #f5f5f7;
 }
 .option_canhan_main_head {
@@ -36,8 +36,6 @@
 .option_canhan_main_head h2 {
     word-wrap: break-word; /* chữ dài thì xuống dòng */
     overflow: hidden;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-        sans-serif;
     font-size: 25px;
     font-weight: 400;
     text-align: center;
@@ -49,8 +47,6 @@
     height: 229px;
 }
 .option_canhan_main_body p {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-        sans-serif;
     font-size: 16px;
     font-weight: 500;
     line-height: 125.023%;
@@ -60,6 +56,7 @@
     padding-top: 30px;
 }
 #body_1 {
+    border-radius: 8px;
     cursor: pointer;
     height: 33%;
     position: relative;
@@ -74,6 +71,7 @@
     background-color: var(--line-color);
 }
 #body_2 {
+    border-radius: 8px;
     cursor: pointer;
     height: 33%;
     position: relative;
@@ -88,6 +86,7 @@
     background-color: var(--line-color);
 }
 #body_3 {
+    border-radius: 8px;
     cursor: pointer;
     height: 33%;
     position: relative;
@@ -107,13 +106,11 @@
 .in4_caNhan_main_head {
     padding: 2px 0;
     height: 40px;
-    border-bottom: #ffb200 1px dotted;
+    border-bottom: #ffb200 1px solid;
     padding-bottom: 8px;
 }
 .in4_caNhan_main_head h1 {
     margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-        sans-serif;
     font-weight: 500;
     line-height: 125.023%;
     text-align: center;
@@ -146,7 +143,7 @@
 #row6 input,
 #row7 input,
 #row8 input {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 .in4_caNhan_main_body input {
     border: none;
@@ -183,7 +180,7 @@ input[type='submit']:hover {
 .in4_caNhan_main {
     width: 650px;
     height: 450px;
-    border: 3px dotted #ffb200;
+    border: 3px solid #ffb200;
     text-align: center;
     border-radius: 8px;
     background-color: #f5f5f7;

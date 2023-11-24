@@ -9,7 +9,7 @@
     user-select: none;
     pointer-events: none;
     margin: 30px 0 30px 0;
-    width: 462px;
+    width: 600px;
     height: 35.82px;
     color: #000;
     text-align: center;
@@ -93,7 +93,6 @@
 }
 /* Css của hiển thị sản phẩm */
 #div_product_display_total {
-    overflow: auto;
     position: fixed;
     display: none;
     justify-content: center;
@@ -111,8 +110,11 @@
     border: 1px solid black;
     background-color: white;
     width: 800px;
+    height: 550px;
     position: relative;
     border: solid 5px var(--menu-color);
+    border-radius: 8px;
+    overflow: auto;
 }
 #close_x {
     position: absolute;
@@ -166,22 +168,43 @@
     margin-top: 30px;
 }
 #div_product_display_button input {
-    background-color: var(--menu-color);
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid var(--menu-color);
     border-radius: 8px;
     width: 145px;
     height: 35px;
-    color: #000;
-    font-size: 20px;
+    color: var(--line-color);
+    font-size: 17px;
     font-style: normal;
     font-weight: 500;
     line-height: 125.023%; /* 30.005px */
+    box-shadow: 3px 2px 2px var(--boxshadow-color);
+    transition: all 0.25s linear;
+}
+#div_product_display_button input:hover {
+    color: black;
+    background-color: var(--menu-color);
 }
 #div_product_display_information {
     display: flex;
     padding-left: 50px;
     flex-direction: column;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scroll-padding-top: 9rem;
     width: 700px;
     height: 100%;
+}
+#div_product_display_information::-webkit-scrollbar {
+    width: 1rem;
+}
+#div_product_display_information::-webkit-scrollbar-track {
+    background: white;
+}
+#div_product_display_information::-webkit-scrollbar-thumb {
+    background: var(--button-color);
+    border-radius: 8px;
 }
 #div_product_display_information h4 {
     margin-bottom: 10px;
@@ -220,15 +243,17 @@
     line-height: normal;
 }
 #div_product_search_price {
+    margin-top: 10px;
     margin-left: 100px;
     display: flex;
-    width: 270px;
+    width: 330px;
+    height: 50px;
     align-items: center;
+    text-align: center;
     justify-content: space-between;
 }
 #div_product_search_price input {
-    margin-top: 10px;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid #000;
     background: #fff;
     width: 120px;

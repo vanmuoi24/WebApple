@@ -5,17 +5,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Thông tin khách hàng</title>
         <link rel="shortcut icon" href="../img/icon/icon-web.png" type="image/x-icon" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <!-- Form chữ -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="../font/font-awesome-pro-v6-6.2.0/css/all.min.css" />
         <!-- Css version -->
         <link rel="stylesheet" href="../css/header.css" />
         <link rel="stylesheet" href="../css/login.css" />
         <link rel="stylesheet" href="../css/register.css" />
-        <link rel="stylesheet" href="../css/footer.css" />
         <link rel="stylesheet" href="../css/in4_account.css" />
+        <link rel="stylesheet" href="../css/footer.css" />
     </head>
     <body>
         <!-- Line xanh đầu trang -->
@@ -189,10 +185,8 @@
                             <i class="fa fa-shopping-bag bag" aria-hidden="true"></i>
                         </div>
                         <div id="body_3" onclick="logout()">
-                            <a href="../html/homepage.html">
-                                <p>Đăng xuất ></p>
-                                <i class="fa fa-sign-out exit" aria-hidden="true"></i>
-                            </a>
+                            <p>Đăng xuất ></p>
+                            <i class="fa fa-sign-out exit" aria-hidden="true"></i>
                         </div>
                     </div>
                 </div>
@@ -206,39 +200,30 @@
                     <div class="in4_caNhan_main_body">
                         <div class="in4_caNhan_main_body_data">
                             <div id="row1">
-                                <label for="hoten">Họ và tên :</label>
-                                <input type="text" id="hoten" name="Name" class="form_input" required /><br /><br />
+                                <label for="change_name">Họ và tên:</label>
+                                <input type="text" id="change_name" name="Name" class="form_input" required /><br /><br />
                             </div>
                             <div id="row2">
-                                <label for="sdt">Số điện thoại :</label>
-                                <input type="text" name="Phone-number" id="sdt" required /><br /><br />
+                                <label for="change_phone">Số điện thoại:</label>
+                                <input type="text" name="Phone-number" id="change_phone" disabled="true" /><br /><br />
                             </div>
                             <div id="row3">
-                                <label for="address">Địa chỉ :</label>
-                                <input
-                                    type="text"
-                                    name="Address"
-                                    id="address"
-                                    required
-                                /><br /><br />
+                                <label for="change_address">Địa chỉ:</label>
+                                <input type="text" name="Address" id="change_address" required /><br /><br />
                             </div>
                             <div id="row4">
-                                <label for="email">Email :</label>
-                                <input type="text" id="email" name="Email" required />
+                                <label for="change_email">Email:</label>
+                                <input type="text" id="change_email" name="Email" required />
                             </div>
                             <br />
                             <div id="row5">
-                                <label for="pass_o">Mật khẩu :</label>
+                                <label>Mật khẩu:</label>
                                 <p>********</p>
                                 <a herf="#" onclick="change_pass()" style="cursor: pointer; color: blue">Thay đổi</a>
-                                <br /><br />
-                            </div>
-                            <div id="change_in4_main_body_click">
-                                <input type="submit" value="Lưu thông tin" id="sub_change_infor" onclick="check_change(event)" />
                             </div>
                             <br />
-                            <div id="div_change_notify">
-                                <p id="change_notify"></p>
+                            <div id="change_in4_main_body_click">
+                                <input type="submit" value="Lưu thông tin" id="sub_change_infor" onclick="check_change(event)" />
                             </div>
                         </div>
                     </div>

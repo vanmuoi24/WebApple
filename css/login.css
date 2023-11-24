@@ -63,7 +63,7 @@
     width: 291px;
     height: 29px;
     border: 1px solid black;
-    border-radius: 7px;
+    border-radius: 8px;
     padding-left: 5px;
     margin-top: 5px;
     cursor: pointer;
@@ -77,12 +77,16 @@
 input[type='submit'] {
     width: 175px;
     height: 41px;
-    border: 2px solid black;
-    background-color: var(--menu-color);
+    border: 2px solid var(--menu-color);
+    background-color: white;
+    color: var(--line-color);
     cursor: pointer;
+    box-shadow: 3px 2px 2px var(--boxshadow-color);
+    transition: all 0.25s linear;
 }
 .option_submit input:hover {
-    background-color: #f3be43;
+    color: black;
+    background-color: var(--menu-color);
 }
 .form_login_main_footer {
     display: flex;
