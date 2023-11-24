@@ -420,7 +420,7 @@ function view_product(id) {
     let list_product = JSON.parse(localStorage.getItem('products'));
     let list = list_product[id];
     var giaTienChinhThuc = parseFloat(list.gia).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
-    console.log(giaTienChinhThuc);
+
     let content_list = `
        
             <div class="content_title"><h1>Thông Tin Sản Phẩm</h1></div>
