@@ -12,7 +12,6 @@ product.addEventListener('click', (event) => {
                         id="search_product"
                         placeholder="  Tìm kiếm sản phẩm"
                     />
-                    <i class="fa-solid fa-magnifying-glass" id="seach"></i>
                     </div>
                     <button id="add_product">Thêm Sản Phẩm</button>
                 </div>
@@ -254,9 +253,8 @@ function search_product() {
     var table = document.getElementsByTagName('table')[0];
     const search_product = document.getElementById('search_product');
     var list_table = '';
-    search_product.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-            list_table = `
+    search_product.addEventListener('input', (event) => {
+        list_table = `
         <tr>
           <td>Mã Sản Phẩm</td>
           <td>Tên Sản Phẩm</td>
@@ -267,17 +265,17 @@ function search_product() {
           <td>Thông Tin Sản Phẩm</td>
         </tr>
       `;
-            var found = false;
-            list_product.forEach((list, index) => {
-                const indexall = index;
-                index++;
-                var giaTienChinhThuc = parseFloat(list.gia).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+        var found = false;
+        var inputText = search_product.value.toLowerCase().replace(/\s/g, '');
+        list_product.forEach((list, index) => {
+            const indexall = index;
+            index++;
+            var giaTienChinhThuc = parseFloat(list.gia).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
 
-                var inputText = search_product.value.toLowerCase();
-                var productName = list.tensp.toLowerCase();
-                if (inputText === productName) {
-                    found = true;
-                    list_table += `
+            var productName = list.tensp.toLowerCase().replace(/\s/g, '');
+            if (productName.includes(inputText)) {
+                found = true;
+                list_table += `
             <tr>
               <td style="width:90px">${list.masp}</td>
               <td id="tensp">${list.tensp}</td>
@@ -292,20 +290,19 @@ function search_product() {
               <td style="width:90px"><button id="view_product" onclick="view_product(${indexall})">Xem</button></td>
             </tr>
           `;
-                }
-            });
+            }
+        });
 
-            if (!found) {
-                list_table += `
+        if (!found) {
+            list_table += `
           <tr>
             <td colspan="7">Không tìm thấy sản phẩm</td>
           </tr>
         `;
-            }
-
-            table.innerHTML = list_table;
-            event.preventDefault();
         }
+
+        table.innerHTML = list_table;
+        event.preventDefault();
     });
 }
 //============================================================================
