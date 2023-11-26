@@ -17,23 +17,6 @@ function quantityup(i) {
     inner_cart();
 }
 
-// Biến số thành chuỗi có phân đơn vị
-function formatNumberWithCommas(number) {
-    // Chuyển số thành chuỗi
-    var numberString = number.toString();
-    // Tìm vị trí của dấu chấm thập phân (nếu có)
-    var decimalIndex = numberString.indexOf('.');
-    // Nếu không có dấu chấm thập phân, thì mặc định là cuối chuỗi
-    if (decimalIndex === -1) {
-        decimalIndex = numberString.length;
-    }
-    // Thêm dấu chấm vào mỗi 3 chữ số từ cuối lên đầu
-    for (var i = decimalIndex - 3; i > 0; i -= 3) {
-        numberString = numberString.slice(0, i) + '.' + numberString.slice(i);
-    }
-    // Hiển thị chuỗi đã được định dạng
-    return numberString;
-}
 // Fill sản phảm đã đặt vào
 function inner_cart() {
     var waitting_buy = JSON.parse(localStorage.getItem('waitting_buy'));
@@ -64,7 +47,7 @@ function inner_cart() {
 		<td class="option" style="cursor: pointer;">
 			<i class="fa fa-trash" aria-hidden="true" onclick="trashcart(${i})"></i>
 		</td>
-	    </tr>`;
+        </tr>`;
         }
         body_cart.innerHTML = list;
     }

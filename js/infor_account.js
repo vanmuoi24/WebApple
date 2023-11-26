@@ -48,10 +48,6 @@ function check_change(event) {
     }
     //check phone number
     let sdt = document.getElementById('change_phone').value;
-    if (isNaN(Number(sdt)) || Number(sdt) < 100000000 || Number(sdt) > 999999999) {
-        showMessage_error('Số điện thoại không hợp lệ');
-        return false;
-    }
     //check địa chỉ
     let address = document.getElementById('change_address').value;
     if (address.length < 8) {
@@ -145,26 +141,26 @@ function clickQLDH() {
     document.getElementById('in4_donhang').style.display = 'flex';
     document.getElementById('in4_caNhan').style.display = 'none';
 }
-var waitting_buy = JSON.parse(localStorage.getItem('orders'));
+var orders = JSON.parse(localStorage.getItem('orders'));
 var index_U = localStorage.getItem('index_login');
 var user = JSON.parse(localStorage.getItem('user'));
 var body_order = document.getElementById('body-order');
 var list = ' ';
-for (var i = 0; i < waitting_buy.length; i++) {
-    if (user[index_U].phone === waitting_buy[i].user.phone) {
+for (var i = 0; i < orders.length; i++) {
+    if (user[index_U].phone === orders[i].user.phone) {
         list += `<tr>
                     <td class="order-info1">
-                        <p>${waitting_buy[i].madon}</p>
+                        <p>${orders[i].madon}</p>
                     </td>
                     <td class="order-info2">
-                        <p>${formatNumberWithCommas(waitting_buy[i].Tongtien)}đ</p>
+                        <p>${formatNumberWithCommas(orders[i].Tongtien)}đ</p>
                     </td>
                     <td class="order-info3">
                         <!-- <p>iPhone 15 Pro - Black - 256GB - SL: 2</p> -->
-                        ${getProductHTML(waitting_buy[i].Sanpham)}
+                        ${getProductHTML(orders[i].Sanpham)}
                     </td>
-                    <td class="order-info4">${waitting_buy[i].Ngaydat}</td>
-                    <td class="order-info5">${waitting_buy[i].Trangthai}</td>
+                    <td class="order-info4">${orders[i].Ngaydat}</td>
+                    <td class="order-info5">${orders[i].Trangthai}</td>
                 </tr>`;
     }
 }

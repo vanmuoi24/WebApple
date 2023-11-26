@@ -53,7 +53,6 @@ function close_login() {
     document.getElementById('form_login_total').style.display = 'none';
 }
 function open_register() {
-    var form_register_total = document.getElementById('form_register_total');
     document.getElementById('register_name').value = '';
     document.getElementById('register_phone').value = '';
     document.getElementById('register_address').value = '';

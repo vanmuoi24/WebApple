@@ -964,11 +964,12 @@ function create_list_right(list_products) {
     var list = '';
     // Hiển thị sản phẩm vào list
     while (index_products < list_products.length && check < 4) {
-        list += `<div class="div_products_item" onclick="open_product_display('${list_products[index_products].tensp}')">
-        <img src="${list_products[index_products].hinhanhitem}" alt="${list_products[index_products].tensp}"/>
-        <p class="phone_name">${list_products[index_products].tensp}</p>
-        <p class="phone_price">${formatNumberWithCommas(list_products[index_products].gia)}VND</p>
-    </div>`;
+        list += `
+            <div class="div_products_item" onclick="open_product_display('${list_products[index_products].tensp}')">
+            <img src="${list_products[index_products].hinhanhitem}" alt="${list_products[index_products].tensp}"/>
+            <p class="phone_name">${list_products[index_products].tensp}</p>
+            <p class="phone_price">${formatNumberWithCommas(list_products[index_products].gia)}VND</p>
+        </div>`;
         check++;
         index_products++;
     }
@@ -983,10 +984,10 @@ function create_list_left(list_products) {
     // Hiển thị sản phẩm vào list
     while (index_products < count) {
         list += `<div class="div_products_item" onclick="open_product_display('${list_products[index_products].tensp}')">
-          <img src="${list_products[index_products].hinhanhitem}" alt="${list_products[index_products].tensp}"/>
-          <p class="phone_name">${list_products[index_products].tensp}</p>
-          <p class="phone_price">${formatNumberWithCommas(list_products[index_products].gia)}VND</p>
-      </div>`;
+            <img src="${list_products[index_products].hinhanhitem}" alt="${list_products[index_products].tensp}"/>
+            <p class="phone_name">${list_products[index_products].tensp}</p>
+            <p class="phone_price">${formatNumberWithCommas(list_products[index_products].gia)}VND</p>
+        </div>`;
         index_products++;
     }
     return list;
@@ -1004,16 +1005,16 @@ function create_list_left_8(list_products) {
     while (index_products < count) {
         if (count - index_products > 4) {
             list[0] += `<div class="div_products_item" onclick="open_product_display('${list_products[index_products].tensp}')">
-          <img src="${list_products[index_products].hinhanhitem}" alt="${list_products[index_products].tensp}"/>
-          <p class="phone_name">${list_products[index_products].tensp}</p>
-          <p class="phone_price">${formatNumberWithCommas(list_products[index_products].gia)}VND</p>
-      </div>`;
+        <img src="${list_products[index_products].hinhanhitem}" alt="${list_products[index_products].tensp}"/>
+        <p class="phone_name">${list_products[index_products].tensp}</p>
+        <p class="phone_price">${formatNumberWithCommas(list_products[index_products].gia)}VND</p>
+    </div>`;
         } else {
             list[1] += `<div class="div_products_item" onclick="open_product_display('${list_products[index_products].tensp}')">
-          <img src="${list_products[index_products].hinhanhitem}" alt="${list_products[index_products].tensp}"/>
-          <p class="phone_name">${list_products[index_products].tensp}</p>
-          <p class="phone_price">${formatNumberWithCommas(list_products[index_products].gia)}VND</p>
-      </div>`;
+        <img src="${list_products[index_products].hinhanhitem}" alt="${list_products[index_products].tensp}"/>
+        <p class="phone_name">${list_products[index_products].tensp}</p>
+        <p class="phone_price">${formatNumberWithCommas(list_products[index_products].gia)}VND</p>
+    </div>`;
         }
         index_products++;
     }
