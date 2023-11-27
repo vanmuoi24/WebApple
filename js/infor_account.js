@@ -122,7 +122,8 @@ function check_change(event) {
             userAccounts[vitri].email = email;
         }
         if (pass_n !== '') userAccounts[vitri].password = pass_n;
-        localStorage.setItem('user', JSON.stringify(userAccounts));
+        if (check_admin) localStorage.setItem('admin', JSON.stringify(userAccounts));
+        else localStorage.setItem('user', JSON.stringify(userAccounts));
         getInForMation();
         showMessage('Thay đổi thông tin thành công');
     } else if (alert_accept === false) {
