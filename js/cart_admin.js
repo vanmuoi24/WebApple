@@ -56,7 +56,13 @@ function cart_admin() {
                                         <div class="cart_item">
                                             
                                         </div>
-                                        
+                                        <div class="pagination-buttons">
+                                        <button id="prev"><i class="fa-solid fa-arrow-left fa-beat"></i></button>
+                                        <div class="list_button">
+
+                                        </div>
+                                        <button id="next"><i class="fa-solid fa-arrow-right fa-beat"></i></button>
+                                        </div>
                                     </div>
 
                                     <div class="user_product">
@@ -112,35 +118,84 @@ function oder_user() {
         });
     });
 }
+
 function order_view(id) {
     view();
     const orders = JSON.parse(localStorage.getItem('orders'));
     let cart_item = document.getElementsByClassName('cart_item')[0];
-    console.log(orders[id].Sanpham);
-
-    var list_product_cart = '';
     var giaTienChinhThuc = '';
-    for (var i = 0; i < orders[id].Sanpham.length; i++) {
-        var giaTienChinhThuc = orders[id].Sanpham[i].gia.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
-        list_product_cart += `
-       <div class="class_cart">
-       <div class="img"><img src="${orders[id].Sanpham[i].hinhanhitem}" alt="" /></div>
-       <div class="content_product_all">
-           <h4>${orders[id].Sanpham[i].tensp}</h4>
-           <p>Không có ghi chú</p>
-           <h4>SL:${orders[id].Sanpham[i].soluong}</h4>
-       </div>
-       <div class="product_total">
-           <h4>${giaTienChinhThuc}</h4>
-       </div>
-       </div>
-       `;
+    var pageitem = 2;
+    var creenpage = 1;
+    var start = 0;
+    var end = pageitem;
+    var totalpage = Math.ceil(orders[id].Sanpham.length / pageitem);
+    console.log('====', totalpage);
+    function renderitem() {
+        var list_product_cart = '';
+        orders[id].Sanpham.map((list, index) => {
+            var giaTienChinhThuc = list.gia.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+            if (index >= start && index < end) {
+                console.log('======index', index);
+                list_product_cart += `
+            <div class="class_cart">
+            <div class="img"><img src="${list.hinhanhitem}" alt="" /></div>
+            <div class="content_product_all">
+                <h4>${list.tensp}</h4>
+                <p>Không có ghi chú</p>
+                <h4>SL:${list.soluong}</h4>
+            </div>
+            <div class="product_total">
+                <h4>${giaTienChinhThuc}</h4>
+            </div>
+            </div>
+            `;
+            }
+        });
         cart_item.innerHTML = list_product_cart;
     }
+    renderitem();
+    btns();
+    function btns() {
+        var list_btn = '';
+        list_btn = ` <button class="pageall" style="color:white;background: #0083d6">${1}</button> `;
+        for (var i = 2; i <= totalpage; i++) {
+            console.log(i);
+            list_btn += ` <button class="pageall">${i}</button> `;
+        }
+        document.getElementsByClassName('list_button')[0].innerHTML = list_btn;
+    }
 
+    function btnclick() {
+        var btnclicks = document.querySelectorAll('.list_button button');
+        btnclicks.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const value = parseFloat(btn.textContent);
+                creenpage = value;
+                console.log(creenpage);
+                btnclicks.forEach((button) => {
+                    button.style.color = 'black';
+                    button.style.background = 'white';
+                });
+                btn.style.color = 'white';
+                btn.style.background = '#0083d6';
+                getcurenpage(creenpage);
+                renderitem();
+            });
+        });
+    }
+
+    function getcurenpage(creenpage) {
+        start = (creenpage - 1) * pageitem;
+        end = creenpage * pageitem;
+        if (end > orders[id].Sanpham.length) {
+            end = orders[id].Sanpham.length;
+        }
+        console.log(start, end);
+    }
+
+    btnclick();
     var table_threed = document.getElementById('thead');
     var giaTienChinhThuc = orders[id].Tongtien.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
-
     var user_table = `
         <tr>
             <td>
@@ -193,7 +248,6 @@ function order_view(id) {
         </tr>
        <tr>
        <button id="btn_handle">${orders[id].Trangthai}</button>
-       <button onclick="reset(${id})">ok</button>
        </tr>
         
         `;
@@ -214,10 +268,10 @@ function order_view(id) {
             oder_user();
         }
     });
-    if (orders[id].Trangthai === 'Đã xử lý') {
-        btn_handle.style.background = '#0083d6';
-        btn_handle.style.color = 'white';
-    }
+}
+if (orders[id].Trangthai === 'Đã xử lý') {
+    btn_handle.style.background = '#0083d6';
+    btn_handle.style.color = 'white';
 }
 
 //selec product
@@ -373,68 +427,9 @@ function view() {
     setOpacityAndDisableEvents();
 }
 function setOpacityAndDisableEvents() {
-    const elements = document.querySelectorAll(
-        '.table_cart  , .logo, .left_list, .list_product, .selection_food, .pagination-buttons,.header_cart_table',
-    );
+    const elements = document.querySelectorAll('.table_cart  , .logo, .left_list, .list_product, .selection_food,.header_cart_table');
     elements.forEach((element) => {
         element.style.opacity = '0.5';
         element.style.pointerEvents = 'none';
     });
-}
-
-///file word
-function reset(id) {
-    const orders = JSON.parse(localStorage.getItem('orders'));
-    if (orders && orders[id]) {
-        const { madon, tenNguoiNhan, soDienThoai, diaChi, tenSanPham, gia, ngayDat } = orders[id];
-
-        const doc = new window.docx.Document();
-
-        const titleStyle = {
-            paragraph: {
-                alignment: window.docx.AlignmentType.CENTER,
-                spacing: {
-                    before: 200,
-                    after: 200,
-                },
-            },
-            run: {
-                bold: true,
-                size: 28,
-                color: '2F5496',
-            },
-        };
-
-        const contentStyle = {
-            paragraph: {
-                spacing: {
-                    before: 100,
-                    after: 200,
-                },
-            },
-            run: {
-                size: 24,
-                color: '000000',
-            },
-        };
-
-        doc.addSection({
-            children: [
-                new window.docx.Paragraph('Chi tiết Đơn Hàng', titleStyle),
-                new window.docx.Paragraph('Mã Đơn: ' + madon, contentStyle),
-                new window.docx.Paragraph('Tên Người Nhận: ' + tenNguoiNhan, contentStyle),
-                new window.docx.Paragraph('Số Điện Thoại: ' + soDienThoai, contentStyle),
-                new window.docx.Paragraph('Địa Chỉ: ' + diaChi, contentStyle),
-                new window.docx.Paragraph('Đơn Hàng: ' + tenSanPham, contentStyle),
-                new window.docx.Paragraph('Giá: ' + gia + ' vnd', contentStyle),
-                new window.docx.Paragraph('Ngày Đặt: ' + ngayDat, contentStyle),
-            ],
-        });
-
-        window.docx.Packer.toBlob(doc).then((blob) => {
-            window.saveAs(blob, 'chi_tiet_don_hang.docx');
-        });
-    } else {
-        console.error(`Không tìm thấy dữ liệu cho ID: ${id}`);
-    }
 }

@@ -108,9 +108,60 @@ document.getElementById('home').addEventListener('click', () => {
                     </thead>
                 </table>
             </div>
+            
+            <div class="revenue">
+            <div class="text"><h2>Lợi Nhuận Ngày</h2></div>
+            <table>
+                <thead>
+                    
+                   
+                    
+                </thead>
+            </table>
+        </div>
         </div>
     </div>
     `;
     right_header.innerHTML = statis;
     statistical();
+    revenue_date();
 });
+
+function revenue_date() {
+    const orders = JSON.parse(localStorage.getItem('orders'));
+    const thred = document.getElementsByTagName('thead')[2];
+    const dateInfo = {};
+    orders.forEach((order) => {
+        const orderDate = order.Ngaydat;
+
+        if (!dateInfo[orderDate]) {
+            dateInfo[orderDate] = { count: 0, revenue: 0 };
+        }
+        if (order.Trangthai == 'Đã xử lý') {
+            dateInfo[orderDate].count++;
+            dateInfo[orderDate].revenue += order.Tongtien;
+        }
+    });
+
+    let sum_date = `
+        <tr>
+            <td>Ngày Bán</td>
+            <td style="width: 200px">Số Đơn Trong Ngày</td>
+            <td>Doanh Thu</td>
+        </tr>
+    `;
+    var object_key = Object.keys(dateInfo);
+    object_key.forEach((date) => {
+        sum_date += `
+            <tr>
+                <td style="width: 200px">${date}</td>
+                <td>${dateInfo[date].count}</td>
+                <td>${dateInfo[date].revenue.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+            </tr>
+        `;
+    });
+
+    thred.innerHTML = sum_date;
+}
+
+revenue_date();

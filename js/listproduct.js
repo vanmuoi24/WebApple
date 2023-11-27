@@ -56,7 +56,7 @@ product.addEventListener('click', (event) => {
                     <p id="text_p">Thêm Sản Phẩm</p>
                     <label for="fileInput" class="custom-file-upload">Chọn ảnh</label>
                     <input type="file" id="fileInput" class="input-file" />
-                    <img id="PreviewImage" />
+                    <img id="PreviewImage" src="" />
                 </div>
                 <div class="add_right">
                     <div class="name_product">
@@ -66,21 +66,22 @@ product.addEventListener('click', (event) => {
                     <div class="color">
                     <label>Màu:</label>
                     <div class="checkbox-group">
-                        <input type="checkbox" id="xanh" value="Xanh" />
-                        <label for="xanh">Xanh</label>
+                        <input type="checkbox" id="Black" value="Black" />
+                        <label for="Black">Black</label>
 
-                        <input type="checkbox" id="do" value="Đỏ" />
-                        <label for="do">Đỏ</label>
+                        <input type="checkbox" id="Blue" value="Blue" />
+                        <label for="Blue">Blue</label>
 
-                        <input type="checkbox" id="tim" value="Tím" />
-                        <label for="tim">Tím</label>
+                        <input type="checkbox" id="Yellow" value="Yellow" />
+                        <label for="Yellow">Yellow</label>
 
-                        <input type="checkbox" id="vang" value="Vàng" />
-                        <label for="vang">Vàng</label>
+                        <input type="checkbox" id="Orange" value="Orange" />
+                        <label for="Orange">Orange</label>
 
-                        <input type="checkbox" id="cam" value="Cam" />
-                        <label for="cam">Cam</label>
+                        <input type="checkbox" id="Pink" value="Pink" />
+                        <label for="Pink">Pink</label>
                     </div>
+
                 </div>
                 
                 <div class="rom">
@@ -93,7 +94,7 @@ product.addEventListener('click', (event) => {
                     <label for="rom2">256GB</label>
             
                     <input type="checkbox" id="rom3" value="560GB" />
-                    <label for="rom3">560GB</label>
+                    <label for="rom3">506GB</label>
             
                     <input type="checkbox" id="rom4" value="1T" />
                     <label for="rom4">1T</label>
@@ -146,12 +147,13 @@ product.addEventListener('click', (event) => {
         document.getElementById('save_product1').style.display = 'none';
         const text_p = document.getElementById('text_p');
         text_p.innerHTML = 'Thêm Sản Phẩm';
+
         const elements = document.querySelectorAll('.logo, .left_list, .list_product, .selection_food, .pagination-buttons,.table_product');
         elements.forEach((element) => {
             element.style.opacity = '0.5';
             element.style.pointerEvents = 'none';
         });
-        restfood();
+        resetInput();
     });
     //============================================================================
     // Thoát Thêm Sản Phẩm
@@ -170,7 +172,7 @@ product.addEventListener('click', (event) => {
     const price_food = document.getElementById('price_food');
     const img_product = document.getElementById('PreviewImage');
     const key_food = document.getElementById('key_food');
-    const foodSelect = document.getElementById('select');
+    const Select = document.getElementById('select');
     const rom = document.getElementsByClassName('rom')[0];
     const color = document.getElementsByClassName('color')[0];
     const ghi_chu = document.getElementById('ghi_chu');
@@ -178,17 +180,15 @@ product.addEventListener('click', (event) => {
     //Thêm Sản Phẩm
     save_product_button.addEventListener('click', () => {
         var list_product = JSON.parse(localStorage.getItem('products')) || [];
-
         console.log(list_product);
         var user = {
             tensp: name_food.value,
             gia: price_food.value,
             masp: key_food.value,
-            hinhanhitem: img_product.src,
             hinhanhMoTa: img_product.src,
             mau: [],
             luutru: [],
-            danhmuc: foodSelect.value,
+            danhmuc: Select.value,
             chitiet: ghi_chu.value,
         };
         var colorCheckboxes = color.getElementsByClassName('checkbox-group')[0].getElementsByTagName('input');
@@ -231,6 +231,9 @@ function showimgsave() {
     const previewImage = document.getElementById('PreviewImage');
 
     fileInput.addEventListener('change', function () {
+        const previewImage = document.getElementById('PreviewImage');
+        previewImage.style.width = '90%';
+        previewImage.style.border = '1px solid red';
         const file = fileInput.files[0];
 
         const reader = new FileReader();
@@ -385,7 +388,7 @@ function edit_product(id) {
     const name_food = document.getElementById('name_food');
     const price_food = document.getElementById('price_food');
     const key_food = document.getElementById('key_food');
-    const foodSelect = document.getElementById('select');
+    const Select = document.getElementById('select');
     const previewImage = document.getElementById('PreviewImage');
     const save_product1 = document.getElementById('save_product1');
 
@@ -393,15 +396,15 @@ function edit_product(id) {
     name_food.value = productToEdit.tensp;
     key_food.value = productToEdit.masp;
     price_food.value = productToEdit.gia;
-    foodSelect.value = productToEdit.danhmuc;
+    Select.value = productToEdit.danhmuc;
     previewImage.src = productToEdit.hinhanhitem;
 
     save_product1.addEventListener('click', (event) => {
-        console.log(foodSelect.value);
+        console.log(Select.value);
         productToEdit.tensp = name_food.value;
         productToEdit.masp = key_food.value;
         productToEdit.gia = price_food.value;
-        productToEdit.trangthai = foodSelect.value;
+        productToEdit.trangthai = Select.value;
         productToEdit.hinhanh = previewImage.src;
         console.log(name_food.value);
         localStorage.setItem('products', JSON.stringify(list_product));
@@ -502,20 +505,20 @@ function renderProductall() {
 
             if (index > start && index <= end) {
                 list_table += `
-      <tr>
-        <td style="width:80px">${item.masp}</td>
-        <td id="tensp">${item.tensp}</td>
-        <td><img src="${item.hinhanhitem}" alt="" /></td>
-        <td>${item.danhmuc}</td>
-        <td>${giaTienChinhThuc}</td>
-        <td id="dele_edit" >
-          <i class="fa-solid fa-trash" onclick="delete_product(${indexall})"></i>
-          <i class="fa-regular fa-pen-to-square" onclick="edit_product(${indexall})"></i>
-        </td>
-        <td style="width:90px"><button id="view_product" onclick="view_product(${indexall})">Xem</button></td>
+                    <tr>
+                        <td style="width:80px">${item.masp}</td>
+                        <td id="tensp">${item.tensp}</td>
+                        <td><img src="${item.hinhanhitem}" alt="" /></td>
+                        <td>${item.danhmuc}</td>
+                        <td>${giaTienChinhThuc}</td>
+                        <td id="dele_edit" >
+                        <i class="fa-solid fa-trash" onclick="delete_product(${indexall})"></i>
+                        <i class="fa-regular fa-pen-to-square" onclick="edit_product(${indexall})"></i>
+                        </td>
+                        <td style="width:90px"><button id="view_product" onclick="view_product(${indexall})">Xem</button></td>
 
-      </tr>
-      `;
+                    </tr>
+                    `;
             }
         });
         table.innerHTML = list_table;
@@ -613,19 +616,34 @@ function renderProductall() {
 
 //============================================================================
 // reset input
-function restfood() {
-    const save_product = document.getElementById('save_product');
-    const name_food = document.getElementById('name_food');
-    const price_food = document.getElementById('price_food');
+function resetInput() {
+    const nameFoodInput = document.getElementById('name_food');
+    const keyFoodInput = document.getElementById('key_food');
+    const priceFoodInput = document.getElementById('price_food');
+    const Select = document.getElementById('select');
     const previewImage = document.getElementById('PreviewImage');
-    const key_food = document.getElementById('key_food');
-    const foodSelect = document.getElementById('select');
-    name_food.value = '';
-    key_food.value = '';
-    price_food.value = '';
-    foodSelect.value = '';
-    previewImage.value = '';
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+        checkbox.checked = false;
+    });
+    if (nameFoodInput) {
+        nameFoodInput.value = '';
+    }
+    if (keyFoodInput) {
+        keyFoodInput.value = '';
+    }
+    if (priceFoodInput) {
+        priceFoodInput.value = '';
+    }
+    if (Select) {
+        Select.selectedIndex = 0;
+    }
+    if (previewImage) {
+        previewImage.style.width = '0px';
+        previewImage.src = '';
+    }
 }
+
 //============================================================================
 //Thông Tin Khách Hàng
 function peole() {
