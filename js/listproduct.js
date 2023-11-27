@@ -158,6 +158,8 @@ product.addEventListener('click', (event) => {
     //============================================================================
     // Thoát Thêm Sản Phẩm
     icon_add.addEventListener('click', () => {
+        name_food.style.border = '1px solid wheat';
+        key_food.style.border = '1px solid wheat';
         add_product.classList.remove('top');
         table_product.style.display = 'block';
         const elements = document.querySelectorAll('.table_product, .logo, .left_list, .list_product, .selection_food, .pagination-buttons');
@@ -180,7 +182,6 @@ product.addEventListener('click', (event) => {
     //Thêm Sản Phẩm
     save_product_button.addEventListener('click', () => {
         var list_product = JSON.parse(localStorage.getItem('products')) || [];
-        console.log(list_product);
         var user = {
             tensp: name_food.value,
             gia: price_food.value,
@@ -204,20 +205,55 @@ product.addEventListener('click', (event) => {
                 user.luutru.push(checkboxes[i].value);
             }
         }
-        console.log(user);
-        list_product.unshift(user);
-        const add_product = document.getElementsByClassName('add_product')[0];
-        localStorage.setItem('products', JSON.stringify(list_product));
-        add_product.classList.remove('top');
-        const table_product = document.getElementsByClassName('table_product')[0];
-        table_product.style.display = 'block';
-        const elements = document.querySelectorAll('.logo, .left_list, .list_product, .selection_food, .pagination-buttons,.table_product');
-        elements.forEach((element) => {
-            element.style.opacity = '1';
-            element.style.pointerEvents = 'auto';
-        });
-        renderProductall();
+
+        function kiemTraRong(input) {
+            return input === '';
+        }
+
+        function kiemTraSo(input) {
+            var regex = /^[0-9]+$/;
+            return regex.test(input);
+        }
+        if (kiemTraRong(user.tensp)) {
+            user.tensp = '';
+            name_food.style.border = '3px solid red';
+        } else {
+            name_food.style.border = '1px solid wheat';
+        }
+
+        if (kiemTraRong(user.masp)) {
+            user.masp = '';
+            key_food.style.border = '3px solid red';
+        } else {
+            key_food.style.border = '1px solid wheat';
+        }
+
+        if (kiemTraRong(user.gia)) {
+            user.gia = '';
+            price_food.style.border = '3px solid red';
+        } else if (!kiemTraSo(user.gia)) {
+            user.gia = '';
+            price_food.style.border = '3px solid red';
+        } else {
+            price_food.style.border = '1px solid wheat';
+        }
+
+        if (user.tensp && user.gia && user.masp) {
+            list_product.unshift(user);
+            const add_product = document.getElementsByClassName('add_product')[0];
+            localStorage.setItem('products', JSON.stringify(list_product));
+            add_product.classList.remove('top');
+            const table_product = document.getElementsByClassName('table_product')[0];
+            table_product.style.display = 'block';
+            const elements = document.querySelectorAll('.logo, .left_list, .list_product, .selection_food, .pagination-buttons,.table_product');
+            elements.forEach((element) => {
+                element.style.opacity = '1';
+                element.style.pointerEvents = 'auto';
+            });
+            renderProductall();
+        }
     });
+
     showimgsave();
     search_product();
     phone_select();

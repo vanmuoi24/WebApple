@@ -829,3 +829,7 @@ input {
     font-size: 1rem;
     background-color: #ed1313;
 }
+
+red {
+    border: 3px solid red;
+}
