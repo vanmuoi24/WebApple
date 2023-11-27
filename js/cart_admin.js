@@ -57,11 +57,11 @@ function cart_admin() {
                                             
                                         </div>
                                         <div class="pagination-buttons">
-                                        <button id="prev"><i class="fa-solid fa-arrow-left fa-beat"></i></button>
+                                     
                                         <div class="list_button">
 
                                         </div>
-                                        <button id="next"><i class="fa-solid fa-arrow-right fa-beat"></i></button>
+                                    
                                         </div>
                                     </div>
 
