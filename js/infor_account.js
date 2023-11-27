@@ -67,10 +67,10 @@ function check_change(event) {
     }
     //checkk pass
     let pass = document.getElementById('pass_o');
+    let pass_o = '';
     let pass_n = '';
     let pass_a = '';
-    let pass_o = '';
-    if (pass !== null && pass_n !== '' && pass_a !== '' && pass_o !== '') {
+    if (pass !== null) {
         pass_o = document.getElementById('pass_o').value;
         if (pass_o !== userAccounts[vitri].password) {
             showMessage_error('Nhập không đúng mật khẩu cũ');
@@ -97,14 +97,16 @@ function check_change(event) {
             return false;
         }
     }
-    if (
-        name === userAccounts[vitri].name &&
-        sdt === userAccounts[vitri].phone &&
-        address === userAccounts[vitri].address &&
-        email === userAccounts[vitri].email
-    ) {
-        showMessage_error('Bạn chưa nhập gì để thay đổi');
-        return false;
+    if (pass === null) {
+        if (
+            name === userAccounts[vitri].name &&
+            sdt === userAccounts[vitri].phone &&
+            address === userAccounts[vitri].address &&
+            email === userAccounts[vitri].email
+        ) {
+            showMessage_error('Bạn chưa nhập gì để thay đổi');
+            return false;
+        }
     }
     //Đổi dự liệu mới vào local
     let alert_accept = confirm('Xác nhận đổi thông tin!');
