@@ -6,8 +6,7 @@
     padding-bottom: 200px;
 }
 .order_container {
-    min-width: 1250px;
-    width: 100%;
+    width: 1250px;
     margin: auto;
 }
 
@@ -146,4 +145,16 @@ td {
     font-size: 48px;
     font-style: normal;
     font-weight: 600;
+}
+
+@media screen and (max-width: 1279px) {
+    .order_container {
+        width: 1000px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .order_container {
+        width: 700px;
+    }
 }

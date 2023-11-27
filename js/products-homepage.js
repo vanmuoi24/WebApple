@@ -1301,6 +1301,7 @@ function showSecurity() {
     document.getElementById('container').remove();
     // Xóa hiển thị sản phẩm
     document.getElementById('div_products').remove();
+    document.getElementById('div_product_display_total').remove();
     // Fill chính sách bảo hành vào
     var newElement = document.createElement('div');
     newElement.id = 'div_security';

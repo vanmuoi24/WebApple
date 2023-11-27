@@ -1,4 +1,4 @@
-.in4_account {
+#in4_account {
     min-height: 600px;
     min-width: 1245px;
     /* border: 2px solid #ffb200; */
@@ -214,4 +214,18 @@ td {
 }
 #noOrder {
     padding-top: 10px;
+}
+
+@media screen and (max-width: 1279px) {
+    #in4_account {
+        width: 1000px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #in4_account {
+        min-width: 700px;
+        flex-direction: column;
+        margin-left: 150px;
+    }
 }

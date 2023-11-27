@@ -44,3 +44,17 @@
     font-weight: 700;
     line-height: 100%;
 }
+
+@media screen and (max-width: 1279px) {
+    #div_security_content {
+        width: 1000px;
+        height: 1600px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #div_security_content {
+        width: 700px;
+        height: 1800px;
+    }
+}

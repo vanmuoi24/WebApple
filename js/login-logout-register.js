@@ -172,8 +172,7 @@ function login_activated(check_login) {
         document.getElementById('change_logout').textContent = 'Trang chủ Admin';
         document.getElementById('change_logout').href = '../html/admin.html';
     } else {
-        document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
-        document.getElementById('change_logout').href = '../html/infor_account.html';
+        document.getElementById('change_logout').textContent = '';
     }
     div_login.onclick = null;
     div_login.onmouseover = function () {
@@ -330,8 +329,7 @@ function login() {
             document.getElementById('change_logout').href = '../html/admin.html';
         } else {
             var accounts = JSON.parse(localStorage.getItem('user'));
-            document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
-            document.getElementById('change_logout').href = '../html/infor_account.html';
+            document.getElementById('change_logout').textContent = '';
         }
         if (index_login !== -1) {
             login_text.innerHTML = 'Xin chào,<br>' + accounts[index_login].name;

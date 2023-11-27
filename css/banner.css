@@ -60,3 +60,31 @@
 .button_moving_bottom_icon {
     background-color: black !important;
 }
+
+@media screen and (max-width: 1279px) {
+    #div_banner {
+        width: 1000px;
+        height: 350px;
+    }
+    #button_moving img {
+        width: 30px;
+        height: 30px;
+    }
+    #button_moving_bottom {
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    #div_banner {
+        width: 700px;
+        height: 300px;
+    }
+    #button_moving img {
+        width: 20px;
+        height: 20px;
+    }
+    #button_moving_bottom div {
+        padding: 2px;
+    }
+}

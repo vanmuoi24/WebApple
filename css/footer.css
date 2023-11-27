@@ -47,3 +47,21 @@
     height: auto;
     margin: 0 5px;
 }
+
+@media screen and (max-width: 1279px) {
+    #footer {
+        width: 1000px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #footer {
+        width: 700px;
+    }
+    .footer_items_img {
+        display: none;
+    }
+    #footer_header {
+        flex-direction: column;
+    }
+}

@@ -115,3 +115,10 @@
     padding: 5px;
     background-color: transparent;
 }
+
+@media screen and (max-width: 1024px) {
+    .form_register_main {
+        width: 590px;
+        height: 350px;
+    }
+}

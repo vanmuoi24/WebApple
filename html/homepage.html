@@ -12,8 +12,9 @@
         <link rel="stylesheet" href="../css/login.css" />
         <link rel="stylesheet" href="../css/register.css" />
         <link rel="stylesheet" href="../css/banner.css" />
-        <link rel="stylesheet" href="../css/security.css" />
         <link rel="stylesheet" href="../css/products.css" />
+        <link rel="stylesheet" href="../css/in4_account.css" />
+        <link rel="stylesheet" href="../css/security.css" />
         <link rel="stylesheet" href="../css/footer.css" />
     </head>
     <body>
@@ -48,7 +49,7 @@
                     <div id="div_login_text">
                         <p id="login_text">Đăng<br />nhập</p>
                         <div id="div_logout">
-                            <a href="infor_account.html">Thông tin tài khoản</a>
+                            <a onclick="SaveInforAccount()">Thông tin tài khoản</a>
                             <a id="change_logout">Đơn hàng của tôi</a>
                             <a onclick="logout()">Đăng xuất</a>
                         </div>
@@ -241,11 +242,11 @@
             <div id="footer_header">
                 <div class="footer_items">
                     <h4>Hỗ Trợ - Dịch Vụ</h4>
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs" target="_blank">Mua hàng trả góp</a>
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs" target="_blank">Tra cứu đơn hàng</a>
+                    <a href="#" target="_blank">Mua hàng trả góp</a>
+                    <a href="#" target="_blank">Tra cứu đơn hàng</a>
                     <a href="../html/chinh-sach-bao-hanh.html">Chính sách bảo hành</a>
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs" target="_blank">Dịch vụ sữa chữa Mingey</a>
-                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&pp=ygUJcmljayByb2xs" target="_blank">Câu hỏi thường gặp</a>
+                    <a href="#" target="_blank">Dịch vụ sữa chữa Mingey</a>
+                    <a href="#" target="_blank">Câu hỏi thường gặp</a>
                     <br />
                     <h4>Chấp nhận thanh toán</h4>
                     <div class="footer_items_img">
@@ -307,6 +308,7 @@
     <script src="../js/products-homepage.js"></script>
     <script src="../js/cart.js"></script>
     <script src="../js/login-logout-register.js"></script>
+    <script src="../js/infor_account.js"></script>
     <script src="../js/banner-moving.js"></script>
     <script>
         // Đảm bảo rằng toàn bộ dữ liệu đã được load xong
@@ -321,6 +323,8 @@
             CheckSecurity();
             // Kiểm tra xem có cần hiển thị giỏ hàng
             CheckShoppingcart();
+            // Kiểm tra xem có cần hiển thị thông tin tài khoản
+            CheckInforAccount();
             document.body.style.display = 'flex';
         });
     </script>

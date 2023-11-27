@@ -110,3 +110,10 @@ input[type='submit'] {
     padding: 5px;
     background-color: transparent;
 }
+
+@media screen and (max-width: 1024px) {
+    .form_login_main {
+        width: 350px;
+        height: 250px;
+    }
+}
