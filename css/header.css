@@ -391,4 +391,17 @@ body {
     html {
         overflow-x: scroll;
     }
+    #total_items {
+        flex-direction: column;
+        justify-content: space-around;
+        width: 800px;
+        height: 250px;
+    }
+    #div_search {
+        width: 16rem;
+    }
+    #total_menu {
+        flex-direction: column;
+        height: 100px;
+    }
 }

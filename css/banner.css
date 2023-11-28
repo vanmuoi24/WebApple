@@ -88,3 +88,14 @@
         padding: 2px;
     }
 }
+
+@media screen and (max-width: 640px) {
+    #div_banner {
+        width: 550px;
+        height: 220px;
+    }
+    #button_moving img {
+        width: 10px;
+        height: 10px;
+    }
+}

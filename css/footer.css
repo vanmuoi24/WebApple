@@ -61,7 +61,17 @@
     .footer_items_img {
         display: none;
     }
-    #footer_header {
+    #footer_header,
+    #footer_footer {
         flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #footer {
+        width: 300px;
+        height: 600px;
     }
 }

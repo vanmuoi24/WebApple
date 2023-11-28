@@ -253,12 +253,16 @@ function check_register(event) {
     var password = document.getElementById('register_password').value;
     var password_again = document.getElementById('register_password_again').value;
     // Kiểm tra các giá trị nhập
-    if (!isNaN(Number(name))) {
+    if (name.length < 8) {
+        register_error('Họ tên phải từ 8 chữ cái trở lên');
+        return false;
+    }
+    if (/\d/.test(name)) {
         register_error('Họ tên không hợp lệ');
         return false;
     }
-    if (name.length < 8) {
-        register_error('Họ tên phải từ 8 chữ cái trở lên');
+    if (/\s{2,}/g.test(name)) {
+        register_error('Họ tên không hợp lệ');
         return false;
     }
     if (isNaN(Number(phone)) || Number(phone) < 100000000 || Number(phone) > 999999999) {
@@ -275,6 +279,10 @@ function check_register(event) {
     }
     if (address.length < 8) {
         register_error('Địa chỉ phải từ 8 chữ cái trở lên');
+        return false;
+    }
+    if (/\s{2,}/g.test(address)) {
+        register_error('Họ tên không hợp lệ');
         return false;
     }
     function isValidEmail(email) {
