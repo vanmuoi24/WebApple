@@ -295,7 +295,7 @@ function oder_userByStatus(status) {
         if (list.Trangthai === status) {
             let row = `
                 <tr>
-                    <td>${index + 1}</td>
+                    <td>${list.madon}</td>
                     <td>${list.user.name}</td>
                     <td>${list.Ngaydat}</td>
                     <td>${list.Tongtien}</td>
@@ -343,7 +343,7 @@ function searchByDate() {
         if (sumstartDate <= sum && sumenDate >= sum) {
             let row = `
             <tr>
-                <td>${index + 1}</td>
+                <td>${list.madon}</td>
                 <td>${list.user.name}</td>
                 <td>${list.Ngaydat}</td>
                 <td>${list.Tongtien}</td>
