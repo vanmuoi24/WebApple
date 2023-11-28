@@ -833,3 +833,6 @@ input {
 red {
     border: 3px solid red;
 }
+.revenue {
+    margin-top: 10px;
+}

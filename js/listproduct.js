@@ -19,7 +19,7 @@ product.addEventListener('click', (event) => {
                 <div class="selection_food">
                 <label id="slection_food">Tim hãng điện thoại:</label>
                 <select id="food_select">
-                    <option>..Tất Cả..</option>
+                    <option value="Tất cả">..Tất Cả..</option>
                     <option value="iPhone">iPhone</option>
                     <option value="Macbook">MacBook</option>
                     <option value="iPad">iPad</option>
@@ -160,6 +160,8 @@ product.addEventListener('click', (event) => {
     icon_add.addEventListener('click', () => {
         name_food.style.border = '1px solid wheat';
         key_food.style.border = '1px solid wheat';
+        price_food.style.border = '1px solid wheat';
+
         add_product.classList.remove('top');
         table_product.style.display = 'block';
         const elements = document.querySelectorAll('.table_product, .logo, .left_list, .list_product, .selection_food, .pagination-buttons');
@@ -187,6 +189,7 @@ product.addEventListener('click', (event) => {
             gia: price_food.value,
             masp: key_food.value,
             hinhanhMoTa: img_product.src,
+            hinhanhitem: img_product.src,
             mau: [],
             luutru: [],
             danhmuc: Select.value,
@@ -323,8 +326,8 @@ function search_product() {
               <td>${giaTienChinhThuc}</td>
               <td>
                
-                <i class="fa-solid fa-trash" onclick="delete_product(${indexall})"></i>
-                <i class="fa-regular fa-pen-to-square" onclick="edit_product(${indexall})"></i>
+              <i class="fa-solid fa-trash" onclick="delete_product(${indexall})"></i>
+              <i class="fa-regular fa-pen-to-square" onclick="edit_product(${indexall})"></i>
               </td>
               <td style="width:90px"><button id="view_product" onclick="view_product(${indexall})">Xem</button></td>
             </tr>
@@ -391,6 +394,13 @@ function phone_select() {
                 tableContainer.appendChild(table);
                 table.innerHTML = list_table;
             }
+
+            if (food_select.value == 'Tất cả') {
+                pagination.style.display = 'block';
+                pagination.style.display = 'flex    ';
+
+                renderProductall();
+            }
         });
     });
 
@@ -443,11 +453,43 @@ function edit_product(id) {
         productToEdit.trangthai = Select.value;
         productToEdit.hinhanh = previewImage.src;
         console.log(name_food.value);
-        localStorage.setItem('products', JSON.stringify(list_product));
-        add_product.classList.remove('top');
+        function kiemTraRong(input) {
+            return input === '';
+        }
 
-        table_product.style.display = 'block';
-        renderProductall();
+        function kiemTraSo(input) {
+            var regex = /^[0-9]+$/;
+            return regex.test(input);
+        }
+        if (kiemTraRong(productToEdit.tensp)) {
+            productToEdit.tensp = '';
+            name_food.style.border = '3px solid red';
+        } else {
+            name_food.style.border = '1px solid wheat';
+        }
+
+        if (kiemTraRong(productToEdit.masp)) {
+            productToEdit.masp = '';
+            key_food.style.border = '3px solid red';
+        } else {
+            key_food.style.border = '1px solid wheat';
+        }
+
+        if (kiemTraRong(productToEdit.gia)) {
+            productToEdit.gia = '';
+            price_food.style.border = '3px solid red';
+        } else if (!kiemTraSo(productToEdit.gia)) {
+            uproductToEdit.gia = '';
+            price_food.style.border = '3px solid red';
+        } else {
+            price_food.style.border = '1px solid wheat';
+        }
+        if (productToEdit.tensp && productToEdit.masp && productToEdit.gia) {
+            localStorage.setItem('products', JSON.stringify(list_product));
+            add_product.classList.remove('top');
+            table_product.style.display = 'block';
+            renderProductall();
+        }
     });
 }
 //============================================================================
@@ -642,10 +684,15 @@ function renderProductall() {
         renderProduct();
     });
     var a = document.getElementsByClassName('pagination-buttons')[0];
+
     const product = document.getElementById('product');
     product.addEventListener('click', () => {
+        const food_select = document.getElementById('food_select');
+        food_select.value = 'Tất cả';
         a.style.display = 'block';
         a.style.display = 'flex';
+        const search_product = document.getElementById('search_product');
+        search_product.value = '';
         renderProduct();
     });
 }
@@ -813,6 +860,19 @@ function edit_user(id) {
     value_input[1].value = acount_id.phone;
     value_input[2].value = acount_id.password;
     save_clent.addEventListener('click', () => {
+        if (value_input[0].value.length < 2) {
+            alert('Tên phải có ít nhất 2 ký tự');
+            return;
+        }
+        let phonePattern = /^\d{10,}$/;
+        if (!phonePattern.test(value_input[1].value)) {
+            alert('Số điện thoại không hợp lệ');
+            return;
+        }
+        if (value_input[2].value.length < 8) {
+            alert('Mật khẩu phải có ít nhất 8 ký tự');
+            return;
+        }
         acount_id.name = value_input[0].value;
         acount_id.phone = value_input[1].value;
         acount_id.password = value_input[2].value;
@@ -863,6 +923,7 @@ function add_customer() {
 // Xửa Lí Thêm Khách Hàng
 function comtomer_value() {
     resetinput();
+
     var save_clent = document.getElementById('save_clent');
     console.log(save_clent);
     save_clent.style.display = 'none';
@@ -871,6 +932,24 @@ function comtomer_value() {
     const add_product = document.getElementsByClassName('add_product_1')[0];
     const acount = JSON.parse(localStorage.getItem('user')) || [];
     document.getElementById('add_clent').addEventListener('click', () => {
+        let value_input = document.querySelectorAll('.all_add input');
+        const add_product = document.getElementsByClassName('add_product_1')[0];
+        const acount = JSON.parse(localStorage.getItem('user')) || [];
+
+        if (value_input[0].value.length < 2) {
+            alert('Tên phải có ít nhất 2 ký tự');
+            return;
+        }
+        let phonePattern = /^\d{10,}$/;
+        if (!phonePattern.test(value_input[1].value)) {
+            alert('Số điện thoại không hợp lệ');
+            return;
+        }
+        if (value_input[2].value.length < 8) {
+            alert('Mật khẩu phải có ít nhất 8 ký tự');
+            return;
+        }
+
         var date = new Date();
         var year = date.getFullYear();
         var month = date.getMonth() + 1;
