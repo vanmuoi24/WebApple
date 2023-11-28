@@ -833,7 +833,6 @@ input {
 red {
     border: 3px solid red;
 }
-
-.table_all {
-    display: flex;
+.revenue {
+    margin-top: 10px;
 }

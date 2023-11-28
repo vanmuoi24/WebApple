@@ -160,6 +160,8 @@ product.addEventListener('click', (event) => {
     icon_add.addEventListener('click', () => {
         name_food.style.border = '1px solid wheat';
         key_food.style.border = '1px solid wheat';
+        price_food.style.border = '1px solid wheat';
+
         add_product.classList.remove('top');
         table_product.style.display = 'block';
         const elements = document.querySelectorAll('.table_product, .logo, .left_list, .list_product, .selection_food, .pagination-buttons');
