@@ -45,12 +45,24 @@ function check_change(event) {
         showMessage_error('Họ tên phải từ 8 chữ cái trở lên');
         return false;
     }
+    if (/\d/.test(name)) {
+        register_error('Họ tên không hợp lệ');
+        return false;
+    }
+    if (/\s{2,}/g.test(name)) {
+        register_error('Họ tên không hợp lệ');
+        return false;
+    }
     //check phone number
     let sdt = document.getElementById('change_phone').value;
     //check địa chỉ
     let address = document.getElementById('change_address').value;
     if (address.length < 8) {
         showMessage_error('Địa chỉ phải từ 8 chữ cái trở lên');
+        return false;
+    }
+    if (/\s{2,}/g.test(address)) {
+        register_error('Họ tên không hợp lệ');
         return false;
     }
     //check email
