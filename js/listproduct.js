@@ -19,7 +19,7 @@ product.addEventListener('click', (event) => {
                 <div class="selection_food">
                 <label id="slection_food">Tim hãng điện thoại:</label>
                 <select id="food_select">
-                    <option>..Tất Cả..</option>
+                    <option value="Tất cả">..Tất Cả..</option>
                     <option value="iPhone">iPhone</option>
                     <option value="Macbook">MacBook</option>
                     <option value="iPad">iPad</option>
@@ -326,8 +326,8 @@ function search_product() {
               <td>${giaTienChinhThuc}</td>
               <td>
                
-                <i class="fa-solid fa-trash" onclick="delete_product(${indexall})"></i>
-                <i class="fa-regular fa-pen-to-square" onclick="edit_product(${indexall})"></i>
+              <i class="fa-solid fa-trash" onclick="delete_product(${indexall})"></i>
+              <i class="fa-regular fa-pen-to-square" onclick="edit_product(${indexall})"></i>
               </td>
               <td style="width:90px"><button id="view_product" onclick="view_product(${indexall})">Xem</button></td>
             </tr>
@@ -393,6 +393,13 @@ function phone_select() {
                 tableContainer.innerHTML = '';
                 tableContainer.appendChild(table);
                 table.innerHTML = list_table;
+            }
+
+            if (food_select.value == 'Tất cả') {
+                pagination.style.display = 'block';
+                pagination.style.display = 'flex    ';
+
+                renderProductall();
             }
         });
     });
@@ -677,10 +684,15 @@ function renderProductall() {
         renderProduct();
     });
     var a = document.getElementsByClassName('pagination-buttons')[0];
+
     const product = document.getElementById('product');
     product.addEventListener('click', () => {
+        const food_select = document.getElementById('food_select');
+        food_select.value = 'Tất cả';
         a.style.display = 'block';
         a.style.display = 'flex';
+        const search_product = document.getElementById('search_product');
+        search_product.value = '';
         renderProduct();
     });
 }
