@@ -147,7 +147,6 @@ product.addEventListener('click', (event) => {
         document.getElementById('save_product1').style.display = 'none';
         const text_p = document.getElementById('text_p');
         text_p.innerHTML = 'Thêm Sản Phẩm';
-
         const elements = document.querySelectorAll('.logo, .left_list, .list_product, .selection_food, .pagination-buttons,.table_product');
         elements.forEach((element) => {
             element.style.opacity = '0.5';
@@ -781,7 +780,7 @@ function peole() {
                     <input type="text"/>
                 </div>
                 <div class="s">
-                    <lable style="width:100px">passwowrd</lable>
+                    <lable style="width:100px" >passwowrd</lable>
                     <input type="text"/>
                 </div>
               <div class="clent_button">
@@ -859,6 +858,7 @@ function edit_user(id) {
     value_input[0].value = acount_id.name;
     value_input[1].value = acount_id.phone;
     value_input[2].value = acount_id.password;
+
     save_clent.addEventListener('click', () => {
         if (value_input[0].value.length < 2) {
             alert('Tên phải có ít nhất 2 ký tự');
@@ -911,19 +911,32 @@ function renderuser() {
 //============================================================================
 // Thêm Khách Hàng
 function add_customer() {
+    let value_input = document.querySelectorAll('.all_add input');
     const add_product = document.getElementsByClassName('add_product_1')[0];
     add_product.classList.add('top');
     const icon_add = document.getElementById('icon_add');
     icon_add.addEventListener('click', () => {
         add_product.classList.remove('top');
     });
+    console.log(value_input);
+    value_input[2].addEventListener('input', (event) => {
+        const currentInput = event.target.value;
+        const maskedInput = '*'.repeat(currentInput.length);
+
+        if (value_input[2].getAttribute('data-real-value') !== currentInput) {
+            value_input[2].setAttribute('data-real-value', currentInput);
+            value_input[2].value = maskedInput;
+        }
+
+        console.log(currentInput);
+    });
+
     comtomer_value();
 }
 //============================================================================
 // Xửa Lí Thêm Khách Hàng
 function comtomer_value() {
     resetinput();
-
     var save_clent = document.getElementById('save_clent');
     console.log(save_clent);
     save_clent.style.display = 'none';
@@ -931,6 +944,7 @@ function comtomer_value() {
     let value_input = document.querySelectorAll('.all_add input');
     const add_product = document.getElementsByClassName('add_product_1')[0];
     const acount = JSON.parse(localStorage.getItem('user')) || [];
+
     document.getElementById('add_clent').addEventListener('click', () => {
         let value_input = document.querySelectorAll('.all_add input');
         const add_product = document.getElementsByClassName('add_product_1')[0];
@@ -955,6 +969,7 @@ function comtomer_value() {
         var month = date.getMonth() + 1;
         var day = date.getDate();
         var formattedDate = day + '-' + month + '-' + year;
+
         var customer = {
             name: value_input[0].value,
             phone: value_input[1].value,
