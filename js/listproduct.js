@@ -1056,7 +1056,7 @@ function seach_people() {
                 let name_seach = seach.value.toLowerCase();
                 let name_list = list.name.toLowerCase();
 
-                if (name_list.includes(name_seach)) {
+                if (name_list === name_seach) {
                     userall += `<tr>
                                     <td>${displayIndex}</td>
                                     <td>${list.name}</td>
