@@ -158,7 +158,7 @@ function clickQLDH() {
 }
 function Fillbill() {
     var check_admin = localStorage.getItem('check_admin');
-    if (check_admin) var user = JSON.parse(localStorage.getItem('admin'));
+    if (check_admin == true) var user = JSON.parse(localStorage.getItem('admin'));
     else var user = JSON.parse(localStorage.getItem('user'));
     var index_U = localStorage.getItem('index_login');
     var orders = JSON.parse(localStorage.getItem('orders'));
