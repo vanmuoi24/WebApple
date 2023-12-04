@@ -17,7 +17,7 @@ function change_pass() {
 }
 
 const check_admin = JSON.parse(localStorage.getItem('check_admin'));
-if (check_admin) var userAccounts = JSON.parse(localStorage.getItem('admin'));
+if (check_admin == true) var userAccounts = JSON.parse(localStorage.getItem('admin'));
 else var userAccounts = JSON.parse(localStorage.getItem('user'));
 const vitri = JSON.parse(localStorage.getItem('index_login'));
 ///Đổ dữ liệu vào thẻ input
@@ -157,15 +157,11 @@ function clickQLDH() {
     Fillbill();
 }
 function Fillbill() {
-    var check_admin = localStorage.getItem('check_admin');
-    if (check_admin == true) var user = JSON.parse(localStorage.getItem('admin'));
-    else var user = JSON.parse(localStorage.getItem('user'));
-    var index_U = localStorage.getItem('index_login');
     var orders = JSON.parse(localStorage.getItem('orders'));
     var body_order = document.getElementById('body-order');
     var list = ' ';
     for (var i = 0; i < orders.length; i++) {
-        if (user[index_U].phone === orders[i].user.phone) {
+        if (userAccounts[vitri].phone === orders[i].user.phone) {
             list += `<tr>
                         <td class="order-info1">
                             <p>${orders[i].madon}</p>
