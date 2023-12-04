@@ -160,7 +160,6 @@ product.addEventListener('click', (event) => {
         name_food.style.border = '1px solid wheat';
         key_food.style.border = '1px solid wheat';
         price_food.style.border = '1px solid wheat';
-
         add_product.classList.remove('top');
         table_product.style.display = 'block';
         const elements = document.querySelectorAll('.table_product, .logo, .left_list, .list_product, .selection_food, .pagination-buttons');
@@ -442,7 +441,7 @@ function edit_product(id) {
     key_food.value = productToEdit.masp;
     price_food.value = productToEdit.gia;
     Select.value = productToEdit.danhmuc;
-    previewImage.src = productToEdit.hinhanhitem;
+    previewImage.src = productToEdit.hinhanhMoTa;
 
     save_product1.addEventListener('click', (event) => {
         console.log(Select.value);
@@ -775,14 +774,17 @@ function peole() {
                     <lable style="width:100px">HỌ VÀ TÊN</lable>
                     <input type="text"/>
                 </div>
+                <div><p id ='eroor_name'></p><div/>
                 <div class="s">
                     <lable style="width:100px">LIÊN HỆ</lable>
                     <input type="text"/>
                 </div>
+                <p id ='eroor_phone'></p>
                 <div class="s">
-                    <lable style="width:100px" >passwowrd</lable>
+                    <lable style="width:100px" >PASSWORD</lable>
                     <input type="text"/>
                 </div>
+                <p id ='eroor_pass'></p>
               <div class="clent_button">
               <button id="add_clent">Thêm Khách Hàng</button>
               <button id="save_clent">Lưu Khách Hàng</button>
@@ -850,7 +852,6 @@ function edit_user(id) {
     const acount = JSON.parse(localStorage.getItem('user')) || [];
     var acount_id = acount[id];
     let value_input = document.querySelectorAll('.customer_add input');
-    console.log(value_input);
     var add_client = document.getElementById('add_clent');
     var save_clent = document.getElementById('save_clent');
     save_clent.style.display = 'block';
@@ -859,26 +860,24 @@ function edit_user(id) {
     value_input[1].value = acount_id.phone;
     value_input[2].value = acount_id.password;
 
-    save_clent.addEventListener('click', () => {
-        if (value_input[0].value.length < 2) {
-            alert('Tên phải có ít nhất 2 ký tự');
-            return;
+    save_clent.addEventListener('click', (event) => {
+        if (!checkinput_user()) {
+            event.preventDefault();
+        } else {
+            const elements = document.querySelectorAll(
+                '.table,.logo, .left_list, .list_product, .selection_food, .pagination-buttons,.table_product,.header_client',
+            );
+            elements.forEach((element) => {
+                element.style.opacity = '1';
+                element.style.pointerEvents = 'auto';
+            });
+            acount_id.name = value_input[0].value;
+            acount_id.phone = value_input[1].value;
+            acount_id.password = value_input[2].value;
+            localStorage.setItem('user', JSON.stringify(acount));
+            add_product.classList.remove('top');
+            renderuser();
         }
-        let phonePattern = /^\d{10,}$/;
-        if (!phonePattern.test(value_input[1].value)) {
-            alert('Số điện thoại không hợp lệ');
-            return;
-        }
-        if (value_input[2].value.length < 8) {
-            alert('Mật khẩu phải có ít nhất 8 ký tự');
-            return;
-        }
-        acount_id.name = value_input[0].value;
-        acount_id.phone = value_input[1].value;
-        acount_id.password = value_input[2].value;
-        add_product.classList.remove('top');
-        localStorage.setItem('user', JSON.stringify(acount));
-        renderuser();
     });
 }
 //============================================================================
@@ -889,7 +888,7 @@ function renderuser() {
     var userall = '';
     if (acount.length === 0) {
         tbody.innerHTML = "<tr><td colspan='6'>Không có khách hàng nào</td></tr>";
-        return;
+        cohieu = false;
     }
     acount.forEach((list, index) => {
         var indexall = index;
@@ -916,19 +915,24 @@ function add_customer() {
     add_product.classList.add('top');
     const icon_add = document.getElementById('icon_add');
     icon_add.addEventListener('click', () => {
+        let eroor_pass = document.getElementById('eroor_pass');
+        eroor_pass.innerHTML = '';
+        value_input[2].style.border = '';
+        let error_phone = document.getElementById('eroor_phone');
+        error_phone.innerHTML = '';
+        value_input[1].style.border = '';
+        let error_name = document.getElementById('eroor_name');
+        error_name.innerHTML = '';
+        value_input[0].style.border = '';
+
+        const elements = document.querySelectorAll(
+            '.table,.logo, .left_list, .list_product, .selection_food, .pagination-buttons,.table_product,.header_client',
+        );
+        elements.forEach((element) => {
+            element.style.opacity = '1';
+            element.style.pointerEvents = 'auto';
+        });
         add_product.classList.remove('top');
-    });
-    console.log(value_input);
-    value_input[2].addEventListener('input', (event) => {
-        const currentInput = event.target.value;
-        const maskedInput = '*'.repeat(currentInput.length);
-
-        if (value_input[2].getAttribute('data-real-value') !== currentInput) {
-            value_input[2].setAttribute('data-real-value', currentInput);
-            value_input[2].value = maskedInput;
-        }
-
-        console.log(currentInput);
     });
 
     comtomer_value();
@@ -937,6 +941,13 @@ function add_customer() {
 // Xửa Lí Thêm Khách Hàng
 function comtomer_value() {
     resetinput();
+    const elements = document.querySelectorAll(
+        '.table,.logo, .left_list, .list_product, .selection_food, .pagination-buttons,.table_product,.header_client',
+    );
+    elements.forEach((element) => {
+        element.style.opacity = '0.1';
+        element.style.pointerEvents = 'none';
+    });
     var save_clent = document.getElementById('save_clent');
     console.log(save_clent);
     save_clent.style.display = 'none';
@@ -944,42 +955,35 @@ function comtomer_value() {
     let value_input = document.querySelectorAll('.all_add input');
     const add_product = document.getElementsByClassName('add_product_1')[0];
     const acount = JSON.parse(localStorage.getItem('user')) || [];
-
     document.getElementById('add_clent').addEventListener('click', () => {
-        let value_input = document.querySelectorAll('.all_add input');
         const add_product = document.getElementsByClassName('add_product_1')[0];
-        const acount = JSON.parse(localStorage.getItem('user')) || [];
 
-        if (value_input[0].value.length < 2) {
-            alert('Tên phải có ít nhất 2 ký tự');
-            return;
-        }
-        let phonePattern = /^\d{10,}$/;
-        if (!phonePattern.test(value_input[1].value)) {
-            alert('Số điện thoại không hợp lệ');
-            return;
-        }
-        if (value_input[2].value.length < 8) {
-            alert('Mật khẩu phải có ít nhất 8 ký tự');
-            return;
-        }
+        if (checkinput_user()) {
+            const elements = document.querySelectorAll(
+                '.table,.logo, .left_list, .list_product, .selection_food, .pagination-buttons,.table_product,.header_client',
+            );
+            elements.forEach((element) => {
+                element.style.opacity = '1';
+                element.style.pointerEvents = 'auto';
+            });
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var formattedDate = day + '-' + month + '-' + year;
 
-        var date = new Date();
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var day = date.getDate();
-        var formattedDate = day + '-' + month + '-' + year;
+            var customer = {
+                name: value_input[0].value,
+                phone: value_input[1].value,
+                date: formattedDate,
+                password: value_input[2].value,
+            };
 
-        var customer = {
-            name: value_input[0].value,
-            phone: value_input[1].value,
-            date: formattedDate,
-            password: value_input[2].value,
-        };
-        acount.push(customer);
-        localStorage.setItem('user', JSON.stringify(acount));
-        renderuser();
-        add_product.classList.remove('top');
+            acount.push(customer);
+            localStorage.setItem('user', JSON.stringify(acount));
+            renderuser();
+            add_product.classList.remove('top');
+        }
     });
 }
 
@@ -988,7 +992,53 @@ function resetinput() {
     value_input[0].value = '';
     value_input[1].value = '';
     value_input[2].value = '';
+    let error_name = document.getElementById('eroor_name');
+    console.log(error_name);
 }
+function checkinput_user() {
+    const value_input = document.querySelectorAll('.all_add input');
+    let error = false;
+
+    if (value_input[0].value === '' || value_input[0].value.length < 2) {
+        let error_name = document.getElementById('eroor_name');
+        value_input[0].style.border = '1px solid red';
+        error_name.style.color = 'red';
+        error_name.innerHTML = `<i class="fa-solid fa-circle-exclamation" style="color: #ff0000;"></i>Vui lòng nhập Họ Tên`;
+        error = true;
+    } else {
+        let error_name = document.getElementById('eroor_name');
+        error_name.innerHTML = '';
+        value_input[0].style.border = '';
+    }
+
+    const phonePattern = /^\d{10,}$/;
+    if (value_input[1].value === '' || !phonePattern.test(value_input[1].value)) {
+        let error_phone = document.getElementById('eroor_phone');
+        error_phone.style.color = 'red';
+        value_input[1].style.border = '1px solid red';
+        error_phone.innerHTML = `<i class="fa-solid fa-circle-exclamation" style="color: #ff0000;"></i>Vui lòng nhập Liên Hệ`;
+        error = true;
+    } else {
+        let error_phone = document.getElementById('eroor_phone');
+        error_phone.innerHTML = '';
+        value_input[1].style.border = '';
+    }
+
+    if (value_input[2].value === '' || value_input[2].value.length < 8) {
+        let eroor_pass = document.getElementById('eroor_pass');
+        eroor_pass.style.color = 'red';
+        value_input[2].style.border = '1px solid red';
+        eroor_pass.innerHTML = `<i class="fa-solid fa-circle-exclamation" style="color: #ff0000;"></i> Vui lòng nhập Mật Khẩu`;
+        error = true;
+    } else {
+        let eroor_pass = document.getElementById('eroor_pass');
+        eroor_pass.innerHTML = '';
+        value_input[2].style.border = '';
+    }
+
+    return !error;
+}
+
 //====================================================================
 // Xử Lí Tìm Kiếm Khách Hàng Input
 function seach_people() {
@@ -1017,7 +1067,7 @@ function seach_people() {
                     tbody.innerHTML = userall;
                 } else {
                     tbody.innerHTML = "<tr><td colspan='6'>Không có khách hàng nào</td></tr>";
-                    return;
+                    cohieu = false;
                 }
             });
         }
@@ -1034,7 +1084,7 @@ function user_slection() {
         if (header_client_selction.value == 'Khách Hàng Ofline') {
             var tbody = document.getElementsByTagName('tbody')[0];
             tbody.innerHTML = "<tr><td colspan='6'>Không có khách hàng nào</td></tr>";
-            return;
+            cohieu = false;
         }
 
         if (header_client_selction.value == 'Tất Cả') {

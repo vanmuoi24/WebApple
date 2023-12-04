@@ -64,7 +64,6 @@ function cart_admin() {
                                     
                                         </div>
                                     </div>
-
                                     <div class="user_product">
                                         <table>
                                             <thead id="thead">

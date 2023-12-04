@@ -93,8 +93,9 @@ document.getElementById('home').addEventListener('click', () => {
                     </thead>
                 </table>
             </div>
+            <div class="table_all_siver">
             <div class="Revenue">
-                <div class="text"><h4>Thống Kê Doanh Thu</h4></div>
+                <div class="text"><h2>Thống Kê Doanh Thu</h2></div>
                 <table>
                     <thead>
                         <tr>
@@ -102,22 +103,30 @@ document.getElementById('home').addEventListener('click', () => {
                             <td>Doanh Thu</td>
                         </tr>
                         <tr>
-                            <td id='sum_product_buy'>0</td>
+                            <td id="sum_product_buy">0</td>
                             <td id="sum_all_cart">0VND</td>
                         </tr>
                     </thead>
                 </table>
             </div>
-            
+
             <div class="revenue">
-            <div class="text"><h2>Lợi Nhuận Ngày</h2></div>
-            <table>
-                <thead>
-                    
-                   
-                    
-                </thead>
-            </table>
+                <div class="text"><h2>Lợi Nhuận Ngày</h2></div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Ngày Bán</td>
+                            <td style="width: 200px">Số Đơn Trong Ngày</td>
+                            <td>Doanh Thu</td>
+                        </tr>
+                        <tr>
+                            <td style="width: 200px">20-11-2023</td>
+                            <td id="sum_product_date"></td>
+                            <td id="sum_all_cart_date">0VND</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
         </div>
     </div>
