@@ -197,13 +197,24 @@ function SaveInforAccount() {
     localStorage.setItem('InforAccount', 'true');
     window.location.href = '../html/homepage.html';
 }
-// Kiểm tra có chọn thông tin tài khoản chưa
+// Save trạng thái quản lý đơn hàng
+function SaveInforOrdeManagement() {
+    localStorage.setItem('OrdeManagement', 'true');
+    window.location.href = '../html/homepage.html';
+}
+// Kiểm tra có chọn thông tin tài khoản (quản lý đơn hàng) chưa
 function CheckInforAccount() {
     var InforAccount = localStorage.getItem('InforAccount');
     if (InforAccount !== null) showInforAccount();
     localStorage.removeItem('InforAccount');
+    var OrdeManagement = localStorage.getItem('OrdeManagement');
+    if (OrdeManagement !== null) {
+        showInforAccount();
+        clickQLDH();
+    }
+    localStorage.removeItem('OrdeManagement');
 }
-// Hiển thị thông tin tài khoản
+// Hiển thị thông tin tài khoản (quản lý đơn hàng)
 function showInforAccount() {
     // Thay đổi tên trang web
     document.title = 'Thông tin tài khoản';
