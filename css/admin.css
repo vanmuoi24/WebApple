@@ -126,6 +126,7 @@ td {
     margin-left: 10px;
     margin-right: 10px;
 }
+
 /* Table list Product */
 .list_product {
     text-align: center;
@@ -497,7 +498,7 @@ button:hover {
     width: 90%;
     display: flex;
     flex-direction: column;
-    gap: 100px;
+
     margin-top: 20px;
     margin-left: 20px;
 }
@@ -531,8 +532,9 @@ button:hover {
     padding: 10px 10px;
     box-shadow: 0px 5px 10px 1px rgb(98, 98, 232);
     width: 30%;
-    background-color: #0083d6;
-    height: 200px;
+    color: black;
+    background-color: #ffffff;
+    height: 300px;
     justify-content: space-between;
     position: absolute;
     top: -1000px;
@@ -589,8 +591,8 @@ button:hover {
     height: 30px;
     border-radius: 5px;
     border: none;
-    color: #0083d6;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #0083d6;
 }
 .clent_button button:hover {
     width: 31%;
@@ -835,4 +837,13 @@ red {
 }
 .revenue {
     margin-top: 10px;
+}
+
+#eroor_name,
+#eroor_phone,
+#eroor_pass {
+    width: 100%;
+    display: flex;
+    margin-left: 100px;
+    align-items: center;
 }
