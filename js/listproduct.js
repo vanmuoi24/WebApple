@@ -441,7 +441,7 @@ function edit_product(id) {
     key_food.value = productToEdit.masp;
     price_food.value = productToEdit.gia;
     Select.value = productToEdit.danhmuc;
-    previewImage.src = productToEdit.hinhanhMoTa;
+    previewImage.src = productToEdit.hinhanhitem;
 
     save_product1.addEventListener('click', (event) => {
         console.log(Select.value);
@@ -449,7 +449,7 @@ function edit_product(id) {
         productToEdit.masp = key_food.value;
         productToEdit.gia = price_food.value;
         productToEdit.trangthai = Select.value;
-        productToEdit.hinhanh = previewImage.src;
+        productToEdit.hinhanhitem = previewImage.src;
         console.log(name_food.value);
         function kiemTraRong(input) {
             return input === '';
