@@ -160,9 +160,10 @@ function Fillbill() {
     var orders = JSON.parse(localStorage.getItem('orders'));
     var body_order = document.getElementById('body-order');
     var list = ' ';
-    for (var i = 0; i < orders.length; i++) {
-        if (userAccounts[vitri].phone === orders[i].user.phone) {
-            list += `<tr>
+    if (orders != null) {
+        for (var i = 0; i < orders.length; i++) {
+            if (userAccounts[vitri].phone === orders[i].user.phone) {
+                list += `<tr>
                         <td class="order-info1">
                             <p>${orders[i].madon}</p>
                         </td>
@@ -176,6 +177,7 @@ function Fillbill() {
                         <td class="order-info4">${orders[i].Ngaydat}</td>
                         <td class="order-info5">${orders[i].Trangthai}</td>
                     </tr>`;
+            }
         }
     }
     if (list === ' ') {

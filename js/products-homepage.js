@@ -1145,6 +1145,7 @@ function fill_products_type_left() {
 var index_save;
 function open_product_display(product_name) {
     document.getElementById('div_product_display_total').style.display = 'flex';
+    document.getElementById('div_product_display').style.animation = 'slideIn 0.5s ease-in-out forwards';
     var list_products = JSON.parse(localStorage.getItem('products'));
     list_products.forEach(function (list_products, i) {
         if (list_products.tensp === product_name) {
@@ -1168,7 +1169,10 @@ function open_product_display(product_name) {
 }
 // Tắt hiển thị sản phẩm
 function close_product_display() {
-    document.getElementById('div_product_display_total').style.display = 'none';
+    setTimeout(function () {
+        document.getElementById('div_product_display_total').style.display = 'none';
+    }, 500);
+    document.getElementById('div_product_display').style.animation = 'slideOut 0.5s ease-in-out forwards';
 }
 // Thêm hàng vào giỏ
 function shopping() {
@@ -1203,6 +1207,7 @@ function shopping() {
         }
         // Hàm bên login-logout-register.js
         showMessage('Đặt hàng thành công!');
+        close_product_display();
     } else {
         // Hàm bên login-logout-register.js
         showMessage_error('Hãy chọn màu và dung lượng!');

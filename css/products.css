@@ -138,6 +138,7 @@
     border-radius: 8px;
     overflow: auto;
 }
+
 #close_x {
     position: absolute;
     right: 5px;
