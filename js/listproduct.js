@@ -1044,32 +1044,39 @@ function checkinput_user() {
 function seach_people() {
     let seach = document.getElementById('seach_1');
     var tbody = document.getElementsByTagName('tbody')[0];
+
     seach.addEventListener('keypress', (event) => {
         if (event.key == 'Enter') {
             const acount = JSON.parse(localStorage.getItem('user')) || [];
             var userall = '';
-            acount.map((list, index) => {
+            var cohieu = false;
+
+            acount.forEach((list, index) => {
                 var displayIndex = index + 1;
                 let name_seach = seach.value.toLowerCase();
                 let name_list = list.name.toLowerCase();
-                if (name_seach == name_list) {
+
+                if (name_list.includes(name_seach)) {
                     userall += `<tr>
                                     <td>${displayIndex}</td>
                                     <td>${list.name}</td>
                                     <td>${list.phone}</td>
                                     <td>${list.date}</td>
-                                    <td><button  class="on_of">Online</button></td>
+                                    <td><button class="on_of">Online</button></td>
                                     <td>
                                         <i class="fa-solid fa-trash" onclick="delete_user(${index})"></i>
                                         <i class="fa-regular fa-pen-to-square" onclick="edit_user(${index})"></i>
                                     </td>
                                 </tr>`;
-                    tbody.innerHTML = userall;
-                } else {
-                    tbody.innerHTML = "<tr><td colspan='6'>Không có khách hàng nào</td></tr>";
-                    cohieu = false;
+                    cohieu = true;
                 }
             });
+
+            if (cohieu) {
+                tbody.innerHTML = userall;
+            } else {
+                tbody.innerHTML = "<tr><td colspan='6'>Không có khách hàng nào</td></tr>";
+            }
         }
     });
 }
