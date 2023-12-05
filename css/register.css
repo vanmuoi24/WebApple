@@ -16,8 +16,6 @@
     border: solid 5px var(--menu-color);
     border-radius: 20px;
     background-color: #f3f3f3;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-        sans-serif;
 }
 .form_register_main_head {
     height: 12.3%;

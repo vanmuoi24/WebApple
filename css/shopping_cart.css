@@ -68,6 +68,11 @@ table {
     text-indent: initial;
     border-spacing: 2px;
     border-color: rgb(13, 69, 133);
+    /*     
+Thuộc tính order-collapse trong CSS có chức năng xác định các đường viền của bảng (table) có tách biệt nhau hay không. 
+Giá trị mặc định của thuộc tính này là separate, có nghĩa là các đường viền của các ô bảng sẽ được tách biệt nhau.
+Khi sử dụng giá trị separate cho thuộc tính order-collapse, ta có thể sử dụng thuộc tính border-spacing để xác định khoảng cách giữa các đường viền của các ô bảng 
+khi sử dụng giá trị collapse cho thuộc tính order-collapse, các đường viền của các ô bảng sẽ được gộp lại thành một đường viền duy nhất.*/
 }
 .option img {
     height: 20px;

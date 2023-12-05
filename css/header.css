@@ -2,6 +2,63 @@
     padding: 0;
     margin: 0;
 }
+/* Định nghĩa keyframes cho animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes slideInX {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes slideInMess {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+@keyframes slideOutX {
+    to {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+@keyframes slideOut {
+    to {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+@keyframes slideOutMess {
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50px);
+    }
+}
+@keyframes Opactity0-1 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 :root {
     --boxshadow-color: #888888;
     --border-color: #333333;

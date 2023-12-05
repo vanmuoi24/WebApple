@@ -43,27 +43,39 @@ function reset() {
     localStorage.setItem('index_login', index_login);
 }
 // Tắt mở form login form register
-function open_login() {
+function open_login(time) {
     document.getElementById('phone').value = '';
     document.getElementById('password').value = '';
+    setTimeout(function () {
+        document.getElementById('form_login_total').style.display = 'flex';
+        document.getElementsByClassName('form_login')[0].style.animation = 'slideIn 0.5s ease-in-out forwards';
+    }, time);
     close_register();
-    document.getElementById('form_login_total').style.display = 'flex';
 }
 function close_login() {
-    document.getElementById('form_login_total').style.display = 'none';
+    setTimeout(function () {
+        document.getElementById('form_login_total').style.display = 'none';
+    }, 500);
+    document.getElementsByClassName('form_login')[0].style.animation = 'slideOut 0.5s ease-in-out forwards';
 }
-function open_register() {
+function open_register(time) {
     document.getElementById('register_name').value = '';
     document.getElementById('register_phone').value = '';
     document.getElementById('register_address').value = '';
     document.getElementById('register_email').value = '';
     document.getElementById('register_password').value = '';
     document.getElementById('register_password_again').value = '';
+    setTimeout(function () {
+        document.getElementById('form_register_total').style.display = 'flex';
+        document.getElementsByClassName('form_register_main')[0].style.animation = 'slideIn 0.5s ease-in-out forwards';
+    }, time);
     close_login();
-    document.getElementById('form_register_total').style.display = 'flex';
 }
 function close_register() {
-    document.getElementById('form_register_total').style.display = 'none';
+    setTimeout(function () {
+        document.getElementById('form_register_total').style.display = 'none';
+    }, 500);
+    document.getElementsByClassName('form_register_main')[0].style.animation = 'slideOut 0.5s ease-in-out forwards';
 }
 // Các hàm khởi tạo
 function createIndex() {
@@ -121,6 +133,7 @@ function createUser() {
 // Hiện thị phần thông tin tài khoản, đăng xuất,... của người dùng
 function showContent() {
     document.getElementById('div_logout').style.display = 'flex';
+    document.getElementById('div_logout').style.animation = 'Opactity0-1 0.5s ease-in-out forwards';
 }
 
 function hideContent() {
@@ -131,33 +144,39 @@ function showMessage(messages) {
     var customObject = document.createElement('div');
     customObject.classList.add('custom-object');
     customObject.innerHTML =
-        '<p style="z-index: 999; display: none; position: fixed; top: 10px; left:0; background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 10px; margin: 20px;border-radius: 5px;" id="message"></p>';
+        '<p style="font-size: 20px; z-index: 999; display: none; position: fixed; top: 10px; left:10px; background-color: #d4edda; border: 1px solid #c3e6cb; color: #155724; padding: 10px; margin: 20px;border-radius: 5px;animation:slideInX 0.5s ease-in-out forwards;" id="message"></p>';
     document.body.appendChild(customObject);
     var Message = document.getElementById('message');
     Message.style.display = 'flex';
     Message.textContent = messages;
     setTimeout(function () {
-        customObject.remove();
+        setTimeout(function () {
+            customObject.remove();
+        }, 500);
+        Message.style.animation = 'slideOutX 0.5s ease-in-out forwards';
     }, 2000);
 }
 function showMessage_error(messages) {
     var customObject = document.createElement('div');
     customObject.classList.add('custom-object');
     customObject.innerHTML =
-        '<p style="z-index: 999; display: none; position: fixed; top: 10px; left:0; background-color: #ffe6e6; border: 1px solid #ff0000; color: #ff0000; padding: 10px; margin: 20px;border-radius: 5px;" id="message"></p>';
+        '<p style="font-size: 20px;z-index: 999; display: none; position: fixed; top: 10px; left:50%; transform: translateX(-50%); background-color: #ffe6e6; border: 1px solid #ff0000; color: #ff0000; padding: 10px; margin: 20px;border-radius: 5px;animation:slideInMess 0.5s ease-in-out forwards;" id="message"></p>';
     document.body.appendChild(customObject);
     var Message = document.getElementById('message');
     Message.style.display = 'flex';
     Message.textContent = messages;
     setTimeout(function () {
-        customObject.remove();
+        setTimeout(function () {
+            customObject.remove();
+        }, 500);
+        Message.style.animation = 'slideOutMess 0.5s ease-in-out forwards';
     }, 2000);
 }
 // Hiển thị thông báo lỗi
 function login_error(error) {
     var login_notify = document.getElementById('login_notify');
-    login_notify.style.backgroundColor = '#ffe6e6';
-    login_notify.style.border = '2px solid #ff0000';
+    login_notify.style.backgroundColor = 'rgba(255, 230, 230, 0.5)';
+    login_notify.style.border = '2px solid rgba(255, 0, 0, 0.7)';
     login_notify.textContent = error;
     setTimeout(function () {
         login_notify.style.backgroundColor = 'transparent';
@@ -171,8 +190,9 @@ function login_activated(check_login) {
     if (check_login === true) {
         document.getElementById('change_logout').textContent = 'Trang chủ Admin';
         document.getElementById('change_logout').href = '../html/admin.html';
+        document.getElementById('change_logout').onclick = null;
     } else {
-        document.getElementById('change_logout').textContent = '';
+        document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
     }
     div_login.onclick = null;
     div_login.onmouseover = function () {
@@ -233,8 +253,8 @@ function check_login(event) {
 }
 // Hiển thị thông báo lỗi
 function register_error(error) {
-    register_notify.style.backgroundColor = '#ffe6e6';
-    register_notify.style.border = '2px solid red';
+    register_notify.style.backgroundColor = 'rgba(255, 230, 230, 0.5)';
+    register_notify.style.border = '2px solid rgba(255, 0, 0, 0.7)';
     register_notify.textContent = error;
     setTimeout(function () {
         register_notify.style.backgroundColor = 'transparent';
@@ -335,9 +355,10 @@ function login() {
             var accounts = JSON.parse(localStorage.getItem('admin'));
             document.getElementById('change_logout').textContent = 'Trang chủ Admin';
             document.getElementById('change_logout').href = '../html/admin.html';
+            document.getElementById('change_logout').onclick = null;
         } else {
             var accounts = JSON.parse(localStorage.getItem('user'));
-            document.getElementById('change_logout').textContent = '';
+            document.getElementById('change_logout').textContent = 'Đơn hàng của tôi';
         }
         if (index_login !== -1) {
             login_text.innerHTML = 'Xin chào,<br>' + accounts[index_login].name;

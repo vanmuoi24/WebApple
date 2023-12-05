@@ -133,13 +133,13 @@ product.addEventListener('click', (event) => {
               </div>
           `;
     right_header.innerHTML = list;
-    //============================================================================
+    //======
     //Nút Thêm Sản Phẩm
     const add_product = document.getElementsByClassName('add_product')[0];
     const icon_add = document.getElementById('icon_add');
     const btn_add = document.getElementById('add_product');
     const table_product = document.getElementsByClassName('table_product')[0];
-    //============================================================================
+    //======
     //Btn Thêm Sản Phẩm
     btn_add.addEventListener('click', () => {
         add_product.classList.add('top');
@@ -154,7 +154,7 @@ product.addEventListener('click', (event) => {
         });
         resetInput();
     });
-    //============================================================================
+    //======
     // Thoát Thêm Sản Phẩm
     icon_add.addEventListener('click', () => {
         name_food.style.border = '1px solid wheat';
@@ -178,7 +178,7 @@ product.addEventListener('click', (event) => {
     const rom = document.getElementsByClassName('rom')[0];
     const color = document.getElementsByClassName('color')[0];
     const ghi_chu = document.getElementById('ghi_chu');
-    //============================================================================
+    //======
     //Thêm Sản Phẩm
     save_product_button.addEventListener('click', () => {
         var list_product = JSON.parse(localStorage.getItem('products')) || [];
@@ -261,7 +261,7 @@ product.addEventListener('click', (event) => {
     renderProductall();
 });
 
-//============================================================================
+//======
 // Xem Hình Trước Khi Lưu
 function showimgsave() {
     const fileInput = document.getElementById('fileInput');
@@ -286,7 +286,7 @@ function showimgsave() {
         }
     });
 }
-//============================================================================
+//======
 //Tìm Kiếm Sản Phẩm Theo Tên
 function search_product() {
     var list_product = JSON.parse(localStorage.getItem('products'));
@@ -345,7 +345,7 @@ function search_product() {
         event.preventDefault();
     });
 }
-//============================================================================
+//======
 //Chọn hãng Điện Thoại
 function phone_select() {
     const tableContainer = document.getElementsByClassName('table_product')[0];
@@ -404,7 +404,7 @@ function phone_select() {
 
     renderProductall();
 }
-//============================================================================
+//======
 // Xóa Sản Phẩm
 function delete_product(id) {
     var list_product = JSON.parse(localStorage.getItem('products'));
@@ -415,7 +415,7 @@ function delete_product(id) {
         renderProductall();
     }
 }
-//============================================================================
+//======
 // Chỉnh Sửa Sản Phẩm
 function edit_product(id) {
     var list_product = JSON.parse(localStorage.getItem('products'));
@@ -493,7 +493,7 @@ function edit_product(id) {
         }
     });
 }
-//============================================================================
+//======
 //Xem Thông Tin Sản Phẩm
 function view_product(id) {
     let list_product = JSON.parse(localStorage.getItem('products'));
@@ -535,7 +535,7 @@ function view_product(id) {
         element.style.pointerEvents = 'none';
     });
 }
-//============================================================================
+//======
 // Thoát Xem Sản Phẩm
 function remove_content() {
     let content_product = document.querySelector('.content_product.top');
@@ -548,7 +548,7 @@ function remove_content() {
         element.style.pointerEvents = 'auto';
     });
 }
-//============================================================================
+//======
 // Hiển Thị Sản Phẩm Và Phân Trang
 function renderProductall() {
     var list_product = JSON.parse(localStorage.getItem('products'));
@@ -561,7 +561,7 @@ function renderProductall() {
     let end = perpage;
     const tatalPage = Math.ceil(list_product.length / perpage);
     const btnNext = document.getElementById('next');
-    //============================================================================
+    //======
     //Hiển Thị Sản Phẩm
     function renderProduct() {
         var list_product = JSON.parse(localStorage.getItem('products'));
@@ -604,10 +604,10 @@ function renderProductall() {
     }
     renderProduct();
     button_list();
-    //============================================================================
+    //======
     //Công Thức Tính Phân Trang
 
-    //============================================================================
+    //======
     //btn Số Trang
     function button_list() {
         let list_btn = '';
@@ -622,7 +622,7 @@ function renderProductall() {
         document.getElementsByClassName('list_button')[0].innerHTML = list_btn;
     }
     const buttons = document.querySelectorAll('.list_button button');
-    //============================================================================
+    //======
     // Đôi màu btn khi chuyển trang
     function changepage() {
         buttons.forEach((btn) => {
@@ -698,7 +698,7 @@ function renderProductall() {
     });
 }
 
-//============================================================================
+//======
 // reset input
 function resetInput() {
     const nameFoodInput = document.getElementById('name_food');
@@ -728,7 +728,7 @@ function resetInput() {
     }
 }
 
-//============================================================================
+//======
 //Thông Tin Khách Hàng
 function peole() {
     var clinet;
@@ -839,7 +839,7 @@ function peole() {
     }
 }
 peole();
-//============================================================================
+//======
 //Xóa Khách Hàng
 function delete_user(id) {
     const acount = JSON.parse(localStorage.getItem('user')) || [];
@@ -850,7 +850,7 @@ function delete_user(id) {
         renderuser();
     }
 }
-//============================================================================
+//======
 // Chỉnh Sửa Khách Hàng
 function edit_user(id) {
     add_customer();
@@ -886,7 +886,7 @@ function edit_user(id) {
         }
     });
 }
-//============================================================================
+//======
 //Hiển Thị Bảng Khách Hàng
 function renderuser() {
     var tbody = document.getElementsByTagName('tbody')[0];
@@ -913,7 +913,7 @@ function renderuser() {
         tbody.innerHTML = userall;
     });
 }
-//============================================================================
+//======
 // Thêm Khách Hàng
 function add_customer() {
     let value_input = document.querySelectorAll('.all_add input');
@@ -943,7 +943,7 @@ function add_customer() {
 
     comtomer_value();
 }
-//============================================================================
+//======
 // Xửa Lí Thêm Khách Hàng
 function comtomer_value() {
     resetinput();
@@ -1045,35 +1045,45 @@ function checkinput_user() {
     return !error;
 }
 
-//====================================================================
+//=====
 // Xử Lí Tìm Kiếm Khách Hàng Input
 function seach_people() {
     let seach = document.getElementById('seach_1');
     var tbody = document.getElementsByTagName('tbody')[0];
+
     console.log(tbody);
     const acount = JSON.parse(localStorage.getItem('user')) || [];
+
     seach.addEventListener('keypress', (event) => {
         if (event.key == 'Enter') {
             console.log(acount);
             var userall = '';
+
             let cohieu = false;
+
             acount.forEach((list, index) => {
                 var displayIndex = index + 1;
                 let name_seach = seach.value.toLowerCase();
                 let name_list = list.name.toLowerCase();
+
                 if (name_seach == name_list) {
                     cohieu = true;
+                }
+
+                if (name_list === name_seach) {
                     userall += `<tr>
                                     <td>${displayIndex}</td>
                                     <td>${list.name}</td>
                                     <td>${list.phone}</td>
                                     <td>${list.date}</td>
-                                    <td><button  class="on_of">Online</button></td>
+                                    <td><button class="on_of">Online</button></td>
                                     <td>
                                         <i class="fa-solid fa-trash" onclick="delete_user(${index})"></i>
                                         <i class="fa-regular fa-pen-to-square" onclick="edit_user(${index})"></i>
                                     </td>
                                 </tr>`;
+
+                    cohieu = true;
                 }
             });
 
@@ -1086,7 +1096,7 @@ function seach_people() {
     });
 }
 
-//============================================================
+//====
 // Xử lí select Khách Hàng
 function user_slection() {
     let header_client_selction = document.querySelectorAll('.header_client select')[0];
@@ -1105,7 +1115,7 @@ function user_slection() {
         }
     });
 }
-//================================================================
+//=
 // Xuất File Excell Thông tin khách hàng
 function save_excel() {
     const acount = JSON.parse(localStorage.getItem('user')) || [];
