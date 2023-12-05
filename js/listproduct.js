@@ -442,6 +442,7 @@ function edit_product(id) {
     price_food.value = productToEdit.gia;
     Select.value = productToEdit.danhmuc;
     previewImage.src = productToEdit.hinhanhitem;
+    previewImage.src = productToEdit.hinhanhMoTa;
 
     save_product1.addEventListener('click', (event) => {
         console.log(Select.value);
@@ -450,6 +451,8 @@ function edit_product(id) {
         productToEdit.gia = price_food.value;
         productToEdit.trangthai = Select.value;
         productToEdit.hinhanhitem = previewImage.src;
+        productToEdit.hinhanhMoTa = previewImage.src;
+
         console.log(name_food.value);
         function kiemTraRong(input) {
             return input === '';
@@ -741,9 +744,12 @@ function peole() {
                 <option value="Khách Hàng Ofline">Khách Hàng Ofline</option>
                 <option value="Khách Hàng Online">Khách Hàng Online</option>
               </select>
-              <div class="input_client" >
+              <div class="input_client" > 
+               <i class="fa-solid fa-rotate-right" onclick="reset_input_user()"></i>
                 <input  type="text" placeholder="Nhập tên cần tìm" id ="seach_1"/>
+        
               </div>
+             
               <div class="add_account">
                 <button class="excel" onclick="save_excel()"> <i class="fa-regular fa-floppy-disk"></i> excel</button>
                 <button onclick="add_customer()">Thêm Khách Hàng</button>
@@ -1044,15 +1050,19 @@ function checkinput_user() {
 function seach_people() {
     let seach = document.getElementById('seach_1');
     var tbody = document.getElementsByTagName('tbody')[0];
+    console.log(tbody);
+    const acount = JSON.parse(localStorage.getItem('user')) || [];
     seach.addEventListener('keypress', (event) => {
         if (event.key == 'Enter') {
-            const acount = JSON.parse(localStorage.getItem('user')) || [];
+            console.log(acount);
             var userall = '';
-            acount.map((list, index) => {
+            let cohieu = false;
+            acount.forEach((list, index) => {
                 var displayIndex = index + 1;
                 let name_seach = seach.value.toLowerCase();
                 let name_list = list.name.toLowerCase();
                 if (name_seach == name_list) {
+                    cohieu = true;
                     userall += `<tr>
                                     <td>${displayIndex}</td>
                                     <td>${list.name}</td>
@@ -1064,15 +1074,18 @@ function seach_people() {
                                         <i class="fa-regular fa-pen-to-square" onclick="edit_user(${index})"></i>
                                     </td>
                                 </tr>`;
-                    tbody.innerHTML = userall;
-                } else {
-                    tbody.innerHTML = "<tr><td colspan='6'>Không có khách hàng nào</td></tr>";
-                    cohieu = false;
                 }
             });
+
+            if (cohieu) {
+                tbody.innerHTML = userall;
+            } else {
+                tbody.innerHTML = "<tr><td colspan='6'>Không có khách hàng nào</td></tr>";
+            }
         }
     });
 }
+
 //============================================================
 // Xử lí select Khách Hàng
 function user_slection() {
@@ -1119,4 +1132,10 @@ function setOpacityAndDisableEvents() {
         element.style.opacity = '0.5';
         element.style.pointerEvents = 'none';
     });
+}
+
+function reset_input_user() {
+    renderuser();
+    let seacrch = document.querySelectorAll('.input_client input')[0];
+    seacrch.value = '';
 }

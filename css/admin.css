@@ -847,3 +847,19 @@ red {
     margin-left: 100px;
     align-items: center;
 }
+.input_client {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-right: 10px;
+}
+.input_client input {
+}
+.input_client i {
+    cursor: pointer;
+    position: absolute;
+    font-size: 1.5rem;
+    left: 30%;
+    color: #0083d6;
+}
