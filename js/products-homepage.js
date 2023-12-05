@@ -1283,6 +1283,8 @@ function showShoppingcart() {
             </div>
         </form>
     </div>`;
+    //     Thẻ colgroup trong HTML được sử dụng để định dạng cho một nhóm cột trong bảng. Thẻ này hữu ích trong việc định dạng chung cho toàn bộ cột, thay vì đình dạng riêng, lặp lại cho mỗi hàng.
+    // Thẻ colgroup có thể chứa một hoặc nhiều thẻ col. Mỗi thẻ col có thể xác định các thuộc tính định dạng cho một cột cụ thể.
     document.body.insertBefore(newElement, document.getElementById('footer'));
     // Khởi tạo ban đầu
     inner_cart();

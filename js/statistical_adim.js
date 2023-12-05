@@ -143,7 +143,7 @@ function revenue_date() {
     orders.forEach((order) => {
         const orderDate = order.Ngaydat;
 
-        if (!dateInfo[orderDate]) {
+        if (!dateInfo[orderDate] && order.Trangthai == 'Đã xử lý') {
             dateInfo[orderDate] = { count: 0, revenue: 0 };
         }
         if (order.Trangthai == 'Đã xử lý') {
