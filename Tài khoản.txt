@@ -1,0 +1,10 @@
+- Tài khoản người dùng:
+Số điện thoại: 0938412412
+Mật khẩu: 12345678
+
+Số điện thoại: 0550550555
+Mật khẩu: Mingey@123
+
+- Tài khoản admin:
+Số điện thoại: 0123456789
+Mật khẩu: admin@123

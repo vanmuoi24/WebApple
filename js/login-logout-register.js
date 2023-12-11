@@ -33,8 +33,8 @@ function reset() {
             name: 'Lê Thế Minh',
             password: 'Mingey@123',
             phone: '0550550555',
-            address: '',
-            email: '',
+            address: '222 Bùi Đình Túy, Phường 24, Quận Bình Thạnh, Thành phố Hồ Chí Minh',
+            email: 'Mingey69@gmail.com',
             date: d,
         },
     ];
