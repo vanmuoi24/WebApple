@@ -8,3 +8,5 @@ Mật khẩu: Mingey@123
 - Tài khoản admin:
 Số điện thoại: 0123456789
 Mật khẩu: admin@123
+
+- Giao diện chính ở ./html/homepage.html. Em xin cảm ơn!!!
