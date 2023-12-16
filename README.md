@@ -2,7 +2,7 @@
 
 ## Đồ án Lập trình web và ứng dụng - Quản lý cửa hàng bán Apple - NHÓM 4
 
-## Thành viên nhóm :
+## Thành viên nhóm:
 
 | STT |    MSSV    | Họ và tên                                                            |
 | :-: | :--------: | -------------------------------------------------------------------- |

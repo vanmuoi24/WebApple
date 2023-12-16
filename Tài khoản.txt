@@ -9,4 +9,5 @@ Mật khẩu: Mingey@123
 Số điện thoại: 0123456789
 Mật khẩu: admin@123
 
+- Thông tin nhóm ở ./README.md
 - Giao diện chính ở ./html/homepage.html. Em xin cảm ơn!!!
