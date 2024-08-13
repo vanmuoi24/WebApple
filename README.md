@@ -9,7 +9,7 @@
 | :-: | :--------: | -------------------------------------------------------------------- | :--: |
 |  1  | 3122410239 | [LÊ THẾ MINH ](https://www.facebook.com/minh.lethe.186590)           |  7   |
 |  2  | 3122410243 | [PHẠM CÔNG MINH ]()                                                  |  7   |
-|  3  | 3122410246 | [VY VĂN MƯỜI ](https://www.facebook.com/domuoigghh?mibextid=JRoKGi)  |  8   |
+|  3  | 3122410246 | [VY VĂN MƯỜI ](https://www.facebook.com/domuoigghh?mibextid=JRoKGi)  |  9   |
 |  4  | 3122410267 | [HUỲNH KHÔI NGUYÊN ](https://www.facebook.com/nguyen.huynhkhoi.6921) |  8   |
 |  5  | 3122410274 | [TRẦN GIA NGUYỄN ](https://www.facebook.com/RemChanCute/)            |  9   |
 
